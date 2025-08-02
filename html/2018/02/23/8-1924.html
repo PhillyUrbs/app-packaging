@@ -1,0 +1,2469 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Oracle Java Runtime Environment 8 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Java Runtime Environment 8">
+        <meta name="keywords" content="Oracle,Oracle Java Runtime Environment,Java Runtime Environment 8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/oracle/java-runtime-environment-1/8-1924" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li><a href="/software/oracle/java-runtime-environment-1/versions">Java Runtime Environment</a></li>
+    <li>8</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Oracle Java Runtime Environment</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 8
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-runtime-environment-1/8-1924"
+                                            >
+                                            8.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-runtime-environment-1/7-2432"
+                                            >
+                                            7.x <span>(11 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-runtime-environment-1/6-2586"
+                                            >
+                                            6.x <span>(42 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/64287/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLXJ1bnRpbWUtZW52aXJvbm1lbnQtMSUyRjgtMTkyNA==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/64287/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLXJ1bnRpbWUtZW52aXJvbm1lbnQtMSUyRjgtMTkyNA==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 11.8k &nbsp|&nbsp
+    Created: 09/10/2014
+    
+            by: <a href="/user/packageologist" rel="nofollow">packageologist</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version64287" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64287" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64287" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64287" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64287" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Java Runtime Environment has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">61 Questions</a>,
+                <a href="#blogs" id="scrollBlog">7 Blogs</a>
+                and <a href="#links" id="scrollLinks">19 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (2)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (MSI)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/orange.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>4 / 5 (Somewhat Difficult)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/64287" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="UnXam3DjurNsH7h8BJgiVujzyRALZx9RcjAR1r_lXCo"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/java-runtime-environment-1/8-1924#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/java-runtime-environment-1/8-1924/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8000" name="tip_8000">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8000"></div> -->
+   <div id="tip-8000" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-8000" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8000"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <div><div>Java 8 update 11 is much the same as v7, but Java 8 update 20 has changed quite a bit. Release notes:</div><div><br></div><div>http://www.oracle.com/technetwork/java/javase/8u20-relnotes-2257729.html</div><div><br></div><div>The MSI has far fewer custom actions and also some new install properties:</div><div><br></div><div>http://docs.oracle.com/javase/8/docs/technotes/guides/install/config.html</div></div><div><br></div><div>Of particular note are:</div><div><br></div><div><ul><li><span style="font-size: 14px; line-height: 1.428571429;">AUTO_UPDATE - Setting properties to prevent updates has been irrelevant since v6u19 when Oracle started putting the updater down as a separate MSI. &nbsp;Since I am deploying the Java MSI only I don't think this needs to be set - but no harm in doing so I suppose, so set it to 0.</span><br></li><li><span style="font-size: 14px; line-height: 1.428571429;">NOSTARTMENU - Setting this to 1 stops the installer creating any start menu shortcuts. Worth doing to get rid of the update shortcuts etc, Java config is in the Control Panel anyway if anyone needs it.</span><br></li><li><span style="font-size: 14.3999996185303px; line-height: 1.428571429;">STATIC - I tried setting this to different values but it always seems to create a static install (see below)</span><br></li></ul></div><div><span style="font-size: 14px; line-height: 1.428571429;">v6 and v7 (and v8 prior to update 20) install to a generic major version folder e.g. C:\Program Files\Java\jre7 by default, and each minor version update removes the previous version. There was a custom install option though known as a 'static' install that would install it to a version specific folder and leave it behind on future upgrades.</span></div><div><span style="font-size: 14px; line-height: 1.428571429;"><br></span></div><div><span style="font-size: 14px; line-height: 1.428571429;">v8u20 seems to do this static install behaviour by default, installing to C:\Program Files\Java\jre1.8.0_20, and installing this on top of v8u11 will leave the older version behind. Eventually you would end up with loads of Java versions installed instead of just the latest one.&nbsp;</span><span style="font-size: 14px; line-height: 1.428571429;">The workaround if you want it to behave like the older version is to edit the INSTALLDIR row of the Directory table to&nbsp;</span><span style="font-size: 14.3999996185303px; line-height: 1.428571429;">C:\Program Files\Java\jre8&nbsp;</span><span style="font-size: 14px; line-height: 1.428571429;">and copy the Upgrade table row 'CONSUMERPRODUCTFOUND' from a previous version (e.g. 8u11).</span></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span></span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/packageologist" class="username" rel="nofollow">packageologist</a>
+                </li>
+                <li>
+                    09/10/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8220" name="tip_8220">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8220"></div> -->
+   <div id="tip-8220" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8220" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8220"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <div>'Cleanup Script to Uninstall All Previous Versions of JRE</div><div>'On Error Resume Next</div><div><br /></div><div>Const HKLM = &amp;h80000002</div><div><br /></div><div>Const SearchValue = "DisplayName"</div><div>Const MatchData   = "JAVA"</div><div><br /></div><div>Set objShell = WScript.CreateObject("WScript.Shell")</div><div>Set reg = GetObject("winmgmts://./root/default:StdRegProv")</div><div><br /></div><div>strProgramFiles = objShell.ExpandEnvironmentStrings("%ProgramFiles(x86)%" &amp; "\")</div><div><br /></div><div>If InStr(strProgramFiles,"%") Then</div><div>  StartKey = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"</div><div>  FindAppKey HKLM, StartKey, SearchValue, MatchData</div><div>Else </div><div>  StartKey1 = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"</div><div>  StartKey2 = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"</div><div>  FindAppKey HKLM, StartKey1, SearchValue, MatchData</div><div>  FindAppKey HKLM, StartKey2, SearchValue, MatchData</div><div>End If</div><div><br /></div><div><br /></div><div>Sub FindAppKey(root, key, value, data)</div><div>  reg.EnumValues HKLM, key, names, types</div><div>  If Not IsNull(names) Then</div><div>    For Each name In names</div><div>      </div><div>      If name = value Then</div><div>        reg.GetStringValue HKLM, key, name, regdata</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>strRegData = UCase(regdata)</div><div>        If InStr(strRegData, data) Then</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>  If InStr(strRegData,"UPDATER") OR InStr(strRegData,"DEVELOPMENT")Then</div><div>            'Do Nothing</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>  Else</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>    reg.GetStringValue HKLM, key, "UninstallString", strPdtCode</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>    strUninstallString = strPdtCode &amp; " /qn REBOOT=ReallySuppress"</div><div>            'Msgbox strUninstallString</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>    objShell.Run strUninstallString,0,True</div><div><span class="Apple-tab-span" style="white-space:pre;">	</span>  End If</div><div>        End If</div><div>      End If</div><div>    Next</div><div>  End If</div><div><br /></div><div>  'value not found in current key =&gt; continue search in subkeys</div><div>  reg.EnumKey root, key, subkeys</div><div>  If Not IsNull(subkeys) Then</div><div>    For Each sk In subkeys</div><div>      FindAppKey root, key &amp; "\" &amp; sk, value, data</div><div>    Next</div><div>  End If</div><div>End Sub</div><div><br /></div><div><br /></div><div>'#### Run seperate command for JAVA Auto Updater Uninstallaton</div><div>objShell.Run "msiexec.exe /X{4a03706f-666a-4037-7777-5f2748764d10} /qn REBOOT=ReallySuppress", 0, true</div><div><br /></div><div>'##### Use Sysnative in Program commandline</div><div><br /></div><div><br /></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer with Custom Transform (MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Difficult
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Binu_MMS" class="username" rel="nofollow">Binu_MMS</a>
+                </li>
+                <li>
+                    05/19/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64287/136058">
+                                    8.x
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Java Runtime Environment</h2>
+            <div><h3>Version</h3><span>8.x</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (61)
+                            </h3>
+            <p>Questions & Answers related to Oracle Java Runtime Environment</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                11
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-runtime-environment-6-update-14-disable-updates" class="title">
+            Java Runtime Environment 6 Update 14 - Disable updates
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-6-update-14-disable-updates" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-6-update-14-disable-updates" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-6-update-14-disable-updates" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-6-update-14-disable-updates" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-6-update-14-disable-updates" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Manu77" rel="nofollow">Manu77</a>
+                8 years ago 29.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                67
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-uninstall-java-all-versions" class="title">
+            Silent Uninstall Java All Versions
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muaddip" rel="nofollow">muaddip</a>
+                10 years ago 265.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               ahunn commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-runtime-environment-1" class="title">
+            Java Runtime Environment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-runtime-environment-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/UnderYens" rel="nofollow">UnderYens</a>
+                5 years ago 3.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/group-policy-deployment-of-jre" class="title">
+            Group Policy Deployment of JRE
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="group-policy-deployment-of-jre" type="radio" class="star" disabled="disabled"  />
+    <input name="group-policy-deployment-of-jre" type="radio" class="star" disabled="disabled"  />
+    <input name="group-policy-deployment-of-jre" type="radio" class="star" disabled="disabled"  />
+    <input name="group-policy-deployment-of-jre" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="group-policy-deployment-of-jre" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/awhelan" rel="nofollow">awhelan</a>
+                5 years ago 4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-runtime-environment-jre-1-6-0-31-installation-options" class="title">
+            Java Runtime Environment (JRE) 1.6.0.31: Installation-Options?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-jre-1-6-0-31-installation-options" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-jre-1-6-0-31-installation-options" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-runtime-environment-jre-1-6-0-31-installation-options" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-jre-1-6-0-31-installation-options" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-jre-1-6-0-31-installation-options" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/berndleutenecker" rel="nofollow">berndleutenecker</a>
+                5 years ago 9.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" class="title">
+            How to install and customize Java 6 update 31 to keep old version (java6 update29)?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-install-and-customize-java-6-update-31-to-keep-old-version-java6-update29" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/BavconMatjazSCCM" rel="nofollow">BavconMatjazSCCM</a>
+                5 years ago 8.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-1-6-update-31-deployment-config-and-deployment-properties" class="title">
+            JAVA 1.6 update 31 - deployment.config and deployment.properties
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Rohabu" rel="nofollow">Rohabu</a>
+                5 years ago 9.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/prevent-java-quick-starter-service-jre1-7-0-04-1" class="title">
+            Prevent Java Quick Starter Service jre1.7.0_04
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="prevent-java-quick-starter-service-jre1-7-0-04-1" type="radio" class="star" disabled="disabled"  />
+    <input name="prevent-java-quick-starter-service-jre1-7-0-04-1" type="radio" class="star" disabled="disabled"  />
+    <input name="prevent-java-quick-starter-service-jre1-7-0-04-1" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="prevent-java-quick-starter-service-jre1-7-0-04-1" type="radio" class="star" disabled="disabled"  />
+    <input name="prevent-java-quick-starter-service-jre1-7-0-04-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mattcloutier" rel="nofollow">mattcloutier</a>
+                5 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/need-a-script-to-search-path-of-a-file-and-set-path-variable" class="title">
+            Need a script to search Path of a file and set PATH variable
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="need-a-script-to-search-path-of-a-file-and-set-path-variable" type="radio" class="star" disabled="disabled"  />
+    <input name="need-a-script-to-search-path-of-a-file-and-set-path-variable" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="need-a-script-to-search-path-of-a-file-and-set-path-variable" type="radio" class="star" disabled="disabled"  />
+    <input name="need-a-script-to-search-path-of-a-file-and-set-path-variable" type="radio" class="star" disabled="disabled"  />
+    <input name="need-a-script-to-search-path-of-a-file-and-set-path-variable" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/PackDep" rel="nofollow">PackDep</a>
+                5 years ago 6.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/vbscript-to-search-for-file-and-return-filtered-folder" class="title">
+            VBScript to search for file and return filtered folder
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="vbscript-to-search-for-file-and-return-filtered-folder" type="radio" class="star" disabled="disabled"  />
+    <input name="vbscript-to-search-for-file-and-return-filtered-folder" type="radio" class="star" disabled="disabled"  />
+    <input name="vbscript-to-search-for-file-and-return-filtered-folder" type="radio" class="star" disabled="disabled"  />
+    <input name="vbscript-to-search-for-file-and-return-filtered-folder" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="vbscript-to-search-for-file-and-return-filtered-folder" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Micka007" rel="nofollow">Micka007</a>
+                5 years ago 11.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/please-help-with-java-deployment-advice" class="title">
+            Please help with Java deployment advice
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="please-help-with-java-deployment-advice" type="radio" class="star" disabled="disabled"  />
+    <input name="please-help-with-java-deployment-advice" type="radio" class="star" disabled="disabled"  />
+    <input name="please-help-with-java-deployment-advice" type="radio" class="star" disabled="disabled"  />
+    <input name="please-help-with-java-deployment-advice" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="please-help-with-java-deployment-advice" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bluestainedivy" rel="nofollow">bluestainedivy</a>
+                5 years ago 14.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-re-installing-32-bit-version-on-64-bit-system" class="title">
+            Java RE - Installing 32-bit version on 64-bit system
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-re-installing-32-bit-version-on-64-bit-system" type="radio" class="star" disabled="disabled"  />
+    <input name="java-re-installing-32-bit-version-on-64-bit-system" type="radio" class="star" disabled="disabled"  />
+    <input name="java-re-installing-32-bit-version-on-64-bit-system" type="radio" class="star" disabled="disabled"  />
+    <input name="java-re-installing-32-bit-version-on-64-bit-system" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-re-installing-32-bit-version-on-64-bit-system" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jegolf" rel="nofollow">jegolf</a>
+                5 years ago 8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-1-6-0-29-not-installing-using-this-command" class="title">
+            Java 1.6.0_29 not installing using this command
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-1-6-0-29-not-installing-using-this-command" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-29-not-installing-using-this-command" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-29-not-installing-using-this-command" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-29-not-installing-using-this-command" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-1-6-0-29-not-installing-using-this-command" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Bloomy" rel="nofollow">Bloomy</a>
+                5 years ago 5.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" class="title">
+            Silent install Java JRE 7u7 does not work when tested on &quot;www.java.com/sv/download/installed.jsp&quot;
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-jre-7u7-dont-work-when-test-it-on-http-www-java-com-sv-download-installed-jsp" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/SaiTech" rel="nofollow">SaiTech</a>
+                5 years ago 18.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/trying-to-deploy-java-7u7-using-the-following-bat-file" class="title">
+            Trying to deploy Java 7u7 using the following .bat file
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="trying-to-deploy-java-7u7-using-the-following-bat-file" type="radio" class="star" disabled="disabled"  />
+    <input name="trying-to-deploy-java-7u7-using-the-following-bat-file" type="radio" class="star" disabled="disabled"  />
+    <input name="trying-to-deploy-java-7u7-using-the-following-bat-file" type="radio" class="star" disabled="disabled"  />
+    <input name="trying-to-deploy-java-7u7-using-the-following-bat-file" type="radio" class="star" disabled="disabled"  />
+    <input name="trying-to-deploy-java-7u7-using-the-following-bat-file" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Degra" rel="nofollow">Degra</a>
+                5 years ago 7.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/best-way-to-deploy-stgms-software" class="title">
+            Best way to deploy STGMS software
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cartc" rel="nofollow">cartc</a>
+                5 years ago 2.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/app-v-sequencing-a-java-based-application" class="title">
+            App-V Sequencing a Java based application
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="app-v-sequencing-a-java-based-application" type="radio" class="star" disabled="disabled"  />
+    <input name="app-v-sequencing-a-java-based-application" type="radio" class="star" disabled="disabled"  />
+    <input name="app-v-sequencing-a-java-based-application" type="radio" class="star" disabled="disabled"  />
+    <input name="app-v-sequencing-a-java-based-application" type="radio" class="star" disabled="disabled"  />
+    <input name="app-v-sequencing-a-java-based-application" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ChetanKumarT" rel="nofollow">ChetanKumarT</a>
+                5 years ago 7.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/no-java-files-in-system32-after-silent-install" class="title">
+            No Java files in system32 after silent install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="no-java-files-in-system32-after-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="no-java-files-in-system32-after-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="no-java-files-in-system32-after-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="no-java-files-in-system32-after-silent-install" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="no-java-files-in-system32-after-silent-install" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Tsjippy" rel="nofollow">Tsjippy</a>
+                5 years ago 4.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/does-java-keep-a-log-of-applications-that-have-been-run" class="title">
+            Does Java keep a log of Applications that have been Run?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="does-java-keep-a-log-of-applications-that-have-been-run" type="radio" class="star" disabled="disabled"  />
+    <input name="does-java-keep-a-log-of-applications-that-have-been-run" type="radio" class="star" disabled="disabled"  />
+    <input name="does-java-keep-a-log-of-applications-that-have-been-run" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="does-java-keep-a-log-of-applications-that-have-been-run" type="radio" class="star" disabled="disabled"  />
+    <input name="does-java-keep-a-log-of-applications-that-have-been-run" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                4 years ago 2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/uninstall-older-versions-of-java" class="title">
+            Uninstall older versions of Java.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="uninstall-older-versions-of-java" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-older-versions-of-java" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-older-versions-of-java" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="uninstall-older-versions-of-java" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-older-versions-of-java" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                4 years ago 5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                                    <div class="show-more"><a href="/tag/oracle-java-runtime-environment-8/question">More Questions</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (7)
+                            </h3>
+            <p>Blog posts related to Oracle Java Runtime Environment</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" class="title">
+                How to deploy Java JRE7u5 32 bit to 64 bit machines as system account using KACE
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Shootifitmoves" rel="nofollow">Shootifitmoves</a>
+                5 years ago 12.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" class="title">
+                Deploying 32-bit Java silently to both 32-bit and 64-bit Windows via MI
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ashlea" rel="nofollow">ashlea</a>
+                5 years ago 12.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/ultimate-jave-jre-uninstaller" class="title">
+                Ultimate Java JRE Uninstaller
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="ultimate-jave-jre-uninstaller" type="radio" class="star" disabled="disabled"  />
+    <input name="ultimate-jave-jre-uninstaller" type="radio" class="star" disabled="disabled"  />
+    <input name="ultimate-jave-jre-uninstaller" type="radio" class="star" disabled="disabled"  />
+    <input name="ultimate-jave-jre-uninstaller" type="radio" class="star" disabled="disabled"  />
+    <input name="ultimate-jave-jre-uninstaller" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/SpellJammer" rel="nofollow">SpellJammer</a>
+                4 years ago 8.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-7-update-25-best-way-to-deploy-with-customized-settings" class="title">
+                Java 7 Update 25 Best way to deploy with customized settings
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 57.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-runtime-environment-version-7-0-update-40" class="title">
+                Java Runtime Environment Version 7.0 Update 40
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/rovabu" rel="nofollow">rovabu</a>
+                4 years ago 26.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploying-java-7-through-gpo" class="title">
+                Deploying Java 7 Through GPO
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                4 years ago 30.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/adjusting-advanced-java-settings" class="title">
+                Adjusting advanced Java settings
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/brucegoose03" rel="nofollow">brucegoose03</a>
+                1 year ago 1.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (19)
+                            </h3>
+
+            <p>Links related to Oracle Java Runtime Environment</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/download-here" class="title">
+                Download here
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="download-here" type="radio" class="star" disabled="disabled"  />
+    <input name="download-here" type="radio" class="star" disabled="disabled"  />
+    <input name="download-here" type="radio" class="star" disabled="disabled"  />
+    <input name="download-here" type="radio" class="star" disabled="disabled"  />
+    <input name="download-here" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tranky" rel="nofollow">tranky</a>
+                11 years ago 3.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/readme" class="title">
+                ReadMe
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="readme" type="radio" class="star" disabled="disabled"  />
+    <input name="readme" type="radio" class="star" disabled="disabled"  />
+    <input name="readme" type="radio" class="star" disabled="disabled"  />
+    <input name="readme" type="radio" class="star" disabled="disabled"  />
+    <input name="readme" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tranky" rel="nofollow">tranky</a>
+                11 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/release-notes" class="title">
+                Release Notes
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="release-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="release-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="release-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="release-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="release-notes" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tranky" rel="nofollow">tranky</a>
+                11 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/information-on-how-to-obtain-an-msi-file" class="title">
+                Information on how to obtain an MSI file
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="information-on-how-to-obtain-an-msi-file" type="radio" class="star" disabled="disabled"  />
+    <input name="information-on-how-to-obtain-an-msi-file" type="radio" class="star" disabled="disabled"  />
+    <input name="information-on-how-to-obtain-an-msi-file" type="radio" class="star" disabled="disabled"  />
+    <input name="information-on-how-to-obtain-an-msi-file" type="radio" class="star" disabled="disabled"  />
+    <input name="information-on-how-to-obtain-an-msi-file" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tranky" rel="nofollow">tranky</a>
+                11 years ago 2.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/step-1-download-software-packages-open-office-technology" class="title">
+                Step 1 â€“ Download Software Packages | Open Office Technology
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="step-1-download-software-packages-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-1-download-software-packages-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-1-download-software-packages-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-1-download-software-packages-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-1-download-software-packages-open-office-technology" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ootech" rel="nofollow">ootech</a>
+                11 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/step-2-create-network-installation-images-open-office-technology" class="title">
+                Step 2 â€“ Create Network Installation Images | Open Office Technology
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="step-2-create-network-installation-images-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-2-create-network-installation-images-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-2-create-network-installation-images-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-2-create-network-installation-images-open-office-technology" type="radio" class="star" disabled="disabled"  />
+    <input name="step-2-create-network-installation-images-open-office-technology" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ootech" rel="nofollow">ootech</a>
+                11 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" class="title">
+                Bug ID: 6510981 msi package deployement error &quot;1606&quot; when using non-interactive installation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="bug-id-6510981-msi-package-deployement-error-1606-when-using-non-interactive-installation" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nik" rel="nofollow">nik</a>
+                11 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/this-is-all-you-need-for-an-active-directory-deployment" class="title">
+                This is all you need for an Active Directory deployment
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="this-is-all-you-need-for-an-active-directory-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="this-is-all-you-need-for-an-active-directory-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="this-is-all-you-need-for-an-active-directory-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="this-is-all-you-need-for-an-active-directory-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="this-is-all-you-need-for-an-active-directory-deployment" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/masken" rel="nofollow">masken</a>
+                10 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/notes-regarding-patch-in-place-configuration" class="title">
+                Notes regarding Patch-in-place configuration
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="notes-regarding-patch-in-place-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="notes-regarding-patch-in-place-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="notes-regarding-patch-in-place-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="notes-regarding-patch-in-place-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="notes-regarding-patch-in-place-configuration" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                9 years ago 2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/javatm-runtime-environment-update-scenarios-for-javase-6u10" class="title">
+                JavaTM Runtime Environment Update Scenarios for JavaSE 6u10
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="javatm-runtime-environment-update-scenarios-for-javase-6u10" type="radio" class="star" disabled="disabled"  />
+    <input name="javatm-runtime-environment-update-scenarios-for-javase-6u10" type="radio" class="star" disabled="disabled"  />
+    <input name="javatm-runtime-environment-update-scenarios-for-javase-6u10" type="radio" class="star" disabled="disabled"  />
+    <input name="javatm-runtime-environment-update-scenarios-for-javase-6u10" type="radio" class="star" disabled="disabled"  />
+    <input name="javatm-runtime-environment-update-scenarios-for-javase-6u10" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                9 years ago 2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-wpkg-open-source-software-deployment-and-distribution" class="title">
+                Java - WPKG | Open Source Software Deployment and Distribution
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-wpkg-open-source-software-deployment-and-distribution" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 3.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-runtime-environment-1-7-0-6-32-bit" class="title">
+                Download Java Runtime Environment 1.7.0_06 (32-bit)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jagadeish" rel="nofollow">jagadeish</a>
+                5 years ago 55.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-downloads" class="title">
+                Java Downloads
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-downloads" type="radio" class="star" disabled="disabled"  />
+    <input name="java-downloads" type="radio" class="star" disabled="disabled"  />
+    <input name="java-downloads" type="radio" class="star" disabled="disabled"  />
+    <input name="java-downloads" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-downloads" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                5 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-runtime-environment-install-script-1" class="title">
+                Java Runtime Environment Install Script
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-install-script-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-install-script-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-install-script-1" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-runtime-environment-install-script-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-install-script-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/pletcgm" rel="nofollow">pletcgm</a>
+                5 years ago 2.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sun-oracle-java-7-runtime-jre-download" class="title">
+                Sun/Oracle Java 7 Runtime (JRE) Download
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sun-oracle-java-7-runtime-jre-download" type="radio" class="star" disabled="disabled"  />
+    <input name="sun-oracle-java-7-runtime-jre-download" type="radio" class="star" disabled="disabled"  />
+    <input name="sun-oracle-java-7-runtime-jre-download" type="radio" class="star" disabled="disabled"  />
+    <input name="sun-oracle-java-7-runtime-jre-download" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="sun-oracle-java-7-runtime-jre-download" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 3.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" class="title">
+                Deploying 32-bit Java silently to both 32-bit and 64-bit Windows via MI
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ashlea" rel="nofollow">ashlea</a>
+                4 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/batch-script-to-list-all-java-product-and-uninstall-keys" class="title">
+                Batch script to list all Java product and uninstall keys.
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jknox" rel="nofollow">jknox</a>
+                4 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-archives" class="title">
+                Java Archives
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cserrins" rel="nofollow">cserrins</a>
+                2 years ago 1.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/package-oracle-java-8-update-101" class="title">
+                Package Oracle Java 8 Update 101
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="package-oracle-java-8-update-101" type="radio" class="star" disabled="disabled"  />
+    <input name="package-oracle-java-8-update-101" type="radio" class="star" disabled="disabled"  />
+    <input name="package-oracle-java-8-update-101" type="radio" class="star" disabled="disabled"  />
+    <input name="package-oracle-java-8-update-101" type="radio" class="star" disabled="disabled"  />
+    <input name="package-oracle-java-8-update-101" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Jaimie" rel="nofollow">Jaimie</a>
+                1 year ago 1.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Java Runtime Environment</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">2.16.54 Sprint 16 2012-Aug-06 b17a9c836505362ecb151f6dd5d3407e56e7d905<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

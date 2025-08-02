@@ -1,0 +1,2712 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type='text/javascript'>window.mod_pagespeed_start = Number(new Date());</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XAQFUlVACQsBU1hbAQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+        <title>IT Pro Tips for KACE K2000 Deployment Appliance 3 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to KACE K2000 Deployment Appliance 3">
+        <meta name="keywords" content="KACE,KACE K2000 Deployment Appliance,K2000 Deployment Appliance 3">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/xapple-touch-icon.png.pagespeed.ic.AvVF0T_Kij.png">
+	<link rel="canonical" href="http://www.itninja.com/software/dell-kace/k2000-deployment-appliance/3-1945"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/221x75xITN_logo_no_AD.png.pagespeed.ic.ygkSqJQslZ.png" alt="ITNinja Home" width="221" height="75"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/xBreadcrumb_cap.png.pagespeed.ic.PYZOZjr0P5.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/dell-kace/browse">KACE</a></li>
+    <li><a href="/software/dell-kace/k2000-deployment-appliance/versions">K2000 Deployment Appliance</a></li>
+    <li>3</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>KACE K2000 Deployment Appliance</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 3
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/dell-kace/k2000-deployment-appliance/3-1945">
+                                            3.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/22097/JTJGc29mdHdhcmUlMkZkZWxsLWthY2UlMkZrMjAwMC1kZXBsb3ltZW50LWFwcGxpYW5jZSUyRjMtMTk0NQ==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/22097/JTJGc29mdHdhcmUlMkZkZWxsLWthY2UlMkZrMjAwMC1kZXBsb3ltZW50LWFwcGxpYW5jZSUyRjMtMTk0NQ==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 8.4k &nbsp|&nbsp
+    Created: 03/16/2012
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version22097" type="radio" class="star" disabled="disabled"/>
+    <input name="Version22097" type="radio" class="star" disabled="disabled"/>
+    <input name="Version22097" type="radio" class="star" disabled="disabled"/>
+    <input name="Version22097" type="radio" class="star" disabled="disabled"/>
+    <input name="Version22097" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                K2000 Deployment Appliance has <a href="#inventory-records" id="scrollInv">3 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1601 Questions</a>,
+                <a href="#blogs" id="scrollBlog">160 Blogs</a>
+                and <a href="#links" id="scrollLinks">42 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (0)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/xclear.png.pagespeed.ic.N5-va8dgfh.png" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/22097" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="853b31f381645dfa450f3b013e9d6999230be6a8" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/dell-kace/k2000-deployment-appliance/3-1945#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/dell-kace/k2000-deployment-appliance/3-1945/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <p>No deployment tips yet. Be the first to add one!</p>
+
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (3)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/22097/46001">
+                                    3.2
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/22097/135969">
+                                    3.6
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/22097/136295">
+                                    3.7.113224
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>K2000 Deployment Appliance</h2>
+            <div><h3>Version</h3><span>3.2</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1601)
+                            </h3>
+            <p>Questions & Answers related to KACE K2000 Deployment Appliance</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/windows-update-lt-from-the-old-forum-gt" class="title">
+            Windows update &amp;lt;from the old forum&amp;gt;
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="windows-update-lt-from-the-old-forum-gt" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-update-lt-from-the-old-forum-gt" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-update-lt-from-the-old-forum-gt" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-update-lt-from-the-old-forum-gt" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-update-lt-from-the-old-forum-gt" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sendhil" rel="nofollow">sendhil</a>
+                7 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/mac-os-and-bootcamp" class="title">
+            Mac OS and Bootcamp
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mac-os-and-bootcamp" type="radio" class="star" disabled="disabled"/>
+    <input name="mac-os-and-bootcamp" type="radio" class="star" disabled="disabled"/>
+    <input name="mac-os-and-bootcamp" type="radio" class="star" disabled="disabled"/>
+    <input name="mac-os-and-bootcamp" type="radio" class="star" disabled="disabled"/>
+    <input name="mac-os-and-bootcamp" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/vscheivert" rel="nofollow">vscheivert</a>
+                7 years ago 8.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/ntdetect-failed" class="title">
+            NTDETECT failed
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="ntdetect-failed" type="radio" class="star" disabled="disabled"/>
+    <input name="ntdetect-failed" type="radio" class="star" disabled="disabled"/>
+    <input name="ntdetect-failed" type="radio" class="star" disabled="disabled"/>
+    <input name="ntdetect-failed" type="radio" class="star" disabled="disabled"/>
+    <input name="ntdetect-failed" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/j00fek" rel="nofollow">j00fek</a>
+                7 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/problem-with-post-installation" class="title">
+            Problem with post installation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="problem-with-post-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="problem-with-post-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="problem-with-post-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="problem-with-post-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="problem-with-post-installation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/hunter.mclaughlin" rel="nofollow">hunter.mclaughlin</a>
+                6 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/executing-vbs-as-post-install" class="title">
+            executing vbs as post install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="executing-vbs-as-post-install" type="radio" class="star" disabled="disabled"/>
+    <input name="executing-vbs-as-post-install" type="radio" class="star" disabled="disabled"/>
+    <input name="executing-vbs-as-post-install" type="radio" class="star" disabled="disabled"/>
+    <input name="executing-vbs-as-post-install" type="radio" class="star" disabled="disabled"/>
+    <input name="executing-vbs-as-post-install" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mlathrop" rel="nofollow">mlathrop</a>
+                6 years ago 5.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/upload-of-files-for-post-install-task" class="title">
+            Upload of files for Post Install Task
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="upload-of-files-for-post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="upload-of-files-for-post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="upload-of-files-for-post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="upload-of-files-for-post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="upload-of-files-for-post-install-task" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jaskelly3578" rel="nofollow">jaskelly3578</a>
+                6 years ago 8.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/win7-scripted-install-prompting-for-username" class="title">
+            Win7 Scripted Install Prompting for Username
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="win7-scripted-install-prompting-for-username" type="radio" class="star" disabled="disabled"/>
+    <input name="win7-scripted-install-prompting-for-username" type="radio" class="star" disabled="disabled"/>
+    <input name="win7-scripted-install-prompting-for-username" type="radio" class="star" disabled="disabled"/>
+    <input name="win7-scripted-install-prompting-for-username" type="radio" class="star" disabled="disabled"/>
+    <input name="win7-scripted-install-prompting-for-username" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/James@Grow" rel="nofollow">James@Grow</a>
+                6 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/unattend-xml-pnpcustomization-kbox-drivers" class="title">
+            Unattend.xml - PnPCustomization - Kbox Drivers
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="unattend-xml-pnpcustomization-kbox-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="unattend-xml-pnpcustomization-kbox-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="unattend-xml-pnpcustomization-kbox-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="unattend-xml-pnpcustomization-kbox-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="unattend-xml-pnpcustomization-kbox-drivers" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lawman" rel="nofollow">lawman</a>
+                6 years ago 5.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/need-vmware-driver-for-win-7-guest" class="title">
+            need vmware driver for win 7 guest
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="need-vmware-driver-for-win-7-guest" type="radio" class="star" disabled="disabled"/>
+    <input name="need-vmware-driver-for-win-7-guest" type="radio" class="star" disabled="disabled"/>
+    <input name="need-vmware-driver-for-win-7-guest" type="radio" class="star" disabled="disabled"/>
+    <input name="need-vmware-driver-for-win-7-guest" type="radio" class="star" disabled="disabled"/>
+    <input name="need-vmware-driver-for-win-7-guest" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ndavis" rel="nofollow">ndavis</a>
+                6 years ago 4.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                16
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-be-prompted-for-computer-name" class="title">
+            How to be prompted for computer name ?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-be-prompted-for-computer-name" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-be-prompted-for-computer-name" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-be-prompted-for-computer-name" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-be-prompted-for-computer-name" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-be-prompted-for-computer-name" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/OBI" rel="nofollow">OBI</a>
+                6 years ago 10.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                10
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/reboots-with-windows-7-scripted-install" class="title">
+            Reboots with windows 7 scripted install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="reboots-with-windows-7-scripted-install" type="radio" class="star" disabled="disabled"/>
+    <input name="reboots-with-windows-7-scripted-install" type="radio" class="star" disabled="disabled"/>
+    <input name="reboots-with-windows-7-scripted-install" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="reboots-with-windows-7-scripted-install" type="radio" class="star" disabled="disabled"/>
+    <input name="reboots-with-windows-7-scripted-install" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ngbrown24" rel="nofollow">ngbrown24</a>
+                6 years ago 6.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/post-install-task" class="title">
+            Post Install Task
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="post-install-task" type="radio" class="star" disabled="disabled"/>
+    <input name="post-install-task" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cjones34" rel="nofollow">cjones34</a>
+                5 years ago 2.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/newbe" class="title">
+            newbe
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="newbe" type="radio" class="star" disabled="disabled"/>
+    <input name="newbe" type="radio" class="star" disabled="disabled"/>
+    <input name="newbe" type="radio" class="star" disabled="disabled"/>
+    <input name="newbe" type="radio" class="star" disabled="disabled"/>
+    <input name="newbe" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sen" rel="nofollow">sen</a>
+                5 years ago 2.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/dell-driver-feed-video-drivers" class="title">
+            Dell Driver Feed Video Drivers
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dell-driver-feed-video-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-driver-feed-video-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-driver-feed-video-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-driver-feed-video-drivers" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-driver-feed-video-drivers" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mlathrop" rel="nofollow">mlathrop</a>
+                5 years ago 3.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/imaging-mac-error-exiting-with-status-6" class="title">
+            imaging Mac error...exiting with status 6
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="imaging-mac-error-exiting-with-status-6" type="radio" class="star" disabled="disabled"/>
+    <input name="imaging-mac-error-exiting-with-status-6" type="radio" class="star" disabled="disabled"/>
+    <input name="imaging-mac-error-exiting-with-status-6" type="radio" class="star" disabled="disabled"/>
+    <input name="imaging-mac-error-exiting-with-status-6" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="imaging-mac-error-exiting-with-status-6" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/obuhelpdesk" rel="nofollow">obuhelpdesk</a>
+                5 years ago 3.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/usmt-on-k2200" class="title">
+            USMT on K2200
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="usmt-on-k2200" type="radio" class="star" disabled="disabled"/>
+    <input name="usmt-on-k2200" type="radio" class="star" disabled="disabled"/>
+    <input name="usmt-on-k2200" type="radio" class="star" disabled="disabled"/>
+    <input name="usmt-on-k2200" type="radio" class="star" disabled="disabled"/>
+    <input name="usmt-on-k2200" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ADC321" rel="nofollow">ADC321</a>
+                5 years ago 2.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/windows-7-post-install-tasks" class="title">
+            Windows 7 Post install tasks
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="windows-7-post-install-tasks" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-7-post-install-tasks" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-7-post-install-tasks" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-7-post-install-tasks" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-7-post-install-tasks" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/asjohnstone" rel="nofollow">asjohnstone</a>
+                5 years ago 5.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/k-series-package-export-report" class="title">
+            K-Series Package Export Report
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k-series-package-export-report" type="radio" class="star" disabled="disabled"/>
+    <input name="k-series-package-export-report" type="radio" class="star" disabled="disabled"/>
+    <input name="k-series-package-export-report" type="radio" class="star" disabled="disabled"/>
+    <input name="k-series-package-export-report" type="radio" class="star" disabled="disabled"/>
+    <input name="k-series-package-export-report" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/warmep" rel="nofollow">warmep</a>
+                5 years ago 3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/rebuilding-kbe-issue" class="title">
+            Rebuilding KBE issue
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="rebuilding-kbe-issue" type="radio" class="star" disabled="disabled"/>
+    <input name="rebuilding-kbe-issue" type="radio" class="star" disabled="disabled"/>
+    <input name="rebuilding-kbe-issue" type="radio" class="star" disabled="disabled"/>
+    <input name="rebuilding-kbe-issue" type="radio" class="star" disabled="disabled"/>
+    <input name="rebuilding-kbe-issue" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/pdenadel" rel="nofollow">pdenadel</a>
+                5 years ago 3.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/scripting-installation-dependencies-location" class="title">
+            Scripting Installation Dependencies location
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="scripting-installation-dependencies-location" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-installation-dependencies-location" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-installation-dependencies-location" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-installation-dependencies-location" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-installation-dependencies-location" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/quickwhips" rel="nofollow">quickwhips</a>
+                5 years ago 4.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                                    <div class="show-more"><a href="/tag/dell-kace-k2000-deployment-appliance-3/question">More Questions</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (160)
+                            </h3>
+            <p>Blog posts related to KACE K2000 Deployment Appliance</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" class="title">
+                New KBOX Systems Deployment Appliances Take the Legwork Out of Provisioning
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" type="radio" class="star" disabled="disabled"/>
+    <input name="new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" type="radio" class="star" disabled="disabled"/>
+    <input name="new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" type="radio" class="star" disabled="disabled"/>
+    <input name="new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" type="radio" class="star" disabled="disabled"/>
+    <input name="new-kbox-systems-deployment-appliances-take-the-legwork-out-of-provisioning" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/AppDeploy.com" rel="nofollow">AppDeploy.com</a>
+                10 years ago 10.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/education-market-manages-networks-with-kace" class="title">
+                Education Market Manages Networks with KACE
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="education-market-manages-networks-with-kace" type="radio" class="star" disabled="disabled"/>
+    <input name="education-market-manages-networks-with-kace" type="radio" class="star" disabled="disabled"/>
+    <input name="education-market-manages-networks-with-kace" type="radio" class="star" disabled="disabled"/>
+    <input name="education-market-manages-networks-with-kace" type="radio" class="star" disabled="disabled"/>
+    <input name="education-market-manages-networks-with-kace" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/AppDeploy.com" rel="nofollow">AppDeploy.com</a>
+                10 years ago 6.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/how-to-track-windows-and-office-product-keys" class="title">
+                How TO: Track Windows and Office Product Keys
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-track-windows-and-office-product-keys" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-track-windows-and-office-product-keys" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-track-windows-and-office-product-keys" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-track-windows-and-office-product-keys" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-track-windows-and-office-product-keys" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/dchristian" rel="nofollow">dchristian</a>
+                5 years ago 19.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-native-imaging-toolkit-k2000-v-3-4-only" class="title">
+                KACE Native Imaging Toolkit K2000 v.3.4 ONLY
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-native-imaging-toolkit-k2000-v-3-4-only" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-native-imaging-toolkit-k2000-v-3-4-only" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-native-imaging-toolkit-k2000-v-3-4-only" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-native-imaging-toolkit-k2000-v-3-4-only" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-native-imaging-toolkit-k2000-v-3-4-only" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cserrins" rel="nofollow">cserrins</a>
+                5 years ago 11.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/k2000-kbe-manipulator" class="title">
+                K2000 KBE Manipulator
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-kbe-manipulator" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cserrins" rel="nofollow">cserrins</a>
+                5 years ago 19.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/dell-kace-koncept-series-k2000-kbe-manipulator" class="title">
+                Dell KACE Koncept Series: K2000 KBE Manipulator
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dell-kace-koncept-series-k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kbe-manipulator" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kbe-manipulator" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jody" rel="nofollow">jody</a>
+                5 years ago 5.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" class="title">
+                Dell KACE Koncept Series: K2000 KACE Native Imaging Toolkit (KNIT)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" type="radio" class="star" disabled="disabled"/>
+    <input name="dell-kace-koncept-series-k2000-kace-native-imaging-toolkit-knit" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jody" rel="nofollow">jody</a>
+                5 years ago 6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/konf-2011-100-windows-7-deployment-automation" class="title">
+                [Konf 2011] 100% Windows 7 Deployment Automation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="konf-2011-100-windows-7-deployment-automation" type="radio" class="star" disabled="disabled"/>
+    <input name="konf-2011-100-windows-7-deployment-automation" type="radio" class="star" disabled="disabled"/>
+    <input name="konf-2011-100-windows-7-deployment-automation" type="radio" class="star" disabled="disabled"/>
+    <input name="konf-2011-100-windows-7-deployment-automation" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="konf-2011-100-windows-7-deployment-automation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/airwolf" rel="nofollow">airwolf</a>
+                5 years ago 7.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" class="title">
+                KACE::How to connect Crystal Reports to the KBOX 1000 database
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-connect-crystal-reports-to-the-kbox-1000-database" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/brian_klocek" rel="nofollow">brian_klocek</a>
+                5 years ago 6.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/restoring-a-k2000" class="title">
+                Restoring a K2000
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="restoring-a-k2000" type="radio" class="star" disabled="disabled"/>
+    <input name="restoring-a-k2000" type="radio" class="star" disabled="disabled"/>
+    <input name="restoring-a-k2000" type="radio" class="star" disabled="disabled"/>
+    <input name="restoring-a-k2000" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="restoring-a-k2000" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Dubnium" rel="nofollow">Dubnium</a>
+                5 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" class="title">
+                KACE K2000: Are there additional steps when deploying KBOX client on a PC image
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kbox-client-deployment-are-there-additional-steps-when-deploying-kbox-client-on-a-pc-image" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Irwin" rel="nofollow">KACE_Irwin</a>
+                5 years ago 4.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" class="title">
+                KACE: How To Link Different Devices To Show up In The Organization Drop-Down MenuÂ 
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-to-link-different-devices-to-show-up-in-the-organization-drop-down-menu" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 4.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-how-do-i-change-my-password-using-kace-support-portal" class="title">
+                KACE: How Do I Change My Password Using KACE Support Portal?
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-how-do-i-change-my-password-using-kace-support-portal" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-change-my-password-using-kace-support-portal" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-change-my-password-using-kace-support-portal" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-change-my-password-using-kace-support-portal" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-change-my-password-using-kace-support-portal" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" class="title">
+                KACE:How Do I Obtain The OVF File For My VM Or I Did Not Receive Any Software Disk
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-obtain-the-ovf-file-for-my-vm-or-i-did-not-receive-any-software-disk" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 1.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-install-telnet-client-using-command-line" class="title">
+                KACE:   Install Telnet Client Using Command Line
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-install-telnet-client-using-command-line" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-telnet-client-using-command-line" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-telnet-client-using-command-line" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-telnet-client-using-command-line" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-telnet-client-using-command-line" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-install-tftp-via-command-prompt" class="title">
+                KACE:  Install TFTP Via Command Prompt
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-install-tftp-via-command-prompt" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-tftp-via-command-prompt" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-tftp-via-command-prompt" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="kace-install-tftp-via-command-prompt" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-install-tftp-via-command-prompt" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" class="title">
+                KACE:  KCleanup Does Not Run In A 3.4 Sysprepped Image
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-kcleanup-does-not-run-in-a-3-4-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 1.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" class="title">
+                KACE:  K2000_Deployment_info.conf Is Not Copied To Sysprepped Image
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-k2000-deployment-info-conf-is-not-copied-to-sysprepped-image" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-how-do-i-submit-a-feature-or-enhancement-request" class="title">
+                KACE:  How Do I Submit a Feature or Enhancement Request?
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-how-do-i-submit-a-feature-or-enhancement-request" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-submit-a-feature-or-enhancement-request" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-submit-a-feature-or-enhancement-request" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-submit-a-feature-or-enhancement-request" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-how-do-i-submit-a-feature-or-enhancement-request" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 2.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-offline-file-service-error-after-imaging" class="title">
+                KACE:  Offline File Service Error After Imaging
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-offline-file-service-error-after-imaging" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-offline-file-service-error-after-imaging" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-offline-file-service-error-after-imaging" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-offline-file-service-error-after-imaging" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-offline-file-service-error-after-imaging" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 4.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/dell-kace-k2000-deployment-appliance-3/blog">More Blog Posts</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (42)
+                            </h3>
+
+            <p>Links related to KACE K2000 Deployment Appliance</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/k2000-deployment-appliance-documentation" class="title">
+                K2000 Deployment Appliance Documentation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k2000-deployment-appliance-documentation" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-documentation" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-documentation" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-documentation" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-documentation" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/lubos" rel="nofollow">lubos</a>
+                5 years ago 9.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/k2000-deployment-appliance-home-page" class="title">
+                K2000 Deployment Appliance Home Page
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k2000-deployment-appliance-home-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-home-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-home-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-home-page" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="k2000-deployment-appliance-home-page" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/lubos" rel="nofollow">lubos</a>
+                5 years ago 8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/k2000-deployment-appliance-product-page" class="title">
+                K2000 Deployment Appliance Product Page
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k2000-deployment-appliance-product-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-product-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-product-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-product-page" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-product-page" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/lubos" rel="nofollow">lubos</a>
+                5 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/k2000-deployment-appliance-support" class="title">
+                K2000 Deployment Appliance Support
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k2000-deployment-appliance-support" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-support" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-support" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-support" type="radio" class="star" disabled="disabled"/>
+    <input name="k2000-deployment-appliance-support" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/lubos" rel="nofollow">lubos</a>
+                5 years ago 4.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/scripting-ninjas" class="title">
+                Scripting Ninjas
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="scripting-ninjas" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-ninjas" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-ninjas" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-ninjas" type="radio" class="star" disabled="disabled"/>
+    <input name="scripting-ninjas" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/scriptingninja" rel="nofollow">scriptingninja</a>
+                5 years ago 5.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/file-hippo" class="title">
+                File Hippo
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="file-hippo" type="radio" class="star" disabled="disabled"/>
+    <input name="file-hippo" type="radio" class="star" disabled="disabled"/>
+    <input name="file-hippo" type="radio" class="star" disabled="disabled"/>
+    <input name="file-hippo" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="file-hippo" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/dchristian" rel="nofollow">dchristian</a>
+                5 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" class="title">
+                Solution - Windows 7 Scripted Install is Amazingly Slow for Optiplex 760
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" type="radio" class="star" disabled="disabled"/>
+    <input name="solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" type="radio" class="star" disabled="disabled"/>
+    <input name="solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" type="radio" class="star" disabled="disabled"/>
+    <input name="solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="solution-windows-7-scripted-install-is-amazingly-slow-for-optiplex-760" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                5 years ago 6.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/what-is-windows-pe" class="title">
+                What is Windows PE
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="what-is-windows-pe" type="radio" class="star" disabled="disabled"/>
+    <input name="what-is-windows-pe" type="radio" class="star" disabled="disabled"/>
+    <input name="what-is-windows-pe" type="radio" class="star" disabled="disabled"/>
+    <input name="what-is-windows-pe" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="what-is-windows-pe" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Aaron%20Cool" rel="nofollow">Aaron Cool</a>
+                5 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-windows-pe-works" class="title">
+                How Windows PE Works
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-windows-pe-works" type="radio" class="star" disabled="disabled"/>
+    <input name="how-windows-pe-works" type="radio" class="star" disabled="disabled"/>
+    <input name="how-windows-pe-works" type="radio" class="star" disabled="disabled"/>
+    <input name="how-windows-pe-works" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="how-windows-pe-works" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Aaron%20Cool" rel="nofollow">Aaron Cool</a>
+                5 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/windows-setup-configuration-passes" class="title">
+                Windows Setup Configuration Passes
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="windows-setup-configuration-passes" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-setup-configuration-passes" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-setup-configuration-passes" type="radio" class="star" disabled="disabled"/>
+    <input name="windows-setup-configuration-passes" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="windows-setup-configuration-passes" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                4 years ago 2.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-to-mount-and-modify-a-wim-image" class="title">
+                How to mount and modify a WIM image
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-mount-and-modify-a-wim-image" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-mount-and-modify-a-wim-image" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-mount-and-modify-a-wim-image" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-mount-and-modify-a-wim-image" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="how-to-mount-and-modify-a-wim-image" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/warmep" rel="nofollow">warmep</a>
+                4 years ago 3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/kontinuing-education-sessions" class="title">
+                KACE Kontinuing Education Sessions
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kontinuing-education-sessions" type="radio" class="star" disabled="disabled"/>
+    <input name="kontinuing-education-sessions" type="radio" class="star" disabled="disabled"/>
+    <input name="kontinuing-education-sessions" type="radio" class="star" disabled="disabled"/>
+    <input name="kontinuing-education-sessions" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="kontinuing-education-sessions" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/JAaronAnderson" rel="nofollow">JAaronAnderson</a>
+                4 years ago 2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/current-documentation-links" class="title">
+                Dell KACE Documentation Links
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="current-documentation-links" type="radio" class="star" disabled="disabled"/>
+    <input name="current-documentation-links" type="radio" class="star" disabled="disabled"/>
+    <input name="current-documentation-links" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="current-documentation-links" type="radio" class="star" disabled="disabled"/>
+    <input name="current-documentation-links" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/JAaronAnderson" rel="nofollow">JAaronAnderson</a>
+                4 years ago 2.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/tutorial-videos-and-information" class="title">
+                Tutorial Videos and information
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="tutorial-videos-and-information" type="radio" class="star" disabled="disabled"/>
+    <input name="tutorial-videos-and-information" type="radio" class="star" disabled="disabled"/>
+    <input name="tutorial-videos-and-information" type="radio" class="star" disabled="disabled"/>
+    <input name="tutorial-videos-and-information" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="tutorial-videos-and-information" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/JAaronAnderson" rel="nofollow">JAaronAnderson</a>
+                4 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/webex-conferences" class="title">
+                Dell KACE WebEx Conferences
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="webex-conferences" type="radio" class="star" disabled="disabled"/>
+    <input name="webex-conferences" type="radio" class="star" disabled="disabled"/>
+    <input name="webex-conferences" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="webex-conferences" type="radio" class="star" disabled="disabled"/>
+    <input name="webex-conferences" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/JAaronAnderson" rel="nofollow">JAaronAnderson</a>
+                4 years ago 3.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/top-5-considerations-when-selecting-virtual-appliances" class="title">
+                Top 5 Considerations when Selecting Virtual Appliances
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="top-5-considerations-when-selecting-virtual-appliances" type="radio" class="star" disabled="disabled"/>
+    <input name="top-5-considerations-when-selecting-virtual-appliances" type="radio" class="star" disabled="disabled"/>
+    <input name="top-5-considerations-when-selecting-virtual-appliances" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="top-5-considerations-when-selecting-virtual-appliances" type="radio" class="star" disabled="disabled"/>
+    <input name="top-5-considerations-when-selecting-virtual-appliances" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/RK1" rel="nofollow">RK1</a>
+                4 years ago 1.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" class="title">
+                Haunted by Symantec Ghost? Learn About a New and Superior Approach
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" type="radio" class="star" disabled="disabled"/>
+    <input name="haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" type="radio" class="star" disabled="disabled"/>
+    <input name="haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" type="radio" class="star" disabled="disabled"/>
+    <input name="haunted-by-symantec-ghost-learn-about-a-new-and-superior-approach" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/RK1" rel="nofollow">RK1</a>
+                4 years ago 1.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/kace-archives" class="title">
+                Kace Archives
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-archives" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-archives" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-archives" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="kace-archives" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-archives" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jdornan" rel="nofollow">jdornan</a>
+                4 years ago 1.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" class="title">
+                KBOX Systems Deployment Appliance vs. Symantec Ghost: Choosing an Enterprise Solution
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" type="radio" class="star" disabled="disabled"/>
+    <input name="kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" type="radio" class="star" disabled="disabled"/>
+    <input name="kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" type="radio" class="star" disabled="disabled"/>
+    <input name="kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" type="radio" class="star" disabled="disabled"/>
+    <input name="kbox-systems-deployment-appliance-vs-symantec-ghost-choosing-an-enterprise-solution" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/RK1" rel="nofollow">RK1</a>
+                4 years ago 1.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/kace-konference-stream" class="title">
+                KACE Konference Stream
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-konference-stream" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-konference-stream" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-konference-stream" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-konference-stream" type="radio" class="star" disabled="disabled"/>
+    <input name="kace-konference-stream" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jdornan" rel="nofollow">jdornan</a>
+                4 years ago 1.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/dell-kace-k2000-deployment-appliance-3/link">More Links</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to KACE K2000 Deployment Appliance</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/xtwitter.png.pagespeed.ic.gQlaUvo9Df.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/xdsg.png.pagespeed.ic.ezebSmrFAj.png" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"fa2fb87fc4","applicationID":"1817996","transactionName":"b1BUNhNQC0dUWkANC1YadRcSRQpZGkpbAhBPVEQHPkcMUUI=","queueTime":0,"applicationTime":6318,"atts":"QxdXQFtKGEk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<script pagespeed_no_defer="">//<![CDATA[
+(function(){window.pagespeed=window.pagespeed||{};var f=window.pagespeed,h=function(e,a,c,b){this.c=e;this.a=a;this.b=c;this.d=b};f.beaconUrl="";
+var k=function(e){var a=e.c,c=window.mod_pagespeed_start,b=Number(new Date)-c,a=a+(-1==a.indexOf("?")?"?":"&"),a=a+"ets="+("load"==e.a?"load:":"unload:"),a=a+b;if("beforeunload"!=e.a||!window.mod_pagespeed_loaded){a+="&r"+e.a+"=";if(window.performance){var b=window.performance.timing,d=b.navigationStart,g=b.requestStart,a=a+(b[e.a+"EventStart"]-d),a=a+("&nav="+(b.fetchStart-d)),a=a+("&dns="+(b.domainLookupEnd-b.domainLookupStart)),a=a+("&connect="+(b.connectEnd-b.connectStart)),a=a+("&req_start="+
+(g-d)),a=a+("&ttfb="+(b.responseStart-g)),a=a+("&dwld="+(b.responseEnd-b.responseStart)),a=a+("&dom_c="+(b.domContentLoadedEventStart-d));window.performance.navigation&&(a+="&nt="+window.performance.navigation.type);d=-1;b.msFirstPaint?d=b.msFirstPaint:window.chrome&&window.chrome.loadTimes&&(d=Math.floor(1E3*window.chrome.loadTimes().firstPaintTime));d=d-g;0<=d&&(a+="&fp="+d)}else a+=b;f.getResourceTimingData&&window.parent==window&&(a+=f.getResourceTimingData());a+=window.parent!=window?"&ifr=1":
+"&ifr=0";"load"==e.a&&(window.mod_pagespeed_loaded=!0,(b=window.mod_pagespeed_num_resources_prefetched)&&(a+="&nrp="+b),(b=window.mod_pagespeed_prefetch_start)&&(a+="&htmlAt="+(c-b)));f.panelLoader&&(c=f.panelLoader.getCsiTimingsString(),""!=c&&(a+="&b_csi="+c));f.criticalCss&&(c=f.criticalCss,a+="&ccis="+c.total_critical_inlined_size+"&cces="+c.total_original_external_size+"&ccos="+c.total_overhead_size+"&ccrl="+c.num_replaced_links+"&ccul="+c.num_unreplaced_links);""!=e.b&&(a+=e.b);document.referrer&&
+(a+="&ref="+encodeURIComponent(document.referrer));a+="&url="+encodeURIComponent(e.d);f.beaconUrl=a;(new Image).src=a}};f.e=function(e,a,c,b){var d=new h(e,a,c,b);window.addEventListener?window.addEventListener(a,function(){k(d)},!1):window.attachEvent("on"+a,function(){k(d)})};f.addInstrumentationInit=f.e;})();
+
+pagespeed.addInstrumentationInit('/mod_pagespeed_beacon', 'load', '', 'http://www.itninja.com/software/dell-kace/k2000-deployment-appliance/3-1945');
+//]]></script>

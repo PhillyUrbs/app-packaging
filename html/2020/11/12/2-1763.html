@@ -1,0 +1,1692 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQACUFZWCxABUVVUBgkEXlc=",licenseKey:"65b52e7159",applicationID:"154618383"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(23),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(24),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(24),a=t(23);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(20),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url&&(n=t[0].url),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(23),c=t(24),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(25);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(22),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],20:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],21:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],22:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?s(t,c,o):o()}function n(n,r,i,o){if(!l.aborted||o){t&&t(n,r,i);for(var a=e(i),c=m(n),s=c.length,f=0;f<s;f++)c[f].apply(a,r);var d=u[y[n]];return d&&d.push([x,n,r,a]),a}}function p(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return d[t]=d[t]||i(n)}function v(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var g={},y={},x={on:p,addEventListener:p,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:a,aborted:!1};return x}function o(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(23),u={},d={},l=e.exports=i();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=x.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(g,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=t(18),c=t("handle"),s=t(23),f=t("ee"),u=t(21),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},y=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:a.getLastTimestamp(),now:a,origin:v,features:{},xhrWrappable:y,userAgent:u};t(15),t(19),l[p]?(l[p]("DOMContentLoaded",o,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",i),d[h]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var b=0},{}],"wrap-function":[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var i=t("ee"),o=t(24),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,i){function nrWrapper(){var r,a,c,s;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,i],c])}u(e+"start",[r,a,i],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,i,o){i||(i="");var a,c,s,f="-"===i.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+i:i,o,c))}function u(n,r,i){if(!s||e){var o=s;s=!0;try{t.emit(n,r,i,e)}catch(a){l([a,n,r,i])}s=o}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var i in t)c.call(t,i)&&(e[i]=t[i]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=i),n.inPlace=f,n.flag=a,n}},{}]},{},["loader",2,12,4,3]);</script>
+    <title>IT Pro Tips for EPSON EasyMP Network Projection 2</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to EPSON EasyMP Network Projection 2">
+    <meta name="keywords" content="EPSON,EPSON EasyMP Network Projection,EasyMP Network Projection 2">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/epson/easymp-network-projection/2-1763" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2020 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.d4d1bac2.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+       <button id="search-btn-close" class="search-button-close" ><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/epson">EPSON</a></li>
+    <li><a href="/software-library/company/epson/easymp-network-projection">EasyMP Network Projection</a></li>
+    <li>2</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>EPSON EasyMP Network Projection</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 2
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/epson/easymp-network-projection/2-1763"
+                                            >
+                                            2.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/14093/JTJGc29mdHdhcmUlMkZlcHNvbiUyRmVhc3ltcC1uZXR3b3JrLXByb2plY3Rpb24lMkYyLTE3NjM=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/14093/JTJGc29mdHdhcmUlMkZlcHNvbiUyRmVhc3ltcC1uZXR3b3JrLXByb2plY3Rpb24lMkYyLTE3NjM=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 31.2k &nbsp|&nbsp
+    Created: 02/05/2010
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="14093"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                EasyMP Network Projection has <a href="#inventory-records" id="scrollInv">4 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">1 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (5)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>3</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (answer file driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/epson/easymp-network-projection/2-1763#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/epson/easymp-network-projection/2-1763/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8041" name="tip_8041">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8041"></div> -->
+   <div id="tip-8041" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-8041" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8041"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            This is valid for V. 2.8.6 . It took me around 2 Days to figure this out, but know everything is working fine.<div><br></div><div>How To silent install:</div><div>1. Download easyMP Network Projection:&nbsp;https://ftp.epson.com/drivers/epson16189.exe</div><div><br></div><div>2. Extract the downloaded .exe (with 7-Zip for example) and you will get a second .exe, extract this one also and you will get 2 folders(InstData and Language)</div><div><br></div><div>3. &nbsp;Open InstData and go into "license" Folder. From there copy the desired language into InstData and after that delete the license folder&nbsp;</div><div><span style="font-weight: bold;">Warning: If you do not delete the license Folder you will end up with a License Agreement Pop-Up during Silent Installation)</span></div><div><span style="font-weight: bold;"><br></span></div><div>4. Create setup.iss (InstData\setup.exe /r f1C:\temp\install.iss) &nbsp;</div><div><span style="font-weight: bold;">Warning: Always run cmd as Admin or you don't have all needed entries in your install.iss File)</span></div><div><span style="font-weight: bold;"><br></span></div><div><span style="font-weight: bold;">5. How To Silent-Install:</span> InstData\setup.exe /s install.iss</div><div><span style="font-weight: bold;">Warning: install.iss has to be in the same folder as setup.exe, Full Path to the iss File won't work with /s (try instead /s f1&lt;path&gt;)</span></div><div><br></div><div>The Uninstall-Part is a bit more complex. First of all read the Inventory Records for EasyMP Network Projection then do the following:</div><div><span style="line-height: 1.428571429;">1. Move to&nbsp;C:\Program Files (x86)\InstallShield Installation Information\ . There you will find a Folder for each installed InstallShield-Exe. Locate the folder for easy MP Network Projection (the files in the folder will be the exactly same as in instData when you run the installation).</span><br></div><div><span style="line-height: 1.428571429;"><br></span></div><div>2. Copy the following command and change the Path to be correct for you:</div><div>"C:\Program Files (x86)\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe" -runfromtemp -l0x0407 -removeonly "C:\Program Files (x86)\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe" -runfr &nbsp;/r f1c:\temp\uninstall.iss<br></div><div><br></div><div>3. Run the above command and you will get a working uninstall.iss for silent uninstall.</div><div><span style="font-weight: bold;"><br></span></div><div><span style="font-weight: bold;">4. How To Silent-Uninstall:</span></div><div>"C:\Program Files (x86)\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe" -runfromtemp -l0x0407 -removeonly "C:\Program Files (x86)\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe" -runfr /s uninstall.iss<br></div><div><span style="font-weight: bold;">Warning: This will cause an automatic reboot when uninstall is finished (no prompt etc)</span></div><div>Note: Again the uninstall.iss File has to be in the same Folder as setup.exe(try to use /f1 instead).&nbsp;</div><div><br></div><div>I don't know why you can't do the Steps for Silent-Uninstall with the setup.exe used for installation. I've tried it, but ended up alyways with a -3 Error (Required Data not found in the uninstall.iss file).</div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (answer file driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/SaintCore" class="username" rel="nofollow">SaintCore</a>
+                </li>
+                <li>
+                    10/21/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 2 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-31110">
+        <a name="comment-31110"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/cmgreene" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/cmgreene" rel="nofollow">cmgreene</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">AF JustinKS is spot on with the installation instructions &amp; .ini settings. To get your own silent installer from Epson, email Epson Customer Support (epson1@mailca.custhelp.com) &amp; simply request it. They sent me the download link within 24 hours. It works great! <br />
+<br />
+In addition to modifying the nscsettings.ini file, I actually wrote a small batch file that ran the installer, waited (because the installer calls other executables), then ran a quick little .vbs script to pin the EasyMP shortcut to the taskbar. <br />
+<br />
+Zipped the modified ini &amp; new batch file along with all the other contents of the "Perfect Silent" folder (from Epson's original that you'll download link: NSCV286Win_PerfectSilent.zip), uploaded to K1000 EasyMP 2.86 inventory, then made a Managed Installation that overwrites the default installation (so I could use my .bat file) &amp; deletes downloaded files.</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="31110"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-51644">
+        <a name="comment-51644"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/tim42" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/tim42" rel="nofollow">tim42</a>
+                    </li>
+
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                                    last edited 1 year ago
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">Confirming I got this to work in 2019, with SCCM 2016. Same instructions for EasyMP 2.87</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="51644"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8118" name="tip_8118">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8118"></div> -->
+   <div id="tip-8118" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-8118" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8118"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            I spoke to Epson about this and they provide a totally separate installer for silent installs.  they do not provide an msi, but I thought people might be interested in the document that comes with teh silent installer (ENP286Win_Silent)<div><br /></div><div><table class="MsoNormalTable" border="0" cellpadding="0"><tbody><tr><td width="375" valign="top" style="width:281.1pt;padding:.75pt .75pt .75pt .75pt;">
+  <p class="MsoNormal" align="right" style="margin-bottom:.0001pt;text-align:right;line-height:normal;"><b><span style="font-size:6pt;font-family:Arial, 'sans-serif';color:#39577A;"></span></b></p><p><b> </b></p><b></b>
+  </td>
+  <td width="42" valign="top" style="width:31.2pt;padding:.75pt .75pt .75pt .75pt;">
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="font-size:9pt;font-family:'Segoe UI', 'sans-serif';"> </span></p>
+  </td>
+  <td valign="top" style="padding:.75pt .75pt .75pt 15pt;">
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="font-size:8.5pt;font-family:'Segoe UI', 'sans-serif';color:#999999;"></span></p><p> </p>
+  </td>
+ </tr></tbody></table><p class="MsoNormal"><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">[Method to
+change the mask image] The features and options of silent installation version<br />
+The features of the silent installation version:<br />
+The silent installation version does not display any messages while this
+software is installed to PC.<br /></span><span style="font-size:9pt;line-height:115%;font-family:Symbol;">ü</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';"> A message does not appear when the installing is completed.<br /></span><span style="font-size:9pt;line-height:115%;font-family:Symbol;">ü</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';"> The PC is rebooted without a message when user updates this
+software from previous version and PC requires a restart.<br />
+User can specify the massage and behavior of installation as installation option
+as follows.<br /><br />
+Installation’s Options<br />
+User specifies the following options.<br />
+Format:<br />
+&gt;EMP_NSCInstSilent.exe /xxxxx<br /><br /><br />
+Installation Options<br />
+Parameters Descriptions<br />
+/ep_reboot PC is rebooted when user wants to reboot after the installation is
+completed.<br />
+/ep_disp_end The completed message is displayed on a screen when the
+installation is completed.<br />
+/ep_disp_restart The message to reboot a PC is displayed on a screen when user
+updates the software from previous version.<br /><br />
+Options of initial settings:<br />
+User can specify the initial setting by specifying the following values in
+“nscsettings.ini”. The “nscsettings,ini” is in “InstData” folder.<br /><br />
+Initial settings<br />
+Section name Key name Key value and descriptions<br />
+[initialize] StartNICType [Features]<br />
+Specify the initial network adaptors that user uses when starting EasyMP
+Network Projection.<br /><br />
+[Value] <br />
+0: Not specify the network adaptor automatically. (User specifies the network
+adaptor manually when user starts EasyMP Network Projection.<br />
+1: Specify the used network adaptor automatically.<br />
+2: Specify the wireless network adaptor automatically when user starts EasyMP
+Network Projection.<br />
+3: Specify the wired network adaptor automatically when user starts EasyMP
+Network Projection.<br /><br />
+Default settings: 0<br /><br /><br />
+StartMode [Features]<br />
+Specify the start mode of EasyMP Network Projection<br /><br />
+[Value] <br />
+0: Select the start mode when user starts EasyMP Network Projection<br />
+1: Specify Quick Connection mode when user starts EasyMP Network Projection<br />
+2: Specify Advanced Connection mode when user starts EasyMP Network Projection<br /><br />
+Default: 0<br />
+StartSearchType [Features]<br />
+Specify the search mode when user starts EasyMP Network Projection.<br /><br />
+[Values]<br />
+0:EasyMP Network Projection searches projectors by “Automatic Search”<br />
+1: Select the search mode when user starts EasyMP Network Projection.<br />
+2: EasyMP Network Projection searches projectors by what user used last time.<br /><br />
+Default: 0<br />
+FullScreenMovie [Features]<br />
+Enable “full-screen video transfer” mode ON/OFF.<br /><br />
+[Values]<br />
+0: Disable “full-screen video transfer”<br />
+1: Enable “full-screen video transfer” <br /><br />
+Default: 1<br />
+InstallVirtualDisplay [Features]<br />
+Enable / Disable EPSON Virtual Display function.<br /><br />
+[Values]<br />
+0: No install “Add/Remove EPSON Virtual Display” to PC.<br />
+1: Install “Add/Remove EPSON Virtual Display” to PC.<br /><br />
+Default: 1<br />
+InstallVirtualDisplayNum [Features]<br />
+Specify the number of installing EPSON Virtual Display .<br />
+(User can use this option when “InstallVirtualDisplay” Key is set to 1.) <br /><br />
+0: No install EPSON Virtual Display<br />
+1: Install one EPSON Virtual Display to PC<br />
+2: Install two EPSON Virtual Displays to PC<br />
+3: Install three EPSON Virtual Displays to PC<br />
+4: Install four EPSON Virtual Displays to PC<br /><br />
+Default : 1<br /><br />
+A example of “nscsettings.ini”: <br />
+[initialize]<br />
+StartNICType=0<br />
+StartMode=2<br />
+StartSearchType=1<br />
+FullScreenMovie=1<br />
+InstallVirtualDisplay=1<br />
+InstallVirtualDisplayNum=2<br /><br />
+Select the mask image in “Presentation mode”<br />
+The mask image is displayed on a screen when user select “presentation mode”
+and Slide Show is not playing.<br />
+User can specify the used image by the following setting.<br /><br />
+1. Prepare the image file (.jpg) you want to use<br />
+2. Rename the prepared file “Image.jpg”.<br />
+3. Save “iage.jpg” file in “InstData”.<br />
+4. Execute EMP_NSCInstSilent.exe<br /><br />
+(Notice!!)<br />
+The file name should be “image.jpg”. If the name of the put file is different
+from “image.jpg”, the put file “image.jpg” is not installed to PC.<br /><br />
+Install the used profile<br />
+User can install the used profile by the following operation.<br /><br />
+[Method to install the used profile]<br />
+1. Export profile files<br />
+2. Rename the profile “Profile_e.plist” and “Profile_s.plist”.
+“Profile_e.plist” is for Quick connection mode. And “Profile_s.plist” is for
+Advanced connection mode.<br />
+3. Save “Profile_e.plist” and “Profile_s.plist” in “InstData” folder.<br />
+4. Execute EMP_NSCInstSilent.exe<br /><br />
+(Notice!!)<br />
+The file name should be the same as original file “Profile_e.plist” and
+“Profile_s.plist”.<br />
+If the names of the put files are different from “Profile_e.plist” and
+“Profile_s.plist”, the profiles files are not installed to PC.<br /><br />
+After user install EasyMP Network Projection, “Profile_e.plist” and
+“Profile_s.plist” files are saved in the following folders. When user
+uninstalls EasyMP Network Projection, these files are not removed from the
+following folder.<br />
+User needs to delete these files from the following folder is necessary.<br /><br />
+[Saved folder]<br />
+WindowsXP<br /></span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">（</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">System</span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">）</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">:\Documents and Settings\All
+Users\Application Data\SEIKO EPSON CORPORATION\EMP NS Connection<br /><br />
+WindowsVista<br /></span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">（</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">System</span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">）</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">:\ProgramData\SEIKO EPSON
+CORPORATION\EMP NS Connection<br /><br />
+Windows7<br /></span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">（</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">System</span><span style="font-size:9pt;line-height:115%;font-family:'MS Gothic';">）</span><span style="font-size:9pt;line-height:115%;font-family:'Segoe UI', 'sans-serif';">:\ProgramData\SEIKO EPSON CORPORATION\EMP
+NS Connection<br /><br /></span></p><p></p></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/AFJustinKS" class="username" rel="nofollow">AFJustinKS</a>
+                </li>
+                <li>
+                    01/06/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 3 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-31111">
+        <a name="comment-31111"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/cmgreene" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/cmgreene" rel="nofollow">cmgreene</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">Thanks so much for listing the ini settings! In past versions I had to write a Powershell script to modify the registry settings! You made it soooo much easier.<br />
+<br />
+For anyone looking to get your own silent installer from Epson, email Epson Customer Support (epson1@mailca.custhelp.com) &amp; simply request it. They sent me the download link within 24 hours. It works great!</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="31111"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-32856">
+        <a name="comment-32856"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/bwilkerson" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/bwilkerson" rel="nofollow">bwilkerson</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">I just emailed epson too.  I hope they send me the file as this will save me the headache of having to install this by hand on like 100+ computers for all our projectors in our classrooms.    If a newer version becomes available is there an upgrade path?  Like is it possible to just install the updated version over the current version?   I hope so.  I do not even really care about the profiles all that much as teachers can grab the IP of the projector and set that up again.</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="32856"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-32914">
+        <a name="comment-32914"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/bwilkerson" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/bwilkerson" rel="nofollow">bwilkerson</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">I want to add that this install works flawlessly and even upgrades old versions (at least it did when I tested upgrading versions 2.7x or higher)   <br />
+<br />
+Anyone got any tips for adding the firewall exception?   I tried using netsh advfirewall firewall add program and that adds the correct information but when the program is launched it still prompts to add the exception to the firewall and will not go away.  It is kind of a pain in the butt since our users are not admins so they cannot add the exception</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="32914"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-32916">
+        <a name="comment-32916"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/AFJustinKS" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/AFJustinKS" rel="nofollow">AFJustinKS</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">yeah, we have the same problem.  I've told our users to just ignore the prompt - they can click "No" and it shouldn't pop up again.  this will not prevent the program from working properly either.</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="32916"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-32917">
+        <a name="comment-32917"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/bwilkerson" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/bwilkerson" rel="nofollow">bwilkerson</a>
+                    </li>
+
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">It is annoying.  For some users hitting NO does not make it go away..  Not sure why..  Then they freak out when they see the prompt.   I was hoping to suppress it somehow.</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="32917"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+</ul>
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8514" name="tip_8514">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8514"></div> -->
+   <div id="tip-8514" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8514" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8514"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Epson Easy MP 2.87<br /><br />NB - Epson Easy MP is not possible to install completely silently as there is a EULA popup, hence I use Autoit3 for this particular software.<br />Additionally the software will write a log file to your installation folder, so no matter what it must have read access, or it will fail<br />To overcome this the installation directory gets copied to a temporary folder when installing<br /><br />1) Create an installation folder - I called it Epson-EasyMP<br />2) Create setup.iss in root install folder<br /><br />setup.iss<br /><pre>[InstallShield Silent]<br>Version=v7.00<br>File=Response File<br>[File Transfer]<br>OverwrittenReadOnly=NoToAll<br>[Application]<br>Name=EasyMP Network Projection Ver.2.87<br>Version=2.8.7.0<br>Company=SEIKO EPSON CORPORATION<br>Lang=0409<br>[{4A515955-A3D4-4FE6-98C0-E7987FF3279A}-DlgOrder]<br>Dlg0={4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdWelcome-0<br>Count=4<br>Dlg1={4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdLicense-0<br>Dlg2={4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdAskDestPath-0<br>Dlg3={4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdFinish-0<br>[{4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdWelcome-0]<br>Result=1<br>[{4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdLicense-0]<br>Result=1<br>[{4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdAskDestPath-0]<br>szDir=C:\Program Files (x86)\EPSON Projector\EasyMP Network Projection V2<br>Result=1<br>[{4A515955-A3D4-4FE6-98C0-E7987FF3279A}-SdFinish-0]<br>Result=1<br>bOpt1=0<br>bOpt2=0</pre>3) extract InstData to subfolder InstData - Remove all folders except license<br /><br /><img style="width:353px;" src="/uploads/images/137600/IIakfH.png" alt="IIakfH.png" /><br />4) Create EasyMP install.au3 in root install folder<br /><br />EasyMP install.au3<br /><br /><pre>#cs ----------------------------------------------------------------------------<br><br> AutoIt Version: 3.3.14.2<br> Author:         ndog<br><br> Tested and working in these OSes:<br>	Windows 10 64bit<br><br> Script Function:<br>	Install Epson-EasyMP 2.8.7<br>	There is no way to completely silently install this software<br>	Requires EULA popup to be closed to continue<br><br>#ce ----------------------------------------------------------------------------<br><br>$g_szVersion = "iNsTaLlSoFtWaRe"<br>If WinExists($g_szVersion) Then Exit<br>AutoItWinSetTitle($g_szVersion)<br><br>#requireadmin<br><br>; Install file variables<br>Dim $install[1][7]<br>$s_id = 0 ;install directory - where install file is located<br>$s_if = 1 ;install file - msi or exe<br>$s_is = 2 ;install switch - silent switch used<br>$s_rk = 3 ;registry key - Key to search for in registry<br>$s_dn = 4 ;registry display name - DisplayName string to search for in registry<br>$s_dv = 5 ;registry version number - DisplayVersion string to search for in registry - ensure using 'quotes' to set variable as numerical value<br>$s_tv = 6 ;internal variable used to set detected DisplayVersion if match found in a registry location<br><br>; create array of software to install<br>$install[0][0] = @TempDir &amp; '\Epson-EasyMP\InstData'<br>$install[0][1] = 'setup.exe'<br>$install[0][2] = '-s -f1"' &amp; @TempDir &amp; '\Epson-EasyMP\setup.iss"'<br>$install[0][3] = '{4A515955-A3D4-4FE6-98C0-E7987FF3279A}'<br>$install[0][4] = 'EasyMP Network Projection Ver.2.87'<br>$install[0][5] = '2.8.7.0'<br><br>$title = "EasyMP Network Projection Setup"<br><br><br>; registry locations with product uninstall keys<br>Dim $regU[3]<br>$regU[0] = 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'<br>$regU[1] = 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall'<br>$regU[2] = 'HKLM64\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'<br><br>; scan registry for 'DisplayVersion' string to determine if software is already installed<br>For $r = 0 To UBound($regU) - 1 ; Loop through uninstall locations in registry<br>   ConsoleWrite('Check registry location [' &amp; $r &amp; '] - ' &amp; $regU[$r] &amp; @CRLF)<br>   For $i = 0 To UBound($install, 1) - 1 ; Loop through $install packages<br>	  $regKey = $regU[$r] &amp; '\' &amp; $install[$i][$s_rk]<br>	  $regDisplayVersion = RegRead($regKey, 'DisplayVersion')<br>	  If $regDisplayVersion = "" Then<br>		 ConsoleWrite($install[$i][$s_dn] &amp; ' DisplayVersion not located here' &amp; @CRLF)<br>		 ContinueLoop ; Nothing found in the registry, go to next iteration of loop<br>	  Else<br>		 ConsoleWrite($install[$i][$s_dn] &amp; ' DisplayVersion located here: ' &amp; $regDisplayVersion &amp; @CRLF)<br>		 $install[$i][$s_tv] = $regDisplayVersion ; existing installed version found in the registry, add string to array<br>	  EndIf<br>   Next<br>Next<br><br>; 'DisplayVersion' check if differs or missing, determine if software needs to be installed<br>ConsoleWrite(@CRLF) ; write a blank line to console<br>For $i = 0 To UBound($install, 1) - 1<br>   If $install[$i][$s_if] = "" Then ContinueLoop ; empty Array, Continue<br>   If $install[$i][$s_tv] = "" Then ; existing installation not found, install<br>	  ConsoleWrite($install[$i][$s_dn] &amp; ' ' &amp; $install[$i][$s_dv] &amp; ' is not installed. Installing for first time...' &amp; @CRLF)<br>	  Install($install[$i][$s_id], $install[$i][$s_if], $install[$i][$s_is])<br>   Else ; existing installation found<br>	  If $install[$i][$s_tv] = $install[$i][$s_dv] Then<br>		 ConsoleWrite($install[$i][$s_dn] &amp; ' ' &amp; $install[$i][$s_dv] &amp; ' already installed. Skipping...' &amp; @CRLF) ; DisplayVersion in the registry matches the version being installed<br>	  ElseIf $install[$i][$s_tv] &lt; $install[$i][$s_dv] Then ; Older version is installed, install newer version<br>		 ConsoleWrite($install[$i][$s_dn] &amp; ' ' &amp; $install[$i][$s_tv] &amp; ' is installed. Installing newer version...' &amp; @CRLF)<br>		 Install($install[$i][$s_id], $install[$i][$s_if], $install[$i][$s_is])<br>	  Else<br>		 ConsoleWrite($install[$i][$s_dn] &amp; ' ' &amp; $install[$i][$s_tv] &amp; ' is already installed which is a newer version than this installer: ' &amp; $install[$i][$s_dv] &amp; '. Skipping...' &amp; @CRLF)<br>	  EndIf<br>   EndIf<br>Next<br><br>; end of script<br><br>; function to install software<br>Func Install($installfileparentdir, $installfileexe, $switch)<br>   $processname = $installfileexe<br><br>   $sTempDir = @TempDir &amp; '\Epson-EasyMP'<br>   DirCreate($sTempDir)<br>   DirCopy(@ScriptDir, $sTempDir, 1)<br><br>   $installfullpath = _PathFull($installfileparentdir &amp; '\' &amp; $installfileexe)<br>   ConsoleWrite('Installing - ' &amp; $installfullpath &amp; @CRLF)<br>   If FileExists($installfullpath) Then<br>	  $ext = stringRight($installfullpath, 4)<br>	  If $ext = '.exe' Then<br>		 Run($installfullpath &amp; ' ' &amp; $switch)<br>	  ElseIf $ext = '.msi' Then<br>		 Run(@SystemDir &amp; '\msiexec.exe /i "'&amp; $installfullpath &amp; '" ' &amp; $switch)<br>		 ProcessWait($processname) ; not tested<br>	  EndIf<br><br>   Else<br>	  MsgBox(0, 'Installation Error', 'Cannot locate ' &amp; $installfullpath, 5)<br>   EndIf<br>   While ProcessExists($processname)<br>	  If WinExists($title) Then<br>		 ControlClick($title, "", "Button2")<br>		 Sleep(1000)<br>	  Else<br>		 Sleep(200)<br>	  EndIf<br>   WEnd<br>   ConsoleWrite('Installation complete' &amp; @CRLF)<br>EndFunc<br><br><br>; Internal Functions<br><br>; #FUNCTION# ====================================================================================================================<br>; Author ........: Valik (Original function and modification to rewrite), tittoproject (Rewrite)<br>; Modified.......:<br>; ===============================================================================================================================<br>Func _PathFull($sRelativePath, $sBasePath = @WorkingDir)<br>	If Not $sRelativePath Or $sRelativePath = "." Then Return $sBasePath<br><br>	; Normalize slash direction.<br>	Local $sFullPath = StringReplace($sRelativePath, "/", "\") ; Holds the full path (later, minus the root)<br>	Local Const $sFullPathConst = $sFullPath ; Holds a constant version of the full path.<br>	Local $sPath ; Holds the root drive/server<br>	Local $bRootOnly = StringLeft($sFullPath, 1) = "\" And StringMid($sFullPath, 2, 1) &lt;&gt; "\"<br><br>	If $sBasePath = Default Then $sBasePath = @WorkingDir<br><br>	; Check for UNC paths or local drives.  We run this twice at most.  The<br>	; first time, we check if the relative path is absolute.  If it's not, then<br>	; we use the base path which should be absolute.<br>	For $i = 1 To 2<br>		$sPath = StringLeft($sFullPath, 2)<br>		If $sPath = "\\" Then<br>			$sFullPath = StringTrimLeft($sFullPath, 2)<br>			Local $nServerLen = StringInStr($sFullPath, "\") - 1<br>			$sPath = "\\" &amp; StringLeft($sFullPath, $nServerLen)<br>			$sFullPath = StringTrimLeft($sFullPath, $nServerLen)<br>			ExitLoop<br>		ElseIf StringRight($sPath, 1) = ":" Then<br>			$sFullPath = StringTrimLeft($sFullPath, 2)<br>			ExitLoop<br>		Else<br>			$sFullPath = $sBasePath &amp; "\" &amp; $sFullPath<br>		EndIf<br>	Next<br><br>	; If this happens, we've found a funky path and don't know what to do<br>	; except for get out as fast as possible.  We've also screwed up our<br>	; variables so we definitely need to quit.<br>	; If $i = 3 Then Return ""<br><br>	; A path with a drive but no slash (e.g. C:Path\To\File) has the following<br>	; behavior.  If the relative drive is the same as the $BasePath drive then<br>	; insert the base path.  If the drives differ then just insert a leading<br>	; slash to make the path valid.<br>	If StringLeft($sFullPath, 1) &lt;&gt; "\" Then<br>		If StringLeft($sFullPathConst, 2) = StringLeft($sBasePath, 2) Then<br>			$sFullPath = $sBasePath &amp; "\" &amp; $sFullPath<br>		Else<br>			$sFullPath = "\" &amp; $sFullPath<br>		EndIf<br>	EndIf<br><br>	; Build an array of the path parts we want to use.<br>	Local $aTemp = StringSplit($sFullPath, "\")<br>	Local $aPathParts[$aTemp[0]], $j = 0<br>	For $i = 2 To $aTemp[0]<br>		If $aTemp[$i] = ".." Then<br>			If $j Then $j -= 1<br>		ElseIf Not ($aTemp[$i] = "" And $i &lt;&gt; $aTemp[0]) And $aTemp[$i] &lt;&gt; "." Then<br>			$aPathParts[$j] = $aTemp[$i]<br>			$j += 1<br>		EndIf<br>	Next<br><br>	; Here we re-build the path from the parts above.  We skip the<br>	; loop if we are only returning the root.<br>	$sFullPath = $sPath<br>	If Not $bRootOnly Then<br>		For $i = 0 To $j - 1<br>			$sFullPath &amp;= "\" &amp; $aPathParts[$i]<br>		Next<br>	Else<br>		$sFullPath &amp;= $sFullPathConst<br>		; If we detect more relative parts, remove them by calling ourself recursively.<br>		If StringInStr($sFullPath, "..") Then $sFullPath = _PathFull($sFullPath)<br>	EndIf<br><br>	; Clean up the path.<br>	Do<br>		$sFullPath = StringReplace($sFullPath, ".\", "\")<br>	Until @extended = 0<br>	Return $sFullPath<br>EndFunc   ;==&gt;_PathFull<br><br></pre><br />5) Copy AutoIt3.exe to root install folder<br />6) Create install.cmd in root install folder<br /><br />install.cmd<br /><pre>@echo off&amp;cls<br><br>:: Installer must be copied to a temporary location where write access is given in the root of the installer<br>:: Running from non-writable UNC path will cause script to exit without running<br><br>title EasyMP projector<br>echo Installing EasyMP Network Projection, Please wait...<br><br>:: create setup.iss (c:\windows\setup.iss)<br>REM "%~dp0\InstData\setup.exe" -r<br><br>:: silently install easyMP Network projection<br>if not exist "%temp%\AutoIt3.exe" copy /y "%~dp0AutoIt3.exe" "%temp%" &gt;nul<br>"%temp%\AutoIt3.exe" "%~dp0EasyMP install.au3"</pre>Done. Run install.cmd to install the software.<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span></span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ndog" class="username" rel="nofollow">ndog</a>
+                </li>
+                <li>
+                    04/27/2017 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8317" name="tip_8317">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8317"></div> -->
+   <div id="tip-8317" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8317" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8317"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            To suppress the prompt asking for firewall exceptions to be created, you must create Windows Firewall rules locally, not via Group Policy. The software does not correctly check for the presence of firewall rules created via GPO*.<div><br /></div><div>I used the following PowerShell script on Windows 8.1 x64 to create inbound and outbound rules. <span style="line-height:1.42857;">Replace </span><span style="font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;line-height:1.42857;white-space:pre-wrap;background-color:rgb(245,245,245);">%ProgramFiles(x86)%</span><span style="line-height:1.42857;"> with </span><span style="font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;line-height:1.42857;white-space:pre-wrap;background-color:rgb(245,245,245);">%ProgramFiles%</span><span style="line-height:1.42857;"> if you are installing on 32-bit Windows.</span><span style="line-height:1.42857;"> Once this script was run, EasyMP no longer prompted to create rules at startup.</span></div><div><br /></div><pre><span style="line-height: 1.42857;">New-NetFirewallRule -Direction Inbound -DisplayName "EasyMP Network Projection" -Program "%ProgramFiles(x86)%\EPSON Projector\EasyMP Network Projection V2\EMP_NSC.exe" -Action Allow -EdgeTraversalPolicy Allow<br></span>New-NetFirewallRule -Direction Outbound -DisplayName "EasyMP Network Projection" -Program "%ProgramFiles(x86)%\EPSON Projector\EasyMP Network Projection V2\EMP_NSC.exe" -Action Allow</pre><div><br /></div><div>* This is probably due to it only checking for rules under <span style="font-weight:bold;">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules</span>, whereas GPO firewall rules are defined in <span style="font-weight:bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\FirewallRules</span></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Legacy Setup with command line support</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (answer file driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Trelfar" class="username" rel="nofollow">Trelfar</a>
+                </li>
+                <li>
+                    11/11/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-51645">
+        <a name="comment-51645"></a>
+        
+
+    
+        <div class="comment-wrap">
+
+
+        <a href="/user/tim42" rel="nofollow" class="">
+            <img src="/build/static/general/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/tim42" rel="nofollow">tim42</a>
+                    </li>
+
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                                    last edited 1 year ago
+                                            </li>
+
+
+                </ul>
+            </div>
+
+
+                                            <div class="the-comment">I'd like to suppress the initial dialog box that asks for Connect Mode (Quick/Advanced) and sets the default. In our building, if they select the wrong choice (Quick - which seems to make sense, who wants Advanced??) they are in for a world of hurt. Does not seem to be stored in the Registry. Will keep looking...</div>
+            
+
+            <div class="comment-links">
+                <ul>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+                    
+                </ul>
+                <div class="moderation-toolbar" entity-type="comment" entity-id="51645"
+                     approval="true" title-visible="false"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8382" name="tip_8382">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8382"></div> -->
+   <div id="tip-8382" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8382" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8382"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <div>Some modification has been done in previous and it worked for me with batch file. No uninstall.iss require for uninstall.</div><div><br /></div><div>Note : If other version or same version is already installed then setup will uninstall it first and reboot is must require before installation.</div><div>The uninstall command will not run silently and user interaction is require. So to avoid this situation and install latest version without reboot follow below steps</div><div><br /></div><div><div><span style="font-weight:bold;">How To silent install:</span></div><div>1. Download easyMP Network Projection: https://ftp.epson.com/drivers/epson16189.exe</div><div><br /></div><div>2. Extract the downloaded .exe (with 7-Zip for example) and you will get a second .exe, extract this one also and you will get 2 folders(InstData and Language)</div><div><br /></div><div>3.  Open InstData and go into "license" Folder. From there copy the desired language into InstData and after that delete the license folder </div><div><span style="font-weight:bold;">Warning: If you do not delete the license Folder you will end up with a License Agreement Pop-Up during Silent Installation)</span></div><div><span style="font-weight:bold;"><br /></span></div><div>4. Create setup.iss (InstData\setup.exe /r f1C:\temp\install.iss)  </div><div><span style="font-weight:bold;">Warning: Always run cmd as Admin or you don't have all needed entries in your install.iss File) Copy install.iss and paste into InstData folder</span></div><div><span style="font-weight:bold;"><br /></span></div><div><span style="font-weight:bold;">5. How To Silent-Install:</span> \InstData\setup.exe -s -f1\InstData\install.iss</div><div><span style="font-weight:bold;">Warning: install.iss has to be in the same folder as setup.exe</span></div></div><div><span style="font-weight:bold;"><br /></span></div><div><span style="font-weight:bold;font-style:italic;text-decoration:underline;">The batch file will look like this: (Without reboot latest version will install )</span></div><div><div>if exist "%ProgramFiles(x86)%\EPSON Projector" rd /s /q "%ProgramFiles(x86)%\EPSON Projector"</div><div>if exist "%ProgramFiles%\EPSON Projector" rd /s /q "%ProgramFiles%\EPSON Projector"</div><div>if exist "%ProgramData%\SEIKO EPSON CORPORATION" rd /s /q "%ProgramData%\SEIKO EPSON CORPORATION"</div><div>if exist "%commonprogramfiles(x86)%EPSON Projector" rd /s /q "%commonprogramfiles(x86)%EPSON Projector"</div><div>if exist "%commonprogramfiles%EPSON Projector" rd /s /q "%commonprogramfiles%EPSON Projector"</div><div>if exist "%ProgramFiles(x86)%\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}" rd /s /q "%ProgramFiles(x86)%\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}"</div><div>if exist "%ProgramData%\Microsoft\Windows\Start Menu\Programs\EPSON Projector" rd /s /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\EPSON Projector"</div><div>reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\SEIKO EPSON CORPORATION" /f</div><div>reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\SEIKO EPSON CORPORATION" /f</div><div><br /></div><div>:: Start of Installation</div><div>::Installation path</div><div>....\InstData\setup.exe -s -f1....\InstData\install.iss</div><div><br /></div><div>::END</div></div><div><span style="font-weight:bold;"><br /></span></div><div><span style="font-weight:bold;"><br /></span></div><div><span style="font-weight:bold;"><br /></span></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/vaibhav.yadav22" class="username" rel="nofollow">vaibhav.yadav22</a>
+                </li>
+                <li>
+                    04/12/2016 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (4)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/14093/29348">
+                                    2.7.6.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/14093/29349">
+                                    2.6.1.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/14093/29350">
+                                    2.7.5.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/14093/136075">
+                                    2.8.6
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>EasyMP Network Projection</h2>
+            <div><h3>Version</h3><span>2.7.6.0</span></div>
+                                                        <div><h3>Uninstall String</h3>&quot;C:\Program Files\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe&quot; -runfromtemp -l0x0407  -removeonly
+&quot;C:\Program Files\InstallShield Installation Information\{4A515955-A3D4-4FE6-98C0-E7987FF3279A}\setup.exe&quot; -runfr</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1)
+                            </h3>
+            <p>Questions & Answers related to EPSON EasyMP Network Projection</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                11
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/epson-easy-mp-installshield-exe-file-problem" class="title">
+            Epson Easy MP Installshield exe file problem
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="10301"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/orlith" rel="nofollow">orlith</a>
+                8 years ago 15.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Nawdiral commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to EPSON EasyMP Network Projection</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (1)
+                            </h3>
+
+            <p>Links related to EPSON EasyMP Network Projection</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/epson-software-downloads" class="title">
+                Epson Software Downloads
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5824"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/BW~Merlin" rel="nofollow">BW~Merlin</a>
+                6 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to EPSON EasyMP Network Projection</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2020 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.bb9b2227.js"></script>
+
+
+    <script src="/build/software.07233810.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"65b52e7159","applicationID":"154618383","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":280,"atts":"GUNSFA4YHkk=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

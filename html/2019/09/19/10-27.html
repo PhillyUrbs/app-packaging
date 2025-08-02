@@ -1,0 +1,2976 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Oracle Oracle Client 10 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Oracle Client 10">
+        <meta name="keywords" content="Oracle,Oracle Oracle Client,Oracle Client 10">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/oracle/oracle-client/10-27" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+            <li class="first "><a href="/software">Software Tips</a></li>
+            <li ><a href="/question">Questions</a></li>
+            <li ><a href="/blog">Blogs</a></li>
+            <li ><a href="/link">Links</a></li>
+            <li ><a href="/community">Communities</a></li>
+                    </ul>
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li><a href="/software/oracle/oracle-client/versions">Oracle Client</a></li>
+    <li>10</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Oracle Oracle Client</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 10
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/12-1012"
+                                            >
+                                            12.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/11-44"
+                                            >
+                                            11.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/10-27"
+                                            >
+                                            10.x <span>(17 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/9-28"
+                                            >
+                                            9.x <span>(16 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/8-39"
+                                            >
+                                            8.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/1190/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZvcmFjbGUtY2xpZW50JTJGMTAtMjc=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/1190/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZvcmFjbGUtY2xpZW50JTJGMTAtMjc=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 15.3k &nbsp|&nbsp
+    Created: 05/17/2006
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version1190" type="radio" class="star" disabled="disabled"  />
+    <input name="Version1190" type="radio" class="star" disabled="disabled"  />
+    <input name="Version1190" type="radio" class="star" disabled="disabled"  />
+    <input name="Version1190" type="radio" class="star" disabled="disabled"  />
+    <input name="Version1190" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Oracle Client has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">18 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">3 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (17)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>8</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Repackaged (to a setup.msi)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/1190" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="ENvudYKHUzFsIC8v94mQHJWf-djKEEGwufXLRxb5oPM"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/oracle-client/10-27#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/oracle-client/10-27/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_92" name="tip_92">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-92"></div> -->
+   <div id="tip-92" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">140</div>
+   <div id="tip-92" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-92"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            You can create a respons file with these parameters:<br />
+<br />
+setup -record -destinationFile {response_file_name} 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nowhere" class="username" rel="nofollow">nowhere</a>
+                </li>
+                <li>
+                    11/15/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_89" name="tip_89">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-89"></div> -->
+   <div id="tip-89" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">134</div>
+   <div id="tip-89" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-89"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            setup.exe -nowait -force -silent -responseFile xyz.rsp<br />
+<br />
+-nowait closes the console window when the silent installation completes, which would otherwise wait for input.<br />
+<br />
+-force allows install to a not empty directory.<br />
+<br />
+you might want to add -waitforcompletion if you want setup.exe to run untill installation completes, instead of forking into javaw.exe
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    05/17/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_91" name="tip_91">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-91"></div> -->
+   <div id="tip-91" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">131</div>
+   <div id="tip-91" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-91"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            I found that the -waitforcompletion parameter only worked when launching the Oracle Universal Installer (OUI.EXE) directly. SETUP.EXE does not seem to use it.<br />
+<br />
+OUI.EXE is found in the Install folder.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/davestiff" class="username" rel="nofollow">davestiff</a>
+                </li>
+                <li>
+                    10/14/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_90" name="tip_90">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-90"></div> -->
+   <div id="tip-90" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">128</div>
+   <div id="tip-90" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-90"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            On German Windows XP there is a problem creating response files. They lack the sections containing language selection and selected products to install.<br />
+<br />
+To get around this, you will have to modify install\oraparam.ini. Change NLS_ENABLED=TRUE to NLS_ENABLED=FALSE. After this change response file creating works.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    06/28/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_95" name="tip_95">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-95"></div> -->
+   <div id="tip-95" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">128</div>
+   <div id="tip-95" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-95"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            -waitforcompletion -nowait -noconsole -force -silent -responseFile &lt;file&gt;<br />
+<br />
+I didn't have any luck with the -waitforcompletion switch when I was using the setup.exe, you may have better luck with the oui.exe.  I'm also not sure if you need to -nowait switch as it is for the pause at the end of the installation if your using the console.<br />
+<br />
+The big addition I wanted to add is the -noconsole switch, since the silent switch just removes the gui.  With the gui gone, all the output is directed to the console window which is left floating about.  The -noconsole switch as its name suggests will prevent the console from being instantiated and the install is then silent.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Mcleod" class="username" rel="nofollow">Mcleod</a>
+                </li>
+                <li>
+                    11/19/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_94" name="tip_94">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-94"></div> -->
+   <div id="tip-94" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">123</div>
+   <div id="tip-94" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-94"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>When deploying a patch like 10.2.0.3.0, you should refrain from recording your own response file for the patchset. Instead use the short and simple sample response file provided in disk1\response. This one rsp will work for deploying the patch on top of all runtime, custom and admin deployments of 10.2.0.1.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    01/23/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_93" name="tip_93">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-93"></div> -->
+   <div id="tip-93" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">120</div>
+   <div id="tip-93" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-93"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            That little tip about using the alternative setup.exe/oui.exe from the install directory just fixed a problem I'd been having for about a week (i.e. how to get the package script to wait before running some post-installation stuff).  Previously I'd been doing all sorts of checks to see when the logfile was created and then killing java.exe<br />
+<br />
+God I hate the OUI.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ginolard" class="username" rel="nofollow">ginolard</a>
+                </li>
+                <li>
+                    01/03/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_98" name="tip_98">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-98"></div> -->
+   <div id="tip-98" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">8</div>
+   <div id="tip-98" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-98"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Voor windows 7 unattended install<br />
+<br />
+Toevoegen van versie 6.1 in de files<br />
+stage\prereq\client_prereqs\client\refhost.xml<br />
+stage\prereq\client\refhost.xml<br />
+        &lt;!--Microsoft Windows 7--&gt;<br />
+        &lt;OPERATING_SYSTEM&gt;<br />
+            &lt;VERSION VALUE="6.1"/&gt;<br />
+        &lt;/OPERATING_SYSTEM&gt;
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jsoetens" class="username" rel="nofollow">jsoetens</a>
+                </li>
+                <li>
+                    10/21/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-7317">
+        <a name="comment-7317"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/ejhager" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/ejhager" rel="nofollow">ejhager</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                                    last edited 5 years ago
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">You need to add the version in ..\install\oraparam.ini under the section [Certified versions]</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_99" name="tip_99">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-99"></div> -->
+   <div id="tip-99" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">8</div>
+   <div id="tip-99" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-99"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            This is what my final solution ended up looking like for a completely silent install using the custom response file: <br />
+<br />
+setup.exe -NOWAIT -NOCONSOLE -FORCE -WAITFORCOMPLETION -SILENT -RESPONSEFILE "c:\Oracle10\Oracle_1\client\response\clientcustom.rsp"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jyoung_usa" class="username" rel="nofollow">jyoung_usa</a>
+                </li>
+                <li>
+                    03/02/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_102" name="tip_102">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-102"></div> -->
+   <div id="tip-102" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">6</div>
+   <div id="tip-102" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-102"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            This commandline worked for an uninstall:<br />
+<br />
+setup.exe -deinstall -silent -noconsole -force -removeallfiles ORACLE_HOME="PathToHome" REMOVE_HOMES={"PathToHome"}<br />
+<br />
+Note: You have to make the script wait until javaw.exe is done. There are a few files left in %ProgramFiles%\Oracle and the startmenu shortcuts are not removed
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/stefanz" class="username" rel="nofollow">stefanz</a>
+                </li>
+                <li>
+                    01/10/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_96" name="tip_96">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-96"></div> -->
+   <div id="tip-96" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-96" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-96"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            This Batch File worked well for me.  Got it from <a href="http://blog.stealthpuppy.com/unattended/unattended-install-oracle-10g-r2-client">this website</a>.<br />
+<br />
+-----------------<br />
+@ECHO OFF<br />
+ECHO Oracle 10g R2 Client 10.2.0.3 Client (FULL)..<br />
+SET OPTIONS=<br />
+SET OPTIONS=ORACLE_HOME=%SYSTEMDRIVE%\Oracle\OraHome10<br />
+SET OPTIONS=%OPTIONS% ORACLE_HOME_NAME=OraHome10<br />
+SET OPTIONS=%OPTIONS% TOPLEVEL_COMPONENT={"oracle.client","10.2.0.3.0"}<br />
+SET OPTIONS=%OPTIONS% SHOW_SPLASH_SCREEN=false<br />
+SET OPTIONS=%OPTIONS% SHOW_WELCOME_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_CUSTOM_TREE_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_SUMMARY_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_INSTALL_PROGRESS_PAGE=true<br />
+SET OPTIONS=%OPTIONS% SHOW_CONFIG_TOOL_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_XML_PREREQ_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_ROOTSH_CONFIRMATION=false<br />
+SET OPTIONS=%OPTIONS% SHOW_END_SESSION_PAGE=false<br />
+SET OPTIONS=%OPTIONS% SHOW_EXIT_CONFIRMATION=false<br />
+SET OPTIONS=%OPTIONS% NEXT_SESSION=false<br />
+SET OPTIONS=%OPTIONS% NEXT_SESSION_ON_FAIL=false<br />
+SET OPTIONS=%OPTIONS% COMPONENT_LANGUAGES={"en"}<br />
+SET OPTIONS=%OPTIONS% INSTALL_TYPE="Administrator"<br />
+SET OPTIONS=%OPTIONS% oracle.client:DEPENDENCY_LIST={"oracle.winprod:10.2.0.3.0","oracle.network.client:10.2.0.3.0"}<br />
+SET OPTIONS=%OPTIONS% oracle.winprod:DEPENDENCY_LIST={"oracle.ntrdbms.admin:10.2.0.3.0","oracle.ntrdbms.perfmon:10.2.0.3.0","oracle.oo4o:10.2.0.3.0","oracle.odbc:10.2.0.3.0","oracle.ntoledb:10.2.0.3.0","oracle.ntoledb.odp_net:10.2.0.3.0"}<br />
+SET OPTIONS=%OPTIONS% oracle.has.common:OPTIONAL_CONFIG_TOOLS="{}"<br />
+SET OPTIONS=%OPTIONS% oracle.network.client:OPTIONAL_CONFIG_TOOLS="{}"<br />
+START /WAIT INSTALL\oui.exe -silent %OPTIONS% -nowelcome -noconfig -waitforcompletion -force -nowait<br />
+ <br />
+REM Copy configuration files for NetConfig/Net Manager<br />
+COPY THPCONFIG\*.* %SYSTEMDRIVE%\oracle\OraHome10\network\ADMIN<br />
+<br />
+EXIT<br />
+---------------------------
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nate630" class="username" rel="nofollow">nate630</a>
+                </li>
+                <li>
+                    06/19/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_100" name="tip_100">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-100"></div> -->
+   <div id="tip-100" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-100" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-100"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            In developing a fully silent install for Oracle 10 I ended up using the vendor provided clientcustom.rsp file.  In my testing I found that this response file did not install the ODBC portion of the install.  After recording a response file I noticed that some entries are missing from for ODBC.  Here are the entries that are missing: <br />
+<br />
+#	      oracle.winprod:10.2.0.1.0 - Oracle ODBC<br />
+#	      oracle.ntoramts:10.2.0.1.0 - Oracle ODBC<br />
+#	      oracle.oo4o:10.2.0.1.0 - Oracle ODBC<br />
+# 	      oracle.odbc:10.2.0.1.0 - Oracle ODBC<br />
+#	      oracle.ntoledb:10.2.0.1.0 - Oracle ODBC<br />
+# 	      oracle.ntoledb.odp_net:10.2.0.1.0 -Oracle ODBC<br />
+<br />
+My response filed ends up looking like this: <br />
+<br />
+DEPENDENCY_LIST={"oracle.winprod:10.2.0.1.0","oracle.ntoramts:10.2.0.1.0","oracle.oo4o:10.2.0.1.0","oracle.odbc:10.2.0.1.0","oracle.ntoledb:10.2.0.1.0","oracle.ntoledb.odp_net:10.2.0.1.0","oracle.rdbms.util:10.2.0.1.0","oracle.javavm.client:10.2.0.1.0","oracle.sqlplus:10.2.0.1.0","oracle.dbjava.jdbc:10.2.0.1.0","oracle.ldap.client:10.2.0.1.0","oracle.rdbms.oci:10.2.0.1.0","oracle.precomp:10.2.0.1.0","oracle.xdk:10.2.0.1.0","oracle.swd.opatch:10.2.0.1.0","oracle.network.aso:10.2.0.1.0","oracle.oem.client:10.2.0.1.0","oracle.oraolap.mgmt:10.2.0.1.0","oracle.network.client:10.2.0.1.0","oracle.ordim.client:10.2.0.1.0","oracle.ons:10.1.0.3.0", "oracle.has.client:10.2.0.1.0"}
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jyoung_usa" class="username" rel="nofollow">jyoung_usa</a>
+                </li>
+                <li>
+                    03/02/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_97" name="tip_97">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-97"></div> -->
+   <div id="tip-97" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-97" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-97"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Unattended setup is failing on windows 7 because of check on the build number. Win7 version is 6.1, oracle client check for version 6.0</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jsoetens" class="username" rel="nofollow">jsoetens</a>
+                </li>
+                <li>
+                    10/21/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_103" name="tip_103">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-103"></div> -->
+   <div id="tip-103" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-103" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-103"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Installation Command Line:<br />
+---------------------------<br />
+<br />
+OUI.exe -NOWAIT -NOCONFIG -NOCONSOLE -FORCE -WAITFORCOMPLETION -SILENT -RESPONSEFILE "C:\Source\Response\clientadmin.rsp"<br />
+<br />
+OR<br />
+<br />
+Setup.exe -NOWAIT -NOCONFIG -NOCONSOLE -FORCE -WAITFORCOMPLETION -SILENT -RESPONSEFILE "C:\Source\Response\clientadmin.rsp"<br />
+<br />
+(Both Oui.exe and Setup.exe worked fine for me. However, I feel using Oui.exe is better as it wait untill the installation completes. Where as Setup.exe disappears soon after the initial installation triggers).<br />
+<br />
+<br />
+Uninstallation Command Line:<br />
+-----------------------------<br />
+<br />
+Setup.exe -deinstall -silent -noconsole -force -removeallfiles ORACLE_HOME="HomeName" REMOVE_HOMES={"PathToHome"}<br />
+<br />
+Setup.exe can be found from the installed files in the destination machine. Eg: C:\Oracle\Product\10.2.0\Client_1\OUI\Bin\Setup.exe<br />
+<br />
+HomeName is the name of the Oracle Client installed in the machine. Eg: "OraClient10g_home1"<br />
+<br />
+PathToHome is the path where the Oracle files are installed in the destination machine. Eg: "C:\Oracle\Product\10.2.0\Client_1"<br />
+<br />
+(The values of "HomeName" and "PathToHome" may vary according to the different Oracle products installed in to the machine.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/shambhusnair" class="username" rel="nofollow">shambhusnair</a>
+                </li>
+                <li>
+                    03/07/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6374" name="tip_6374">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6374"></div> -->
+   <div id="tip-6374" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-6374" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6374"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I install to C:\oracle or C:\oracle64 pending the client bitness.
+
+In Windows 7, remember to choose the correct ODBC control panel.  There is a different ODBC panel for 32-bit hidden in syswow64.
+
+â€¢After installation, you will need to run C:\oracle64\product\11.2.0\client_1\instantclient\odbc_install.exe by right clicking it and running it as administrator. It will display a brief DOS prompt and you can click to say the program installed correctly.
+
+â€¢Run C:/Windows/system32/odbcad.exe
+â€¢Change to the System DSN tab.
+â€¢Choose the appropriate connection (created by the KACE installation if you used my registry notes) and click configure.
+â€¢You can enter the username for the connection if it is not already filled in.
+
+Use the following for the DSN propeties if you want to use the Oracle ODBC with Access or Excel:
+
+â€¢On the Application tab, make sure only the following boxes are checked: 
+â€¢Enable Result Sets
+â€¢Enable Query Timeout
+â€¢Read-Only Connection
+â€¢Enable Thread Saftey
+â€¢On the Oracle tab, make sure only the following boxes are checked: 
+â€¢Enable LOBs
+â€¢Enable Statement Caching
+â€¢Enable Failover
+â€¢Still on the Oracle tab, make the following changes to settings: 
+â€¢The Fetch Buffer Size should be equal to or greater than 128000.
+â€¢The Cache Buffer Size should be equal to or greater than 2000.
+â€¢The Enable Failover Retry and Delay settings should both equal 10.
+â€¢On the Workarounds tab, make sure only the following boxes are checked: 
+â€¢Bind TIMESTAMP as DATE
+â€¢Bind NUMBER as FLOAT
+â€¢Disable RULE hint
+â€¢It is extremely important to uncheck Disable Microsoft Transaction Server on the Workarounds tab. This is selected by default and significantly slows down linked table queries through Access.'
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/philologist" class="username" rel="nofollow">philologist</a>
+                </li>
+                <li>
+                    05/04/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6534" name="tip_6534">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6534"></div> -->
+   <div id="tip-6534" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">-1</div>
+   <div id="tip-6534" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6534"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>@Nate630:</p>
+<p>Thanks for the script, it helped me a lot! Nearing the end of the installation though, there are 2 pop-ups with the MSIexec help screen. I've looked through the script and the installer files, but there's no reference of an MSI or msiexec, so where does this come from?</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/itsMuppet" class="username" rel="nofollow">itsMuppet</a>
+                </li>
+                <li>
+                    06/18/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_101" name="tip_101">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-101"></div> -->
+   <div id="tip-101" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">-5</div>
+   <div id="tip-101" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-101"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I just like to add: Contrary to what most people seem to say, I found repacking a lot better than using it's own unattended setup. It's fairly easy to repackage Oracle into a MSI and afterwards the deployment gives far less trouble (the setup always seems to find a excuse to fail again)</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Rheuvel" class="username" rel="nofollow">Rheuvel</a>
+                </li>
+                <li>
+                    12/15/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/1190/2322">
+                                    10
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Oracle Client</h2>
+            <div><h3>Version</h3><span>10</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (18)
+                            </h3>
+            <p>Questions & Answers related to Oracle Oracle Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-create-an-oracle-10g-client-silent-package" class="title">
+            How to create an Oracle 10g  client silent package?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-create-an-oracle-10g-client-silent-package" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-an-oracle-10g-client-silent-package" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-an-oracle-10g-client-silent-package" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-create-an-oracle-10g-client-silent-package" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-an-oracle-10g-client-silent-package" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sanjaypatel_s23" rel="nofollow">sanjaypatel_s23</a>
+                5 years ago 10.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/reading-data-s-from-the-local-machine" class="title">
+            Reading data from the Local machine with a virtualized application
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="reading-data-s-from-the-local-machine" type="radio" class="star" disabled="disabled"  />
+    <input name="reading-data-s-from-the-local-machine" type="radio" class="star" disabled="disabled"  />
+    <input name="reading-data-s-from-the-local-machine" type="radio" class="star" disabled="disabled"  />
+    <input name="reading-data-s-from-the-local-machine" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="reading-data-s-from-the-local-machine" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/virtualize" rel="nofollow">virtualize</a>
+                5 years ago 1.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/dsc-linked-app-v-sequences-last-launching-registry-wins" class="title">
+            DSC Linked App-V Sequences - Last Launching Registry &#039;Wins&#039;?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dsc-linked-app-v-sequences-last-launching-registry-wins" type="radio" class="star" disabled="disabled"  />
+    <input name="dsc-linked-app-v-sequences-last-launching-registry-wins" type="radio" class="star" disabled="disabled"  />
+    <input name="dsc-linked-app-v-sequences-last-launching-registry-wins" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="dsc-linked-app-v-sequences-last-launching-registry-wins" type="radio" class="star" disabled="disabled"  />
+    <input name="dsc-linked-app-v-sequences-last-launching-registry-wins" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dunnpy" rel="nofollow">dunnpy</a>
+                5 years ago 4.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-sequence-the-oracle-11g-client-with-another-application" class="title">
+            How to sequence the oracle 11g client with another application?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-sequence-the-oracle-11g-client-with-another-application" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-sequence-the-oracle-11g-client-with-another-application" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-sequence-the-oracle-11g-client-with-another-application" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-sequence-the-oracle-11g-client-with-another-application" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-sequence-the-oracle-11g-client-with-another-application" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/alberta" rel="nofollow">alberta</a>
+                5 years ago 8.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" class="title">
+            Path not found when performing a Scripted Install and Silent install of Oracle 11g R2 Client
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" type="radio" class="star" disabled="disabled"  />
+    <input name="path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" type="radio" class="star" disabled="disabled"  />
+    <input name="path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" type="radio" class="star" disabled="disabled"  />
+    <input name="path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/rjobe" rel="nofollow">rjobe</a>
+                5 years ago 3.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" class="title">
+            Oracle 11g r2 Client not installing after deploying through SCCM2012
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Dabears!" rel="nofollow">Dabears!</a>
+                5 years ago 11.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" class="title">
+            How to uninstall Oracle Client 11g on windows 7 machine SILENTLY
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/shreeitninja" rel="nofollow">shreeitninja</a>
+                5 years ago 17.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" class="title">
+            Oracle 11g Do I have to uninstall Oracle 10g when installing 11g?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/superz202" rel="nofollow">superz202</a>
+                5 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/odac-11-2-0-3-0" class="title">
+            Deploying ODAC 11.2.0.3.0
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="odac-11-2-0-3-0" type="radio" class="star" disabled="disabled"  />
+    <input name="odac-11-2-0-3-0" type="radio" class="star" disabled="disabled"  />
+    <input name="odac-11-2-0-3-0" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="odac-11-2-0-3-0" type="radio" class="star" disabled="disabled"  />
+    <input name="odac-11-2-0-3-0" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/oreillyr" rel="nofollow">oreillyr</a>
+                5 years ago 9.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-client-10-2-0-3-0-silent-install" class="title">
+            Oracle Client - 10.2.0.3.0 Silent install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-client-10-2-0-3-0-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10-2-0-3-0-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10-2-0-3-0-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10-2-0-3-0-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10-2-0-3-0-silent-install" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Torisdale" rel="nofollow">Torisdale</a>
+                4 years ago 4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" class="title">
+            Questions about Oracle 9i Deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" type="radio" class="star" disabled="disabled"  />
+    <input name="i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" type="radio" class="star" disabled="disabled"  />
+    <input name="i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" type="radio" class="star" disabled="disabled"  />
+    <input name="i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sridhark" rel="nofollow">sridhark</a>
+                4 years ago 1.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-10g-1" class="title">
+            Oracle 10g silent installation error - PSAPI.DLL
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-10g-1" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-10g-1" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-10g-1" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-10g-1" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-10g-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/786_ak" rel="nofollow">786_ak</a>
+                3 years ago 9.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               786_ak commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                10
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/install-deinstall-of-oracle-developer-suite-10g" class="title">
+            Install /Deinstall of Oracle Developer suite 10g
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="install-deinstall-of-oracle-developer-suite-10g" type="radio" class="star" disabled="disabled"  />
+    <input name="install-deinstall-of-oracle-developer-suite-10g" type="radio" class="star" disabled="disabled"  />
+    <input name="install-deinstall-of-oracle-developer-suite-10g" type="radio" class="star" disabled="disabled"  />
+    <input name="install-deinstall-of-oracle-developer-suite-10g" type="radio" class="star" disabled="disabled"  />
+    <input name="install-deinstall-of-oracle-developer-suite-10g" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Novice_123" rel="nofollow">Novice_123</a>
+                11 years ago 20k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-client-10g-10-2-on-windows-7-32-bit" class="title">
+            Oracle Client 10g (10.2) on Windows 7 32-bit
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-client-10g-10-2-on-windows-7-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10g-10-2-on-windows-7-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10g-10-2-on-windows-7-32-bit" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="oracle-client-10g-10-2-on-windows-7-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-client-10g-10-2-on-windows-7-32-bit" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jimcox" rel="nofollow">jimcox</a>
+                7 years ago 24.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/another-oracle-client-package" class="title">
+            Another Oracle Client Package
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="another-oracle-client-package" type="radio" class="star" disabled="disabled"  />
+    <input name="another-oracle-client-package" type="radio" class="star" disabled="disabled"  />
+    <input name="another-oracle-client-package" type="radio" class="star" disabled="disabled"  />
+    <input name="another-oracle-client-package" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="another-oracle-client-package" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/WiseKrispy" rel="nofollow">WiseKrispy</a>
+                9 years ago 7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/issetupdriven-1" class="title">
+            ISSETUPDRIVEN=1
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="issetupdriven-1" type="radio" class="star" disabled="disabled"  />
+    <input name="issetupdriven-1" type="radio" class="star" disabled="disabled"  />
+    <input name="issetupdriven-1" type="radio" class="star" disabled="disabled"  />
+    <input name="issetupdriven-1" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="issetupdriven-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/murali.bhat" rel="nofollow">murali.bhat</a>
+                7 years ago 16.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                7
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/multiple-oracle-clients" class="title">
+            Multiple Oracle Clients
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="multiple-oracle-clients" type="radio" class="star" disabled="disabled"  />
+    <input name="multiple-oracle-clients" type="radio" class="star" disabled="disabled"  />
+    <input name="multiple-oracle-clients" type="radio" class="star" disabled="disabled"  />
+    <input name="multiple-oracle-clients" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="multiple-oracle-clients" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sh79" rel="nofollow">sh79</a>
+                9 years ago 18.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/installing-oracle-client-10g-by-startup-script" class="title">
+            Installing Oracle Client 10g By StartUp Script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="installing-oracle-client-10g-by-startup-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-oracle-client-10g-by-startup-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-oracle-client-10g-by-startup-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-oracle-client-10g-by-startup-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-oracle-client-10g-by-startup-script" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/AppsPackager1299" rel="nofollow">AppsPackager1299</a>
+                3 years ago 2.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Oracle Oracle Client</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (3)
+                            </h3>
+
+            <p>Links related to Oracle Oracle Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/using-the-oracle-universal-installer-silent-install-using-response-files" class="title">
+                Using the Oracle Universal Installer: Silent Install Using Response Files
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="using-the-oracle-universal-installer-silent-install-using-response-files" type="radio" class="star" disabled="disabled"  />
+    <input name="using-the-oracle-universal-installer-silent-install-using-response-files" type="radio" class="star" disabled="disabled"  />
+    <input name="using-the-oracle-universal-installer-silent-install-using-response-files" type="radio" class="star" disabled="disabled"  />
+    <input name="using-the-oracle-universal-installer-silent-install-using-response-files" type="radio" class="star" disabled="disabled"  />
+    <input name="using-the-oracle-universal-installer-silent-install-using-response-files" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sample-resonse-file" class="title">
+                Sample Resonse File
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sample-resonse-file" type="radio" class="star" disabled="disabled"  />
+    <input name="sample-resonse-file" type="radio" class="star" disabled="disabled"  />
+    <input name="sample-resonse-file" type="radio" class="star" disabled="disabled"  />
+    <input name="sample-resonse-file" type="radio" class="star" disabled="disabled"  />
+    <input name="sample-resonse-file" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/oracle-9i-silent-installation" class="title">
+                Oracle 9i &quot;Silent&quot; Installation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-9i-silent-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-9i-silent-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-9i-silent-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-9i-silent-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-9i-silent-installation" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                14 years ago 3.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Oracle Client</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">bd7ebcd</div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

@@ -1,0 +1,2069 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for (Open Source) GIMP 2</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to (Open Source) GIMP 2">
+    <meta name="keywords" content="(Open Source),(Open Source) GIMP,GIMP 2">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/open-source-1/gimp-5/2-6046" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2022 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/open-source-1">(Open Source)</a></li>
+    <li><a href="/software-library/company/open-source-1/gimp-5">GIMP</a></li>
+    <li>2</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>(Open Source) GIMP</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 2
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/open-source-1/gimp-5/2-6046"
+                                            >
+                                            2.x <span>(12 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/47198/JTJGc29mdHdhcmUlMkZvcGVuLXNvdXJjZS0xJTJGZ2ltcC01JTJGMi02MDQ2">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/47198/JTJGc29mdHdhcmUlMkZvcGVuLXNvdXJjZS0xJTJGZ2ltcC01JTJGMi02MDQ2">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 43.5k &nbsp|&nbsp
+    Created: 07/10/2008
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="47198"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=1
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                GIMP has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">2 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">3 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (12)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/blue.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>1 / 5 (Very Easy)</strong>
+                            based on <strong>3</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/open-source-1/gimp-5/2-6046#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/open-source-1/gimp-5/2-6046/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_3635" name="tip_3635">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3635"></div> -->
+   <div id="tip-3635" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">125</div>
+   <div id="tip-3635" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3635"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            To repackage as an MSI, download the Windows installer available at http://www.gimp.org/downloads/ and prep Wise Package Studio to do a SetupCapture.<br />
+<br />
+Run the installation, making whatever setup choices make sense for your site.  For mine, I took the defaults except for not installing a desktop icon or quick launch icon and associating JPEG files with it.<br />
+<br />
+At the end of the install, launch The GIMP.  If you like, turn off the tips at startup.  Exit The GIMP.<br />
+<br />
+Continue the SetupCapture process.  <br />
+<br />
+Exclude any files that are in the installing user ID's "Documents and Settings" folder.  Exclude any other files picked up that aren't in the GIMP-2.0 directory.<br />
+<br />
+Exclude any Registry keys you pick up that aren't in HKCR or HKLM\SOFTWARE.<br />
+<br />
+Exclude any INI files picked up.<br />
+<br />
+Exclude shortcuts for Readme (optional) and Uninstall (strongly recommended).<br />
+<br />
+Finish the SetupCapture.<br />
+<br />
+Edit the WSI in Windows Installer Editor.  <br />
+<br />
+Under Product Details, enter the correct GIMP version.<br />
+<br />
+Under Add/Remove Programs, check the "Hide Modify Button" option.  If you want a nice icon to appear in the Add/Remove Programs Control Panel, click the "Browse" button next to the "Display Icon" option.  Browse to C:\Program Files\GIMP-2.0\bin and select gimp2.4.exe (or the now-current version number). Select Icon #1.  Click OK.  <br />
+<br />
+Fill in any of the Support Information you like with appropriate data.<br />
+<br />
+Compile the WSI into an MSI.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/msalsbury" class="username" rel="nofollow">msalsbury</a>
+                </li>
+                <li>
+                    07/13/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3638" name="tip_3638">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3638"></div> -->
+   <div id="tip-3638" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">10</div>
+   <div id="tip-3638" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3638"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For GIMP 2.6.6 on Windows I was able to get a silent install with no desktop icon using the following:<br />
+<br />
+gimp-2.6.6-i686-setup.exe /VERYSILENT /NORESTART /MERGETASKS="!desktopicon"<br />
+<br />
+The /VERYSILENT switch worked better than just the /SILENT switch and /NORESTART didn't seem to be necessary but I left it in for good measure.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cdmontgomery" class="username" rel="nofollow">cdmontgomery</a>
+                </li>
+                <li>
+                    05/04/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-39823">
+            <a name="comment-39823"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">Thanks this works. -
+                    <a class="username" href="/user/VexingGoat" rel="nofollow">VexingGoat</a>
+                    <small>6 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3639" name="tip_3639">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3639"></div> -->
+   <div id="tip-3639" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">6</div>
+   <div id="tip-3639" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3639"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            auto-install : <br />
+GIMP_2_6_7_fr.exe /silent /norestart /SUPPRESSMSGBOXES<br />
+<br />
+silent install<br />
+GIMP_2_6_7_fr.exe /verysilent /norestart /SUPPRESSMSGBOXES<br />
+<br />
+uninstall : <br />
+"C:\Program Files\GIMP-2.0\setup\unins000.exe"  /silent /norestart /SUPPRESSMSGBOXES
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/vbreil" class="username" rel="nofollow">vbreil</a>
+                </li>
+                <li>
+                    09/18/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3633" name="tip_3633">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3633"></div> -->
+   <div id="tip-3633" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-3633" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3633"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I downloaded the separate parts that make up and support the GIMP here: http://www.gimp.org/windows/<br />
+<br />
+The gimp-help package will bomb out if gimp already is not installed, so make sure you install gimp-help after gimp and gtk.<br />
+<br />
+gtk+-2.8.18-setup-1.exe /SP- /SILENT /NORESTART<br />
+gimp-2.2.13-i586-setup-1.exe /SP- /SILENT /NORESTART<br />
+gimp-help-2-0.10-setup.exe /SP- /SILENT /NORESTART<br />
+gimp-gap-2.2.0-setup.exe /SP- /SILENT /NORESTART<br />
+<br />
+Run one of the first two EXEs with /? to get the command-line options (amazing that /? is understood by anything other than msiexec these days). The help and animation package EXEs don't understand /?<br />
+<br />
+/NOICONS does not work for the GTK+ runtime, so you'll have to move its program group as a separate step if you don't want to see it. It doesn't like /GROUP="Folder Name" either.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mfearby" class="username" rel="nofollow">mfearby</a>
+                </li>
+                <li>
+                    05/04/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3637" name="tip_3637">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3637"></div> -->
+   <div id="tip-3637" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-3637" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3637"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            --== GIMP 2.6.6 (Windows) ==--<br />
+<br />
+GIMP Help: if you would rather have the application default to using the web-based help rather than install the often out-of-date help installation package you can edit the following file and deliver it with your package:<br />
+<br />
+%ProgramFiles%\GIMP-2.0\etc\gimp\2.0\gimprc<br />
+<br />
+I edited with WordPad because by default the line breaks are not CR/LF and Notepad does not display it correctly.<br />
+<br />
+There are two lines to add / change.  <br />
+1 - look for "(help-browser" without the quotes (around line 620) and if the only place this appears is with a hash '#' symbol at the front then this is a comment.  Add the following line after the comment (or edit the line if it exists as not a comment):<br />
+(help-browser web-browser)<br />
+<br />
+2 - Look for "(user-manual-online" without the quotes (around line 634) and if the only place this appears is with a hash '#' symbol at the front then this is a comment.  Add the following line after the comment (or edit the line if it exists as not a comment):<br />
+(user-manual-online yes)<br />
+<br />
+These two settings mean that GIMP will not complain the first time you access help and it finds it is not installed and will not complain about the absence of the GIMP browser component since it will use the computer's default browser.<br />
+<br />
+This is not setting this as a policy, only a default.  All the settings in the gimprc file can be overridden by the user from Edit / Preferences.  Once the user uses GIMP for the first time, their own copy of gimprc is created under %USERPROFILE%\.gimp-2.6\ as soon as they set or change any preferences of their own and close GIMP.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Daz" class="username" rel="nofollow">Daz</a>
+                </li>
+                <li>
+                    05/04/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3636" name="tip_3636">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3636"></div> -->
+   <div id="tip-3636" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-3636" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3636"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For GIMP 2.6.4 (i686) straight from the .exe you need to specify the install directory for a silent install (no idea why), eg:<br />
+<br />
+gimp-2.6.4-i686-setup.exe /SILENT /NORESTART /DIR="C:\Program Files\GIMP"<br />
+<br />
+And don't try %ProgramFiles% in the install path - this doesn't seem to be handled very well.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/johnireland" class="username" rel="nofollow">johnireland</a>
+                </li>
+                <li>
+                    05/04/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6821" name="tip_6821">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6821"></div> -->
+   <div id="tip-6821" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-6821" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6821"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>GIMP 2.8.2 unattended install. Works on w7 32- and 64-bit. Sample batch file:</p>
+<p>@echo off<br />REM&nbsp; Installs GIMP<br />cls<br />echo ----------------------------------------------------<br />echo .<br />echo .<br />echo .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Installing/Updating GIMP - Please Wait<br />echo .<br />echo .<br />echo ----------------------------------------------------<br />REM Exit the application<br />taskkill.exe /F /FI "IMAGENAME eq gimp-2.8.exe" &gt;nul<br /><br />REM Uninstall existing GIMP version, delete folder<br />if exist "%ProgramFiles%\GIMP 2\uninst\unins000.exe" "%ProgramFiles%\GIMP 2\uninst\unins000.exe" /VERYSILENT<br />:: Wait for 20 seconds<br />ping -n 40 127.0.0.1 &gt; NUL<br />if exist "%ProgramFiles%\GIMP 2\" rd "%ProgramFiles%\GIMP 2\" /Q /S<br /><br />REM Install new version<br />"%~dp0gimp-2.8.2-setup.exe" /VERYSILENT /NORESTART /DIR="%PROGRAMFILES%\GIMP"<br /><br />REM Return exit code to SCCM<br />exit /B %EXIT_CODE%</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/olos" class="username" rel="nofollow">olos</a>
+                </li>
+                <li>
+                    11/14/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3634" name="tip_3634">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3634"></div> -->
+   <div id="tip-3634" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-3634" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3634"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>The GIMP in MSI format.</p>
+<p><a href="&lt;/p>
+<p>http://msi-repository.sourceforge.net"&gt;http://msi-repository.sourceforge.net</a></p>
+<p>Current versions (as of 12/14/2006) are:</p>
+<p>   - Gimp 2.2.8 w/GTK 2.6.8-1</p>
+<p>   - Gimp 2.2.8</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/MTannert" class="username" rel="nofollow">MTannert</a>
+                </li>
+                <li>
+                    05/04/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8271" name="tip_8271">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8271"></div> -->
+   <div id="tip-8271" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-8271" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8271"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>I deployed Gimp 2.8.10 with SCCM with this command line:</p><p><strong>gimp-2.8.10-setup.exe /VERYSILENT /NORESTART</strong></p><p>Uninstall command line is :</p><p><strong>%Program Files%\GIMP 2\uninst\unins000.exe</strong></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KevinViolette" class="username" rel="nofollow">KevinViolette</a>
+                </li>
+                <li>
+                    08/05/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3640" name="tip_3640">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3640"></div> -->
+   <div id="tip-3640" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-3640" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3640"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Virtualization</div>
+
+            <span id="tip-text">
+            Successfully sequenced Gimp 2.6.11<br />
+<br />
+Here the recipe:<br />
+<br />
+Application information<br />
+Application name: Gimp<br />
+Application version: 2.6.11<br />
+Application vendor: The Gimp Team<br />
+Application language: german incl. german help<br />
+<br />
+<br />
+Recipe information<br />
+Recipe created by: Kollenbach Ch.<br />
+Operating System version: Win XP x86 <br />
+Operating System language: enu<br />
+Sequencer version: 4.6<br />
+<br />
+<br />
+Sequencing environment preparation information:<br />
+At first you have to download the Gimp and the Help File from http://www.gimp.org.<br />
+Then you have to create a MSI package with an MSI creation tool (such as Macromedia Adminstudio).<br />
+Do to this:<br />
+1.	Install a clean machine (-&gt; WS01)<br />
+2.	Install the Gimp and the Help File on WS01<br />
+        a.	During install uncheck the File Associations<br />
+        b.	Do not launch Gimp after install.<br />
+3.	Open the Adminstudio and create a new MSI Package.<br />
+4.	Edit the file Ã¢Â€ÂœC:\Program Files\GIMP-2.0\lib\gimp\2.0\environ\default.envÃ¢Â€Â with a txt-editor (e.g. Notepad)<br />
+Delete the Path entry.<br />
+Save the File<br />
+5.	Put all the files from the InstallDir (e.g.: C:\Program Files\Gimp-2.0) to the MSI package (without the sub-dir Ã¢Â€ÂœC:\Program Files\Gimp-2.0\setupÃ¢Â€Â Ã¢Â€Â“ these are the uninstall files. You do not need them, because you are creating a own msi package and the uninstall-handling does the msi installer itself.)<br />
+6.	Within the section Ã¢Â€ÂœINI File changesÃ¢Â€Â link the Ã¢Â€Âœdefault.envÃ¢Â€Â file to it.<br />
+      a.	Create a new Entry: Ã¢Â€ÂœPathÃ¢Â€Â (within Adminstudio you have to create a Ã¢Â€ÂœsectionÃ¢Â€Â first).<br />
+      b.	Within the properties: Change Ã¢Â€ÂœActionÃ¢Â€Â to Ã¢Â€ÂœReplace old ValueÃ¢Â€Â<br />
+      c.	Within the properties: Change Ã¢Â€ÂœData ValueÃ¢Â€Â to Ã¢Â€Âœ[INSTALLDIR]bin<br />
+(If you install Gimp to e.g: Ã¢Â€ÂœC:\Gimp123Ã¢Â€Â this results in Ã¢Â€ÂœC:\Gimp123\binÃ¢Â€Â).<br />
+7.	Within the section Ã¢Â€ÂœEnvironment VariablesÃ¢Â€Â create a new Environment Variable GIMP2_DIRECTORY<br />
+Properties of the Environment Variable are:<br />
+      a.	Value		[CommonAppDataFolder]Gimp<br />
+      b.	On Install	Create<br />
+      c.	Placement	Replace<br />
+      d.	On Uninstall	Remove<br />
+      e.	Type 		System<br />
+Explanation:<br />
+If you start Gimp with the default installation the first time, gimp creates a Ã¢Â€Âœ.gimp2.6Ã¢Â€Â Directory (Yes Ã¢Â€Â“ Dir-name with a Dot !! as the first letter) within the UserProfile.<br />
+Because Windows canÃ¢Â€Â™t handle such Dot-Directories very good we have to set an environment variable (see gimprc file).<br />
+<br />
+If you do the config as in point 7, gimp creates the dir within the Ã¢Â€ÂœC:\Documents and Settings\All Users\Application Data\GimpÃ¢Â€Â.<br />
+<br />
+8.	Put all the DLLÃ¢Â€Â™s from the directory Ã¢Â€ÂœC:\Program Files\Gimp-2.0\binÃ¢Â€Â to the SYSTEM Directory to the MSI Package.<br />
+If you donÃ¢Â€Â™t do that you will get an error like Ã¢Â€Âœcant find libgimpui-2.0-0.dllÃ¢Â€Â after starting the sequenced app on a client workstation.<br />
+9.	Do some settings like Manufacturer, SupportSite, Icon,Shortcuts etc)<br />
+10.	Save the MSI Package.<br />
+<br />
+Sequencing instructions:<br />
+Install App to J:\Tools\Graphics\Gimp  (we use the J:\Drive instead of Q:\)<br />
+<br />
+Installation phase:<br />
+Install the app to j:\tools\graphics\gimp<br />
+<br />
+Configure Application phase (Shortcuts):<br />
+Change the Gimp Version to 2.6.11<br />
+<br />
+Application launch phase:<br />
+Launch the App.<br />
+Note: Launching takes several time<br />
+Close the App<br />
+<br />
+Post-wizards steps:<br />
+Delete all the files of CSIDL_COMMON_APPDATA directory within the tab Ã¢Â€ÂœVirtual File SystemÃ¢Â€Â. (these files are the files described in point 7, they will be copied/created at the 1st start of the App on a client workstation.<br />
+<br />
+Other things to note:<br />
+none<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hans.dampf" class="username" rel="nofollow">hans.dampf</a>
+                </li>
+                <li>
+                    02/10/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6096" name="tip_6096">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6096"></div> -->
+   <div id="tip-6096" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6096" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6096"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Virtualization</div>
+
+            <span id="tip-text">
+            Successfully sequenced Gimp 2.6.11<br />
+<br />
+Here the recipe:<br />
+<br />
+Application information<br />
+Application name: Gimp<br />
+Application version: 2.6.11<br />
+Application vendor: The Gimp Team<br />
+Application language: german incl. german help<br />
+<br />
+<br />
+Recipe information<br />
+Recipe created by: Kollenbach Ch.<br />
+Operating System version: Win XP x86 <br />
+Operating System language: enu<br />
+Sequencer version: 4.6<br />
+<br />
+<br />
+Sequencing environment preparation information:<br />
+At first you have to download the Gimp and the Help File from http://www.gimp.org.<br />
+Then you have to create a MSI package with an MSI creation tool (such as Macromedia Adminstudio).<br />
+Do to this:<br />
+1.	Install a clean machine (-&gt; WS01)<br />
+2.	Install the Gimp and the Help File on WS01<br />
+        a.	During install uncheck the File Associations<br />
+        b.	Do not launch Gimp after install.<br />
+3.	Open the Adminstudio and create a new MSI Package.<br />
+4.	Edit the file âC:\Program Files\GIMP-2.0\lib\gimp\2.0\environ\default.envâ with a txt-editor (e.g. Notepad)<br />
+Delete the Path entry.<br />
+Save the File<br />
+5.	Put all the files from the InstallDir (e.g.: C:\Program Files\Gimp-2.0) to the MSI package (without the sub-dir âC:\Program Files\Gimp-2.0\setupâ â these are the uninstall files. You do not need them, because you are creating a own msi package and the uninstall-handling does the msi installer itself.)<br />
+6.	Within the section âINI File changesâ link the âdefault.envâ file to it.<br />
+      a.	Create a new Entry: âPathâ (within Adminstudio you have to create a âsectionâ first).<br />
+      b.	Within the properties: Change âActionâ to âReplace old Valueâ<br />
+      c.	Within the properties: Change âData Valueâ to â[INSTALLDIR]bin<br />
+(If you install Gimp to e.g: âC:\Gimp123â this results in âC:\Gimp123\binâ).<br />
+7.	Within the section âEnvironment Variablesâ create a new Environment Variable GIMP2_DIRECTORY<br />
+Properties of the Environment Variable are:<br />
+      a.	Value		[CommonAppDataFolder]Gimp<br />
+      b.	On Install	Create<br />
+      c.	Placement	Replace<br />
+      d.	On Uninstall	Remove<br />
+      e.	Type 		System<br />
+Explanation:<br />
+If you start Gimp with the default installation the first time, gimp creates a â.gimp2.6â Directory (Yes â Dir-name with a Dot !! as the first letter) within the UserProfile.<br />
+Because Windows canât handle such Dot-Directories very good we have to set an environment variable (see gimprc file).<br />
+<br />
+If you do the config as in point 7, gimp creates the dir within the âC:\Documents and Settings\All Users\Application Data\Gimpâ.<br />
+<br />
+8.	Put all the DLLâs from the directory âC:\Program Files\Gimp-2.0\binâ to the SYSTEM Directory to the MSI Package.<br />
+If you donât do that you will get an error like âcant find libgimpui-2.0-0.dllâ after starting the sequenced app on a client workstation.<br />
+9.	Do some settings like Manufacturer, SupportSite, Icon,Shortcuts etc)<br />
+10.	Save the MSI Package.<br />
+<br />
+Sequencing instructions:<br />
+Install App to J:\Tools\Graphics\Gimp  (we use the J:\Drive instead of Q:\)<br />
+<br />
+Installation phase:<br />
+Install the app to j:\tools\graphics\gimp<br />
+<br />
+Configure Application phase (Shortcuts):<br />
+Change the Gimp Version to 2.6.11<br />
+<br />
+Application launch phase:<br />
+Launch the App.<br />
+Note: Launching takes several time<br />
+Close the App<br />
+<br />
+Post-wizards steps:<br />
+Delete all the files of CSIDL_COMMON_APPDATA directory within the tab âVirtual File Systemâ. (these files are the files described in point 7, they will be copied/created at the 1st start of the App on a client workstation.<br />
+<br />
+Other things to note:<br />
+none<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hans.dampf" class="username" rel="nofollow">hans.dampf</a>
+                </li>
+                <li>
+                    02/10/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6630" name="tip_6630">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6630"></div> -->
+   <div id="tip-6630" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6630" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6630"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>GIMP 2.8.0 Silent install</p>
+<p>gimp-2.8.0-setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-</p>
+<p>Pulled from USSF and tested in SCCM 2007 R2</p>
+<p>Setup package type Inno Setup Package</p>
+<p>Verified install on W7 x64 sp1 enterprise</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+                </li>
+                <li>
+                    07/31/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/47198/101470">
+                                    2
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>GIMP</h2>
+            <div><h3>Version</h3><span>2</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (2)
+                            </h3>
+            <p>Questions & Answers related to (Open Source) GIMP</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/app-v-gimp2-8-6-error-opening-eps-files" class="title">
+            APP-V GIMP2.8.6, Error Opening EPS Files
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="28525"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/CapricornHann" rel="nofollow">CapricornHann</a>
+                9 years ago 6.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/gimp-2-6" class="title">
+            GIMP 2.6
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="6806"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                13 years ago 13.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to (Open Source) GIMP</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/gimp-2-8-16-all-users-language-change" class="title">
+            GIMP 2.8.16 All Users Language Change
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30095"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/boyangk" rel="nofollow">boyangk</a>
+                6 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (3)
+                            </h3>
+
+            <p>Links related to (Open Source) GIMP</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/slent-installer-entries-for-gimp" class="title">
+                Slent installer entries for GIMP
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4590"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/olos" rel="nofollow">olos</a>
+                9 years ago 10.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/gimp-2-6" class="title">
+                GIMP 2.6
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3199"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                13 years ago 3.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/click-here" class="title">
+                click here
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3245"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                13 years ago 3.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to (Open Source) GIMP</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2022 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

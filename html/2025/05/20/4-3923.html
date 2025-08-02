@@ -1,0 +1,2947 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Microsoft PowerShell 4</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft PowerShell 4">
+    <meta name="keywords" content="Microsoft,Microsoft PowerShell,PowerShell 4">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/microsoft/powershell/4-3923" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2025 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/microsoft">Microsoft</a></li>
+    <li><a href="/software-library/company/microsoft/powershell">PowerShell</a></li>
+    <li>4</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Microsoft PowerShell</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 4
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/windows-7-x64-9"
+                                            >
+                                            Windows 7 x64.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/windows-7-experimental-14"
+                                            >
+                                            Windows 7 (experimental).x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/windows-7-17"
+                                            >
+                                            Windows 7.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/6-579"
+                                            >
+                                            6.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/4-3923"
+                                            >
+                                            4.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/3-0-5"
+                                            >
+                                            3.0.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/2-1407"
+                                            >
+                                            2.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/powershell/1-2884"
+                                            >
+                                            1.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/64149/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZwb3dlcnNoZWxsJTJGNC0zOTIz">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/64149/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZwb3dlcnNoZWxsJTJGNC0zOTIz">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 2.3k &nbsp|&nbsp
+    Created: 12/19/2013
+    
+            by: <a href="/user/BW~Merlin" rel="nofollow">BW~Merlin</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="64149"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                PowerShell has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">84 Questions</a>,
+                <a href="#blogs" id="scrollBlog">32 Blogs</a>
+                and <a href="#links" id="scrollLinks">16 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (0)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/powershell/4-3923#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/powershell/4-3923/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <p>No deployment tips yet. Be the first to add one!</p>
+
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64149/135933">
+                                    4.0
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>PowerShell</h2>
+            <div><h3>Version</h3><span>4.0</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (84)
+                            </h3>
+            <p>Questions & Answers related to Microsoft PowerShell</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/question-about-deploying-powershell-script-via-kace-k-1000" class="title">
+            Question about deploying powershell script via KACE K 1000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="46760"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/winterelegy" rel="nofollow">winterelegy</a>
+                1 year ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               kentwest answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/script-powershell-intune" class="title">
+            Script Powershell Intune
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="46736"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/arumes" rel="nofollow">arumes</a>
+                1 year ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               mwhiting answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/font-install" class="title">
+            Font install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="46562"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Darkswat" rel="nofollow">Darkswat</a>
+                2 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               JordanNolan answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/user-creation-with-password-and-autologin-after-reboot" class="title">
+            User creation with password and autologin after reboot
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="46484"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tifred@007" rel="nofollow">tifred@007</a>
+                2 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               tifred@007 answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/script-never-finishes-running" class="title">
+            Script never finishes running
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45791"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tpr" rel="nofollow">tpr</a>
+                3 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               tpr commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-someone-help-me-with-this-script-please" class="title">
+            Can someone help me with this script please ?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45676"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/zamank" rel="nofollow">zamank</a>
+                3 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Mashby1 answered 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-can-i-map-a-home-folder-for-each-users-when-the-user-name-doesnt-match-the-homefolder" class="title">
+            How can i map a Home folder for each users when the user name doesn&#039;t match the homefolder?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45651"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Colinjr" rel="nofollow">Colinjr</a>
+                3 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Colinjr answered 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-a-startup-script-for-windows-on-sma" class="title">
+            How to deploy a startup script for Windows on SMA?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45340"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/superdada" rel="nofollow">superdada</a>
+                3 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               superdada commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-do-i-uninstall-trend-micro-office-scan-agent-from-client-computers-remotely" class="title">
+            How do I uninstall Trend Micro Office Scan Agent from client computers remotely?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45281"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sysadmin93" rel="nofollow">sysadmin93</a>
+                4 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               JasonEgg answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/anyone-have-a-powershell-script-to-remove-all-versions-of-firefox-except-latest-version-and-62-0-2-couple-team-members-need-this-version" class="title">
+            anyone have a powershell script to remove all versions of firefox except latest version and 62.0.2 (couple team members need this version)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45137"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/joefosho317" rel="nofollow">joefosho317</a>
+                4 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               rileyz answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/looking-for-a-way-to-run-a-simple-ps-script-post-microsoft-autopilot-deployment" class="title">
+            Looking for a way to run a simple PS script post Microsoft Autopilot deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="45117"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/IGotsDaPooOnMe" rel="nofollow">IGotsDaPooOnMe</a>
+                4 years ago 0 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               IGotsDaPooOnMe commented 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/drive-map-export-to-csv" class="title">
+            Drive map export to csv
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44869"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ben.bond" rel="nofollow">ben.bond</a>
+                4 years ago 317 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               TheITNooB answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/appdeploy-toolkit-help-do-you-folks-use-this-for-even-basic-msi-files" class="title">
+            AppDeploy Toolkit help - Do you folks use this for even basic MSI Files?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44832"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Dynas2001" rel="nofollow">Dynas2001</a>
+                4 years ago 380 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               rock_star answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/have-kace-script-fail-if-powershell-script-fails" class="title">
+            Have KACE script fail if powershell script fails
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44783"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/DLCurtis" rel="nofollow">DLCurtis</a>
+                4 years ago 375 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               torstenspitz answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/powershell-local-admin" class="title">
+            Powershell Local Admin
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44693"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/awelch" rel="nofollow">awelch</a>
+                4 years ago 755 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               anonymous_9363 answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/help-with-using-kace-api-service-wsapi-php-to-upload-xml" class="title">
+            Help with using KACE API (/service/wsapi.php) to upload XML
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44528"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/smarro" rel="nofollow">smarro</a>
+                4 years ago 270 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-install-sdb-file-using-powershell" class="title">
+            How to install SDB file using powershell?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43608"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sri44459" rel="nofollow">sri44459</a>
+                5 years ago 1.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               isudothings answered 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/custom-inventory-rule-with-powershell-script" class="title">
+            Custom Inventory rule with Powershell Script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43431"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/JordanNolan" rel="nofollow">JordanNolan</a>
+                5 years ago 1.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               JordanNolan commented 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/powershell-scripts" class="title">
+            Powershell scripts
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43234"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/phatrik" rel="nofollow">phatrik</a>
+                5 years ago 1.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               geek2.0 answered 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/executing-application-system-context-not-showing-ui-for-user-any-way-to-show-it-up-via-power-shell-or-vbs-or-bat" class="title">
+            Executing Application system Context not showing UI for user. Any way to show it up via power shell or vbs or bat
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43087"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/akashrayban" rel="nofollow">akashrayban</a>
+                6 years ago 385 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                                    <div class="show-more"><a href="/tag/microsoft-powershell-4/question">More Questions</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (32)
+                            </h3>
+            <p>Blog posts related to Microsoft PowerShell</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                    <a href="/profile/nick">
+                <img class="endorsement-icon-small"
+                     src="/build/static/nicktheninja/NickEndorseIconSmall.svg">
+            </a>
+                <a href="/blog/view/kace-software-center-using-winget-and-powershell" class="title">
+            Kace Software Center using Winget and PowerShell
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="31446"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Cibb911" rel="nofollow">Cibb911</a>
+                2 years ago 6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/how-to-run-powershell-script-from-msi" class="title">
+            How to run PowerShell script from MSI
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="31387"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/pace-support" rel="nofollow">pace-support</a>
+                2 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/show-computers-windows-10-build-history" class="title">
+            Show computers Windows 10 build history
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="31064"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/chrpetri" rel="nofollow">chrpetri</a>
+                5 years ago 3.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/import-startlayout-kace-sda" class="title">
+            Import-StartLayout KACE SDA
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30812"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Ziggi" rel="nofollow">Ziggi</a>
+                6 years ago 10.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/i-wrote-an-open-source-powershell-module-for-the-kace-sma-api" class="title">
+            [I wrote] An open source Powershell Module for the Kace SMA API
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30795"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/isudothings" rel="nofollow">isudothings</a>
+                6 years ago 8.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/powershell-function-for-kace-rest-api" class="title">
+            Powershell Function for Kace REST API
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30597"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/anonymous_129525" rel="nofollow">anonymous_129525</a>
+                7 years ago 10.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/clear-ntfs-permissions-for-specific-users-on-set-of-folders" class="title">
+            clear NTFS permissions for specific users on set of folders
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30017"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/tholmes" rel="nofollow">tholmes</a>
+                9 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/how-to-use-the-k1000-6-4-inventory-api-wsapi-with-powershell" class="title">
+            How to use the K1000 6.4 Inventory API (WSAPI) with PowerShell
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29848"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/StockTrader" rel="nofollow">StockTrader</a>
+                9 years ago 7.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/script-for-automatically-keeping-windows-update-offline-scan-file-up-to-date" class="title">
+            Script for automatically keeping Windows Update offline scan file up to date
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29839"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dc_ninja" rel="nofollow">dc_ninja</a>
+                9 years ago 10.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/powershell-script-for-deployment-of-java-and-general-applications" class="title">
+            Powershell script for deployment of Java and general applications
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29837"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/arivarton" rel="nofollow">arivarton</a>
+                9 years ago 16.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/automate-convertion-of-old-app-v-4-6-packages-into-app-v-5-1-using-powershell" class="title">
+            Automate Convertion of old App-V 4.6 packages into App-V 5.1 using Powershell
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29786"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/apptopack" rel="nofollow">apptopack</a>
+                9 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/locate-a-mac-address-on-the-network-using-powershell" class="title">
+            Locate a MAC address on the network using powershell
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29559"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/tholmes" rel="nofollow">tholmes</a>
+                9 years ago 10.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/powershell-script-to-check-cisco-switch-temperature" class="title">
+            Powershell Script to Check Cisco Switch Temperature
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29520"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/tholmes" rel="nofollow">tholmes</a>
+                9 years ago 7.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/powershell-renamer-2" class="title">
+            Powershell renamer
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="28554"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/mikesharp1" rel="nofollow">mikesharp1</a>
+                10 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/using-wmi-and-powershell-to-expand-computer-inventory-info" class="title">
+            Using WMI and PowerShell to expand computer inventory info
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="25580"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/BHC-Austin" rel="nofollow">BHC-Austin</a>
+                11 years ago 10.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/powershell-script-execution-disabled" class="title">
+            PowerShell Script Execution Disabled
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="23488"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                11 years ago 11.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/arduino-deployment" class="title">
+            Arduino Deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21682"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/amsailer" rel="nofollow">amsailer</a>
+                11 years ago 8.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/video-ase-script-form-designer" class="title">
+            Video: ASE Script Form Designer
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19676"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                11 years ago 10.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/how-to-perfome-a-powershell-custom-action-in-restricted-remotesigned-window-7-environement" class="title">
+            How To Perform A PowerShell Custom Action In Restricted , RemoteSigned in Window 7 Environment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="18702"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/egiberne" rel="nofollow">egiberne</a>
+                11 years ago 13.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/ms-teched-2013-live-blog-powershell-unplugged" class="title">
+            MS TechEd 2013 Live Blog: Powershell Unplugged
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="14456"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/mpace" rel="nofollow">mpace</a>
+                11 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/microsoft-powershell-4/blog">More Blog Posts</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (16)
+                            </h3>
+
+            <p>Links related to Microsoft PowerShell</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/powershell-scripting-framework" class="title">
+                Powershell Scripting Framework
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="6167"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/daniel.soller" rel="nofollow">daniel.soller</a>
+                8 years ago 3.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/csharp-powershell-wixtoolset" class="title">
+                CSharp - Powershell - WixToolset
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5919"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/anonymous_87675" rel="nofollow">anonymous_87675</a>
+                9 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/powershell-basics-and-advanced-concepts" class="title">
+                Powershell Basics and Advanced Concepts
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5851"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/udaykiran.reddy" rel="nofollow">udaykiran.reddy</a>
+                10 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sccm-2007-powershell-module" class="title">
+                SCCM 2007 Powershell Module
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5803"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dedenker" rel="nofollow">dedenker</a>
+                10 years ago 6.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/chocolatey-package-manager-is-a-apt-get-like" class="title">
+                Chocolatey Package Manager  ... is a Apt-Get Like
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5528"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/egiberne" rel="nofollow">egiberne</a>
+                11 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/windows-installer-powershell-module" class="title">
+                Windows Installer PowerShell Module
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5502"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/egiberne" rel="nofollow">egiberne</a>
+                11 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/managing-installed-programs-with-powershell-part-1" class="title">
+                Managing Installed Programs With PowerShell (part 1)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5501"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dchristian" rel="nofollow">dchristian</a>
+                11 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/miscellaneous-exchange-server-commands" class="title">
+                Miscellaneous Exchange server commands
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5036"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/lucifer" rel="nofollow">lucifer</a>
+                11 years ago 2.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-to-sign-a-powershell-script" class="title">
+                How to sign a PowerShell script
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4712"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/StockTrader" rel="nofollow">StockTrader</a>
+                12 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/technet-webcast-powershell-learn-it-now-before-it-s-an-emergency" class="title">
+                TechNet Webcast: PowerShell: Learn It Now before It&#039;s an Emergency
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4524"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/pjgeutjens" rel="nofollow">pjgeutjens</a>
+                12 years ago 5.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/powershell-3-0" class="title">
+                Powershell 3.0
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4432"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dugullett" rel="nofollow">dugullett</a>
+                12 years ago 4.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/script-center-learn-scripting" class="title">
+                Script Center - Learn Scripting
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4288"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Aaron%20Cool" rel="nofollow">Aaron Cool</a>
+                12 years ago 4.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/learn-powershell" class="title">
+                Learn Powershell
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4164"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dugullett" rel="nofollow">dugullett</a>
+                13 years ago 4.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/top-five-features-in-powershell-v3" class="title">
+                Top Five Features in PowerShell v3
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4137"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                13 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/the-lonely-administrator" class="title">
+                The Lonely Administrator
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4056"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dchristian" rel="nofollow">dchristian</a>
+                13 years ago 4.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/power-tips" class="title">
+                Power Tips
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4055"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dchristian" rel="nofollow">dchristian</a>
+                13 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft PowerShell</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2025 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>Igor Pavlov - 7-Zip - 9 | ITNinja</title>
+        <meta name="description" content="Deployment tips and related materials related to Igor Pavlov 7-Zip 9">
+        <meta name="keywords" content="Igor Pavlov 7-Zip,Igor Pavlov">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/4f9a382.css" />
+        
+        <link href="/css/df4eb8b.css" rel="stylesheet" type="text/css" />
+        
+            <link rel="stylesheet" type="text/css" media="screen" href="/css/8975654.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript">
+            window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.6.1.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com';
+        </script>
+
+        <!--[if IE]>
+            <script src="/js/001a46f.js"></script>            <script>
+                $(document).ready(function(){
+                    $('input').placeholder();
+                })
+            </script>
+        <![endif]-->
+
+                    </head>
+    <body>
+                <header>
+            <p id="kace-link">&nbsp;</p>
+            <ul id="user-info">
+    <li class="last"><a href="/register" class="register">register</a><a href="/login" class="button">Log in</a></li>
+</ul>            <span id="logo"><a href="/"><img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="53" /></a></span>
+            <nav>
+                                    <form method="get" action="/search#search-filter-by-keyword" id="nav-search"><input type="text" name="q" class="q" placeholder="search"/><input type="image" name="i" class="i" src="/bundles/itninjaweb/img/search_icon.png" alt="go" title="go" /><input type="hidden" name="cx" value="014503921158165719423:3hy89iql-j8" /><input type="hidden" name="t" value="search-filter-by-keyword" /></form>
+                                    <ul>
+                <li class="first">        <a href="/question">Ask</a>            <ul class="menu_level_1">
+                <li class="first last">        <a href="/question/new">Ask A Question</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/research">Research</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/software/browse?Popular=1">Software</a>        
+    </li>
+
+        <li>        <a href="/tips">Deployment Tips</a>        
+    </li>
+
+        <li>        <a href="/question">Q &amp; A</a>        
+    </li>
+
+        <li>        <a href="/blog">Blogs</a>        
+    </li>
+
+        <li class="last">        <a href="/link">Links</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/share">Share</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/question/unanswered">Answer a Question</a>        
+    </li>
+
+        <li>        <a href="/blog/post/new">Write a Blog Post</a>        
+    </li>
+
+        <li>        <a href="/tips">Share a Deployment Tip</a>        
+    </li>
+
+        <li class="last">        <a href="/link/new">Share a Link</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/topics">Topics</a>        
+    </li>
+
+        <li class="last">        <a href="/about">About</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/tour">Site Tour</a>        
+    </li>
+
+        <li>        <a href="/faq">FAQ</a>        
+    </li>
+
+        <li>        <a href="/faq#PointsFAQ">ITNinja Points</a>        
+    </li>
+
+        <li class="last">        <a href="/faq#ADFAQ">AppDeploy</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+            </nav>
+            <div id="secondary-nav"></div>
+        </header>
+        <div id="global-content">
+            <ul id="breadcrumbs">
+                <li class="home"><a href="/">
+                    <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                    <li><a href="/research">Research</a></li>
+    <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/igor-pavlov/browse">Igor Pavlov</a></li>
+    <li>7-Zip</li>
+            </ul>
+            <div id="stage">
+    <div class="tag-header">
+        <div class="title-wrap">
+            <h1>Igor Pavlov 7-Zip</h1>
+            <div id="version-wrapper">
+
+                <span class="version-name" id="version-changer">
+                    Version: 9
+                    <div id="version-list">
+                        <div class="version-list-top"></div>
+                        <ul id="version-list-items">
+                                                            <li>
+                                    <a href="/software/igor-pavlov/7-zip/9-589">
+                                        9.x <span>(5 tips)</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/software/igor-pavlov/7-zip/4-1516">
+                                        4.x <span>(4 tips)</span>
+                                    </a>
+                                </li>
+                                                    </ul>
+                        <div class="version-list-bottom"></div>
+                    </div>
+                </span>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="tr-meta">
+        
+Average Rating: <span id="average-rating">3</span>
+<div class="stars-wrap">
+        <div class="rating">
+    <input name="Software18707" type="radio" class="star" disabled="disabled"  />
+    <input name="Software18707" type="radio" class="star" disabled="disabled"  />
+    <input name="Software18707" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="Software18707" type="radio" class="star" disabled="disabled"  />
+    <input name="Software18707" type="radio" class="star" disabled="disabled"  />
+</div>    </div>
+
+<br class="clear"/>
+
+Views: 1459 &nbsp|&nbsp
+Created: 01/24/2007 &nbsp|&nbsp
+Followers:4
+
+
+
+
+<div class="follow-widget-right">
+
+
+            <a class="btn-follow" rel="nofollow" href="https://www.itninja.com/login?/follow/version/23541?tb=L3NvZnR3YXJlL2lnb3ItcGF2bG92LzctemlwLzktNTg5">
+            <span class="follow-title">Follow</span>
+            <span class="followers" title="followers"><div></div>3</span>
+        </a>
+    
+</div>    </div>
+
+    <div class="additional-meta">
+        7-Zip has <a href="#inventory-records" id="scrollInv">12 inventory records</a>,
+        <a href="#q-a" id="scrollQA">0 Questions</a>,
+        <a href="#blogs" id="scrollBlog">0 Blogs</a>
+        and <a href="#links" id="scrollLinks">7 links</a>. Please help add to this by sharing more!
+
+    </div>
+
+
+    <div class="software-section" id="deployment-tips">
+
+        <h2 class="section-title"><a href="#" class="plus toggle minus"></a> Deployment Tips (5)</h2>
+        
+        <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+            </div>
+
+            <!-- end rating secion -->
+
+            <div class="inner summary">
+
+                
+                <div id="software-view-deployment-summary-form" class="hidden">
+                    <h3>Deployment Tip Summary</h3>
+                    <form action="/version/summary/new/23541" method="POST" novalidate>
+    <div id="form"><input type="hidden" id="form__token" name="form[_token]" value="623641e1a08d5734445744d6cc0c194ab75f99b8" /><div><label for="form_text" class=" required">Enter your tip</label><textarea id="form_text" name="form[text]" required="required">&lt;p&gt;Silent install Executable &amp;lt;filename.exe&amp;gt;/S switch optional output directory&amp;nbsp;&lt;span&gt;/D=&quot;dir&quot; Switches are case sensitive.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;MSI deployment msiexec.exe /q /i &quot;&amp;lt;filename.msi&amp;gt;&quot;&lt;/p&gt;
+&lt;p&gt;Optional &lt;br /&gt;INSTALLDIR=&quot;C:\Program Files\7-Zip&quot; to Change Install Directory&lt;br /&gt;/qn or /qb can be substituted for /q&amp;nbsp;&lt;br /&gt;/norestart can be added.&lt;/p&gt;
+&lt;p&gt;More&amp;nbsp;Available at&lt;br /&gt;&lt;a href=&quot;http://www.7-zip.org/faq.html&quot;&gt;http://www.7-zip.org/faq.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Downloads including 32-bit MSI can be had from&lt;br /&gt;&lt;a href=&quot;http://www.7-zip.org/download.html&quot;&gt;http://www.7-zip.org/download.html&lt;/a&gt;&amp;nbsp;&lt;/p&gt;</textarea></div></div>
+
+    <input type="hidden" name="redirectUrl" value="http://www.itninja.com/software/igor-pavlov/7-zip/9-589" />
+    <input type="submit" value="Submit" id="submit1" class="btn"/>
+    <span id="software-view-deployment-summary-cancel" class="btn" >Cancel</span>
+</form>                </div>
+
+                <div id="software-view-deployment-summary-text" >
+
+                    <h3>Deployment Tip Summary</h3>
+                    <div id="software-view-deployment-summary-text-raw"><p>Silent install Executable &lt;filename.exe&gt;/S switch optional output directory&nbsp;<span>/D="dir" Switches are case sensitive.</span></p><p>MSI deployment msiexec.exe /q /i "&lt;filename.msi&gt;"</p><p>Optional <br>INSTALLDIR="C:\Program Files\7-Zip" to Change Install Directory<br>/qn or /qb can be substituted for /q&nbsp;<br>/norestart can be added.</p><p>More&nbsp;Available at<br><a href="http://www.7-zip.org/faq.html">http://www.7-zip.org/faq.html</a></p><p>Downloads including 32-bit MSI can be had from<br><a href="http://www.7-zip.org/download.html">http://www.7-zip.org/download.html</a>&nbsp;</p>
+</div>
+                                                        </div>
+
+            </div>
+            <!--end summary -->
+
+            <div class="inner">
+
+                <div class="version-subsections">
+                    
+                    <div id="tabs">
+                        <ul class="tabs clearfix">
+                            <li><a href="#software-tag-view-tab-notes">Notes (3)</a></li>
+                            <li><a href="#software-tag-view-tab-command-line">Command Line (2)</a></li>
+                            <li><a href="#software-tag-view-tab-script">Script (0)</a></li>
+                            <li><a href="#software-tag-view-tab-securityinfo">Security (0)</a></li>
+                            <li><a href="#software-tag-view-tab-terminal">Terminal Services (0)</a></li>
+                            <li><a href="#software-tag-view-tab-virtualization">Virtualization (0)</a></li>
+                        </ul>
+                        <div class="tabs-loading">
+                            Please wait.
+                        </div>
+                        <div id="software-tag-view-tab-notes" class="tabs-hide">
+                            <div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6405"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6405"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>Here I published a tutorial for it and many others programs. Please comment on the blog if you have questions.</p><p><a href="http://it-grund.blogspot.com/2012/04/how-to-deployinstall-silently-and.html" rel="nofollow">http://it-grund.blogspot.com/2012/04/how-to-deployinstall-silently-and.html</a></p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/tererecool" class="username" rel="nofollow">tererecool</a>
+            05/18/2012 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Figor-pavlov%2F7-zip%2F9-589">log in</a> to comment
+
+    </div>
+</div>
+<div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6510"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6510"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>SMS files for import into SCCM 2007 Vista x64 and Win7 x64 using Package Definition Format</p><p>------------</p><p>[PDF]<br>Version = 2.0</p><p>[Package Definition]<br>Name = 7zip<br>Version = 9.20 x64<br>Publisher = GNU<br>Language = English<br>Programs = 7zipSetup</p><p>[7zipSetup]<br>Name = 7zip 9.20 x64 Installation<br>CommandLine = msiexec.exe /i "7z920-x64.msi" /qn /norestart<br>SupportedClients = Win NT (x64)<br>Win NT (x64) MinVersion1=6.00.0000.0<br>Win NT (x64) MaxVersion1=6.00.9999.9999&nbsp;<br>Win NT (x64) MinVersion2=6.10.0000.0<br>Win NT (x64) MaxVersion2=6.10.9999.9999&nbsp;<br>UserInputRequired = False<br>RemoveProgram = True<br>AdminRightsRequired = True<br>CanRunWhen = AnyUserStatus<br>EstimatedRunTime = 15<br>EstimatedDiskSpace = 10MB</p><p>------------&nbsp;</p><p>For More Specifics on modifying this file for your environment see.&nbsp;<br>About Package Definition File Format.&nbsp;<br><a href="http://technet.microsoft.com/en-us/library/bb632631.aspx" rel="nofollow">http://technet.microsoft.com/en-us/library/bb632631.aspx</a> ;</p><p>MSI lines can be modified to fit your environment.&nbsp;<br><span style="font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">MSI deployment msiexec.exe /q /i "&lt;filename.msi&gt;"</span></p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">Optional&nbsp;<br>INSTALLDIR="C:\Program Files\7-Zip" to Change Install Directory<br>/qn or /qb can be substituted for /q&nbsp;<br>/norestart can be added.</p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+            06/11/2012 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Figor-pavlov%2F7-zip%2F9-589">log in</a> to comment
+
+    </div>
+</div>
+<div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6511"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6511"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">SMS files for import into SCCM 2007 XP x86, Vista x86 and Win7 x86 using Package Definition Format</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">------------</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">[PDF]<br>Version = 2.0</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">[Package Definition]<br>Name = 7zip<br>Version = 9.20 x86<br>Publisher = GNU<br>Language = English<br>Programs = 7zipSetup</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">[7zipSetup]<br>Name = 7zip 9.20 x86 Installation<br>CommandLine = msiexec.exe /i "7z920.msi" /qn /norestart<br>SupportedClients = Win NT (i386)<br>Win NT (I386) MinVersion1=5.10.0000.0<br>Win NT (I386) MaxVersion1=5.10.9999.9999<br>Win NT (I386) MinVersion2=6.00.0000.0<br>Win NT (I386) MaxVersion2=6.00.9999.9999<br>Win NT (I386) MinVersion3=6.10.0000.0<br>Win NT (I386) MaxVersion3=6.10.9999.9999<br>UserInputRequired = False<br>RemoveProgram = True<br>AdminRightsRequired = True<br>CanRunWhen = AnyUserStatus<br>EstimatedRunTime = 15<br>EstimatedDiskSpace = 10MB</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">------------&nbsp;&nbsp;</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">For More Specifics on modifying this file for your environment see.&nbsp;<br>About Package Definition File Format.&nbsp;<br><a style="text-decoration: none; color: #006699;" href="http://technet.microsoft.com/en-us/library/bb632631.aspx%C2%A0" rel="nofollow">http://technet.microsoft.com/en-us/library/bb632631.aspx&nbsp;</a>;</p><p style="clear: left;">MSI lines can be modified to fit your environment.&nbsp;<br>MSI deployment msiexec.exe /q /i "&lt;filename.msi&gt;"</p><p style="clear: left;">Optional&nbsp;<br>INSTALLDIR="C:\Program Files\7-Zip" to Change Install Directory<br>/qn or /qb can be substituted for /q&nbsp;<br>/norestart can be added.</p><p style="clear: left;">32-Bit MSI can be found at&nbsp;<a href="http://www.7-zip.org/download.html">http://www.7-zip.org/download.html</a></p><p style="clear: left;">&nbsp;</p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+            06/11/2012 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Figor-pavlov%2F7-zip%2F9-589">log in</a> to comment
+
+    </div>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-command-line" class="tabs-hide">
+                            <div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6509"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6509"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;"><strong>msiexec.exe /i "7z920.msi" /qn /norestart</strong><br>x86 using MSI from download supressing restart, using default msi name.&nbsp;</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;"><strong>msiexec.exe /i "7z920-x64.msi" /qn /norestart</strong><br>x64 using MSI from download supressing restart, using default msi name.</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">Optional <strong>INSTALLDIR="C:\Program Files\7-Zip"</strong> can be added to either line.</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;"><strong>/qn</strong> works as an optional replacement for <strong>/q</strong> that is stated in the FAQ (/qn is for quiet with no user interface.)</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;"><strong>/norestart</strong> is also optional but works during testing</p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">Official FAQ page at&nbsp;<a href="http://www.7-zip.org/faq.html">http://www.7-zip.org/faq.html</a></p><p style="clear: left; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">32-bit MSI can be had from the download page at &nbsp;<a href="http://www.7-zip.org/download.html" rel="nofollow">http://www.7-zip.org/download.html</a><br>&nbsp;</p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+            06/11/2012 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Figor-pavlov%2F7-zip%2F9-589">log in</a> to comment
+
+    </div>
+</div>
+<div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6514"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6514"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>32-bit:<strong>&nbsp; "7z920.exe" /S /D="C:\Program Files\7-Zip"</strong></p><p>64-bit: <strong>msiexec.exe /q INSTALLDIR="C:\Program Files\7-Zip" /i "7z920-x64.msi" </strong></p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/bmlbytes" class="username" rel="nofollow">bmlbytes</a>
+            06/11/2012 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Figor-pavlov%2F7-zip%2F9-589">log in</a> to comment
+
+    </div>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-script" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+
+                        </div>
+                        <div id="software-tag-view-tab-securityinfo" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-terminal" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-virtualization" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+
+                    </div>
+
+
+                    
+                </div>
+
+                <div id="deploy-bottom">
+
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Inventory Records (12)</h2>
+        <p>View inventory records anonymously contributed by opt-in users of the
+            <a href="http://www.kace.com/demo/index.php?tab=flash-demo&utm_medium=ITNinja&utm_source=Software+Tag&ad_group=%20Package+KB+v2&campaign_id=701400000009kH1">
+                K1000 Systems Management Appliance</a>.
+        </p>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                                        <div><a class="selected" href="/software/version/revision/23541/49002">9.22.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49003">9.14.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49004">9.20.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49005">9.16.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49006">9.10.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49007">9.12.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49008">9.17.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49009">9.04.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49010">9.15.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49011">9.13.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49012">9.07.00.0</a></div>
+                                        <div><a  href="/software/version/revision/23541/49013">9.18.00.0</a></div>
+                                    </div>
+                <div id="software-view-version-revision-details">
+                                                <h2>7-Zip</h2>
+            <div><h3>Version</h3><span>9.22.00.0</span></div>
+                                                        <div><h3>Uninstall String</h3>MsiExec.exe /I{23170F69-40C1-2702-0922-000001000000}</div>                                                                                </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records secion -->
+
+    <div class="software-section" id="q-a">
+        <div class="add-links">
+               <a href="/question/new/igor-pavlov-7-zip-9" class="add-tip">Ask a new question</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Questions & Answers (0)</h2>
+        <p>Questions & Answers related to Igor Pavlov 7-Zip</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A secion -->
+
+    <div class="software-section" id="blogs">
+        <div class="add-links">
+            <a href="/blog/post/new/igor-pavlov-7-zip-9" class="add-tip">Write a blog post</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Blogs (0)</h2>
+        <p>Blog posts related to Igor Pavlov 7-Zip</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Blogs secion -->
+
+    <div class="software-section" id="links">
+        <div class="add-links">
+            <a href="/link/new/igor-pavlov-7-zip-9" class="add-tip">Share a link</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Links (7)</h2>
+        <p>Links related to Igor Pavlov 7-Zip</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/discontinued-and-amended-services-zettaserve-ict-services">
+                Discontinued and Amended Services | ZettaServe ICT Services
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="discontinued-and-amended-services-zettaserve-ict-services" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/zuser" rel="nofollow">zuser</a>
+                7 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/homepage">
+                Homepage
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="homepage" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jet" rel="nofollow">jet</a>
+                5 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/sourceforge-homepage">
+                SourceForge Homepage
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="sourceforge-homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="sourceforge-homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="sourceforge-homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="sourceforge-homepage" type="radio" class="star" disabled="disabled"  />
+    <input name="sourceforge-homepage" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jet" rel="nofollow">jet</a>
+                5 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/discontinued-and-amended-services-zettaserve-ict-services-1">
+                Discontinued and Amended Services | ZettaServe ICT Services
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-1" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-1" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-1" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-1" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/zuser" rel="nofollow">zuser</a>
+                7 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/discontinued-and-amended-services-zettaserve-ict-services-2">
+                Discontinued and Amended Services | ZettaServe ICT Services
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-2" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-2" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-2" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-2" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-2" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/zuser" rel="nofollow">zuser</a>
+                7 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/discontinued-and-amended-services-zettaserve-ict-services-3">
+                Discontinued and Amended Services | ZettaServe ICT Services
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-3" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-3" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-3" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-3" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-3" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/zuser" rel="nofollow">zuser</a>
+                7 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/discontinued-and-amended-services-zettaserve-ict-services-4">
+                Discontinued and Amended Services | ZettaServe ICT Services
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-4" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-4" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-4" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-4" type="radio" class="star" disabled="disabled"  />
+    <input name="discontinued-and-amended-services-zettaserve-ict-services-4" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/zuser" rel="nofollow">zuser</a>
+                7 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end links secion -->
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <footer>
+                        <div id="footer-nav">
+                <div>
+                    <strong>Home Pages</strong>
+                    <ul>
+                        <li><a href="/software">Software</a></li>
+                        <li><a href="/tips">Deployment Tips</a></li>
+                        <li><a href="/question">Questions</a></li>
+                        <li><a href="/blog">Blog Posts</a></li>
+                        <li><a href="/link">Shared Links</a></li>
+                    </ul>
+                </div>
+                <div>
+                   <strong>FAQ &amp; Support</strong>
+                   <ul>
+                       <li><a href="/faq">Site FAQ</a></li>
+                       <!--<li><a href="/faq/beta">Beta FAQ</a></li>-->
+                       <li><a href="/faq#PointsFAQ">Ninja Points FAQ</a></li>
+                       <li><a href="/faq#ADFAQ">AppDeploy FAQ</a></li>
+                       <li><a href="/kace">Dell KACE Support</a></li>
+                   </ul>
+               </div>
+                <div>
+                    <strong>About</strong>
+                    <ul>
+                        <li><a href="/about">ITNinja</a></li>
+                        <li><a href="/about">Welcome Video</a></li>
+                        <li><a href="/tour">Tour</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="share">
+                    <strong>Share/Contribute</strong>
+                    <ul class="share-list">
+                        <li><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                            </ul>
+                </div>
+            </div>
+        <br clear="all"/>
+        <br clear="all"/>
+            <div id="footer-links">
+                <p>&copy; Dell Inc. All rights reserved.</p>
+                <ul>
+                    <li><a href="/legal">Legal</a></li>
+                    <li><a href="/about" class="last">About</a></li>
+                    <li><a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a></li>
+                </ul>
+                <p id="footer-logos">
+                    <a href="http://www.kace.com/about/index.php?utm_medium=ITNinja&utm_source=Page+Footer&ad_group=ITNinja&campaign_id=701400000009kH1"><img src="/bundles/itninjaweb/img/DellKace_logo.png" alt="Dell | Kace" /></a>
+                </p>
+                <div id="version"><span id="revision">7ecf397</span><span id="build-date">Tue Dec 18 17:16:18 EST 2012</span>
+ninjaweb01<span id="server">www.itninja.com</span></div>
+            </div>
+        </footer>
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/c7062e8.js"></script>
+        
+        
+        <script src="/js/0c271c0.js"></script>
+<script>
+// has to be in here for the asset parameters to get rendered by twig
+    $(function(){
+
+        $('.toggle').click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('minus');
+            var content = $(this).parents('.software-section').children('.inner-content');
+
+            if (!$(content).is(':animated')){
+                $(content).toggle('fast');
+            }
+
+        });
+
+        $('#scrollQA').click(function(){
+            $('html,body').animate({scrollTop: $('#q-a').offset().top},'slow');
+        });
+        $('#scrollBlog').click(function(){
+            $('html,body').animate({scrollTop: $('#blogs').offset().top},'slow');
+        });
+        $('#scrollInv').click(function(){
+            $('html,body').animate({scrollTop: $('#inventory-records').offset().top},'slow');
+        });
+        $('#scrollLinks').click(function(){
+            $('html,body').animate({scrollTop: $('#links').offset().top},'slow');
+        });
+        $('.top').click(function(){
+            $('html,body').animate({scrollTop: $('#global-content').offset().top},'slow');
+        });
+
+        var list = $('#version-list');
+
+        $('#version-changer').live("click", function(){
+
+            if (list.hasClass('show')){
+
+            } else {
+                $("body").addClass('menu-open');
+                list.addClass('show');
+            }
+        });
+        $("body.menu-open").live("click", function(){
+            list.removeClass('show');
+            $("body").removeClass('menu-open');
+        });
+
+        $('#software-view-version-revision-list a').click( function(evt) {
+            $("#software-view-version-revision-list a").removeClass('selected');
+            $(this).addClass('selected');
+            evt.preventDefault();
+            $.get($(this).attr('href'), function(data) {
+                $("#software-view-version-revision-details").html(data);
+            });
+        });
+
+
+        $.get("/software/version/deployment_ratings/23541", function(data) {
+              $("#deployment-ratings-summary").html(data);
+              ratings.init();
+        });
+
+
+
+});
+</script>
+            <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-26553848-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+            </script>
+            <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-1.newrelic.com","fa2fb87fc4","520511","b1BUNhNQC0dUWkANC1YaYxAIHgRERRdEDBQ=",0,195,new Date().getTime(),"","","","",""]);</script>
+</body>
+</html>

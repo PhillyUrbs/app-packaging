@@ -1,0 +1,1501 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Symantec Endpoint Protection 12.1.1101.401 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Symantec Endpoint Protection 12.1.1101.401">
+        <meta name="keywords" content="Symantec,Symantec Endpoint Protection,Endpoint Protection 12.1.1101.401">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/symantec/endpoint-protection/12-1-1101-401" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+            <li class="first "><a href="/software">Software Tips</a></li>
+            <li ><a href="/question">Questions</a></li>
+            <li ><a href="/blog">Blogs</a></li>
+            <li ><a href="/link">Links</a></li>
+            <li ><a href="/community">Communities</a></li>
+                    </ul>
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/symantec/browse">Symantec</a></li>
+    <li><a href="/software/symantec/endpoint-protection/versions">Endpoint Protection</a></li>
+    <li>12.1.1101.401</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Symantec Endpoint Protection</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 12.1.1101.401
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/symantec/endpoint-protection/12-1-1101-401"
+                                            >
+                                            12.1.1101.401.x <span>(3 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/symantec/endpoint-protection/12-370"
+                                            >
+                                            12.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/symantec/endpoint-protection/11-578"
+                                            >
+                                            11.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/62943/JTJGc29mdHdhcmUlMkZzeW1hbnRlYyUyRmVuZHBvaW50LXByb3RlY3Rpb24lMkYxMi0xLTExMDEtNDAx">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/62943/JTJGc29mdHdhcmUlMkZzeW1hbnRlYyUyRmVuZHBvaW50LXByb3RlY3Rpb24lMkYxMi0xLTExMDEtNDAx">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 7.3k &nbsp|&nbsp
+    Created: 10/25/2012
+    
+            by: <a href="/user/ITMonkeyBoy" rel="nofollow">ITMonkeyBoy</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version62943" type="radio" class="star" disabled="disabled"  />
+    <input name="Version62943" type="radio" class="star" disabled="disabled"  />
+    <input name="Version62943" type="radio" class="star" disabled="disabled"  />
+    <input name="Version62943" type="radio" class="star" disabled="disabled"  />
+    <input name="Version62943" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Endpoint Protection has <a href="#inventory-records" id="scrollInv">0 inventory records</a>,
+                <a href="#q-a" id="scrollQA">10 Questions</a>,
+                <a href="#blogs" id="scrollBlog">2 Blogs</a>
+                and <a href="#links" id="scrollLinks">1 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (3)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/62943" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="T8-0P_lPJ-68mLqx5-vWvMGeLMVOsc_xRJdr3lNwtGU"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/symantec/endpoint-protection/12-1-1101-401#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/symantec/endpoint-protection/12-1-1101-401/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_6798" name="tip_6798">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6798"></div> -->
+   <div id="tip-6798" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6798" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6798"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I decided to create a "how to" document for creating the .exe file in the SEPM for use with the KACE 1000 for the installation of the SEP 12.1.1101.401 client.&nbsp; Here is how to create the .exe file in the SEPM.&nbsp;</p>
+<p>&nbsp;</p>
+<p>-- IT Monkey Boy</p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="font-family: Calibri;"><strong style="mso-bidi-font-weight: normal;"><span style="text-decoration: underline;"><span style="line-height: 115%; font-size: 12pt;">HOW TO CREATE AN .EXE FILE IN THE SYMANTEC ENDPOINT PROTECTION MANAGER FOR USE FOR KACE 1000 DEPLOYMENT.</span></span></strong></span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">&nbsp;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpFirst" style="margin: 0in 0in 0pt 0.5in; text-indent: -0.25in; mso-list: l0 level1 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">1.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">In the SEPM go to Admin/Install Packages</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.5in; text-indent: -0.25in; mso-list: l0 level1 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">2.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;Client Install Settings&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">a.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Under &ldquo;Tasks&rdquo; click &ldquo;Add Client Install Settings&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">b.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Fill out a name and description in the fields provided</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">c.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Select an installation type&rdquo; choose &ldquo;Silent&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">d.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Under upgrade settings choose &ldquo;Remove all previous logs and policies, and reset the client-server communications settings&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">e.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click on the tab &ldquo;Schedule Reboot&rdquo; and choose &ldquo;Custom restart&rdquo; and make the selection &ldquo;No restart&rdquo;, click &ldquo;OK&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.5in; text-indent: -0.25in; mso-list: l0 level1 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">3.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">If you need to use an install feature set that is different from the Symantec Default, click on &ldquo;Client Install Feature Set&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>If you are okay using the defaults, skip this step.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">a.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Under &ldquo;Tasks&rdquo; click &ldquo;Add Client Install Feature Set&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">b.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Fill out a name and description in the fields provided.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">c.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Be sure that 12.1.x is selected in the &ldquo;Feature set version&rdquo; box.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">d.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Choose the features you want by checking the boxes next to the choices provided. </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">e.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;OK&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.5in; text-indent: -0.25in; mso-list: l0 level1 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">4.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;Clients&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">a.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click on the specific group you want the client to be automatically assigned to upon installation.<span style="mso-spacerun: yes;">&nbsp; </span>If you do not want do define a specific group, click the &ldquo;Default Group&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>After the install of the client you can move the client manually to a group of your choice after the client appears in the &ldquo;Default Group&rdquo; in the SEPM.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">b.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Under &ldquo;Tasks&rdquo; click &ldquo;Add a client&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">c.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Select &ldquo;New Package Deployment&rdquo; and click &ldquo;Next&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">d.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Install Packages&rdquo;, make sure &ldquo;Windows &ndash; Symantec Endpoint Protection 12.1.1101.401&rdquo; is selected.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">e.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Group&rdquo; make sure what is listed there is what you want.<span style="mso-spacerun: yes;">&nbsp; </span>To change it, click &ldquo;Browse&rdquo; and select a different group.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">f.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Install Feature Sets&rdquo; choose either &ldquo;Full Protection for Clients&rdquo; or the Install Feature set you created in step 3.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">g.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Install Settings&rdquo; choose using the drop down arrow the Client Install Setting you created in step 2.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">h.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Under &ldquo;Content Options&rdquo;, choose &ldquo;Basic content&rdquo;. The advantage is that the installation file created with this choice will be about 45 MB.<span style="mso-spacerun: yes;">&nbsp; </span>If you choose instead &ldquo;All Content&rdquo;, the install file will be about 160 MB.<span style="mso-spacerun: yes;">&nbsp; </span>This will take longer to deploy using the KACE 1000 since it is larger.<span style="mso-spacerun: yes;">&nbsp; </span>In either choice Live Update runs automatically after installation, so I prefer using the smaller 45 MB file.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">i.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">For &ldquo;Preferred Mode&rdquo;, leave the default &ldquo;Computer Mode&rdquo; unless you have set up your SEPM for User Mode. </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">j.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;Next&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">k.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Choose &ldquo;Save Package&rdquo; and click &ldquo;Next&rdquo;. </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">l.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;Browse&rdquo; and browse to a network location that the KACE 1000 can access and upload the file from.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">m.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Choose &ldquo;Single .exe file&rdquo; and click &ldquo;Next&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">n.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Review the list of features shown, and the file path shown and click &ldquo;Next&rdquo;.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">o.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Wait for the file to be created. </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">p.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Click &ldquo;Finish&rdquo;</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">q.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Go to the network location you saved the file. </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">r.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">You will see two folders with long names ending with WIN32BIT and WIN64BIT. Inside that folder is another folder titled &ldquo;Symantec Endpoint Protection version 12.1.1101.401. Inside that folder is a file &ldquo;setup.exe&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>The file in each path is a 32-bit install file or a 64-bit install file according to its folder path name.<span style="mso-spacerun: yes;">&nbsp; </span>This needs to match the OS Architecture type on the prospective client computer.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">s.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Copy that file to a computer you want it installed on and double click the file to install it.<span style="mso-spacerun: yes;">&nbsp; </span>It should install completely silently. <span style="mso-spacerun: yes;">&nbsp;</span>Wait several minutes and check if the program is installed. Open the program on the computer and it will inform you a reboot is needed.<span style="mso-spacerun: yes;">&nbsp; </span>Reboot the computer.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">t.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Open the program, click &ldquo;Help&rdquo; and &ldquo;Troubleshooting&rdquo;. <span style="mso-spacerun: yes;">&nbsp;</span>Check if the Group shown for this client&rsquo;s membership is what you expected. Click &ldquo;Connection Status&rdquo; and click &ldquo;Connect now&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>Wait for a successful connection which you will see when the &ldquo;Last Attempted Connection&rdquo; changes to the time you clicked on &ldquo;Connect&rdquo;. Double check in the SEPM that this client appears as a client and has no errors in the SEPM logs.</span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">u.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">Inventory that computer in KACE.<span style="mso-spacerun: yes;">&nbsp; </span>Now the Symantec program is in software inventory in KACE.<span style="mso-spacerun: yes;">&nbsp; </span></span></span></p>
+<p>&nbsp;</p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 0in 10pt 1in; text-indent: -0.25in; mso-add-space: auto; mso-list: l0 level2 lfo1;"><span style="line-height: 115%; font-size: 12pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"><span style="mso-list: Ignore;"><span style="font-family: Calibri;">v.</span><span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="line-height: 115%; font-size: 12pt;"><span style="font-family: Calibri;">You are ready to configure a Managed Installation of SEP 12.1.1101.401 client using the KACE 1000</span></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ITMonkeyBoy" class="username" rel="nofollow">ITMonkeyBoy</a>
+                </li>
+                <li>
+                    10/26/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6927" name="tip_6927">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6927"></div> -->
+   <div id="tip-6927" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6927" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6927"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>This script will replace the Sylink.xml file in the Symantec Endpoint Protection client.&nbsp; This is used to repoint clients to a new SEP management server after a disaster recovery of the SEPM.&nbsp;</p>
+<p>SylinkDrop.exe can be found on the SEP installation media at "Tools\SylinkDrop\".&nbsp;</p>
+<p>Sylink.xml must be created from the SEP Manager.&nbsp; "Clients"--&gt;Right-click client group name--&gt;"Export Communication Settings"</p>
+<p><img src="data:image/png;base64,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" alt="" /></p>
+<p>*The path specified in "Verify" exists in both 32 and 64 bit versions of Windows.&nbsp; </p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Gearhead88" class="username" rel="nofollow">Gearhead88</a>
+                </li>
+                <li>
+                    01/14/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6800" name="tip_6800">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6800"></div> -->
+   <div id="tip-6800" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6800" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6800"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p><strong>HOW TO DEPLOY SYMANTEC ENDPOINT PROTECTION CLIENT 12.1.1101.401 FROM THE KACE 1000</strong></p>
+<p>Create a single .exe file from the Symantec Endpoint Protection Manager, created with silent install parameters.&nbsp; To do that see my posted instruction on ITNinja.com called "<span style="font-family: Calibri;"><strong style="mso-bidi-font-weight: normal;"><span style="text-decoration: underline;"><span style="line-height: 115%; font-size: 12pt;">HOW TO CREATE AN .EXE FILE IN THE SYMANTEC ENDPOINT PROTECTION MANAGER FOR USE FOR KACE 1000 DEPLOYMENT."</span></span></strong></span></p>
+<p><span style="font-family: Calibri;"><span style="line-height: 115%; font-size: 12pt;">After that has been completed, follow the steps below:</span></span></p>
+<p>&nbsp;</p>
+<p><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">Even though Symantec does not support a command line install of the Symantec Endpoint Protection 12.1 client, using the default Symantec installation files, there is a way around that limitation if you want to deploy the SEP 12.1.1101.401 (ru1 mp1) client with KACE 1000. I did this with my KACE 1000 and it worked very well. </span></p>
+<p>&nbsp;</p>
+<p><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">There is one limitation: you can use KACE 1000 to deploy either a 32-bit OR a 64-bit installation package at any one time, but cannot deploy both concurrently. This limitation is due to limitations with both the Symantec product and the Dell KACE product. Symantec's limitation is that a Windows 32-bit SEP install file cannot be installed on a Windows 64-bit OS. The Windows 64-bit OS must have a Windows 64-bit SEP install file.<span style="mso-spacerun: yes;">&nbsp; </span>Dell KACE&rsquo;s limitation is that the software inventory is unable to distinguish between a 32-bit and a 64-bit version of the exact same software title and version.<span style="mso-spacerun: yes;">&nbsp; </span>Even so, there is a way around the KACE limitation that I will explain in the last step. </span></p>
+<p>&nbsp;</p>
+<p><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">Here is the process for a Windows OS:</span></p>
+<p>&nbsp;</p>
+<p style="text-indent: -0.25in; margin-left: 0.5in; mso-list: l0 level1 lfo1;"><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt; mso-bidi-font-family: Verdana; mso-fareast-font-family: Verdana;"><span style="mso-list: Ignore;">1.<span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp; </span></span></span><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">From the Symantec Endpoint Protection Manager (SEPM), use the Client Deployment Wizard to create an installation package that you save to a network location that can be accessed by the KACE 1000. Create that package as a single ".exe" file. <span style="mso-spacerun: yes;">&nbsp;</span>Consult the Symantec Administrator Manual or do an online search for how to do this.<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span></span></p>
+<p>&nbsp;</p>
+<p style="text-indent: -0.25in; margin-left: 1in; mso-list: l0 level2 lfo1;"><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt; mso-bidi-font-family: Verdana; mso-fareast-font-family: Verdana;"><span style="mso-list: Ignore;">a.<span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp; </span></span></span><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">In my environment, I created an install package in which the &ldquo;client install settings&rdquo; was set to &ldquo;Show Progress Bar&rdquo;, because I wanted the Symantec installation routine to be visible at its beginning on my KACE client computers while it was installing.<span style="mso-spacerun: yes;">&nbsp; </span>If you want a totally silent install for KACE deployment, you need to define that during the process of creating this install file in the SEPM. That is done in &ldquo;Admin/Install Packages/Client Install Settings&rdquo; in the SEPM, <span style="text-decoration: underline;">prior</span> to creating your .exe installation package in the SEPM Client Deployment Wizard. </span></p>
+<p>&nbsp;</p>
+<p style="text-indent: -0.25in; margin-left: 1in; mso-list: l0 level2 lfo1;"><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt; mso-bidi-font-family: Verdana; mso-fareast-font-family: Verdana;"><span style="mso-list: Ignore;">b.<span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp; </span></span></span><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">Be aware the Symantec Client Deployment Wizard creates one 32-bit install file and one 64-bit install file. <span style="mso-spacerun: yes;">&nbsp;</span>Test the file you create here by installing it manually on a client computer to make sure your &ldquo;silent&rdquo; install, if you chose that, works to be silent.<span style="mso-spacerun: yes;">&nbsp; </span>Be aware that the size of each .exe file will be approximately 45MB.</span></p>
+<p>&nbsp;</p>
+<p style="text-indent: -0.25in; margin-left: 1in; mso-list: l0 level2 lfo1;"><strong style="mso-bidi-font-weight: normal;"><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt; mso-bidi-font-family: Verdana; mso-fareast-font-family: Verdana;"><span style="mso-list: Ignore;">c.<span style="font: 7pt/normal 'Times New Roman'; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp; </span></span></span></strong><strong style="mso-bidi-font-weight: normal;"><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">Once this file works the way you want when manually run, it is <span style="text-decoration: underline;">very simple</span> to have KACE deploy it. </span></strong><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">(Okay&hellip; it is &ldquo;simple&rdquo; if you know how to set up managed installations </span><span style="color: black; font-family: Wingdings; font-size: 10.5pt; mso-ascii-font-family: Verdana; mso-hansi-font-family: Verdana; mso-char-type: symbol; mso-symbol-font-family: Wingdings;"><span style="mso-char-type: symbol; mso-symbol-font-family: Wingdings;">J</span></span><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">, so I have for your benefit detailed instructions below and they should be followed in the order given for best results.)<strong style="mso-bidi-font-weight: normal;"></strong></span></p>
+<p>&nbsp;</p>
+<p><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">2. If you do not already have this version of Symantec client (12.1.1101.401) in the KACE software inventory, choose the 32-bit or 64-bit install file and manually install it on a client computer, by simply clicking on the setup.exe file so that it installs on the computer. After that completes logon to the KACE 1000 admin console and run an inventory on that client computer. This puts that program into the KACE software inventory.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: black; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">3. Go to "Distribution/Managed Installations". From "Choose Action" click the drop down arrow select "Add New Item". Check the box "Also show software without an Associated File", type "Symantec Endpoint Protection" in the box next to "Filter". Click the drop down arrow to the right of "Software" and choose "Symantec Endpoint Protection (12.1.1101.401).<span style="mso-spacerun: yes;">&nbsp; </span>Click &ldquo;Save&rdquo; at the bottom of the page. We will return to this Managed installation setup later.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">4. Go to &ldquo;Inventory/Software&rdquo;. In the search box type &ldquo;Symantec Endpoint Protection&rdquo; then click &ldquo;Search&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>Click on the Symantec Endpoint Protection item found, after confirming the version column shows &ldquo;12.1.1101.401&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>In the address bar of your browser is the path to this software item in KACE.<span style="mso-spacerun: yes;">&nbsp; </span>The path will look something like : </span><a href="http://kbox1000.yourcompany.com/adminui/software.php?ID=9871"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;"><span style="color: #0000ff;">http://kbox1000.yourcompany.com/adminui/software.php?ID=9871</span></span></a><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">.<span style="mso-spacerun: yes;">&nbsp; </span>The important thing to note is the number at the end of this line.<span style="mso-spacerun: yes;">&nbsp; </span>In the case above &ldquo;9871&rdquo; is going to be the name of the folder created on the KACE client when the managed install is pushed out to that client.</span><span style="mso-spacerun: yes;">&nbsp; </span><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">Write down the number you see in <em style="mso-bidi-font-style: normal;"><span style="text-decoration: underline;">your specific path</span></em>.<span style="mso-spacerun: yes;">&nbsp; </span>You will need that number in defining the &ldquo;Run Parameters&rdquo; path, later in step 7 below.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">5. Open the Managed installation you created in step 3. Click the &ldquo;Browse&rdquo; button next to &ldquo;Upload &amp; Associate New File&rdquo;. Browse to either the 32-bit or 64-bit install file you created in step 1.<span style="mso-spacerun: yes;">&nbsp; </span></span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">6. For &ldquo;Installation Command&rdquo; choose &ldquo;Configure Manually&rdquo;. </span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">7. For &ldquo;Run Parameters&rdquo; type in the path that will exist on the client computer after KACE pushes this install file out to it.<span style="mso-spacerun: yes;">&nbsp; </span>For Windows 7 type this, <span style="text-decoration: underline;">including</span> the quotation marks: &ldquo;C:\Programdata\Dell\KACE\downloads\9871\setup.exe&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>Change the 9871 to the number you wrote down at the end of step 4.<span style="mso-spacerun: yes;">&nbsp; </span>So, for example if your number is 376, the whole path you will type, including quotation marks will be &ldquo;C:\Programdata\Dell\KACE\downloads\376\setup.exe&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>For Windows XP deployment the path will be &ldquo;C:\Documents and Settings\all users\dell\kace\downloads\376\setup.exe&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>Disclaimer: these paths work only if you have not changed the default path on your client computers that a Managed Installation deploys to.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">8. Check the box &ldquo;Don&rsquo;t Prepend msiexec.exe&rdquo;</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">9. Choose a managed action that fits your needs. I used &ldquo;Execute while user logged on&rdquo;, and did not test any other Managed Action.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">10. Make a choice in &ldquo;Limit Deployment to Labels&rdquo; that fits your needs.<span style="mso-spacerun: yes;">&nbsp; </span>I left the defaults for &ldquo;Deploy Order&rdquo; (10), &ldquo;Max Attempts&rdquo; (3), and &ldquo;Deployment Window&rdquo; &ldquo;0&rdquo; and &ldquo;24&rdquo;. I did not test any other choices.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">11. If needed, choose and define Snooze, Custom Pre-Install Message and Custom Post-Install Message. I used a Post-Install User Message and did not test any other type.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">12. Click &ldquo;Save&rdquo;. You will be prompted to allow the upload of the file to the KBOX. Be sure to allow that. Wait until the file is uploaded.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">13. It will deploy according to the &ldquo;Managed Action&rdquo; selection.</span></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><span style="line-height: 115%; font-family: 'Verdana','sans-serif'; font-size: 10.5pt;">14.<span style="mso-spacerun: yes;">&nbsp; </span>If you need a 32-bit and a 64-bit installation of the SEP 12.1.1101.401 client you can deploy them one at a time.<span style="mso-spacerun: yes;">&nbsp; </span>Go back to your Managed Installation and upload the 32-bit install file to the KBOX according to the direction in step 5 above. Also change the Deployment to machines section to be 32-bit OS clients. Click &ldquo;Save&rdquo;. That will run according to the parameters chosen in &ldquo;Managed Action&rdquo;. After that deploys, and now you find you need a 64-bit installation of the SEP client 12.1.1101.401, go back to your Managed installation and upload the 64-bit install file, and also change the Deployment to Machines section to be 64-bit clients, and click &ldquo;Save&rdquo;.<span style="mso-spacerun: yes;">&nbsp; </span>That also will deploy according to the parameter chosen in &ldquo;Managed Action&rdquo;. </span></p>
+<p><span style="font-family: Calibri;"><span style="line-height: 115%; font-size: 12pt;"></span></span></p>
+<p><strong></strong></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ITMonkeyBoy" class="username" rel="nofollow">ITMonkeyBoy</a>
+                </li>
+                <li>
+                    10/31/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (0)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (10)
+                            </h3>
+            <p>Questions & Answers related to Symantec Endpoint Protection</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" class="title">
+            Deploying &quot;Identical&quot; Software to Different Locations - Same .EXE name, Points to Different Servers
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-identical-software-to-different-locations-same-exe-name-points-to-different-servers" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jorayek" rel="nofollow">jorayek</a>
+                5 years ago 3.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-symantec-endpoint-protection-in-k1000" class="title">
+            How to deploy Symantec Endpoint Protection in K1000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-symantec-endpoint-protection-in-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-symantec-endpoint-protection-in-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-symantec-endpoint-protection-in-k1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-deploy-symantec-endpoint-protection-in-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-symantec-endpoint-protection-in-k1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Jeremy.Stehle" rel="nofollow">Jeremy.Stehle</a>
+                5 years ago 6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/symantec-endpoint-protection-12-setaid-ini" class="title">
+            Symantec Endpoint Protection 12 - setAid.ini
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="symantec-endpoint-protection-12-setaid-ini" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-setaid-ini" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-setaid-ini" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="symantec-endpoint-protection-12-setaid-ini" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-setaid-ini" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sylvain_langlois" rel="nofollow">sylvain_langlois</a>
+                5 years ago 8.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" class="title">
+            Is there a unistall string out there for Symantec Endpoint Protection version 11.0.5002.333?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" type="radio" class="star" disabled="disabled"  />
+    <input name="is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" type="radio" class="star" disabled="disabled"  />
+    <input name="is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" type="radio" class="star" disabled="disabled"  />
+    <input name="is-there-a-unistall-string-out-there-for-symantec-endpoint-protection-version-11-0-5002-333" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Helios72" rel="nofollow">Helios72</a>
+                5 years ago 3.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" class="title">
+            Symantec EndPoint Protection 12.1 SCCM deploy won&#039;t show installation progress
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-endpoint-protection-12-1-sccm-deploy-won-t-show-installation-progress" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/RonW" rel="nofollow">RonW</a>
+                5 years ago 7.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" class="title">
+            How to deploy SEP 12.1.2100.2093 (MP1) using MDT Task Sequence in SCCM 2012
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-sep-12-1-2100-2093-mp1-using-mdt-task-sequence-in-sccm-2012" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/JHBPJF" rel="nofollow">JHBPJF</a>
+                4 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" class="title">
+            Need help tweaking report that will list computers with multiple versions of SEP installed.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" type="radio" class="star" disabled="disabled"  />
+    <input name="need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" type="radio" class="star" disabled="disabled"  />
+    <input name="need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" type="radio" class="star" disabled="disabled"  />
+    <input name="need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="need-help-tweaking-report-that-will-list-computers-with-multiple-versions-of-sep-installed" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jparkins" rel="nofollow">jparkins</a>
+                4 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploy-symantec-endpoint-protection-12-1-3" class="title">
+            Deploy Symantec Endpoint Protection 12.1.3
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploy-symantec-endpoint-protection-12-1-3" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-symantec-endpoint-protection-12-1-3" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-symantec-endpoint-protection-12-1-3" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-symantec-endpoint-protection-12-1-3" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-symantec-endpoint-protection-12-1-3" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 5.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/what-is-command-to-un-install-symantec" class="title">
+            What is command to un-install symantec?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="what-is-command-to-un-install-symantec" type="radio" class="star" disabled="disabled"  />
+    <input name="what-is-command-to-un-install-symantec" type="radio" class="star" disabled="disabled"  />
+    <input name="what-is-command-to-un-install-symantec" type="radio" class="star" disabled="disabled"  />
+    <input name="what-is-command-to-un-install-symantec" type="radio" class="star" disabled="disabled"  />
+    <input name="what-is-command-to-un-install-symantec" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mhmfaiz" rel="nofollow">mhmfaiz</a>
+                4 years ago 2.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" class="title">
+            From the Event Viewer, how to custom inventory Event ID on desktops for Symantec Endpoint Protection Client?  Need the EventID and EventData inventoried.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" type="radio" class="star" disabled="disabled"  />
+    <input name="from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" type="radio" class="star" disabled="disabled"  />
+    <input name="from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" type="radio" class="star" disabled="disabled"  />
+    <input name="from-the-event-viewer-how-to-custom-inventory-event-id-on-desktops-for-symantec-endpoint-protection-client-need-the-eventid-and-eventdata-inventoried" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mtcooper" rel="nofollow">mtcooper</a>
+                1 year ago 636 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (2)
+                            </h3>
+            <p>Blog posts related to Symantec Endpoint Protection</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" class="title">
+                How to Deploy the Symantec Endpoint Protection Client 12.1 from the KACE 1000
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-deploy-the-symantec-endpoint-protection-client-12-1-from-the-kace-1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ITMonkeyBoy" rel="nofollow">ITMonkeyBoy</a>
+                5 years ago 23.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" class="title">
+                Silent deployment Symantec Endpoint Protection 12.1 with automated configuration
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 20.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (1)
+                            </h3>
+
+            <p>Links related to Symantec Endpoint Protection</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/symantec-community" class="title">
+                Symantec Community
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="symantec-community" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-community" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-community" type="radio" class="star" disabled="disabled"  />
+    <input name="symantec-community" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="symantec-community" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ms01ak" rel="nofollow">ms01ak</a>
+                5 years ago 1.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Symantec Endpoint Protection</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">441180d</div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

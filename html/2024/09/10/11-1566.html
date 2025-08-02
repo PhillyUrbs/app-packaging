@@ -1,0 +1,1407 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Citrix Receiver 11</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Citrix Receiver 11">
+    <meta name="keywords" content="Citrix,Citrix Receiver,Receiver 11">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/citrix/receiver/11-1566" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/citrix">Citrix</a></li>
+    <li><a href="/software-library/company/citrix/receiver">Receiver</a></li>
+    <li>11</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Citrix Receiver</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 11
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/14-643"
+                                            >
+                                            14.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/13-266"
+                                            >
+                                            13.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/11-1566"
+                                            >
+                                            11.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/4-3920"
+                                            >
+                                            4.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/2-7544"
+                                            >
+                                            2.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/receiver/1-15994"
+                                            >
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/60296/JTJGc29mdHdhcmUlMkZjaXRyaXglMkZyZWNlaXZlciUyRjExLTE1NjY=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/60296/JTJGc29mdHdhcmUlMkZjaXRyaXglMkZyZWNlaXZlciUyRjExLTE1NjY=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 2.7k &nbsp|&nbsp
+    Created: 07/28/2011
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="60296"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Receiver has <a href="#inventory-records" id="scrollInv">3 inventory records</a>,
+                <a href="#q-a" id="scrollQA">11 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">5 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (0)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/citrix/receiver/11-1566#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/citrix/receiver/11-1566/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <p>No deployment tips yet. Be the first to add one!</p>
+
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (3)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/60296/129491">
+                                    11.4.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/60296/129492">
+                                    11.3.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/60296/129493">
+                                    11.4.0
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Receiver</h2>
+            <div><h3>Version</h3><span>11.4.3</span></div>
+                                                        <div><h3>Uninstall String</h3>/Applications/Citrix Receiver.app</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (11)
+                            </h3>
+            <p>Questions & Answers related to Citrix Receiver</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/what-is-the-best-practice-to-un-install-all-versions-of-citrix-receiver-clients-using-kace-sma-k1000-to-do-these-tasks-what-are-their-parameters-to-do-quietly-or-silently-in-the-background" class="title">
+            what is the best practice to un/install all versions of Citrix Receiver clients using KACE SMA (K1000) to do these tasks? What are their parameters to do quietly or silently in the background?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43552"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/M%20F" rel="nofollow">M F</a>
+                5 years ago 1.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Kiyolaka answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/citrix-receiver-v14-1" class="title">
+            Can you automate &#039;Add Account&#039; in the Citrix Receiver v14.1 installer?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="34244"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/patrickliseth" rel="nofollow">patrickliseth</a>
+                9 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               EdT commented 9 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-citrix-receiver-with-sccm-2012r2" class="title">
+            Deploying Citrix Receiver with SCCM 2012R2
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="34153"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Lahru" rel="nofollow">Lahru</a>
+                9 years ago 25.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               MikhailCompo commented 9 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/pre-configured-citrix-receiver-on-iphones-ipads" class="title">
+            Pre-configured Citrix Receiver on iPhones/iPads
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29188"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/elvenil" rel="nofollow">elvenil</a>
+                10 years ago 2.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/problem-with-citrix-receiver-4-0-msi-installation" class="title">
+            Problem with Citrix Receiver 4.0 MSI installation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="29139"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/krnone" rel="nofollow">krnone</a>
+                10 years ago 8.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/suggestions-to-solve-complex-software-deployment-requiring-reboots" class="title">
+            Suggestions to solve complex software deployment (requiring reboots)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="28840"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/theatrebyte" rel="nofollow">theatrebyte</a>
+                10 years ago 5.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/citrix-reciever-14-0-0-91-exe" class="title">
+            Silent installation of Citrix Reciever 14.0.0.91
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27335"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/WhisperMgmt" rel="nofollow">WhisperMgmt</a>
+                11 years ago 42.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               titusr commented 10 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/citrix-receiver-3-x-socks-proxy-setting-i-need-to-set-the-socks-or-proxy-without-modifying-default-browser-settings" class="title">
+            Citrix Receiver 3.x socks/proxy setting. I need to set the socks or proxy without modifying default browser settings
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27121"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/BatmanX" rel="nofollow">BatmanX</a>
+                11 years ago 5.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-do-i-deploy-a-pre-configured-citrix-receiver" class="title">
+            How do I deploy a pre-configured citrix receiver?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="25330"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jcorder" rel="nofollow">jcorder</a>
+                11 years ago 6.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/appdeploy-repackager-program-and-how-to-deploy-citrixreceiver-exe-version-3-3-standard-edition-with-silent-parameters-etc" class="title">
+            AppDeploy Repackager program and how to deploy CitrixReceiver.exe version 3.3 Standard Edition with /silent parameters etc.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24739"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/kenknuds" rel="nofollow">kenknuds</a>
+                11 years ago 7.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/citrix-client-1" class="title">
+            How can I silently install Citrix Receiver?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20464"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=1
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/brighstarcuit" rel="nofollow">brighstarcuit</a>
+                12 years ago 22.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Citrix Receiver</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (5)
+                            </h3>
+
+            <p>Links related to Citrix Receiver</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/configure-and-install-receiver-4-for-windows-using-command-line-parameters" class="title">
+                Configure and install Receiver 4 for Windows using command-line parameters
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5580"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/theatrebyte" rel="nofollow">theatrebyte</a>
+                10 years ago 4.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/citrix-receiver-cleanup-utility" class="title">
+                Citrix Receiver Cleanup Utility
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5579"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/theatrebyte" rel="nofollow">theatrebyte</a>
+                10 years ago 31.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/domain-pass-through-to-storefront-from-client-os" class="title">
+                Domain Pass-Through to StoreFront from Client OS
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5578"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/theatrebyte" rel="nofollow">theatrebyte</a>
+                10 years ago 3.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/citrix-receiver-4-with-domain-pass-trough" class="title">
+                Citrix Receiver 4 with domain pass-trough
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5577"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/theatrebyte" rel="nofollow">theatrebyte</a>
+                10 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/citrix-receiver-for-windows-using-command-line-parameters" class="title">
+                Citrix Receiver for Windows using command-line parameters
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4334"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/tuckwell" rel="nofollow">tuckwell</a>
+                12 years ago 9.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Citrix Receiver</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

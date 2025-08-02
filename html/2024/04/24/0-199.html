@@ -1,0 +1,2646 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for VideoLAN VLC media player 0</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to VideoLAN VLC media player 0">
+    <meta name="keywords" content="VideoLAN,VideoLAN VLC media player,VLC media player 0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/videolan/vlc-media-player/0-199" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/videolan">VideoLAN</a></li>
+    <li><a href="/software-library/company/videolan/vlc-media-player">VLC media player</a></li>
+    <li>0</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>VideoLAN VLC media player</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 0
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/videolan/vlc-media-player/3-4262"
+                                            >
+                                            3.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/videolan/vlc-media-player/2-816"
+                                            >
+                                            2.x <span>(12 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/videolan/vlc-media-player/1-1638"
+                                            >
+                                            1.x <span>(20 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/videolan/vlc-media-player/0-199"
+                                            >
+                                            0.x <span>(16 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/6234/JTJGc29mdHdhcmUlMkZ2aWRlb2xhbiUyRnZsYy1tZWRpYS1wbGF5ZXIlMkYwLTE5OQ==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/6234/JTJGc29mdHdhcmUlMkZ2aWRlb2xhbiUyRnZsYy1tZWRpYS1wbGF5ZXIlMkYwLTE5OQ==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 32k &nbsp|&nbsp
+    Created: 01/24/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="6234"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                VLC media player has <a href="#inventory-records" id="scrollInv">21 inventory records</a>,
+                <a href="#q-a" id="scrollQA">7 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">3 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (16)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/videolan/vlc-media-player/0-199#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/videolan/vlc-media-player/0-199/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_631" name="tip_631">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-631"></div> -->
+   <div id="tip-631" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">138</div>
+   <div id="tip-631" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-631"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            If you need to deselect certain file type associations when installing VLC silently, you need to download the ZIP version instead of the EXE installer, and do the following to rebuild the installer yourself:<br />
+<br />
+ZIP version of VLC 0.8.6d: <br />
+<a href="http://download.videolan.org/pub/videolan/vlc/0.8.6d/win32/vlc-0.8.6d-win32.zip">http://download.videolan.org/pub/videolan/vlc/0.8.6d/win32/vlc-0.8.6d-win32.zip</a><br />
+<br />
+Nullsoft Scriptable Install System: <br />
+<a href="http://nsis.sourceforge.net/Download">http://nsis.sourceforge.net/Download</a><br />
+<br />
+1) Install the Nullsoft Scriptable Install System<br />
+2) Unzip the VLC ZIP file<br />
+3) Open the vlc.win32.nsi file with Notepad<br />
+4) Enter the version number on line 7<br />
+5) Change line 23 so that the file name uses the correct version variable: ${PRODUCT_VERSION} instead of ${VERSION}<br />
+6) Put a semi-colon at the beginning of any line (roughly between line numbers 112 and 155) for any file for which VLC should not steal the association (I've removed ASF, ASX, WMA, and WMV to keep Microsoft formats with Windows Media Player - needed for files with DRM as VLC doesn't cope with DRM-update requirements)<br />
+7) Save the file and exit Notepad<br />
+8) Right-click on the vlc.win32.nsi file and choose Compile NSIS Script (this will take a minute or so and will save a new installer in the directory above the current one)<br />
+9) Hopefully you'll now have a VLC installer without any undesirable file type associations. The re-compiled installer still supports the /S silent switch, too.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mfearby" class="username" rel="nofollow">mfearby</a>
+                </li>
+                <li>
+                    12/11/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_629" name="tip_629">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-629"></div> -->
+   <div id="tip-629" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">131</div>
+   <div id="tip-629" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-629"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Download software <a href="http://www.videolan.org">http://www.videolan.org</a><br />
+<br />
+Run  "vlc-0.7.0-win32.exe" /S
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nicola" class="username" rel="nofollow">nicola</a>
+                </li>
+                <li>
+                    06/07/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_630" name="tip_630">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-630"></div> -->
+   <div id="tip-630" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">130</div>
+   <div id="tip-630" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-630"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            I found this <a href="http://forum.videolan.org/viewtopic.php?f=14&t=29422&hilit=installation+silent+installation">in the videolan forum</a><br />
+<br />
+"NSIS installers recognize /S for silent installation, /NCRC to suppress the CRC (verification) step, and /D=dir to specify the "output directory", which is where the program will be installed. These options are case-sensitive, so be sure to type them in upper case."<br />
+<br />
+I tried this with success:<br />
+vlc-0.8.6c-win32.exe /S /NCRC<br />
+<br />
+No language message appears.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ahe" class="username" rel="nofollow">ahe</a>
+                </li>
+                <li>
+                    09/14/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_632" name="tip_632">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-632"></div> -->
+   <div id="tip-632" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">122</div>
+   <div id="tip-632" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-632"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            VLC, unlike most players, can play DVD without the need for a DVD codec installed. To make it the default add the following key to your package.<br />
+<br />
+Subkey: Hkey_Classes_Root\DVD\shell\play\commandString<br />
+Value:(Default)<br />
+Data: "P:\Apps\VLC\vlc.exe"dvd://
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/DanGay" class="username" rel="nofollow">DanGay</a>
+                </li>
+                <li>
+                    01/25/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_633" name="tip_633">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-633"></div> -->
+   <div id="tip-633" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">7</div>
+   <div id="tip-633" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-633"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            You can Uninstall VLC (until 0.9X) with this uninstall command:<br />
+<br />
+in the path "c:\program files\Videolan\VLC\"<br />
+launch "uninstall.exe /S /NCRC"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/aryanman" class="username" rel="nofollow">aryanman</a>
+                </li>
+                <li>
+                    12/23/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_637" name="tip_637">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-637"></div> -->
+   <div id="tip-637" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">6</div>
+   <div id="tip-637" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-637"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            -== VLC media player 0.9.9 ==-<br />
+<br />
+Although the .exe installer does take a /S switch, there is not a nice way to control the shortcuts (e.g. remove desktop shortcut) without a 'delete' command somewhere, and there is not a nice way to stop the 'Privacy and Network Policies' window opening on first use.  The window asks for update notification settings and auto-download of album art.<br />
+<br />
+The preferences including the auto-update check settings are  stored in:<br />
+%UAPPDATA%\vlc\vlcrc<br />
+This is a text file that can be edited with Notepad.  The two settings that are required in this file are:<br />
+qt-updates-notif=0<br />
+qt-privacy-ask=0<br />
+<br />
+This will prevent the notification of updates and not prompt for the settings at first run.  If you set these, put the vlcrc file aside for later.<br />
+<br />
+I then downloaded the windows zip file vlc-0.9.9-win32.zip from http://www.videolan.org/vlc/download-windows.html.<br />
+<br />
+I created a new msi (using Wise Windows Installer Editor) and added all the files and folders from the zip to install to [INSTALLDIR] = %ProgramFiles\VideoLAN\VLC which is the same as the folder that is used when using their installer.<br />
+<br />
+Then add the vlcrc that was amended earlier, to install to Windows\Profiles\Application Data\vlc<br />
+Then add an HKCU value as the primary key to the vlcrc component to ensure that the app auto-repairs for each user (e.g. HKCU\Software\VLC media player\Packaged = "by fred bloggs").  Note that you may get an ICE91 warning on the vlcrc component, but adding the HKCU value within the component as the primary key ensured that the self-repair ran properly and installed the file for me for all users logging on and running VLC, thus preventing the initial option screen and having update prompts off by default.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Daz" class="username" rel="nofollow">Daz</a>
+                </li>
+                <li>
+                    06/25/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_638" name="tip_638">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-638"></div> -->
+   <div id="tip-638" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-638" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-638"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            I tried this command line with VLC mediaplayer 1.0.0 and it still works fine. No major changes in the commands, i guess....<br />
+<br />
+vlc-1.0.0-win32.exe /L=1044 /S /NCRC
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/dallius" class="username" rel="nofollow">dallius</a>
+                </li>
+                <li>
+                    07/14/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_636" name="tip_636">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-636"></div> -->
+   <div id="tip-636" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-636" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-636"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            REM Unattended VLC 0.9.x installation, with old version removal and browser plugins.<br />
+<br />
+REM Remove self-packaged VideoLAN 0.8.4a MSI<br />
+%systemroot%\system32\MsiExec.exe /X{3F927A23-9913-4BBF-B70D-566327589B72} /PASSIVE<br />
+<br />
+REM Remove earlier VideoLAN-versions<br />
+"%ProgramFiles%\VideoLAN\VLC\uninstall.exe" /S<br />
+<br />
+REM Finish up removing old versions<br />
+rmdir /s /q "%ProgramFiles%\VideoLAN"<br />
+<br />
+REM Install VLC Player 0.9.8a from default distribution package<br />
+\\server\share\installs\VLCplayer\vlc-0.9.8a-win32.exe /S<br />
+<br />
+REM Install the browser plugins manually after this - just registry additions.<br />
+<br />
+REM Install Mozilla VLC Plugin 0.9.8a<br />
+REM These were extracted from the zip file<br />
+if exist "%ProgramFiles%\Mozilla Firefox\firefox.exe" %systemroot%\system32\xcopy.exe \\server\share\installs\VLCplayer\vlc-0.9.8a\mozilla\npvlc.dll "%ProgramFiles%\VideoLAN\VLC\" /y /c<br />
+if exist "%ProgramFiles%\Mozilla Firefox\firefox.exe" %systemroot%\system32\xcopy.exe \\server\share\installs\VLCplayer\vlc-0.9.8a\mozilla\npvlc.dll.manifest "%ProgramFiles%\VideoLAN\VLC\" /y /c<br />
+if exist "%ProgramFiles%\Mozilla Firefox\firefox.exe" %systemroot%\regedit.exe /s \\server\share\installs\VLCplayer\VLCMozPlug.reg<br />
+<br />
+REM Install IE VLC Plugin 0.9.8a<br />
+%systemroot%\system32\xcopy.exe \\server\share\installs\VLCplayer\vlc-0.9.8a\activex\axvlc.dll "%ProgramFiles%\VideoLAN\VLC\" /y /c<br />
+%systemroot%\system32\xcopy.exe \\server\share\installs\VLCplayer\vlc-0.9.8a\activex\axvlc.dll.manifest "%ProgramFiles%\VideoLAN\VLC\" /y /c<br />
+%systemroot%\system32\regsvr32.exe /s "%ProgramFiles%\VideoLAN\VLC\axvlc.dll"<br />
+<br />
+REM Allow modifying of desktop icon<br />
+%systemroot%\system32\cacls.exe "%ALLUSERSPROFILE%\Desktop\VLC Media Player.lnk" /e /g users:c<br />
+<br />
+----<br />
+The Mozilla reg file was extracted from a manual install, here's the copypaste of VLCMozPlug.reg:<br />
+Windows Registry Editor Version 5.00<br />
+<br />
+[HKEY_LOCAL_MACHINE\SOFTWARE\MozillaPlugins\@videolan.org/vlc,version=0.9.8a]<br />
+"Description"="VLC Multimedia Plugin"<br />
+"Path"="C:\\Program Files\\VideoLAN\\VLC\\npvlc.dll"<br />
+"Product"="VLC media player"<br />
+"Vendor"="VideoLAN"<br />
+"Version"="0.9.8a"<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/CSCmikrotuki" class="username" rel="nofollow">CSCmikrotuki</a>
+                </li>
+                <li>
+                    05/26/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_635" name="tip_635">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-635"></div> -->
+   <div id="tip-635" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-635" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-635"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Download ZIP version with installer of VLC and edit vlc.win32.nsi file to not associate all MP3/avi to VLC (unless you want ALL)<br />
+<br />
+Then to install run:<br />
+%~dp0vlc-0.9.9-win32.exe /L=1033 /S /NCRC<br />
+1033 = EN-us, 1036 = FR-fr, 1053 = SV-sv etc.<br />
+<br />
+To uninstall:<br />
+%Programfiles%\VideoLAN\VLC\uninstall.exe /S /NCRC<br />
+<br />
+With version 0.9.9 the user has just to answer once how to deal with thumbnails etc but I let it be since the user should chose a personal setting here. The installation is however 100% silent.<br />
+<br />
+More here:<br />
+http://john.bryntze.net/jbkb/index.php?title=OpenSource-kb5_Silent_installation_and_configuration_of_VLC_Media_Player
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jbappdeploy" class="username" rel="nofollow">jbappdeploy</a>
+                </li>
+                <li>
+                    05/06/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_642" name="tip_642">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-642"></div> -->
+   <div id="tip-642" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-642" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-642"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Another way to establish settings for all users is to make configuration with one user (including disable the flags for Updates and Policy Settings). The config files are stored in the Appdata folder of the user in vlc folder.<br />
+<br />
+Create a folder in the all users' Application Data called vlc, there we have to put the configuration files that previously we made with the other user.<br />
+<br />
+The program checks this folder when it starts.<br />
+<br />
+You can do it centralized using GPO Preferences or include the commands in the silent installation script.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/alexperez" class="username" rel="nofollow">alexperez</a>
+                </li>
+                <li>
+                    07/20/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_639" name="tip_639">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-639"></div> -->
+   <div id="tip-639" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-639" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-639"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            the 1.0.3 still works:<br />
+<br />
+&gt; vlc-1.0.3-win32.exe /L=1034 /S<br />
+<br />
+(to install in spanish language)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/migus" class="username" rel="nofollow">migus</a>
+                </li>
+                <li>
+                    01/05/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_640" name="tip_640">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-640"></div> -->
+   <div id="tip-640" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-640" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-640"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Thanks for the comments. They helped me :)<br />
+<br />
+I use this script. But with the latest versions there is an anoying popup named vlc-cache-gen. It stays there for 15 a 20 seconds and then it installs fine. No user intervention is required though. <br />
+------------------------------------------------------<br />
+@echo off<br />
+If not exist "c:\program files\videolan\vlc\vlc.exe" (goto there) else goto end<br />
+:there<br />
+net use y: "\\servername\packages$\VLC Player"<br />
+y:\vlc.exe --no-qt-privacy-ask /L=1033 /S /NCRC<br />
+net use y: /delete /y<br />
+:end<br />
+-----------------------------------------------------------<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Rheijnen" class="username" rel="nofollow">Rheijnen</a>
+                </li>
+                <li>
+                    03/18/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_643" name="tip_643">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-643"></div> -->
+   <div id="tip-643" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-643" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-643"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            vlc-0.7.0-win32.exe /S
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/AppDeploy.com" class="username" rel="nofollow">AppDeploy.com</a>
+                </li>
+                <li>
+                    02/28/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6588" name="tip_6588">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6588"></div> -->
+   <div id="tip-6588" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6588" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6588"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>This is an update for VLC 2.0.2 This works in LANDesk and I have tried it on 10 machine so far and works perfect. The Command switches are below</p>
+<p>/L=1033 /S /NCRC&nbsp;</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/kmwhiten" class="username" rel="nofollow">kmwhiten</a>
+                </li>
+                <li>
+                    07/06/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_641" name="tip_641">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-641"></div> -->
+   <div id="tip-641" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">-1</div>
+   <div id="tip-641" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-641"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            To uninstall it seem like the uninstall won't work silently if vlc is running so:<br />
+<br />
+cmd /c taskkill /F /IM vlc.exe /T & "%programfiles%\VideoLAN\VLC\uninstall.exe" /S
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/andykn" class="username" rel="nofollow">andykn</a>
+                </li>
+                <li>
+                    06/02/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_634" name="tip_634">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-634"></div> -->
+   <div id="tip-634" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">-5</div>
+   <div id="tip-634" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-634"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>Use vlc-0.9.9-win32.exe /L=1033 /S for silent install using dutch language</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jsoetens0001" class="username" rel="nofollow">jsoetens0001</a>
+                </li>
+                <li>
+                    04/20/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (21)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/6234/12420">
+                                    0.8.6c
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12421">
+                                    0.8.4a
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12422">
+                                    0.8.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12423">
+                                    0.8.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12424">
+                                    0.8.6e
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12425">
+                                    0.8.4-test1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12426">
+                                    0.8.6b
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12427">
+                                    0.9.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12428">
+                                    0.9.8a
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12429">
+                                    0.8.6i
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12430">
+                                    0.8.6d
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12431">
+                                    0.8.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12432">
+                                    0.9.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12433">
+                                    0.9.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12434">
+                                    0.8.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12435">
+                                    0.8.6f
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12436">
+                                    0.8.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12437">
+                                    0.8.6a
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12438">
+                                    0.9.9
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12439">
+                                    0.7.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/6234/12440">
+                                    0.8.6h
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>VLC media player</h2>
+            <div><h3>Version</h3><span>0.8.6c</span></div>
+                                                        <div><h3>Uninstall String</h3>C:\Program Files\VideoLAN\VLC\uninstall.exe
+C:\Program Files\VideoLAN\uninstall.exe
+E:\Program Files\VideoLAN\VLC\uninstall.exe
+C:\Program Files\VLC\uninstall.exe
+C:\Documents and Settings\Jaustin\Desktop\VLC\uninstall.exe
+D:\Program Files\VLC\uninstall.e</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (7)
+                            </h3>
+            <p>Questions & Answers related to VideoLAN VLC media player</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-delete-excess-audiotracks-on-vlc" class="title">
+            How to delete excess audiotracks on VLC?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="44636"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bony07" rel="nofollow">bony07</a>
+                3 years ago 253 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               bony07 commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-do-you-handle-maintain-monthly-third-party-installs" class="title">
+            How do you handle maintain monthly third party installs?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="42764"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/AAnschutz" rel="nofollow">AAnschutz</a>
+                5 years ago 1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               AAnschutz commented 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/vlc-media-player-disable-updates" class="title">
+            Kace K1000 PowerShell Script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="41878"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/samuelcolt" rel="nofollow">samuelcolt</a>
+                5 years ago 1.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cstewy commented 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-installation-of-vlc-on-window-s-7" class="title">
+            Silent Installation of VLC on Window&#039;s 7
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="40459"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cgsao" rel="nofollow">cgsao</a>
+                6 years ago 9.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cgsao commented 6 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-disable-auto-updates-and-disable-privacy-and-network-policies-first-time-using-vlc-after-being-deploy-from-sccm-12" class="title">
+            How to disable auto-updates and Disable Privacy and Network Policies first time using VLC after being deploy from sccm 12
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="38202"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Navin1986" rel="nofollow">Navin1986</a>
+                7 years ago 9.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Killragtshirts answered 7 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/disable-auto-update-for-vlc-media-player" class="title">
+            Disable Auto Update for VLC Media Player
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="35351"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Tamilprabha" rel="nofollow">Tamilprabha</a>
+                8 years ago 14.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               RainmanCT answered 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-find-msi-of-programs-like-firefox-and-vlc-media-player" class="title">
+            How to find msi of  programs like firefox and VLC media player?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="33176"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/innocent" rel="nofollow">innocent</a>
+                9 years ago 14.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               pace-support answered 6 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to VideoLAN VLC media player</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/deploying-vlc-2-2-2-for-enterprise" class="title">
+            Deploying VLC 2.2.2 for Enterprise (auto update disabled, no prompts)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30067"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/hidefind" rel="nofollow">hidefind</a>
+                7 years ago 37.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (3)
+                            </h3>
+
+            <p>Links related to VideoLAN VLC media player</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sequencing-vlc-media-player-using-app-v-5-0-sp3" class="title">
+                Sequencing VLC Media Player using App-V 5.0 SP3
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5991"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/apptopack" rel="nofollow">apptopack</a>
+                8 years ago 4.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/download-url" class="title">
+                Download link for VideoLAN VLC Media Player
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4465"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/kwhatcher" rel="nofollow">kwhatcher</a>
+                11 years ago 4.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/vlc-command-line-help-videolan-wiki" class="title">
+                VLC command-line help - VideoLAN Wiki
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2869"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Daz" rel="nofollow">Daz</a>
+                12 years ago 14.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to VideoLAN VLC media player</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

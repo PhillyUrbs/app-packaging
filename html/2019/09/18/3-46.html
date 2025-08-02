@@ -1,0 +1,3090 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Microsoft System Center Configuration Manager (SCCM) 3 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft System Center Configuration Manager (SCCM) 3">
+        <meta name="keywords" content="Microsoft,Microsoft System Center Configuration Manager (SCCM),System Center Configuration Manager (SCCM) 3">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/microsoft/system-center-configuration-manager-sccm/3-46" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+            <li class="first "><a href="/software">Software Tips</a></li>
+            <li ><a href="/question">Questions</a></li>
+            <li ><a href="/blog">Blogs</a></li>
+            <li ><a href="/link">Links</a></li>
+            <li ><a href="/community">Communities</a></li>
+                    </ul>
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/microsoft/browse">Microsoft</a></li>
+    <li><a href="/software/microsoft/system-center-configuration-manager-sccm/versions">System Center Configuration Manager (SCCM)</a></li>
+    <li>3</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Microsoft System Center Configuration Manager (SCCM)</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 3
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/2012-14"
+                                            >
+                                            2012.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/2003-30"
+                                            >
+                                            2003.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/12-41"
+                                            >
+                                            12.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/5-889"
+                                            >
+                                            5.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/4-134"
+                                            >
+                                            4.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/3-46"
+                                            >
+                                            3.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/2-3382"
+                                            >
+                                            2.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/system-center-configuration-manager-sccm/1-4052"
+                                            >
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/606/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZzeXN0ZW0tY2VudGVyLWNvbmZpZ3VyYXRpb24tbWFuYWdlci1zY2NtJTJGMy00Ng==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/606/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZzeXN0ZW0tY2VudGVyLWNvbmZpZ3VyYXRpb24tbWFuYWdlci1zY2NtJTJGMy00Ng==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 5.1k &nbsp|&nbsp
+    Created: 02/05/2009
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version606" type="radio" class="star" disabled="disabled"  />
+    <input name="Version606" type="radio" class="star" disabled="disabled"  />
+    <input name="Version606" type="radio" class="star" disabled="disabled"  />
+    <input name="Version606" type="radio" class="star" disabled="disabled"  />
+    <input name="Version606" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                System Center Configuration Manager (SCCM) has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">604 Questions</a>,
+                <a href="#blogs" id="scrollBlog">34 Blogs</a>
+                and <a href="#links" id="scrollLinks">24 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (4)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/606" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="yAMLe4tjj6_LtbhotZIe1fLq0XSYP64vBPEoJnsaxwQ"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/system-center-configuration-manager-sccm/3-46#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/system-center-configuration-manager-sccm/3-46/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_2666" name="tip_2666">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2666"></div> -->
+   <div id="tip-2666" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-2666" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-2666"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            To uninstall SMS Advanced clients remotely use the ccmclean.exe file with command line switches of /all /remove history /q /retry:&lt;count&gt;,&lt;seconds to wait&gt;<br />
+<br />
+you can also open up a command prompt and change directory to the location of ccmclean and run ccmclean.exe /? to get a full list and description of the command line switches.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    02/05/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_69" name="tip_69">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-69"></div> -->
+   <div id="tip-69" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-69" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-69"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For the removal of the SMS Client, SMS Client 2003 I used the following... <br />
+<br />
+Run Parameters: /all /removehistory /q<br />
+Full Command Line: ccmclean.exe /all /removehistory /q
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    03/02/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_70" name="tip_70">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-70"></div> -->
+   <div id="tip-70" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-70" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-70"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Uninstall:<br />
+<br />
+Msiexec /x {D8EF2D11-47CF-45E5-B423-47B29706DE12}
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/chibeatz" class="username" rel="nofollow">chibeatz</a>
+                </li>
+                <li>
+                    03/02/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_71" name="tip_71">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-71"></div> -->
+   <div id="tip-71" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-71" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-71"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Microsoft recommends for SMS 2003 client removal (when not upgrading to SCCM) that you use ccmclean.exe. Switches I've used are as follows:<br />
+<br />
+ccmclean.exe /keephistory /q<br />
+<br />
+/? - Display Help<br />
+/client - Remove the SMS Advanced Client only (default)<br />
+/mp - Remove SMS Management Point only<br />
+/logdir:&lt;dir&gt; - Set the location where log files should be created<br />
+/logbackup:&lt;dir&gt; Backs up SMS Advanced client andMP log files<br />
+/keephistory - Keeps software distribution and inventory history when removing<br />
+/q - quiet
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/elgwhoppo" class="username" rel="nofollow">elgwhoppo</a>
+                </li>
+                <li>
+                    03/02/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/606/1243">
+                                    3
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>System Center Configuration Manager (SCCM)</h2>
+            <div><h3>Version</h3><span>3</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (604)
+                            </h3>
+            <p>Questions & Answers related to Microsoft System Center Configuration Manager (SCCM)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/office-2003-modprof-exe-error" class="title">
+            Office 2003 modprof.exe error
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="office-2003-modprof-exe-error" type="radio" class="star" disabled="disabled"  />
+    <input name="office-2003-modprof-exe-error" type="radio" class="star" disabled="disabled"  />
+    <input name="office-2003-modprof-exe-error" type="radio" class="star" disabled="disabled"  />
+    <input name="office-2003-modprof-exe-error" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="office-2003-modprof-exe-error" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/rblunden" rel="nofollow">rblunden</a>
+                11 years ago 8.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/help-with-visio-2003-package" class="title">
+            Help with Visio 2003 package
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="help-with-visio-2003-package" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-visio-2003-package" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-visio-2003-package" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-visio-2003-package" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-visio-2003-package" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Razmar" rel="nofollow">Razmar</a>
+                11 years ago 4.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/syntax-for-applying-patches" class="title">
+            Syntax for applying patches
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="syntax-for-applying-patches" type="radio" class="star" disabled="disabled"  />
+    <input name="syntax-for-applying-patches" type="radio" class="star" disabled="disabled"  />
+    <input name="syntax-for-applying-patches" type="radio" class="star" disabled="disabled"  />
+    <input name="syntax-for-applying-patches" type="radio" class="star" disabled="disabled"  />
+    <input name="syntax-for-applying-patches" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cduplessis" rel="nofollow">cduplessis</a>
+                10 years ago 5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/installing-the-sms-client-with-a-script" class="title">
+            Installing the SMS client with a script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="installing-the-sms-client-with-a-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-the-sms-client-with-a-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-the-sms-client-with-a-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-the-sms-client-with-a-script" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-the-sms-client-with-a-script" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mrjones1914" rel="nofollow">mrjones1914</a>
+                10 years ago 5.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/query-window-limit" class="title">
+            Query window limit?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="query-window-limit" type="radio" class="star" disabled="disabled"  />
+    <input name="query-window-limit" type="radio" class="star" disabled="disabled"  />
+    <input name="query-window-limit" type="radio" class="star" disabled="disabled"  />
+    <input name="query-window-limit" type="radio" class="star" disabled="disabled"  />
+    <input name="query-window-limit" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Grabar" rel="nofollow">Grabar</a>
+                9 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/shutdown-pc-s-on-network" class="title">
+            Shutdown PC&#039;s on Network
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="shutdown-pc-s-on-network" type="radio" class="star" disabled="disabled"  />
+    <input name="shutdown-pc-s-on-network" type="radio" class="star" disabled="disabled"  />
+    <input name="shutdown-pc-s-on-network" type="radio" class="star" disabled="disabled"  />
+    <input name="shutdown-pc-s-on-network" type="radio" class="star" disabled="disabled"  />
+    <input name="shutdown-pc-s-on-network" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Pravin_lfc" rel="nofollow">Pravin_lfc</a>
+                9 years ago 4.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               william_h commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/cmak" class="title">
+            CMAK
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="cmak" type="radio" class="star" disabled="disabled"  />
+    <input name="cmak" type="radio" class="star" disabled="disabled"  />
+    <input name="cmak" type="radio" class="star" disabled="disabled"  />
+    <input name="cmak" type="radio" class="star" disabled="disabled"  />
+    <input name="cmak" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dynek" rel="nofollow">dynek</a>
+                8 years ago 7.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" class="title">
+            Maintenance Windows: Possible to prevent downloading of packages until window opens?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" type="radio" class="star" disabled="disabled"  />
+    <input name="maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" type="radio" class="star" disabled="disabled"  />
+    <input name="maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" type="radio" class="star" disabled="disabled"  />
+    <input name="maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" type="radio" class="star" disabled="disabled"  />
+    <input name="maintenance-windows-possible-to-prevent-downloading-of-packages-until-window-opens" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/aslander" rel="nofollow">aslander</a>
+                8 years ago 8.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                7
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sccm-failure-program-exit-code-12" class="title">
+            SCCM failure program exit code 12
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sccm-failure-program-exit-code-12" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-failure-program-exit-code-12" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-failure-program-exit-code-12" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-failure-program-exit-code-12" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-failure-program-exit-code-12" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/athertonwj" rel="nofollow">athertonwj</a>
+                7 years ago 16.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/language-setting-to-ts" class="title">
+            Language setting to TS
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="language-setting-to-ts" type="radio" class="star" disabled="disabled"  />
+    <input name="language-setting-to-ts" type="radio" class="star" disabled="disabled"  />
+    <input name="language-setting-to-ts" type="radio" class="star" disabled="disabled"  />
+    <input name="language-setting-to-ts" type="radio" class="star" disabled="disabled"  />
+    <input name="language-setting-to-ts" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/JakeTM" rel="nofollow">JakeTM</a>
+                7 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/hp-officejet-8500-deployment-via-sccm" class="title">
+            Hp Officejet 8500 deployment via SCCM
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="hp-officejet-8500-deployment-via-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="hp-officejet-8500-deployment-via-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="hp-officejet-8500-deployment-via-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="hp-officejet-8500-deployment-via-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="hp-officejet-8500-deployment-via-sccm" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dryce" rel="nofollow">dryce</a>
+                7 years ago 5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" class="title">
+            Deploy Lenovo Driver via SCCM - Installshield ISS is my nemesis
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-lenovo-driver-via-sccm-installshield-iss-is-my-nemesis" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/DocNorton" rel="nofollow">DocNorton</a>
+                6 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" class="title">
+            Deploying Adobe Photoshop Elements 9 with SCCM reports failure.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-adobe-photoshop-elements-9-with-sccm-reports-failure" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/clivebuckwheat1" rel="nofollow">clivebuckwheat1</a>
+                6 years ago 5.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/remove-advertisement-for-a-single-client" class="title">
+            Remove advertisement for a single client
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="remove-advertisement-for-a-single-client" type="radio" class="star" disabled="disabled"  />
+    <input name="remove-advertisement-for-a-single-client" type="radio" class="star" disabled="disabled"  />
+    <input name="remove-advertisement-for-a-single-client" type="radio" class="star" disabled="disabled"  />
+    <input name="remove-advertisement-for-a-single-client" type="radio" class="star" disabled="disabled"  />
+    <input name="remove-advertisement-for-a-single-client" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Dr_Whom" rel="nofollow">Dr_Whom</a>
+                11 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/windows-validation-and-sms" class="title">
+            Windows Validation and SMS
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="windows-validation-and-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="windows-validation-and-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="windows-validation-and-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="windows-validation-and-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="windows-validation-and-sms" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/StefStephens" rel="nofollow">StefStephens</a>
+                11 years ago 3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/installing-quicktime-via-sms-uninstall-old-first" class="title">
+            Installing Quicktime via SMS . . . Uninstall old first?!
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="installing-quicktime-via-sms-uninstall-old-first" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-quicktime-via-sms-uninstall-old-first" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-quicktime-via-sms-uninstall-old-first" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-quicktime-via-sms-uninstall-old-first" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-quicktime-via-sms-uninstall-old-first" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/andyjharper" rel="nofollow">andyjharper</a>
+                10 years ago 6.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-toad-for-oracle-9-1-via-sms" class="title">
+            Deploying Toad for Oracle 9.1 via SMS
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-toad-for-oracle-9-1-via-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-toad-for-oracle-9-1-via-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-toad-for-oracle-9-1-via-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-toad-for-oracle-9-1-via-sms" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-toad-for-oracle-9-1-via-sms" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ahcash" rel="nofollow">ahcash</a>
+                10 years ago 4.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/help-with-mif-files" class="title">
+            help with mif files
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="help-with-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="help-with-mif-files" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/groulder" rel="nofollow">groulder</a>
+                9 years ago 4.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/computers-with-ie6-and-ie7" class="title">
+            computers with IE6 and IE7
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="computers-with-ie6-and-ie7" type="radio" class="star" disabled="disabled"  />
+    <input name="computers-with-ie6-and-ie7" type="radio" class="star" disabled="disabled"  />
+    <input name="computers-with-ie6-and-ie7" type="radio" class="star" disabled="disabled"  />
+    <input name="computers-with-ie6-and-ie7" type="radio" class="star" disabled="disabled"  />
+    <input name="computers-with-ie6-and-ie7" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/paucar" rel="nofollow">paucar</a>
+                9 years ago 7.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/asmx-download-problem-with-win2k8-iis-7" class="title">
+            .asmx download problem with Win2k8, IIS 7
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="asmx-download-problem-with-win2k8-iis-7" type="radio" class="star" disabled="disabled"  />
+    <input name="asmx-download-problem-with-win2k8-iis-7" type="radio" class="star" disabled="disabled"  />
+    <input name="asmx-download-problem-with-win2k8-iis-7" type="radio" class="star" disabled="disabled"  />
+    <input name="asmx-download-problem-with-win2k8-iis-7" type="radio" class="star" disabled="disabled"  />
+    <input name="asmx-download-problem-with-win2k8-iis-7" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lsiegel" rel="nofollow">lsiegel</a>
+                8 years ago 3.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                                    <div class="show-more"><a href="/tag/microsoft-system-center-configuration-manager-%28sccm%29-3/question">More Questions</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (34)
+                            </h3>
+            <p>Blog posts related to Microsoft System Center Configuration Manager (SCCM)</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/appdeploy-articles-mms-2003-notes" class="title">
+                Microsoft Management Summit (MMS) 2003 Notes
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="appdeploy-articles-mms-2003-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="appdeploy-articles-mms-2003-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="appdeploy-articles-mms-2003-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="appdeploy-articles-mms-2003-notes" type="radio" class="star" disabled="disabled"  />
+    <input name="appdeploy-articles-mms-2003-notes" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/AppDeploy.com" rel="nofollow">AppDeploy.com</a>
+                6 years ago 5.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/sccm-application-packaging-consultant-needed" class="title">
+                SCCM /Application Packaging consultant needed
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sccm-application-packaging-consultant-needed" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-application-packaging-consultant-needed" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-application-packaging-consultant-needed" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-application-packaging-consultant-needed" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-application-packaging-consultant-needed" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Seekerplus" rel="nofollow">Seekerplus</a>
+                7 years ago 8.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/copying-files-from-sms-distribution-points-using-command-line" class="title">
+                Copying files from SMS Distribution points using command line
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="copying-files-from-sms-distribution-points-using-command-line" type="radio" class="star" disabled="disabled"  />
+    <input name="copying-files-from-sms-distribution-points-using-command-line" type="radio" class="star" disabled="disabled"  />
+    <input name="copying-files-from-sms-distribution-points-using-command-line" type="radio" class="star" disabled="disabled"  />
+    <input name="copying-files-from-sms-distribution-points-using-command-line" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="copying-files-from-sms-distribution-points-using-command-line" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/volantedesktop" rel="nofollow">volantedesktop</a>
+                6 years ago 6.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" class="title">
+                MMS2012: Configuration Manager 2007 R3: Review and Simplify Your Deployments
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2007-r3-review-and-simplify-your-deployments" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2012-configuration-manager-2012-technical-overview" class="title">
+                MMS2012: Configuration Manager 2012: Technical Overview
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2012-configuration-manager-2012-technical-overview" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-technical-overview" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-technical-overview" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mms2012-configuration-manager-2012-technical-overview" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-technical-overview" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2012-configuration-manager-2012-deployment-and-infrastructure" class="title">
+                MMS2012: Configuration Manager 2012: Deployment and Infrastructure
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2012-configuration-manager-2012-deployment-and-infrastructure" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-deployment-and-infrastructure" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-deployment-and-infrastructure" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-configuration-manager-2012-deployment-and-infrastructure" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mms2012-configuration-manager-2012-deployment-and-infrastructure" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 5.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2012-keynote-a-world-of-connected-devices" class="title">
+                MMS2012: Keynote: A World of Connected Devices
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2012-keynote-a-world-of-connected-devices" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-keynote-a-world-of-connected-devices" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-keynote-a-world-of-connected-devices" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mms2012-keynote-a-world-of-connected-devices" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2012-keynote-a-world-of-connected-devices" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/itninja-integration-with-bundle-commander" class="title">
+                ITNinja Integration with Bundle Commander
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="itninja-integration-with-bundle-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="itninja-integration-with-bundle-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="itninja-integration-with-bundle-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="itninja-integration-with-bundle-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="itninja-integration-with-bundle-commander" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 5.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/applications-packaging-roles-in-perth-wa" class="title">
+                Applications Packaging roles in Perth WA!!!
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="applications-packaging-roles-in-perth-wa" type="radio" class="star" disabled="disabled"  />
+    <input name="applications-packaging-roles-in-perth-wa" type="radio" class="star" disabled="disabled"  />
+    <input name="applications-packaging-roles-in-perth-wa" type="radio" class="star" disabled="disabled"  />
+    <input name="applications-packaging-roles-in-perth-wa" type="radio" class="star" disabled="disabled"  />
+    <input name="applications-packaging-roles-in-perth-wa" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ITRecruiterLE" rel="nofollow">ITRecruiterLE</a>
+                5 years ago 6.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/taod-for-oracle-11-0-r2" class="title">
+                Deploying Toad for Oracle 11.0 R2
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="taod-for-oracle-11-0-r2" type="radio" class="star" disabled="disabled"  />
+    <input name="taod-for-oracle-11-0-r2" type="radio" class="star" disabled="disabled"  />
+    <input name="taod-for-oracle-11-0-r2" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="taod-for-oracle-11-0-r2" type="radio" class="star" disabled="disabled"  />
+    <input name="taod-for-oracle-11-0-r2" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/swpackager" rel="nofollow">swpackager</a>
+                5 years ago 10.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/pre-install-check-on-batch-script" class="title">
+                SCCM Pre-install Check Batch Script
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="pre-install-check-on-batch-script" type="radio" class="star" disabled="disabled"  />
+    <input name="pre-install-check-on-batch-script" type="radio" class="star" disabled="disabled"  />
+    <input name="pre-install-check-on-batch-script" type="radio" class="star" disabled="disabled"  />
+    <input name="pre-install-check-on-batch-script" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="pre-install-check-on-batch-script" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/sparky86" rel="nofollow">sparky86</a>
+                5 years ago 7.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2013-choosing-the-right-os-deployment-tool-mdt" class="title">
+                MMS2013: Choosing the Right OS Deployment Tool (MDT)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2013-choosing-the-right-os-deployment-tool-mdt" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-choosing-the-right-os-deployment-tool-mdt" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-choosing-the-right-os-deployment-tool-mdt" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-choosing-the-right-os-deployment-tool-mdt" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-choosing-the-right-os-deployment-tool-mdt" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                4 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" class="title">
+                MMS2013: System Center 2012 Configuration Manager SP1 and InTune: Unified Modern Device Management
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-sp1-and-intune-unified-modern-device-management" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                4 years ago 3.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" class="title">
+                MMS2013: Becoming a Windows Intune IT Administrator: A Real-World Perspective
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" type="radio" class="star" disabled="disabled"  />
+    <input name="mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mms2013-becoming-a-windows-intune-it-administrator-a-real-world-perspective" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                4 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" class="title">
+                Silent deployment Symantec Endpoint Protection 12.1 with automated configuration
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-deployment-symantec-endpoint-protection-12-1-with-automated-configuration" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 20.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/configuration-manager-2012-finding-assets-without-a-primary-user-defined" class="title">
+                Configuration Manager 2012: Finding Assets Without a Primary User Defined
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="configuration-manager-2012-finding-assets-without-a-primary-user-defined" type="radio" class="star" disabled="disabled"  />
+    <input name="configuration-manager-2012-finding-assets-without-a-primary-user-defined" type="radio" class="star" disabled="disabled"  />
+    <input name="configuration-manager-2012-finding-assets-without-a-primary-user-defined" type="radio" class="star" disabled="disabled"  />
+    <input name="configuration-manager-2012-finding-assets-without-a-primary-user-defined" type="radio" class="star" disabled="disabled"  />
+    <input name="configuration-manager-2012-finding-assets-without-a-primary-user-defined" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/kkaminsk" rel="nofollow">kkaminsk</a>
+                4 years ago 4.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/sccm-2012-r2-training" class="title">
+                SCCM 2012 R2 Training
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sccm-2012-r2-training" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2012-r2-training" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2012-r2-training" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2012-r2-training" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="sccm-2012-r2-training" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                4 years ago 5.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/initiate-policy-retrieval-for-a-configuration-manager-client" class="title">
+                Initiate Policy Retrieval for a Configuration Manager Client
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="initiate-policy-retrieval-for-a-configuration-manager-client" type="radio" class="star" disabled="disabled"  />
+    <input name="initiate-policy-retrieval-for-a-configuration-manager-client" type="radio" class="star" disabled="disabled"  />
+    <input name="initiate-policy-retrieval-for-a-configuration-manager-client" type="radio" class="star" disabled="disabled"  />
+    <input name="initiate-policy-retrieval-for-a-configuration-manager-client" type="radio" class="star" disabled="disabled"  />
+    <input name="initiate-policy-retrieval-for-a-configuration-manager-client" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Badger" rel="nofollow">Badger</a>
+                4 years ago 9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploying-office-365-essential-info-for-every-admin" class="title">
+                Deploying Office 365 - Essential Info for every admin
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-office-365-essential-info-for-every-admin" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-office-365-essential-info-for-every-admin" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-office-365-essential-info-for-every-admin" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-office-365-essential-info-for-every-admin" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-office-365-essential-info-for-every-admin" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cblake" rel="nofollow">cblake</a>
+                3 years ago 37.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/system-center-management-suite-microsoft-sql-licenses" class="title">
+                System Center Management Suite Microsoft SQL Licenses
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="system-center-management-suite-microsoft-sql-licenses" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-management-suite-microsoft-sql-licenses" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-management-suite-microsoft-sql-licenses" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-management-suite-microsoft-sql-licenses" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-management-suite-microsoft-sql-licenses" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/dedenker" rel="nofollow">dedenker</a>
+                3 years ago 4.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/microsoft-system-center-configuration-manager-%28sccm%29-3/blog">More Blog Posts</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (24)
+                            </h3>
+
+            <p>Links related to Microsoft System Center Configuration Manager (SCCM)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/systems-management-server-sms-product-page" class="title">
+                Systems Management Server (SMS) Product Page
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="systems-management-server-sms-product-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-page" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/systems-management-server-sms-support" class="title">
+                Systems Management Server (SMS) Support
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="systems-management-server-sms-support" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-support" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-support" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-support" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-support" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/systems-management-server-sms-documentation" class="title">
+                Systems Management Server (SMS) Documentation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="systems-management-server-sms-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-documentation" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/systems-management-server-sms-product-faq" class="title">
+                Systems Management Server (SMS) Product FAQ
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="systems-management-server-sms-product-faq" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-faq" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-faq" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-faq" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-product-faq" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/systems-management-server-sms-home-page" class="title">
+                Systems Management Server (SMS) Home Page
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="systems-management-server-sms-home-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-home-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-home-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-home-page" type="radio" class="star" disabled="disabled"  />
+    <input name="systems-management-server-sms-home-page" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                15 years ago 4.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/system-center-2012-configuration-manager-trial" class="title">
+                System Center 2012 Configuration Manager Trial
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="system-center-2012-configuration-manager-trial" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-trial" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-trial" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-trial" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="system-center-2012-configuration-manager-trial" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/adilrathore" rel="nofollow">adilrathore</a>
+                5 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/the-basics-of-mif-files" class="title">
+                The Basics of MIF Files
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="the-basics-of-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="the-basics-of-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="the-basics-of-mif-files" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="the-basics-of-mif-files" type="radio" class="star" disabled="disabled"  />
+    <input name="the-basics-of-mif-files" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/pletcgm" rel="nofollow">pletcgm</a>
+                5 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/mif-tutorial" class="title">
+                MIF Tutorial
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="mif-tutorial" type="radio" class="star" disabled="disabled"  />
+    <input name="mif-tutorial" type="radio" class="star" disabled="disabled"  />
+    <input name="mif-tutorial" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="mif-tutorial" type="radio" class="star" disabled="disabled"  />
+    <input name="mif-tutorial" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/pletcgm" rel="nofollow">pletcgm</a>
+                5 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/the-configuration-manager-support-team-blog" class="title">
+                The Configuration Manager Support Team Blog
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="the-configuration-manager-support-team-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="the-configuration-manager-support-team-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="the-configuration-manager-support-team-blog" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="the-configuration-manager-support-team-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="the-configuration-manager-support-team-blog" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Lysell" rel="nofollow">Lysell</a>
+                5 years ago 2.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/dell-driver-cab-files-for-enterprise-client-os-deployment" class="title">
+                Dell Driver CAB files for Enterprise Client OS Deployment
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dell-driver-cab-files-for-enterprise-client-os-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="dell-driver-cab-files-for-enterprise-client-os-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="dell-driver-cab-files-for-enterprise-client-os-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="dell-driver-cab-files-for-enterprise-client-os-deployment" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="dell-driver-cab-files-for-enterprise-client-os-deployment" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                5 years ago 7.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/system-center-2012-configuration-manager-how-do-i-video-series" class="title">
+                System Center 2012 Configuration Manager &quot;How Do I&quot; Video series
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="system-center-2012-configuration-manager-how-do-i-video-series" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-how-do-i-video-series" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-how-do-i-video-series" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-how-do-i-video-series" type="radio" class="star" disabled="disabled"  />
+    <input name="system-center-2012-configuration-manager-how-do-i-video-series" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Lysell" rel="nofollow">Lysell</a>
+                5 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/neo42-paketdepot-s" class="title">
+                neo42 Paketdepot (S)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="neo42-paketdepot-s" type="radio" class="star" disabled="disabled"  />
+    <input name="neo42-paketdepot-s" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="neo42-paketdepot-s" type="radio" class="star" disabled="disabled"  />
+    <input name="neo42-paketdepot-s" type="radio" class="star" disabled="disabled"  />
+    <input name="neo42-paketdepot-s" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Frank%20Wiegand" rel="nofollow">Frank Wiegand</a>
+                5 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-to-deploying-microsoft-office-2013-using-sccm-2012" class="title">
+                How-to: Deploying Microsoft Office 2013 using SCCM 2012
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploying-microsoft-office-2013-using-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploying-microsoft-office-2013-using-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploying-microsoft-office-2013-using-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploying-microsoft-office-2013-using-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploying-microsoft-office-2013-using-sccm-2012" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ronnipedersen" rel="nofollow">ronnipedersen</a>
+                5 years ago 17.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/setup-commander" class="title">
+                Setup Commander
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="setup-commander" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="setup-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="setup-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="setup-commander" type="radio" class="star" disabled="disabled"  />
+    <input name="setup-commander" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                4 years ago 1.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/installing-adobe-flash-player-through-microsoft-sccm-2012" class="title">
+                Installing Adobe Flash Player through Microsoft SCCM 2012
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="installing-adobe-flash-player-through-microsoft-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-adobe-flash-player-through-microsoft-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-adobe-flash-player-through-microsoft-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-adobe-flash-player-through-microsoft-sccm-2012" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-adobe-flash-player-through-microsoft-sccm-2012" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/slusamson" rel="nofollow">slusamson</a>
+                4 years ago 11.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/exit-codes-error-codes" class="title">
+                Exit Codes Error Codes
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="exit-codes-error-codes" type="radio" class="star" disabled="disabled"  />
+    <input name="exit-codes-error-codes" type="radio" class="star" disabled="disabled"  />
+    <input name="exit-codes-error-codes" type="radio" class="star" disabled="disabled"  />
+    <input name="exit-codes-error-codes" type="radio" class="star" disabled="disabled"  />
+    <input name="exit-codes-error-codes" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ekgcorp" rel="nofollow">ekgcorp</a>
+                4 years ago 7.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/ismif32-exe" class="title">
+                ISMIF32.exe
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="ismif32-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="ismif32-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="ismif32-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="ismif32-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="ismif32-exe" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ekgcorp" rel="nofollow">ekgcorp</a>
+                4 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sccm-2007-powershell-module" class="title">
+                SCCM 2007 Powershell Module
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sccm-2007-powershell-module" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2007-powershell-module" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2007-powershell-module" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2007-powershell-module" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-2007-powershell-module" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/dedenker" rel="nofollow">dedenker</a>
+                3 years ago 4.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sccm-and-packaging-good-and-bad-practices" class="title">
+                SCCM and packaging – good and bad practices
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sccm-and-packaging-good-and-bad-practices" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-and-packaging-good-and-bad-practices" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-and-packaging-good-and-bad-practices" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-and-packaging-good-and-bad-practices" type="radio" class="star" disabled="disabled"  />
+    <input name="sccm-and-packaging-good-and-bad-practices" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Badger" rel="nofollow">Badger</a>
+                3 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" class="title">
+                Issue with RequirePublishAsAdmin with SCCM 2012 and User Targeting
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" type="radio" class="star" disabled="disabled"  />
+    <input name="issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" type="radio" class="star" disabled="disabled"  />
+    <input name="issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" type="radio" class="star" disabled="disabled"  />
+    <input name="issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" type="radio" class="star" disabled="disabled"  />
+    <input name="issue-with-requirepublishasadmin-with-sccm-2012-and-user-targeting" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Badger" rel="nofollow">Badger</a>
+                3 years ago 2.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/microsoft-system-center-configuration-manager-%28sccm%29-3/link">More Links</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft System Center Configuration Manager (SCCM)</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">441180d</div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

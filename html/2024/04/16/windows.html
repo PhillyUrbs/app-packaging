@@ -1,0 +1,2390 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Adobe Adobe AIR Runtime 3</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Adobe Adobe AIR Runtime 3">
+    <meta name="keywords" content="Adobe,Adobe Adobe AIR Runtime,Adobe AIR Runtime 3">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/adobe/adobe-air-runtime/3-3730/windows" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/adobe">Adobe</a></li>
+    <li><a href="/software-library/company/adobe/adobe-air-runtime">Adobe AIR Runtime</a></li>
+    <li>3</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Adobe Adobe AIR Runtime</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 3
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/27-9"
+                                            >
+                                            27.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/24-21"
+                                            >
+                                            24.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/19-92"
+                                            >
+                                            19.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/3-3730"
+                                            >
+                                            3.x <span>(9 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/2-5379"
+                                            >
+                                            2.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/adobe/adobe-air-runtime/1-11166"
+                                            >
+                                            1.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/42142/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmFkb2JlLWFpci1ydW50aW1lJTJGMy0zNzMwJTJGd2luZG93cw==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/42142/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmFkb2JlLWFpci1ydW50aW1lJTJGMy0zNzMwJTJGd2luZG93cw==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 27.8k &nbsp|&nbsp
+    Created: 11/11/2011
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="42142"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Adobe AIR Runtime has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">2 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">12 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (9)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/green.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>2 / 5 (Somewhat Easy)</strong>
+                            based on <strong>3</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li >
+                        <a href="/software/adobe/adobe-air-runtime/3-3730#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li class="active"><a href="/software/adobe/adobe-air-runtime/3-3730/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_3301" name="tip_3301">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3301"></div> -->
+   <div id="tip-3301" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">5</div>
+   <div id="tip-3301" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3301"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Here are the steps I followed to create my Adobe AIR 3.1.0.4880 package.<br /> <br /> Begin by downloading the installer from the Adobe web site. You'll need to apply for a redistribution license to receive permission to download this file.<br /> <br /> The MSI installer can be extracted with 7-Zip.<br /> <br /> Open the "setup.msi" file with Orca.<br /> <br /> It is very poor practice to modify the original MSI file so create a transform or MST file. Transform - New Transform.<br /> <br /> If you try running the MSI installer, as is, you should receive the following error:<br /> <br /> "Could not access network location (computed)."<br /> <br /> To fix this, select the "Property" table and change the value of the "SHAREDADDINFOLDER" to "c:\".<br /> <br /> To test this, select Transform - Generate Transform, navigate to your working directory and provide a file name for the MST file. From a command line enter:<br /> <br /> msiexec /i setup.msi TRANSFORMS=setup.mst<br /> <br /> Then to uninstall:<br /> <br /> msiexec /x setup.msi<br /> <br /> Next, we want auto-updates disabled. This is accomplished by creating a REG_DWORD called 'UpdateDisabled' in 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\AIR', and setting the value to '1'.<br /> <br /> Start by creating the Feature. Select the Feature table and add a row:<br /> <br /> Feature: DisableAutoUpdates<br /> Title: DisableAutoUpdates<br /> Description: Prevent automatic installation of updates when an AIR app installation requires a newer version or when the background update process discovers a newer version.<br /> Display: (Find the highest value already in the table and add 1)<br /> Level: 1<br /> Attribute: 0<br /> <br /> Next create the Component. Select the Component table and add a row:<br /> <br /> Component: UpdateDisabled<br /> ComponentID: (Use a GUID generator. Be sure to include curly braces and everything is uppercase)<br /> Directory_: TARGETDIR<br /> Attribute: 4 (Registry)<br /> KeyPath: UpdateDisabled<br /> <br /> Next populate the FeatureComponents table. Select the FeatureComponents table and add a row: <br /> <br /> Feature_: DisableAutoUpdates<br /> Component_: UpdateDisabled<br /> <br /> Finally, add the registry setting. Select the Registry table and add a row:<br /> <br /> Registry: UpdateDisabled<br /> Root: 2 (HKLM)<br /> Key: SOFTWARE\Policies\Adobe\AIR<br /> Name: UpdateDisabled<br /> Value: #1<br /> Component_: UpdateDisabled<br /> <br /> Lastly, we want to pre-accept the EULA. To prevent the EULA from being displayed the first time an Adobe AIR application is run, it is necessary to create a text file called 'eulaAccepted' in %ALLUSERSPROFILE%\Application Data\Adobe\AIR and set the contents of the file to be '3'.<br /> <br /> Use a text editor to create the 'eulaAccepted' file (no extension) in the same directory as setup.msi, with a single character '3' for its contents.<br /> <br /> Return to Orca, create the Feature. Select the Feature table and add a row:<br /> <br /> Feature: AcceptEula<br /> Title: Accept EULA<br /> Description: Accept End User License Agreement<br /> Display: (Find the highest value already in the table and add 1)<br /> Level: 1<br /> Attribute: 0<br /> <br /> Next create the Component. Select the Component table and add a row:<br /> <br /> Component: AcceptEula<br /> ComponentID: (Use a GUID generator. Be sure to include curly braces and everything is uppercase)<br /> Directory_: CADFAIR<br /> Attribute: 0 (Local Only)<br /> KeyPath: eulaAccepted<br /> <br /> Next populate the FeatureComponents table. Select the FeatureComponents table and add a row: <br /> <br /> Feature_: AcceptEula<br /> Component_: AcceptEula<br /> <br /> Now we'll create the File table entry. Select the File table and add a row:<br /> <br /> File: eulaAccepted<br /> Component_: AcceptEula<br /> FileName: eulaac~1 | eulaAccepted (8.3 name|long name)<br /> Filesize: 1<br /> Attribute: 512 (Vital)<br /> Sequence: (Find the highest value already in the table and add 1)<br /> <br /> Next we'll create the Directory entries. Select the Directory table and add the following three rows:<br /> <br /> Directory: CommonAppDataFolder<br /> Directory_Parent: TARGETDIR<br /> DefaultDir: Common~1 | CommonAppData:. (8.3 name | DestinationPath:SourcePath)<br /> <br /> Directory: CADFAdobe<br /> Directory_Parent: CommonAppDataFolder<br /> DefaultDir: Adobe:. (DestinationPath:SourcePath)<br /> <br /> Directory: CADFAIR<br /> Directory_Parent: CADFAdobe<br /> DefaultDir: AIR:. (DestinationPath:SourcePath)<br /> <br /> This was the most difficult part to get right and is a good example of how to get files somewhere other than the TARGETDIR path. The DestinationPath:SourcePath syntax is key.<br /> <br /> Finally we need to increment the Media table. Select the Media table and increment the value in LastSequence.<br /> <br /> That's it. Save your MST and test as before after the MSI fix above. I'm distributing this as an SCCM package so there's no need to add the eulaAccepted text file to the MSI or a new CAB file. This may not be acceptable in other deployment scenarios. Tools like InstEd IT! Make it very easy to add files to the installer, creates checksums and has a handy, built in, GUID generator.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rlinhartpdx" class="username" rel="nofollow">rlinhartpdx</a>
+                </li>
+                <li>
+                    02/23/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 9 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-8821">
+            <a name="comment-8821"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">This worked a treat for me (installing AIR 3.5) -
+                    <a class="username" href="/user/jobby" rel="nofollow">jobby</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-9017">
+            <a name="comment-9017"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">I followed your direction. However when I run it, it says "Source file not found eulaAccepted. Verify that you can access it. I've tried it with and without the .txt. Any suggestions? -
+                    <a class="username" href="/user/Take1" rel="nofollow">Take1</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-9617">
+            <a name="comment-9617"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">Take1, Did you perhaps miss the step: "Use a text editor to create the 'eulaAccepted' file (no extension) in the same directory as setup.msi, with a single character '3' for its contents." If you're using SCCM this file will need to be included in your SCCM package. -
+                    <a class="username" href="/user/rlinhartpdx" rel="nofollow">rlinhartpdx</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-9802">
+            <a name="comment-9802"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">I was able to install Adobe Air with the msi and mst file. At the same time i wanro install an .air app. is it possible to define that in the mst ?<br />
+Or is it only possible by using the exe installer ? -
+                    <a class="username" href="/user/Wandelaar" rel="nofollow">Wandelaar</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-9804">
+            <a name="comment-9804"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">This worked for me. Is it also possible to  install an .air app like you can specify with the exe installer ? -
+                    <a class="username" href="/user/Wandelaar" rel="nofollow">Wandelaar</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-10014">
+            <a name="comment-10014"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">rlinhartpdx, thank you for the reply. After going back and looking at my issue, the only thing I could think of doing wrong was a typo in the .mst. That's exactly what was wrong, in the part were I add eulaac~1 | eulaAccepted I had a space in between the 1 and | and a space between | and eulaAccepted. Once I removed those spaces and generated a new transform file then it worked fine. -
+                    <a class="username" href="/user/Take1" rel="nofollow">Take1</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-10018">
+            <a name="comment-10018"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">Wandelaar, I'm pretty sure there were instructions for installing .air apps with the MSI installer. Unfortunately I'm in a new job that doesn't require me to perform software packaging so I don't have any of my old materials. I hate saying it as much as I hate hearing it but I think you're going to have to RTFM (read the fancy manual, what did you think it meant?). ;) -
+                    <a class="username" href="/user/rlinhartpdx" rel="nofollow">rlinhartpdx</a>
+                    <small>11 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+            <li id="comment-13182">
+            <a name="comment-13182"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">I have successfully used this (tip 3) over the newer tip 4 (which doesn't take in account that the MSI won't launch without transforming it as discussed here).  Thanks very much for taking your time therefore.  :-) :-)  One thing though re disabling updates. This doesn't work. I'm too lazy and go back to sort it and give a definitive, tested solution so have fudged it in group policy.  But here's what I think is required :-)<br />
+<br />
+The HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\AIR needs to be a *DWORD*.  The procedure here will create a *STRING*.<br />
+<br />
+Looking at http://msdn.microsoft.com/en-us/library/windows/desktop/aa371168(v=vs.85).aspx, the last step to create the entry should be<br />
+<br />
+    Registry: UpdateDisabled<br />
+<br />
+    Root: 2 (HKLM)<br />
+<br />
+    Key: SOFTWARE\Policies\Adobe\AIR<br />
+<br />
+    Name: UpdateDisabled<br />
+<br />
+    Value: #1<br />
+<br />
+    Component_: UpdateDisabled<br />
+<br />
+(I think) where before it was Value : 1.  # denoting it is a DWORD. No prefix assumes a string by default.  Thoughts? -
+                    <a class="username" href="/user/neilgascoigne" rel="nofollow">neilgascoigne</a>
+                    <small>10 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+            <li id="comment-17425">
+            <a name="comment-17425"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">You are right, this is the correct entry to have it set as a DWORD, the OP settings sets it as a string incorrectly. -
+                    <a class="username" href="/user/frasercarter" rel="nofollow">frasercarter</a>
+                    <small>10 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+    </li>
+            <li id="comment-17479">
+            <a name="comment-17479"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">neilgascoigne, I'm not in a position to test this any more but on yours and frasercarter's advice I've edited my OP. -
+                    <a class="username" href="/user/rlinhartpdx" rel="nofollow">rlinhartpdx</a>
+                    <small>10 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3300" name="tip_3300">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3300"></div> -->
+   <div id="tip-3300" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-3300" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3300"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            The latest Adobe AIR Runtime appears to deploy correctly via Group Policy without having to make any modifications to the MSI.<br />
+<br />
+To prevent the EULA from being displayed the first time an Adobe AIR application is run, it is necessary to create a text file called 'eulaAccepted' in the following location:<br />
+%ALLUSERSPROFILE%\Application Data\Adobe\AIR<br />
+and set the contents of the file to be '3'.<br />
+<br />
+There are two different ways to disable automatic updates:<br />
+<br />
+(From <a href="http://help.adobe.com/en_US/air/admin/index.html">http://help.adobe.com/en_US/air/admin/index.html</a>)<br />
+Create REG_DWORD called 'UpdateDisabled' in HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\AIR, and set the value to 1<br />
+<br />
+(Created by the AIR SettingsManager mentioned in <a href="http://help.adobe.com/en_US/air/security/index.html">http://help.adobe.com/en_US/air/security/index.html</a>)<br />
+Create an empty text file called 'updateDisabled' in %APPDATA%\Adobe\AIR - this must be performed on every user profile<br />
+<br />
+In order to make it easier to create the registry value mentioned in the first method, I have created the following Group Policy ADM file. This covers all of the settings mentioned in the Adobe AIR Administrator's guide, and should be saved as AdobeAIR.adm.<br />
+<br />
+; Adobe AIR settings (AdobeAIR.adm)<br />
+; See http://help.adobe.com/en_US/air/admin/index.html for details<br />
+<br />
+CLASS MACHINE<br />
+<br />
+CATEGORY !!AdobeAIR<br />
+		KEYNAME "Software\Policies\Adobe\AIR"<br />
+<br />
+		POLICY !!AppInstallDisabled<br />
+				VALUENAME "AppInstallDisabled"<br />
+		END POLICY<br />
+<br />
+		POLICY !!UntrustedAppInstallDisabled<br />
+				VALUENAME "UntrustedAppInstallDisabled"<br />
+		END POLICY<br />
+<br />
+		POLICY !!UpdateDisabled<br />
+				VALUENAME "UpdateDisabled"<br />
+		END POLICY<br />
+END CATEGORY<br />
+<br />
+[strings]<br />
+AdobeAIR="Adobe AIR Settings"<br />
+AppInstallDisabled="Prevent installation of AIR applications"<br />
+UntrustedAppInstallDisabled="Prevent installation of untrusted AIR applications"<br />
+UpdateDisabled="Prevent automatic updates to Adobe AIR"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Minkus" class="username" rel="nofollow">Minkus</a>
+                </li>
+                <li>
+                    11/22/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6485" name="tip_6485">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6485"></div> -->
+   <div id="tip-6485" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-6485" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6485"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>The following command line can be used (the variable %~dp0 used for souce directory):</p>
+<p>"%~dp0AdobeAIRInstaller.exe"&nbsp;-silent -eulaAccepted</p>
+<p>The following command line can be used to disable automatic updates:</p>
+<p>reg add "HKLM\SOFTWARE\Policies\Adobe\AIR" /v UpdateDisabled /t REG_DWORD /d 1 /f</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jriekse5555" class="username" rel="nofollow">jriekse5555</a>
+                </li>
+                <li>
+                    06/07/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6837" name="tip_6837">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6837"></div> -->
+   <div id="tip-6837" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6837" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6837"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <div>
+<p>Generally, the AIR Installer presents its own user interface while installing the runtime and the AIR application. The <em>silent installation </em>feature lets you install an application without presenting or interacting with the AIR Installer interface.</p>
+<p>You can use silent mode to install Adobe AIR using an enterprise deployment tool (such as Kace, Microsoft SMS, IBM Tivoli, or any deployment tool that allows silent installations that use a bootstrapper).</p>
+<p>To run the Adobe AIR installer silently, start the Adobe AIR installer with the following command-line options:</p>
+<pre>-silent {-eulaAccepted -pingbackAllowed ( -location &lt;loc&gt; ) -desktopShortcut -programMenu} path</pre>
+<ul>
+<li>
+<p><strong>silent</strong>&mdash;The<samp class="codeph">-silent</samp>option tells the AIR installer to run in silent mode.</p>
+</li>
+<li>
+<p><strong>eulaAccepted</strong>&mdash;With the optional<samp class="codeph">-eulaAccepted</samp>option specified, if the AIR application installer installs Adobe AIR, it records <em>acceptance</em> of the Adobe AIR end-user license agreement (EULA). The Adobe AIR installer records this acceptance <em>for all users </em>of the target computer.</p>
+<div class="important"><span class="importanttitle">Important: </span>Use the<samp class="codeph">-eulaAccepted</samp>option only if your organization has agreed to the Adobe AIR end-user license agreement. You can only specify the<samp class="codeph">-eulaAccepted</samp>option if the organization has agreed to the Adobe AIR end-user license for all users of the computer. You can only specify the<samp class="codeph">-eulaAccepted</samp><em> option for deployment within an intranet. </em></div>
+<p>If you do <em>not</em>include the<samp class="codeph">-eulaAccepted</samp>option and Adobe AIR is installed during a silent installation, Adobe AIR will later present the Adobe AIR end-user license agreement to each user of the machine. Users see the end-user license agreement (with the option to accept it) upon first running an AIR application.</p>
+<p>If used, specify the<samp class="codeph">-eulaAccepted</samp>option immediately after the â€‘<samp class="codeph">silent</samp>option.</p>
+</li>
+<li>
+<p><strong>pingbackAllowed</strong> &mdash; Allows the installer to check for updates to the AIR runtime and report a successful install to Adobe over the Internet. No identifying information is transmitted.</p>
+</li>
+<li>
+<p><strong>location</strong>&mdash;The optional<samp class="codeph">-location</samp>option provides the location (an absolute file system path) to install the AIR application. The default location is the standard application installation location.</p>
+</li>
+<li>
+<p><strong>desktopShortcut</strong>&mdash;The optional<samp class="codeph">-desktopShortcut</samp>option causes the installer to install a desktop shortcut for the installed AIR application. If you do not specify this option, no desktop shortcut is installed.</p>
+</li>
+<li>
+<p><strong>programMenu</strong>&mdash;The optional<samp class="codeph">-programMenu</samp>option causes the installer to install a program menu shortcut for the installed application (on Windows). If you do not specify this option, no program menu shortcut is installed.</p>
+</li>
+<li>
+<p><strong>path</strong>&mdash;The<samp class="codeph">path</samp>option specifies the path to the AIR file to install.</p>
+<p>The AIR application installer installs the correct version of Adobe AIR on the target computer, as required by the AIR application to be installed. For example, if the AIR application to be installed requires the AIR 1.1 runtime, and the end user&rsquo;s computer has only AIR 1.0 installed (or no version of AIR installed), the installation process installs the AIR 1.1 runtime along with the AIR application. The version of the AIR application installer must be compatible with the version required by the AIR application.</p>
+<p>You <em>cannot</em> use the silent installer option to update an <em>installed</em> AIR application. This is because the AIR installer cannot determine whether the version to be installed is newer than the installed version, and it would pose a security risk to downgrade the application.</p>
+<p>To install or update the runtime only, use the<samp class="codeph">-silent</samp>option without specifying a<samp class="codeph">path</samp>or any other options.</p>
+</li>
+</ul>
+</div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cblake" class="username" rel="nofollow">cblake</a>
+                </li>
+                <li>
+                    11/21/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7548" name="tip_7548">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7548"></div> -->
+   <div id="tip-7548" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7548" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-7548"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>"adobeairinstaller.exe" -silent</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jegolf" class="username" rel="nofollow">jegolf</a>
+                </li>
+                <li>
+                    11/22/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6838" name="tip_6838">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6838"></div> -->
+   <div id="tip-6838" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6838" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6838"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <h2 class="topictitle2">Silent uninstallation</h2>
+<div>
+<p>You can silently uninstall an AIR application using the ARH utility.</p>
+<p>While ARH is the recommended method, you can also use the following methods:</p>
+<p>On Mac OS, use<samp class="codeph">rm -rf</samp>to remove the AIR application installation directory.</p>
+<p>On Windows:</p>
+<div class="para"><ol>
+<li>
+<p>Use the OSID generator to look up the upgrade GUID for the application (see <a href="WS485a42d56cd19641-70d979a8124ef20a34b-7ff8.html">Using the OSID Generator application</a>).</p>
+</li>
+<li>
+<p>Pass the upgrade GUID as the<samp class="codeph">lpUpgradeCode</samp>parameter to the<samp class="codeph">MsiEnumRelatedProducts()</samp>function. The function stores the product GUID in the buffer passed as the<samp class="codeph">lpProductBuf</samp>parameter to the function.</p>
+</li>
+<li>
+<p>Pass the product GUID to<samp class="codeph">msiexec /x</samp>(or an equivalent).</p>
+</li>
+</ol></div>
+</div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cblake" class="username" rel="nofollow">cblake</a>
+                </li>
+                <li>
+                    11/21/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6349" name="tip_6349">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6349"></div> -->
+   <div id="tip-6349" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6349" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6349"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Adobe AIR - Version 3.2 (3.2.0.2070)
+Download: http://get.adobe.com/air/ 
+
+To determine which Version is installed on your machine
+32bit - C:\Program Files\Common Files\Adobe AIR\Versions\1.0\Adobe AIR.dll - Right click, properties and go to details tab. 
+64bit - C:\Program Files\Common Files (x86)\Adobe AIR\Versions\1.0\Adobe AIR.dll  - Right click, properties and go to details tab. 
+
+If you are having trouble reinstall or to uninstall Adobe AIR or it's not available in Control Panel>Program  and Features : 
+Launch a Cmd prompt and run this parameter: 
+
+c:\AdobeAirInstaller.exe -uninstall
+
+Adobe AIR will then be fully uninstalled from your machine.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Aaron%20Cool" class="username" rel="nofollow">Aaron Cool</a>
+                </li>
+                <li>
+                    04/22/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3302" name="tip_3302">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3302"></div> -->
+   <div id="tip-3302" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-3302" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-3302"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For AIR 3.1.0.4880 I used the following to uninstall... <br />
+<br />
+Full Command Line: C:\Program Files\Common Files\Adobe AIR\Versions\1.0\Resources\Adobe AIR Updater.exe -arp:uninstall<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    03/13/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7410" name="tip_7410">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7410"></div> -->
+   <div id="tip-7410" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7410" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-7410"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I just wanted to update this forum,</p>
+<p>Next create the Component. Select the Component table and add a row:<br /><br />Component: AcceptEula<br />ComponentID: (Use a GUID generator. Be sure to include curly braces and everything is uppercase)<br />Directory_: CADFAIR<br />Attribute: 0 (Local Only)<br />KeyPath: eulaAccepted<br /><br />If you want the EULA to be accepted silently be sure to change the Attribute here to 3 when creating the mst.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/u561910" class="username" rel="nofollow">u561910</a>
+                </li>
+                <li>
+                    09/18/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/42142/89464">
+                                    3
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Adobe AIR Runtime</h2>
+            <div><h3>Version</h3><span>3</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (2)
+                            </h3>
+            <p>Questions & Answers related to Adobe Adobe AIR Runtime</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/does-anybody-knows-the-silent-uninstall-command-for-adobe-air-to-use-in-kase" class="title">
+            Does anybody knows the silent uninstall command for Adobe Air to use in Kace?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="37922"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Darrell_Law" rel="nofollow">Darrell_Law</a>
+                7 years ago 5.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               danflynn answered 4 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-air-install" class="title">
+            Adobe Air Install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19522"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Peterpan1" rel="nofollow">Peterpan1</a>
+                12 years ago 14.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Adobe Adobe AIR Runtime</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/adobe-air-3-8-0-1430" class="title">
+            Adobe AIR 3.8.0.1430
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20322"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/rovabu" rel="nofollow">rovabu</a>
+                10 years ago 5.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (12)
+                            </h3>
+
+            <p>Links related to Adobe Adobe AIR Runtime</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-air-runtime-redistribution-instructions" class="title">
+                Adobe AIR Runtime Redistribution Instructions
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="5978"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/BW~Merlin" rel="nofollow">BW~Merlin</a>
+                8 years ago 2.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/enterprise-administration-guide-for-the-acrobat-family-of-products" class="title">
+                Enterprise Administration Guide For the Acrobat Family of Products
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4236"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jagadeish" rel="nofollow">jagadeish</a>
+                11 years ago 6.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/deployment-notes-for-adobe-air-3-3-0-3650" class="title">
+                Deployment Notes for Adobe AIR 3.3.0.3650
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4232"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                11 years ago 5.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/packaging-adobe-air-3-2-0-2070" class="title">
+                Packaging Adobe AIR 3.2.0.2070
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4140"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                12 years ago 5.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-adobe-air-runtime-distribution" class="title">
+                Adobe - Adobe AIR Runtime Distribution
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2608"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Minkus" rel="nofollow">Minkus</a>
+                12 years ago 6.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-160-flash-160-platform-adobe-160-air-runtime-redistribution-instructions-1" class="title">
+                Adobe&amp;#160;Flash&amp;#160;Platform * 
+                Adobe&amp;#160;AIR Runtime Redistribution Instructions
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2653"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Minkus" rel="nofollow">Minkus</a>
+                12 years ago 2.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-160-flash-160-platform-adobe-air-administrator-s-guide-1" class="title">
+                Adobe&amp;#160;Flash&amp;#160;Platform * 
+                Adobe AIR Administratorâ€™s Guide
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2698"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Minkus" rel="nofollow">Minkus</a>
+                12 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-160-flash-160-platform-adobe-160-air-security" class="title">
+                Adobe&amp;#160;Flash&amp;#160;Platform * 
+                Adobe&amp;#160;AIR Security
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2743"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Minkus" rel="nofollow">Minkus</a>
+                12 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-160-flash-160-platform-adobe-160-air-runtime-redistribution-instructions" class="title">
+                Adobe&amp;#160;Flash&amp;#160;Platform * 
+                Adobe&amp;#160;AIR Runtime Redistribution Instructions
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1708"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/mazessj" rel="nofollow">mazessj</a>
+                12 years ago 8.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-160-flash-160-platform-adobe-air-administrator-s-guide" class="title">
+                Adobe&amp;#160;Flash&amp;#160;Platform * 
+                Adobe AIR Administratorâ€™s Guide
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1753"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/mazessj" rel="nofollow">mazessj</a>
+                12 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-air-it-administrators-adobe-air-3" class="title">
+                Adobe AIR | IT administrators | Adobe AIR 3
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1798"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/mazessj" rel="nofollow">mazessj</a>
+                12 years ago 5.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-adobe-air-download" class="title">
+                Adobe - Adobe AIR Download
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3015"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/cblake" rel="nofollow">cblake</a>
+                15 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Adobe Adobe AIR Runtime</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

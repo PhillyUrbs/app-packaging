@@ -1,0 +1,2763 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Oracle Java 6 (Any Update Level) 6</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Java 6 (Any Update Level) 6">
+    <meta name="keywords" content="Oracle,Oracle Java 6 (Any Update Level),Java 6 (Any Update Level) 6">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/oracle/java-6-any-update-level-1/6-1825" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/oracle">Oracle</a></li>
+    <li><a href="/software-library/company/oracle/java-6-any-update-level-1">Java 6 (Any Update Level)</a></li>
+    <li>6</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Oracle Java 6 (Any Update Level)</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 6
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-6-any-update-level-1/71-15"
+                                            >
+                                            71.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-6-any-update-level-1/6-1825"
+                                            >
+                                            6.x <span>(15 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/34504/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTYtYW55LXVwZGF0ZS1sZXZlbC0xJTJGNi0xODI1">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/34504/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTYtYW55LXVwZGF0ZS1sZXZlbC0xJTJGNi0xODI1">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 11.9k &nbsp|&nbsp
+    Created: 10/12/2009
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="34504"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Java 6 (Any Update Level) has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">11 Questions</a>,
+                <a href="#blogs" id="scrollBlog">3 Blogs</a>
+                and <a href="#links" id="scrollLinks">1 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (15)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with no known command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>2</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/java-6-any-update-level-1/6-1825#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/java-6-any-update-level-1/6-1825/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_2744" name="tip_2744">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2744"></div> -->
+   <div id="tip-2744" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">23</div>
+   <div id="tip-2744" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2744"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Example:<br />
+jre-6uXX-windows-i586-s.exe /s AgreeToLicense=YES IEXPLORER=1 MOZILLA=1 REBOOT=Suppress JAVAUPDATE=0<br />
+<br />
+That installed the environment for Mozilla or IE, supresses the reboot, Supresses EULA, and disables updates.<br />
+<br />
+<br />
+I've found that the update software from previous versions may still be active so I also remove the registry entries and delete the updater program:<br />
+reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v SunJavaUpdateSched /f<br />
+<br />
+IF EXIST "C:\Program Files\Java\jre6\bin\jusched.exe" DEL "C:\Program Files\Java\jre6\bin\jusched.exe"<br />
+<br />
+<br />
+<br />
+Supported command argumants from java.com:<br />
+ADDLOCAL is either jrecore[,extra][,other_US] or ALL<br />
+<br />
+IEXPLORER=1 indicates that the JRE should be registered with the Internet Explorer browser<br />
+<br />
+NETSCAPE6=1 indicates that the JRE should be registered with Netscape 6 or later browsers <br />
+<br />
+MOZILLA=1 indicates that the JRE should be registered with Mozilla 1.1 and later browsers <br />
+<br />
+INSTALLDIR specifies the drive and path of the installation<br />
+<br />
+REBOOT=Suppress indicates that if locked files are encountered the computer should not be rebooted<br />
+<br />
+JAVAUPDATE=1 indicates that Java Update feature is enabled<br />
+<br />
+EULA=1 indicates that End User License Agreement will be displayed on first use and not during installation
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cblake" class="username" rel="nofollow">cblake</a>
+                </li>
+                <li>
+                    10/13/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2748" name="tip_2748">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2748"></div> -->
+   <div id="tip-2748" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">16</div>
+   <div id="tip-2748" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2748"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Get Installation (tested with Java(TM) 6 Update 18):<br />
+<br />
+1. Download: http://www.java.com/nl/download/windows_ie.jsp?locale=nl<br />
+2. Start installation.<br />
+3. Check: Change Destination Folder (the setup will stop).<br />
+4. Copy the instaltion from:<br />
+C:\Documents and Settings\&lt;USER&gt;\Application Data\Sun\Java\jre1.6.0_18<br />
+5. Cancel installation.<br />
+<br />
+Configuration:<br />
+I use the MST 1033.mst to edit<br />
+  Property (*=default)<br />
+      SYSTRAY = 0 (1*=On;0=Off) (Icon in SystemTray)<br />
+      MOZILLA = 0 (1=Support;0*=Not supported)<br />
+      JAVAUPDATE = 0 (1*=On; 0=Off)<br />
+      AUTOUPDATECHECK = 0 (1*=On; 0=Off)<br />
+      JU = 0 (1*=On; 0=Off) = Overruled Update Settings<br />
+<br />
+Install:<br />
+  msiexec /i jre1.6.0_18-c.msi transforms=sp1033.MST /qb<br />
+<br />
+Test sites:<br />
+    http://www.playtopia.nl<br />
+    http://www.java.com/nl/download/installed.jsp
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/bertman" class="username" rel="nofollow">bertman</a>
+                </li>
+                <li>
+                    01/29/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2745" name="tip_2745">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2745"></div> -->
+   <div id="tip-2745" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-2745" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2745"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>jre-6u16-windows-i586-s.exe /s IEXPLORER=1</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/dallius" class="username" rel="nofollow">dallius</a>
+                </li>
+                <li>
+                    10/13/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2747" name="tip_2747">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2747"></div> -->
+   <div id="tip-2747" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-2747" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2747"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            http://java.com/en/download/help/6000070500.xml<br />
+<br />
+Follow these steps to extract the .msi file from the Sun JRE installer for deployment through Active Directory based network: <br />
+<br />
+1.Download and launch the Windows Offline Installation executable (.exe) file.<br />
+ <br />
+2.Navigate to LocalAppData folder (the user's Application Data folder). The location of the LocalAppData folder differs for each Windows platform. <br />
+Ã¢Â€Â¢Windows Vista<br />
+C:\Users\&lt;/user&gt;\AppData\LocalLow\Sun\Java\jre1.6.0_05\jre1.6.0_05.msi <br />
+Ã¢Â€Â¢Windows XP<br />
+C:\Documents and Settings\&lt;/user&gt;\Local Settings\ApplicationData\Sun\Java\ jre1.6.0_05\jre1.6.0_05.msi&lt;/user&gt;<br />
+Ã¢Â€Â¢Windows 2000<br />
+C:\Documents and Settings\&lt;/user&gt;\ApplicationData\Sun\Java\jre1.6.0_05\ jre1.6.0_05.msi<br />
+<br />
+3.From there, you can use Active Directory to distribute the Java Runtime Environment msi file to as many client Windows platforms as you want. 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nate630" class="username" rel="nofollow">nate630</a>
+                </li>
+                <li>
+                    11/17/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2749" name="tip_2749">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2749"></div> -->
+   <div id="tip-2749" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-2749" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2749"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Java 6.0.180.79 - Finding MSI and MST files.<br />
+<br />
+After downloading the installer, open your browser and naviget to:<br />
+(XP): c:\documents and settings\&lt;username&gt;\local settings\Temp<br />
+<br />
+Start Java installation. <br />
+In the temp folder, sort by date, and notice the 6 files on the top, included 1 MSI file and 1 MST file.<br />
+I have experienced that the MSI and MST file are changing name, and my files are: 1586b005.msi and 1586b006.mst<br />
+<br />
+I'm adding some registry entrys in the MST file:<br />
+Windows Registry Editor Version 5.00<br />
+<br />
+[HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Update\Policy]<br />
+"EnableJavaUpdate"=dword:00000000<br />
+"NotifyDownload"=dword:00000000<br />
+"NotifyInstall"=dword:00000000<br />
+<br />
+[HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment\1.6.0_18\MSI]<br />
+"JAVAUPDATE"="0"<br />
+"AUTOUPDATECHECK"="0"<br />
+"MOZILLA"="1"<br />
+<br />
+<br />
+running it with:<br />
+msiexec /qn /i "1586b005.msi" TRANSFORMS="1586b006.mst"<br />
+<br />
+It works, and there are no goolge toolbar with this installation :) I like... 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/lansti" class="username" rel="nofollow">lansti</a>
+                </li>
+                <li>
+                    03/10/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6115" name="tip_6115">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6115"></div> -->
+   <div id="tip-6115" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-6115" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6115"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            http://java.com/en/download/help/6000070500.xml<br />
+<br />
+Follow these steps to extract the .msi file from the Sun JRE installer for deployment through Active Directory based network: <br />
+<br />
+1.Download and launch the Windows Offline Installation executable (.exe) file.<br />
+ <br />
+2.Navigate to LocalAppData folder (the user's Application Data folder). The location of the LocalAppData folder differs for each Windows platform. <br />
+â¢Windows Vista<br />
+C:\Users\&lt;/user&gt;\AppData\LocalLow\Sun\Java\jre1.6.0_05\jre1.6.0_05.msi <br />
+â¢Windows XP<br />
+C:\Documents and Settings\&lt;/user&gt;\Local Settings\ApplicationData\Sun\Java\ jre1.6.0_05\jre1.6.0_05.msi&lt;/user&gt;<br />
+â¢Windows 2000<br />
+C:\Documents and Settings\&lt;/user&gt;\ApplicationData\Sun\Java\jre1.6.0_05\ jre1.6.0_05.msi<br />
+<br />
+3.From there, you can use Active Directory to distribute the Java Runtime Environment msi file to as many client Windows platforms as you want. 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nate630" class="username" rel="nofollow">nate630</a>
+                </li>
+                <li>
+                    11/17/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2746" name="tip_2746">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2746"></div> -->
+   <div id="tip-2746" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-2746" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2746"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Be aware that if you run "jre-6u17-windows-i586-s.exe /?" you will see the normal msi options window, giving you the impression that you can use msi options on the installer. They do work but the installer will finish and execute another installer, which will give the impression that the installer has finished before it actually has. <br />
+<br />
+Run "start /wait jre-6u17-windows-i586-s.exe /qb /norestart" to see for yourself. 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/iammacgyver" class="username" rel="nofollow">iammacgyver</a>
+                </li>
+                <li>
+                    11/06/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2750" name="tip_2750">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2750"></div> -->
+   <div id="tip-2750" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-2750" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2750"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            To avoid Msi Runtime Error 1603 (FilesInUse), you should check or kill instances of jqs.exe, iexplore.exe and firefox.exe, prior to installing jre-6u??-windows.exe.<br />
+Run native killer:<br />
+<br />
+'taskkill /f /im jqs.exe /im iexplore.exe /im firefox.exe'<br />
+or sysinternals pskill:<br />
+'pskill jqs.exe iexplore.exe firefox.exe'<br />
+<br />
+My Vbs-Script for 6u18:<br />
+<br />
+Set wshShell = CreateObject("Wscript.Shell")<br />
+Set wshFileSystem = CreateObject("Scripting.FileSystemObject")<br />
+<br />
+sDisplayName = "Java(TM) 6 Update 18"<br />
+sUninstallString = "{26A24AE4-039D-4CA4-87B4-2F83216018FF}"<br />
+<br />
+If IsInstalled(sDisplayName, sUninstallString) Then<br />
+' MsgBox sDisplayname & " wurde bereits installiert!", vbInformation, "Sytem Center Configuration Manager"<br />
+Else<br />
+  iErrorLevel = wshShell.Run("pskill jqs.exe", 1, True)<br />
+  iErrorLevel = wshShell.Run("pskill iexplore.exe", 1, True)<br />
+  iErrorLevel = wshShell.Run("pskill firefox.exe", 1, True)<br />
+  iErrorLevel = wshShell.Run("jre-6u18-windows-i586.exe /s /v""JAVAUPDATE=0 REBOOT=Suppress /passive /log c:\msi.log""", 1, True)<br />
+' MsgBox sDisplayname & " wurde erfolgreich installiert!", vbInformation, "Sytem Center Configuration Manager"<br />
+End If<br />
+<br />
+WScript.Quit(iErrorLevel)<br />
+<br />
+Function IsInstalled(DisplayName, AppName)<br />
+  On Error Resume Next<br />
+  IsInstalled = False<br />
+  InstallString = wshShell.RegRead("HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\" & AppName & "\DisplayName")<br />
+  If Err.Number = 0 Then                      <br />
+    If InstallString = DisplayName Then<br />
+      IsInstalled = True <br />
+    End If              <br />
+  Else<br />
+    Err.Clear<br />
+  End If<br />
+End Function<br />
+<br />
+pskill.exe and jre-6u18-windows-i586.exe have to reside in the script folder.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/msenn" class="username" rel="nofollow">msenn</a>
+                </li>
+                <li>
+                    09/24/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2751" name="tip_2751">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2751"></div> -->
+   <div id="tip-2751" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-2751" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2751"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I've changed this script for support x64 platform and automatic clossing msgbox (popup) windows after 2 minutes.<br />
+<br />
+Set wshShell = CreateObject("Wscript.Shell")<br />
+Set wshFileSystem = CreateObject("Scripting.FileSystemObject")<br />
+<br />
+sDisplayName = "Java(TM) 6 Update 24"<br />
+sUninstallString = "{26A24AE4-039D-4CA4-87B4-2F83216024FF}"<br />
+<br />
+If IsInstalled(sDisplayName, sUninstallString) Then<br />
+	<br />
+'	MsgBox sDisplayname & " wurde bereits installiert!", vbInformation, "System Center Configuration Manager"<br />
+<br />
+Else<br />
+<br />
+		popup = WshShell.Popup("Software installation: " & sDisplayname & "." & Chr(13) & Chr(10) & "Web browsers will be closed untill 120 seconds or after click OK!", 120, "System Center Configuration Manager", 0 + 48)<br />
+	<br />
+		iErrorLevel = wshShell.Run("taskkill /F /IM jqs.exe /T", 1, True)<br />
+		iErrorLevel = wshShell.Run("taskkill /F /IM iexplore.exe", 1, True)<br />
+		iErrorLevel = wshShell.Run("taskkill /F /IM firefox.exe", 1, True)<br />
+		iErrorLevel = wshShell.Run("jre-6u24-windows-i586.exe /s AgreeToLicense=YES IEXPLORER=1 MOZILLA=1 REBOOT=Suppress JAVAUPDATE=0", 1, True)<br />
+<br />
+End If<br />
+<br />
+WScript.Quit(iErrorLevel)<br />
+<br />
+Function IsInstalled(DisplayName, AppName)<br />
+		On Error Resume Next<br />
+<br />
+		IsInstalled = False<br />
+	<br />
+		'Check for x86 systems<br />
+		InstallString = wshShell.RegRead("HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\" & AppName & "\DisplayName")<br />
+	<br />
+		If Err.Number = 0 Then<br />
+<br />
+	<br />
+				If InstallString = sDisplayName Then<br />
+						IsInstalled = True<br />
+						Exit Function<br />
+				End If<br />
+		End If<br />
+	<br />
+		Err.Clear<br />
+	<br />
+		'Check for x64 systems<br />
+		InstallString = wshShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\" & AppName & "\DisplayName")<br />
+	<br />
+		If Err.Number = 0 Then<br />
+				If InstallString = sDisplayName Then<br />
+						IsInstalled = True<br />
+						Exit Function<br />
+				End If<br />
+	<br />
+		Else<br />
+				Err.Clear<br />
+		End If<br />
+	<br />
+End Function
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/wojteksci" class="username" rel="nofollow">wojteksci</a>
+                </li>
+                <li>
+                    02/18/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2752" name="tip_2752">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2752"></div> -->
+   <div id="tip-2752" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-2752" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2752"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            For Java(TM) 6 Update 24 6.0.240 I used the following... <br />
+<br />
+Create File Sync job to copy the JRE executable to the target system.  Note the download location, configure the managed install job to use the full command line.<br />
+/s = Silent install<br />
+IEXPLORER=1 = install plugin for IE<br />
+MOZILLA=1 = install plugin for Firefox (if applicable)<br />
+STATIC=1 = install as static installation.  Java will be installed under C:\program files\Java rather than under user profile directory.  It will also preserve older versions from being overwritten.  This prevents unsupported applications from breaking.<br />
+<br />
+Run Parameters:<br />
+Full Command Line: C:\kbox\downloads\jre-6u24-windows-i586-s.exe /s IEXPLORER=1 MOZILLA=1 STATIC=1
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    04/26/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6338" name="tip_6338">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6338"></div> -->
+   <div id="tip-6338" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6338" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6338"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Do not install the same java msi twice.  Doing so will break the install.  You can uninstall if you put 'regutils.dll' back in.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                </li>
+                <li>
+                    04/16/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6414" name="tip_6414">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6414"></div> -->
+   <div id="tip-6414" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6414" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6414"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Here I published a tutorial for it and many others programs. Please comment on the blog if you have questions.</p>
+<p>&nbsp;</p>
+<p>http://it-grund.blogspot.com/2012/04/how-to-deployinstall-silently-and.html</p>
+<p>&nbsp;</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tererecool" class="username" rel="nofollow">tererecool</a>
+                </li>
+                <li>
+                    05/18/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5235" name="tip_5235">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5235"></div> -->
+   <div id="tip-5235" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5235" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-5235"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            We were having an issue with computers not rebooting after receiving a Kace update for Java. This caused the installation of the newest version to fail due to the PendingFileRenameOperations check. Mornings after updates, users would be unable to access any application that required Java; creating a giant headache. To fix, we created a managed installation to execute any time and launch the installation with a batch file starting with these commands to kill Internet Explorer and delete the PendingFileRenameOperations key from the registry.
+
+tasklist /FI "IMAGENAME eq Iexplore.exe" 2>NUL | find /I /N "Iexplore.exe">NUL
+if "%ERRORLEVEL%"=="0" taskkill /f /im iexplore*
+REG delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager" /v PendingFileRenameOperations /f
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/andibogard" class="username" rel="nofollow">andibogard</a>
+                </li>
+                <li>
+                    03/22/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6586" name="tip_6586">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6586"></div> -->
+   <div id="tip-6586" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6586" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6586"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p><span style="font-size: 10.5pt; font-family: Verdana, sans-serif;">One of the organisations that i do packaging for required to updates of the same version of java, (The versions are irrelevant as this should be a fix for all versions but they were. JRE 6 update 27 and JRE 6 update 32)</span></p>
+<p><span style="font-size: 10.5pt; font-family: Verdana, sans-serif;">I found a bit of information on the "STATIC=1" command, this command allows java to install in a folder structure that allows for multiple updates of the same version to be installed at once. (ie. C:\Program Files (x86)\Java\jre6_27, instead of both versions fighting for the same "jre6" installation folder.</span></p>
+<p><span style="font-size: 10.5pt; font-family: Verdana, sans-serif;">I tried putting the "STATIC=1" switch at the end of the MSI and imbedding it in the property table however after digging around for a while i found that the correct way to set this up is to extract the MSI from the exe with the "STATIC=1" in place. So for windows 7 the process for acquiring the "Static MSI"&nbsp;</span></p>
+<p><span style="font-size: 10.5pt; font-family: Verdana, sans-serif;">1. Run a Admin command prompt window<br /> 2. "C:\java6 update X.exe STATIC=1 Whateverotherswitchesyouwant=1"&nbsp;<br /> 3. Navigate to the MSI extracted by the installation.<br /> 4. Collect your MSI and CAB file :)<br /> 5. Then Create a MST and package java the same as normal (other tips in guide should be able to give valuable information here) &nbsp;</span></p>
+<p><span style="font-family: Verdana, sans-serif;">Any questions please feel free to send me a PM</span></p>
+<p><span style="font-family: Verdana, sans-serif;">Cheers,&nbsp;</span></p>
+<p><span style="font-family: Verdana, sans-serif;">Spef<br /></span><span style="font-family: Verdana, sans-serif;">Spefdata.com, A Applications Packaging Blog</span></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Spef" class="username" rel="nofollow">Spef</a>
+                </li>
+                <li>
+                    07/05/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2753" name="tip_2753">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2753"></div> -->
+   <div id="tip-2753" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-2753" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2753"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Tested version is Java 6 update 26 using SCCM.<br />
+<br />
+Download the JRE from<br />
+http://java.com/en/download/manual.jsp<br />
+<br />
+Use the following command line:-<br />
+@echo off<br />
+"%~dp0jre-6u26-windows-i586-s.exe" /s /v"AgreeToLicense=YES IEXPLORER=1 MOZILLA=1 REBOOT=SUPRESS"<br />
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v SunJavaUpdateSched /f<br />
+reg add "HKEY_LOCAL_MACHINE\Software\JavaSoft\Java Update\Policy" /v EnableJavaUpdate /t REG_DWORD /d 0 /f<br />
+REM Return exit code to SCCM<br />
+exit /B %EXIT_CODE%<br />
+<br />
+I modified this script from mockbox.com as the original failed to surpress Java from Auto Updating.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/c5hep" class="username" rel="nofollow">c5hep</a>
+                </li>
+                <li>
+                    07/22/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/34504/72043">
+                                    6
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Java 6 (Any Update Level)</h2>
+            <div><h3>Version</h3><span>6</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (11)
+                            </h3>
+            <p>Questions & Answers related to Oracle Java 6 (Any Update Level)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/custom-action-to-include-a-batch-file" class="title">
+            Custom Action to include a batch file
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="33749"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/seemon" rel="nofollow">seemon</a>
+                10 years ago 3.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Rahul.C.Gaikwad answered 9 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/jre6-update-27-appv" class="title">
+            JRE6 Update 27 - AppV
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27376"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/n.gopinaathan" rel="nofollow">n.gopinaathan</a>
+                11 years ago 2.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-in-appv-package" class="title">
+            JAVA In AppV Package
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27367"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dasham" rel="nofollow">dasham</a>
+                11 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/uninstall-older-versions-of-java" class="title">
+            Uninstall older versions of Java.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="26931"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                11 years ago 7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/feds-issue-warning-on-java-security-http-www-politico-com-story-2013-01-feds-issue-warning-on-java-security-86090-html-hp-r3" class="title">
+            Addressing Feds warning on Java security via KACE appliance
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24586"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/binuani" rel="nofollow">binuani</a>
+                11 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/problems-with-java" class="title">
+            Problems with Java
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="22273"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Foyet" rel="nofollow">Foyet</a>
+                12 years ago 3.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/kace-not-detecting-systems-need-java-update" class="title">
+            Push Application Update Packages
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21556"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jrasmussen" rel="nofollow">jrasmussen</a>
+                12 years ago 7.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-java6-update-35-i-use-autoitv3-script-and-when-it-goes-to-install-the-java6-update-35-it-does-not-uninstall-the-previous-java-versions-i-have-included-my-script-from" class="title">
+            I use AutoITv3 script and when it goes to install the Java6 update 35, it does not uninstall the previous Java versions. (script included)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21529"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/KafiaHussein" rel="nofollow">KafiaHussein</a>
+                12 years ago 6.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/difference-between-distribution-and-scripting-deployments-java-update-install" class="title">
+            Difference between Distribution and Scripting deployments (Java update install)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20792"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/AdaPtIT" rel="nofollow">AdaPtIT</a>
+                12 years ago 8.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/ultimate-java-uninstaller" class="title">
+            Ultimate Java Uninstaller
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="13935"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Strudel" rel="nofollow">Strudel</a>
+                13 years ago 10.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                8
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-6-22" class="title">
+            Java 6_22
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2864"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jakedavidoff" rel="nofollow">jakedavidoff</a>
+                13 years ago 7.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (3)
+                            </h3>
+            <p>Blog posts related to Oracle Java 6 (Any Update Level)</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/silently-deploying-java-7-update-67" class="title">
+            Silently deploying Java 7 Update 67
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="28188"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/rmavery" rel="nofollow">rmavery</a>
+                10 years ago 11.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/deploying-java-7-through-gpo" class="title">
+            Deploying Java 7 Through GPO
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="23754"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                10 years ago 37.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/java-6-installation-unattended-x86-and-x64" class="title">
+            Java 6 Installation Unattended (x86 and x64)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2208"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/clrogon" rel="nofollow">clrogon</a>
+                12 years ago 17.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (1)
+                            </h3>
+
+            <p>Links related to Oracle Java 6 (Any Update Level)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-downloads-for-all-operating-systems" class="title">
+                Java Downloads for All Operating Systems
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2157"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/cblake" rel="nofollow">cblake</a>
+                15 years ago 11k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Java 6 (Any Update Level)</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

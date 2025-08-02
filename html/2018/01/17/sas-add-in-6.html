@@ -1,0 +1,760 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for SAS Institute SAS SAS Add-In 6 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to SAS Institute SAS SAS Add-In 6">
+        <meta name="keywords" content="SAS Institute,SAS Institute SAS,SAS SAS Add-In 6">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/xapple-touch-icon.png.pagespeed.ic.AvVF0T_Kij.png">
+	<link rel="canonical" href="http://www.itninja.com/software/sas-institute/sas/sas-add-in-6"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/221x75xITN_logo_no_AD.png.pagespeed.ic.ygkSqJQslZ.png" alt="ITNinja Home" width="221" height="75"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/xBreadcrumb_cap.png.pagespeed.ic.PYZOZjr0P5.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/sas-institute/browse">SAS Institute</a></li>
+    <li><a href="/software/sas-institute/sas/versions">SAS</a></li>
+    <li>SAS Add-In 6</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>SAS Institute SAS</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: SAS Add-In 6
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/sas-institute/sas/9-412">
+                                            9.x <span>(18 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/sas-institute/sas/sas-add-in-6">
+                                            SAS Add-In 6.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/64242/JTJGc29mdHdhcmUlMkZzYXMtaW5zdGl0dXRlJTJGc2FzJTJGc2FzLWFkZC1pbi02">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/64242/JTJGc29mdHdhcmUlMkZzYXMtaW5zdGl0dXRlJTJGc2FzJTJGc2FzLWFkZC1pbi02">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 1.4k &nbsp|&nbsp
+    Created: 05/22/2014
+    
+            by: <a href="/user/josefino" rel="nofollow">josefino</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version64242" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64242" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64242" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64242" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64242" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                SAS has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">2 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (1)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/xyellow.png.pagespeed.ic.R0YdZSd5pG.png" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/64242" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="63e62cb5e1017bc624803580c5886c516f2ef4d2" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/sas-institute/sas/sas-add-in-6#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/sas-institute/sas/sas-add-in-6/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_7909" name="tip_7909">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7909"></div> -->
+   <div id="tip-7909" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-7909" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7909"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p class="MsoNormal">After many tries and headaches, I managed to deploy SAS Add-In 6.1 using KACE via Distribution. Since SAS Add-In depends on a response file, the first thing is to create response file using the following commands</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">setup.exe -- ‐record ‐responsefile "C:\sdwresponse.properties"</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">In SAS decumentation does not mention to add -- after the .exe so be careful in my install took many days just to figure that out, so if the response file is not created on your test machine c:\ is because you need to add --</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Once the sdreposnse file is created test it to make sure your custom configuration work such language and add in is added to excel or whatever you need. Once is working fine then make sure one key component is installed on your machines prior SAS deployment which is .NET framework 4.5.1. The documentation mentions to install .net 4.0 but in my case the installation failed, so I had to install .net 4.5.1 using distribution to avoid headaches with patching, every environment is different so I recommend to deploy .net 4.5.1 using KACE distribution with the following commands to avoid users calling help desk, I added norestart so computers don&rsquo;t after installation of .net 4.5.1</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">setup.exe /q /norestart</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Once .NET is installed then create KACE script to copy sdwreponse file to target machines c:\ I did a map command so it would download file from our NAS, you can modify as you need it, the goal is to copy sdwaresponse file. In my work place we are using SAS 4.3 Add-in, so after many tries and failures installing found out installation was failing on task 5. SAS/GRAPH ActiveX Control, after days of research found out what is causing the error here is the link on how to fix it http://support.sas.com/kb/52/486.html, on that same script I added another line to fix the graph error. Script just renames activexgraph_install.xml to active. On my environment once these 2 scripts are run on computers installation was successful</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">net use x: \\x.x.x.x\userdata\SAS</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">x:</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">xcopy sdwresponse.properties c:\</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">cd\</p>
+<p class="MsoNormal">cd c:\windows\system32</p>
+<p class="MsoNormal">REN "C:\Program Files\SAS\SharedFiles\Graph\V9\activexgraph_install.xml" active</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Once that is taken care off, then you can move to deployment. On the documentation mentions to use the following commands</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p>sas.exe /vesysilent -- -responsefile "c:\sdwresponse.properties" , but KACE freaks out with -- - and /verysilent commands and installation will fail. So again after many days of testing calling tech support and nothing, found out how to deploy it, not silently but at least SAS installs with no further problems. When I deploy SAS, users are going to get SAS install window and users would have to click on install button, after that user will see progress bar, but that is it. So go into your distribution and load sas.exe and refer to the picture<img src="/uploads/images/18987/NXLbMg.png?1400794838970" alt=""/></p>
+<div>&nbsp;</div>
+<div>sas.exe -- -quiet -responsefile "c:\sdwresponse.properties"</div>
+<div>&nbsp;</div>
+<div>Hopefully this will help deploy SAS 6.1 Add-In using KACE with no issues, if you found something is wrong or I need to add let me know.</div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/josefino" class="username" rel="nofollow">josefino</a>
+                </li>
+                <li>
+                    05/22/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64242/136025">
+                                    SAS Add-In 6.1
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>SAS</h2>
+            <div><h3>Version</h3><span>SAS Add-In 6.1</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1)
+                            </h3>
+            <p>Questions & Answers related to SAS Institute SAS</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sas-9-3-license-renewal-through-sccm-2012-sp1" class="title">
+            SAS 9.3 License Renewal through SCCM 2012 SP1
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="sas-9-3-license-renewal-through-sccm-2012-sp1" type="radio" class="star" disabled="disabled"/>
+    <input name="sas-9-3-license-renewal-through-sccm-2012-sp1" type="radio" class="star" disabled="disabled"/>
+    <input name="sas-9-3-license-renewal-through-sccm-2012-sp1" type="radio" class="star" disabled="disabled"/>
+    <input name="sas-9-3-license-renewal-through-sccm-2012-sp1" type="radio" class="star" disabled="disabled"/>
+    <input name="sas-9-3-license-renewal-through-sccm-2012-sp1" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/js2a" rel="nofollow">js2a</a>
+                4 years ago 3.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to SAS Institute SAS</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (2)
+                            </h3>
+
+            <p>Links related to SAS Institute SAS</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" class="title">
+                33899 - Provisioning systems and other ways to share the wealth of SASÂ® across a network
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" type="radio" class="star" disabled="disabled"/>
+    <input name="33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" type="radio" class="star" disabled="disabled"/>
+    <input name="33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" type="radio" class="star" disabled="disabled"/>
+    <input name="33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" type="radio" class="star" disabled="disabled"/>
+    <input name="33899-provisioning-systems-and-other-ways-to-share-the-wealth-of-sas-r-across-a-network" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jdoman" rel="nofollow">jdoman</a>
+                8 years ago 1.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" class="title">
+                Documentation for installing SAS&amp;reg; 9.3 in Windows 32-bit and x64 operating environments
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" type="radio" class="star" disabled="disabled"/>
+    <input name="documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" type="radio" class="star" disabled="disabled"/>
+    <input name="documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" type="radio" class="star" disabled="disabled"/>
+    <input name="documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" type="radio" class="star" disabled="disabled"/>
+    <input name="documentation-for-installing-sas-reg-9-3-in-windows-32-bit-and-x64-operating-environments" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Khalid786" rel="nofollow">Khalid786</a>
+                6 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to SAS Institute SAS</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/xtwitter.png.pagespeed.ic.gQlaUvo9Df.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/xdsg.png.pagespeed.ic.ezebSmrFAj.png" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":320,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

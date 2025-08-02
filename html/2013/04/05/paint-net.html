@@ -1,0 +1,937 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>dotPDN - Paint.NET - 3 | ITNinja</title>
+        <meta name="description" content="Deployment tips and related materials related to dotPDN Paint.NET 3">
+        <meta name="keywords" content="dotPDN Paint.NET,dotPDN">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/4f9a382.css" />
+                <link href="/css/df4eb8b.css" rel="stylesheet" type="text/css" />
+                
+            <link rel="stylesheet" type="text/css" media="screen" href="/css/8975654.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript">
+            // create the itninja JS namespace
+            var Itninja = {};
+            window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.6.1.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '' === '1' ? true : false;
+        </script>
+
+        <!--[if IE]>
+            <script src="/js/001a46f.js"></script>            <script>
+                $(document).ready(function(){
+                    $('input').placeholder();
+                })
+            </script>
+        <![endif]-->
+
+                    </head>
+    <body>
+                <header>
+            <p id="kace-link">&nbsp;</p>
+            <ul id="user-info">
+    <li class="last"><a href="/register" class="register">register</a><a href="/login" class="button">Log in</a></li>
+</ul>            <span id="logo"><a href="/"><img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="53" /></a></span>
+            <nav>
+                <form method="get" action="/search" id="nav-search"><input type="text" name="q" class="q" placeholder="search"/><input type="image" class="i" src="/bundles/itninjaweb/img/search_icon.png" alt="go" title="go" /></form>
+                    <ul>
+                <li class="first">        <a href="/question">Ask</a>            <ul class="menu_level_1">
+                <li class="first last">        <a href="/question/new">Ask A Question</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/research">Research</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/software/browse?Popular=1">Software</a>        
+    </li>
+
+        <li>        <a href="/tips">Deployment Tips</a>        
+    </li>
+
+        <li>        <a href="/question">Q &amp; A</a>        
+    </li>
+
+        <li>        <a href="/blog">Blogs</a>        
+    </li>
+
+        <li class="last">        <a href="/link">Links</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/share">Share</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/question/unanswered">Answer a Question</a>        
+    </li>
+
+        <li>        <a href="/blog/post/new">Write a Blog Post</a>        
+    </li>
+
+        <li>        <a href="/tips">Share a Deployment Tip</a>        
+    </li>
+
+        <li class="last">        <a href="/link/new">Share a Link</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/topics">Topics</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/topics/software-deployment">Software Deployment</a>        
+    </li>
+
+        <li>        <a href="/topics/systems-deployment">Systems Deployment</a>        
+    </li>
+
+        <li>        <a href="/topics/scripting">Scripting</a>        
+    </li>
+
+        <li>        <a href="/topics/virtualization">Virtualization</a>        
+    </li>
+
+        <li>        <a href="/topics/supporting-windows">Supporting Windows</a>        
+    </li>
+
+        <li class="last">        <a href="/topics">More...</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li class="last">        <a href="/community">Communities</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/repackager">AppDeploy Repackager</a>        
+    </li>
+
+        <li>        <a href="/k1000">K1000</a>        
+    </li>
+
+        <li>        <a href="/k2000">K2000</a>        
+    </li>
+
+        <li>        <a href="/k3000">K3000</a>        
+    </li>
+
+        <li>        <a href="/msistudio">MSI Studio</a>        
+    </li>
+
+        <li>        <a href="/changebase">ChangeBASE</a>        
+    </li>
+
+        <li class="last">        <a href="/community">More...</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+            </nav>
+            <div id="secondary-nav"></div>
+        </header>
+        <div id="global-content">
+            <ul id="breadcrumbs">
+                <li class="home"><a href="/">
+                    <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                    <li><a href="/research">Research</a></li>
+    <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/dotpdn/browse">dotPDN</a></li>
+    <li>Paint.NET</li>
+            </ul>
+            <div class="flash-notice no-display">
+    
+</div>
+            <div id="stage">
+    <div class="tag-header">
+        <div class="title-wrap">
+            <h1>dotPDN Paint.NET</h1>
+            <div id="version-wrapper">
+
+                <span class="version-name" id="version-changer">
+                    Version: 3
+                    <div id="version-list">
+                        <div class="version-list-top"></div>
+                        <ul id="version-list-items">
+                                                            <li>
+                                    <a href="/software/dotpdn/paint-net/3-2219">
+                                        3.x <span>(6 tips)</span>
+                                    </a>
+                                </li>
+                                                    </ul>
+                        <div class="version-list-bottom"></div>
+                    </div>
+                </span>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="tr-meta">
+        
+Average Rating: <span id="average-rating">0</span>
+<div class="stars-wrap">
+        <div class="rating">
+    <input name="Software20149" type="radio" class="star" disabled="disabled"  />
+    <input name="Software20149" type="radio" class="star" disabled="disabled"  />
+    <input name="Software20149" type="radio" class="star" disabled="disabled"  />
+    <input name="Software20149" type="radio" class="star" disabled="disabled"  />
+    <input name="Software20149" type="radio" class="star" disabled="disabled"  />
+</div>    </div>
+
+<br class="clear"/>
+
+Views: 599 &nbsp|&nbsp
+Created: 12/01/2007
+
+
+
+
+<div class="follow-widget-right">
+
+
+            <a class="btn-follow" rel="nofollow" href="https://www.itninja.com/login?/follow/version/25336?tb=L3NvZnR3YXJlL2RvdHBkbi9wYWludC1uZXQvMy0yMjE5">
+            <span class="follow-title">Follow</span>
+            <span class="followers" title="followers"><div></div>0</span>
+        </a>
+    
+</div>    </div>
+
+    <div class="additional-meta">
+        Paint.NET has <a href="#inventory-records" id="scrollInv">18 inventory records</a>,
+        <a href="#q-a" id="scrollQA">0 Questions</a>,
+        <a href="#blogs" id="scrollBlog">0 Blogs</a>
+        and <a href="#links" id="scrollLinks">2 links</a>. Please help add to this by sharing more!
+
+    </div>
+
+
+    <div class="software-section" id="deployment-tips">
+
+        <h2 class="section-title"><a href="#" class="plus toggle minus"></a> Deployment Tips (6)</h2>
+        
+        <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+                <div class="setup-overview">
+                    <div class="setup">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="difficulty">
+                        <strong>Average     Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/blue.png" />
+                        <span class="rating-text"> Rated <strong>1 / 5 (Very Easy)</strong> based on <strong>2</strong> ratings</span>
+                    </div>
+                    <div class="deployment">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+                    <br class="clear"/>
+                </div>
+            </div>
+
+            <!-- end rating secion -->
+
+            <div class="inner summary">
+
+                                                        <h3>Deployment Tip Summary</h3>
+                    <p><a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219" class="btn">Add a Summary</a></p>
+                
+                <div id="software-view-deployment-summary-form" class="hidden">
+                    <h3>Deployment Tip Summary</h3>
+                    <form action="/version/summary/new/25336" method="POST" novalidate>
+    <div id="form"><input type="hidden" id="form__token" name="form[_token]" value="291c7a550721731bc43f3607375c13301a530074" /><div><label for="form_text" class=" required">Enter your tip</label><textarea id="form_text" name="form[text]" required="required"></textarea></div></div>
+
+    <input type="hidden" name="redirectUrl" value="http://www.itninja.com/software/dotpdn/paint-net/3-2219" />
+    <input type="submit" value="Submit" id="submit1" class="btn"/>
+    <span id="software-view-deployment-summary-cancel" class="btn" >Cancel</span>
+</form>                </div>
+
+                <div id="software-view-deployment-summary-text" class="hidden">
+
+                    <h3>Deployment Tip Summary</h3>
+                    <div id="software-view-deployment-summary-text-raw"></div>
+                                                        </div>
+
+            </div>
+            <!--end summary -->
+
+            <div class="inner">
+
+                <div class="version-subsections">
+                    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2158"></div>
+    <div class="avg-rating">123</div>
+     <div class="arrow_down" id="tip-2158"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>EXE Deployment<br><br><br />In addition to the CreateMSI command line the EXE when run with the AUTO switch will allow the following to be set:<br><br><br />&nbsp; &nbsp; TARGETDIR&nbsp; &nbsp; &nbsp; CHECKFORUPDATES&nbsp; &nbsp; &nbsp; CHECKFORBETAS&nbsp; &nbsp; &nbsp; JPGPNGBMPEDITOR&nbsp; &nbsp; &nbsp; TGAEDITOR&nbsp; &nbsp; &nbsp; DESKTOPSHORTCUT<br><br><br />switches are explained well on the unattended install page (link above in command line section)<br><br><br><br><br />MSI Deployment<br><br><br />Using the /createMsi command-line creates both x86 and x64 packages<br><br><br />All other switches are well explained <a href="http://www.getpaint.net/doc/latest/UnattendedInstallation.html">on their web page</a></p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/arran" class="username" rel="nofollow">arran</a>
+                    10/06/2010 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/Utterly" rel="nofollow">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/Utterly" rel="nofollow">Utterly</a>
+                        21 days 9 mins ago
+                                </div>
+                    <span class="the-comment"><p>Above link to Paint.NET documentation is broken should be <a href="http://www.getpaint.net/doc/latest/UnattendedInstallation.html" rel="nofollow">http://www.getpaint.net/doc/latest/UnattendedInstallation.html</a><br>
+note capital 'U"</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2157"></div>
+    <div class="avg-rating">119</div>
+     <div class="arrow_down" id="tip-2157"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>Install EXE has some useful commandline switches e.g. Paint.NET3.08.exe /createMSI DESKTOPSHORTCUT=0<br><br><br />For full details see <a href="http://www.getpaint.net/doc/latest/en/UnattendedInstallation.html">their Unattended Install page</a>.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/arran" class="username" rel="nofollow">arran</a>
+                    06/12/2007 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2159"></div>
+    <div class="avg-rating">118</div>
+     <div class="arrow_down" id="tip-2159"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>if you want to hide the PayPal button in the Save Configuration dialog (like when you go to save a JPEG and configure its quality), you can set the following registry key:<br><br />HKEY_CURRENT_USER\SOFTWARE\Paint.NET\&nbsp; SaveConfigDialog.ShowDonate = &Acirc;&#147;False&Acirc;&#148; <br><br><br />The PayPal banner in the installer cannot be hidden, nor can the Help menu item.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/Nash" class="username" rel="nofollow">Nash</a>
+                    09/28/2007 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-5523"></div>
+    <div class="avg-rating">118</div>
+     <div class="arrow_down" id="tip-5523"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>if you want to hide the PayPal button in the Save Configuration dialog (like when you go to save a JPEG and configure its quality), you can set the following registry key:<br><br />HKEY_CURRENT_USER\SOFTWARE\Paint.NET\&nbsp; SaveConfigDialog.ShowDonate = ?False? <br><br><br />The PayPal banner in the installer cannot be hidden, nor can the Help menu item.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/Nash" class="username" rel="nofollow">Nash</a>
+                    09/28/2007 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2160"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-2160"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Virtualization</div>
+
+            <span id="tip-text">
+            <p>Creating an unattended installation for Paint.NET<br><br><br />The Paint.NET documentation explains how to create an unattended installation. There are a number of options that are important when virtualising Paint.NET:<br><br />&nbsp; &nbsp; * TARGETDIR &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; specify an installation folder on the virtual drive. This is not required and you can successfully sequence a VFS install of this application<br><br />&nbsp; &nbsp; * CHECKFORUPDATES &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; it is important to set this value to 0 to disable prevent Paint.NET from automatically prompting users to update the package. Users will still be able to access the Utilities / Check for Updates menu item &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; Resource Hacker or other tools such as AppSense Environment Manager can be used to disable this menu item<br><br />&nbsp; &nbsp; * CHECKFORBETAS &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; if CHECKFORUPDATES is set to 0 then this option should automatically be set to 0 as well; however I have set this option in my install script<br><br><br />Unfortunately the updater component is in process so it is difficult to remove from the installation. Additionally deleting files associated with the updater results in Paint.NET attempting to repair itself on start-up:<br><br><br><br />&nbsp; &nbsp; * JPGPNGBMPEDITOR &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; if you want Paint.NET to be the default editor for JPG, PNG and BMP files, set this to 1<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * TGAEDITOR &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; if you want Paint.NET to be the default editor for TGA files, set this to 1<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * DESKTOPSHORTCUT &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; setting this to 0 will prevent setup from creating a desktop shortcut<br><br><br><br />Virtualising (or Sequencing) Paint.NET<br><br><br />Before sequencing, ensure your sequencing image has been configured with the Microsoft .NET Framework 3.5 or 4.0 &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; if you are sequencing on Windows 7, version 3.5 is already included. Here&Atilde;&cent;&Acirc;&#128;&Acirc;&#153;s what you should configure before sequencing:<br><br />&nbsp; &nbsp; * Install or enable the .NET Framework &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; use the same version of the .NET Framework that is deployed to your client computers<br><br />&nbsp; &nbsp; * Disable System Protection (or System Restore) &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; setup creates a restore point during install which we don&Atilde;&cent;&Acirc;&#128;&Acirc;&#153;t want to capture<br><br />&nbsp; &nbsp; * Add an exclusion for CSIDL_DESKTOP &Atilde;&cent;&Acirc;&#128;&Acirc;&#147; if Paint.NET crashed during sequencing it will place a log file on the desktop which we don&Atilde;&cent;&Acirc;&#128;&Acirc;&#153;t want to capture<br><br />&nbsp; &nbsp; * Add an exclusion for CSIDL_Windows\Installer so that the cached MSI file is not captured in the package<br><br />&nbsp; &nbsp; * Copy the installation script and the Paint.NET installer to a local path inside the sequencing machine<br><br><br />The sequencing process that should be followed will look like this:<br><br />&nbsp; 1.Start monitoring<br><br />&nbsp; 2.Install Paint.NET using the silent install script. Do not run Paint.NET at this point as it will crash on launch<br><br />&nbsp; 3.Stop Monitoring to allow the sequencer to process the changes<br><br />&nbsp; 4.Start Monitoring<br><br />&nbsp; 5.Run Paint.NET and configure defaults if required. Check that automatic updates has been disabled.<br><br />&nbsp; 6.Stop Monitoring and continue<br><br />&nbsp; 7.Customise the shortcut and file type associations<br><br />&nbsp; 8.Configure feature block 1 only if required<br><br><br />The Choose Defaults options are available from the Tool drop down button on the toolbar:<br><br><br><a href="http://blog.stealthpuppy.com/virtualisation/virtualising-paint-net-3-x/" rel="nofollow">http://blog.stealthpuppy.com/virtualisation/virtualising-paint-net-3-x/</a></p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/erik%40serveit.nl" class="username" rel="nofollow">erik@serveit.nl</a>
+                    05/16/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-5524"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-5524"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Virtualization</div>
+
+            <span id="tip-text">
+            <p>Creating an unattended installation for Paint.NET<br><br><br />The Paint.NET documentation explains how to create an unattended installation. There are a number of options that are important when virtualising Paint.NET:<br><br />&nbsp; &nbsp; * TARGETDIR &acirc;?? specify an installation folder on the virtual drive. This is not required and you can successfully sequence a VFS install of this application<br><br />&nbsp; &nbsp; * CHECKFORUPDATES &acirc;?? it is important to set this value to 0 to disable prevent Paint.NET from automatically prompting users to update the package. Users will still be able to access the Utilities / Check for Updates menu item &acirc;?? Resource Hacker or other tools such as AppSense Environment Manager can be used to disable this menu item<br><br />&nbsp; &nbsp; * CHECKFORBETAS &acirc;?? if CHECKFORUPDATES is set to 0 then this option should automatically be set to 0 as well; however I have set this option in my install script<br><br><br />Unfortunately the updater component is in process so it is difficult to remove from the installation. Additionally deleting files associated with the updater results in Paint.NET attempting to repair itself on start-up:<br><br><br><br />&nbsp; &nbsp; * JPGPNGBMPEDITOR &acirc;?? if you want Paint.NET to be the default editor for JPG, PNG and BMP files, set this to 1<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * TGAEDITOR &acirc;?? if you want Paint.NET to be the default editor for TGA files, set this to 1<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * DESKTOPSHORTCUT &acirc;?? setting this to 0 will prevent setup from creating a desktop shortcut<br><br><br><br />Virtualising (or Sequencing) Paint.NET<br><br><br />Before sequencing, ensure your sequencing image has been configured with the Microsoft .NET Framework 3.5 or 4.0 &acirc;?? if you are sequencing on Windows 7, version 3.5 is already included. Here&acirc;??s what you should configure before sequencing:<br><br />&nbsp; &nbsp; * Install or enable the .NET Framework &acirc;?? use the same version of the .NET Framework that is deployed to your client computers<br><br />&nbsp; &nbsp; * Disable System Protection (or System Restore) &acirc;?? setup creates a restore point during install which we don&acirc;??t want to capture<br><br />&nbsp; &nbsp; * Add an exclusion for CSIDL_DESKTOP &acirc;?? if Paint.NET crashed during sequencing it will place a log file on the desktop which we don&acirc;??t want to capture<br><br />&nbsp; &nbsp; * Add an exclusion for CSIDL_Windows\Installer so that the cached MSI file is not captured in the package<br><br />&nbsp; &nbsp; * Copy the installation script and the Paint.NET installer to a local path inside the sequencing machine<br><br><br />The sequencing process that should be followed will look like this:<br><br />&nbsp; 1.Start monitoring<br><br />&nbsp; 2.Install Paint.NET using the silent install script. Do not run Paint.NET at this point as it will crash on launch<br><br />&nbsp; 3.Stop Monitoring to allow the sequencer to process the changes<br><br />&nbsp; 4.Start Monitoring<br><br />&nbsp; 5.Run Paint.NET and configure defaults if required. Check that automatic updates has been disabled.<br><br />&nbsp; 6.Stop Monitoring and continue<br><br />&nbsp; 7.Customise the shortcut and file type associations<br><br />&nbsp; 8.Configure feature block 1 only if required<br><br><br />The Choose Defaults options are available from the Tool drop down button on the toolbar:<br><br><br><a href="http://blog.stealthpuppy.com/virtualisation/virtualising-paint-net-3-x/" rel="nofollow">http://blog.stealthpuppy.com/virtualisation/virtualising-paint-net-3-x/</a></p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/erik%40serveit.nl" class="username" rel="nofollow">erik@serveit.nl</a>
+                    05/16/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fdotpdn%2Fpaint-net%2F3-2219">log in</a> to comment
+
+            </div>
+        </div>
+                        
+
+
+                </div>
+            </div>
+                    </div>
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Inventory Records (18)</h2>
+        <p>View inventory records anonymously contributed by opt-in users of the
+            <a href="http://www.kace.com/demo/index.php?tab=flash-demo&utm_medium=ITNinja&utm_source=Software+Tag&ad_group=%20Package+KB+v2&campaign_id=701400000009kH1">
+                K1000 Systems Management Appliance</a>.
+        </p>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                                        <div><a class="selected" href="/software/version/revision/25336/52660">3.36.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52661">3.56.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52662">3.52.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52663">3.54.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52664">3.31.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52665">3.59.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52666">3.30.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52667">3.58.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52668">3.51.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52669">3.22.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52670">3.55.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52671">3.22.1</a></div>
+                                        <div><a  href="/software/version/revision/25336/52672">3.53.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52673">3.50.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52674">3.57.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52675">3.35.0</a></div>
+                                        <div><a  href="/software/version/revision/25336/52676">3.20.2</a></div>
+                                        <div><a  href="/software/version/revision/25336/52677">3.60.0</a></div>
+                                    </div>
+                <div id="software-view-version-revision-details">
+                                                <h2>Paint.NET</h2>
+            <div><h3>Version</h3><span>3.36.0</span></div>
+        <div><h3>Contact</h3>dotPDN LLC</div>        <div><h3>Comments</h3>Installs Paint.NET</div>                                        <div><h3>Uninstall String</h3>MsiExec.exe /X{43602F34-1AA3-44FB-AEB2-D08C2C73743F}
+MsiExec.exe /X{43602F34-1AA3-44FB-AEB2-D08C2C737440}</div>                                                                                </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records secion -->
+
+    <div class="software-section" id="q-a">
+        <div class="add-links">
+               <a href="/question/new/dotpdn-paint.net-3" class="add-tip">Ask a new question</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Questions & Answers (0)</h2>
+        <p>Questions & Answers related to dotPDN Paint.NET</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A secion -->
+
+    <div class="software-section" id="blogs">
+        <div class="add-links">
+            <a href="/blog/post/new/dotpdn-paint.net-3" class="add-tip">Write a blog post</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Blogs (0)</h2>
+        <p>Blog posts related to dotPDN Paint.NET</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Blogs secion -->
+
+    <div class="software-section" id="links">
+        <div class="add-links">
+            <a href="/link/new/dotpdn-paint.net-3" class="add-tip">Share a link</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Links (2)</h2>
+        <p>Links related to dotPDN Paint.NET</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/paint-net-documentation">
+                Paint.NET Documentation
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="paint-net-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="paint-net-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="paint-net-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="paint-net-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="paint-net-documentation" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/ds0934" rel="nofollow">ds0934</a>
+                2 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/virtualising-paint-net-3-x-aaron-parker">
+                Virtualising Paint.NET 3.x | Aaron Parker
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="virtualising-paint-net-3-x-aaron-parker" type="radio" class="star" disabled="disabled"  />
+    <input name="virtualising-paint-net-3-x-aaron-parker" type="radio" class="star" disabled="disabled"  />
+    <input name="virtualising-paint-net-3-x-aaron-parker" type="radio" class="star" disabled="disabled"  />
+    <input name="virtualising-paint-net-3-x-aaron-parker" type="radio" class="star" disabled="disabled"  />
+    <input name="virtualising-paint-net-3-x-aaron-parker" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/nucko" rel="nofollow">nucko</a>
+                2 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end links secion -->
+
+
+
+</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <footer>
+                        <div id="footer-nav">
+                <div>
+                    <strong>Home Pages</strong>
+                    <ul>
+                        <li><a href="/software">Software</a></li>
+                        <li><a href="/tips">Deployment Tips</a></li>
+                        <li><a href="/question">Questions</a></li>
+                        <li><a href="/blog">Blog Posts</a></li>
+                        <li><a href="/link">Shared Links</a></li>
+                    </ul>
+                </div>
+                <div>
+                   <strong>FAQ &amp; Support</strong>
+                   <ul>
+                       <li><a href="/faq">Site FAQ</a></li>
+                       <!--<li><a href="/faq/beta">Beta FAQ</a></li>-->
+                       <li><a href="/faq#PointsFAQ">Ninja Points FAQ</a></li>
+                       <li><a href="/faq#ADFAQ">AppDeploy FAQ</a></li>
+                       <li><a href="/kace">Dell KACE Support</a></li>
+                   </ul>
+               </div>
+                <div>
+                    <strong>About</strong>
+                    <ul>
+                        <li><a href="/about">ITNinja</a></li>
+                        <li><a href="/about">Welcome Video</a></li>
+                        <li><a href="/tour">Tour</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="share">
+                    <strong>Share/Contribute</strong>
+                    <ul class="share-list">
+                        <li><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                            </ul>
+                </div>
+            </div>
+        <br clear="all"/>
+        <br clear="all"/>
+            <div id="footer-links">
+                <p>&copy; Dell Inc. All rights reserved.</p>
+                <ul>
+                    <li><a href="/legal">Legal</a></li>
+                    <li><a href="/about" class="last">About</a></li>
+                    <li><a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a></li>
+                </ul>
+                <p id="footer-logos">
+                    <a href="http://www.kace.com/about/index.php?utm_medium=ITNinja&utm_source=Page+Footer&ad_group=ITNinja&campaign_id=701400000009kH1"><img src="/bundles/itninjaweb/img/DellKace_logo.png" alt="Dell | Kace" /></a>
+                </p>
+                <div id="version"><span id="revision">cc82a7f</span> <span id="build-date">Wed March 27 19:15:24 EDT 2013</span>"<span id="server">www.itninja.com</span></div>
+            </div>
+        </footer>
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/818906d.js"></script>
+        
+        
+        <script src="/js/0c271c0.js"></script>
+
+            <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-26553848-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+            </script>
+            <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-1.newrelic.com","fa2fb87fc4","1817996","b1BUNhNQC0dUWkANC1YadRcSRQpZGkpbAhBPVEQHPkcMUUI=",0,284,new Date().getTime(),"","","","",""]);</script>
+</body>
+</html>

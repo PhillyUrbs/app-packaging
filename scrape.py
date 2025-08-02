@@ -1,18 +1,24 @@
+import argparse
 import requests
 import time
 from pathlib import Path
 import json
 from urllib.parse import urlparse
 
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Download snapshots from Wayback Machine.")
+parser.add_argument("--retry-failed", action="store_true", help="Retry failed downloads.")
+args = parser.parse_args()
+
 domain_path = "itninja.com/software*"  # Updated to include wildcard for recursion
 output_dir = Path("html")
 output_dir.mkdir(exist_ok=True)
 
 # Step 1: Fetch all available snapshots
-cdx_api = f"http://web.archive.org/cdx/search/cdx?url={domain_path}&output=json&fl=timestamp,original"  # Simplified to match the working URL format
+cdx_api = f"http://web.archive.org/cdx/search/cdx?url={domain_path}&output=json&fl=timestamp,original"
 
 # Check if the API response file already exists
-api_response_file = Path("metadata/api_response.json")
+api_response_file = Path("metadata/deduped_api_response.json")
 if api_response_file.exists():
     print("Loading snapshots from saved API response file...")
     with open(api_response_file, "r") as f:
@@ -39,6 +45,13 @@ else:
     # Save API response to a file
     api_response_file.write_text(response.text, encoding='utf-8')
 
+# Load failed downloads if retry-failed is not passed
+failed_downloads_file = Path("metadata/failed_downloads.json")
+failed_downloads = set()
+if failed_downloads_file.exists() and not args.retry_failed:
+    with open(failed_downloads_file, "r") as f:
+        failed_downloads = {json.loads(line)["timestamp"] for line in f}
+
 # Save index
 Path("metadata").mkdir(exist_ok=True)
 with open("metadata/snapshot_index.json", "w") as f:
@@ -48,10 +61,11 @@ with open("metadata/snapshot_index.json", "w") as f:
 MAX_RETRIES = 4  # Number of retries before a download is deemed a failure
 
 # Step 2: Download each snapshot
-failed_downloads_file = Path("metadata/failed_downloads.json")
-failed_downloads_file.touch(exist_ok=True)  # Ensure the file exists
-
 for index, (ts, original_url) in enumerate(snapshots, start=1):
+    if ts in failed_downloads:
+        print(f"Skipping previously failed snapshot: {ts}")
+        continue
+
     print(f"Processing record {index} / {len(snapshots)}")  # Add progress output
 
     archive_url = f"https://web.archive.org/web/{ts}id_/{original_url}"

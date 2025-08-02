@@ -1,0 +1,2968 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for Adobe Acrobat Professional 7 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Adobe Acrobat Professional 7">
+        <meta name="keywords" content="Adobe,Adobe Acrobat Professional,Acrobat Professional 7">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAB4FBMVEUYFRwZFh0ZGB4aFx4bGB8cGSAdGiAdGyEeGyIfHCMgHSQhHiUiHyYjICckISglIigmFBomFRsmFx0mIykmJConFRsnJSsoFhwoGB4pJi0qJy4rKC8sHSMsKTAtKjAtKjEuKzEvLDIwLjQyMDY0GB41Iyg2Mzk5Fxw8GR48ICVAHiNBFRpDERdDISZEEhhGRElIGBxIHCJMFRpMSU9NFBlOHCBPHSJRT1RSEBVSFxtTEBZTHCBVExhVIyhVU1hYGRxYJChbFxteExhjHB9kYmdmHyFmISNpGBxqaGxraW1sam5ubG9vHSFvbXFwbnJwb3Jxb3NycHN1FRh1HyF1c3d3dXl5FBZ7HiF8Gh59GBp+HR+BGhyBGxyDEhaDFhiFDhKFFBaGGx2HDxKJEhSJEhWJGBqJGxyKDRGMCg6OEBOPEBOPGhqREBOSFBaTExWWFRaXGBiYFhiYlpqZDRCcExSfFBWgFBagFhahFhajERKjoaSlCw2lpKemDhCoCAuop6qpCQupExOpFBStDQ+wr7KyERO2tbe3DxC4DxC6Cgy6EBHCDg7HCQvJyMrKycvLDAzOzc/R0NLUCgrW1tfcCAjjBAXlBgbuBATxAQL09PT2AgL39/f6+fr8/Pz/AAD////CniIQAAACCElEQVQoz2WSV3PTQBhF75fdlS05sR1CAgECwfQaeu81Dp2PKqroIEiWKnoRiCIhC4KwIRDrr/KQYSYD5+3c83qR/Tw+F/8iV77PMvzuG7/R1tO7d64CgOcZno4vEwYdT9+93w6g4xcOjCvlJ8x8szwmX1FFCxFAANHL1OazGDPE6MeQAEmCFJd04vsnBIQEpIxRXR8skzmivNyuOdTJURgGKCcRY98OZ2gaqcLk12nojuj0gWVAFiRZMfpXMD+8dfvKm3A40KHf1JuQbxOyaMQYWOIF9ShIXQ5dX/uR+2NBkcwuiRhH1HUvCFzX8zxm5iiN9swvdZHorqHf7H2mfc92tMPM7HqhfW01jF4rxpGZ0jzp28yuy8wcNkO/ke6tGEYNB6mjopY+5mAs2QmzH7obW2fVUJ3aQ7Ky5lHd9xxn2G3q0G8kzNtEjGMl5CuW2NzwosRvBPVI6yC0edCsYQCtPcqYbt7Qw4mrk+T7qXlq/+cw6olRLU0ks1tioZd6zMmdOSI/RXV+/EAxDlkoFIlKlh7xk+htAVaJRMfF8201VKnVhCyqTq/uRJ8MKphQRbVoeT5G1ZJQlpDnQpuvThKWgrJIWBIxDhOU0TL7chjpM+0iR1AGZI6gvuEVhMCFtOnVX5RJAIIgBCBmjGJ0C0BUXrdhMf4eAQDJdxmy0Xtr+/5j15cs+wOeHJNpucraGwAAAABJRU5ErkJggg==">
+	<link rel="canonical" href="http://www.itninja.com/software/adobe/acrobat-professional/7-1899"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="data:image/png;base64,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" alt="ITNinja Home"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAKxJREFUKM91kkEOwyAMBJdACRBiz/9f20NDlVbOnpBGNl6vpZvq9JcipQNaSDSALSQFIC46AHKIANgfkIE9oPSCEqE5xwmmUtaY6+MyAWAAPjZJspakvJ8sDVvzHPypbAD0yyl0W8iuV5YqgKV+K7Q5jS6pOmDfxt6zJNVDktI+fTFvaQVxy8Sh9zkizw3yzgyjBIjRx2Kcc4OH/ao+9lMHj48jO2d8AKrt9wjfHhUM057Gu+UAAAAASUVORK5CYII="/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/adobe/browse">Adobe</a></li>
+    <li><a href="/software/adobe/acrobat-professional/versions">Acrobat Professional</a></li>
+    <li>7</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Adobe Acrobat Professional</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 7
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/adobe/acrobat-professional/11-1664">
+                                            11.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/acrobat-professional/9-1234">
+                                            9.x <span>(21 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/acrobat-professional/8-1428">
+                                            8.x <span>(20 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/acrobat-professional/7-1899">
+                                            7.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/acrobat-professional/dc-2">
+                                            DC.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/48409/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmFjcm9iYXQtcHJvZmVzc2lvbmFsJTJGNy0xODk5JTNGZnJvbSUzRGFwcGRlcGxveS5jb20=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/48409/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmFjcm9iYXQtcHJvZmVzc2lvbmFsJTJGNy0xODk5JTNGZnJvbSUzRGFwcGRlcGxveS5jb20=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 7.8k &nbsp|&nbsp
+    Created: 09/02/2005
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version48409" type="radio" class="star" disabled="disabled"/>
+    <input name="Version48409" type="radio" class="star" disabled="disabled"/>
+    <input name="Version48409" type="radio" class="star" disabled="disabled"/>
+    <input name="Version48409" type="radio" class="star" disabled="disabled"/>
+    <input name="Version48409" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Acrobat Professional has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">17 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">28 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (13)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="data:image/png;base64,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" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>2 / 5 (Somewhat Easy)</strong>
+                            based on <strong>3</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/48409" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="84dfa6b9b91bf185d25257180aa84442f82f5802" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/adobe/acrobat-professional/7-1899#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/adobe/acrobat-professional/7-1899/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_3807" name="tip_3807">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3807"></div> -->
+   <div id="tip-3807" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">120</div>
+   <div id="tip-3807" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3807"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            MsiExec.exe /i AcroPro.msi /qb- ISX_SERIALNUMBER=%ISX_SERIALNUM% TRANSFORMS=1031.mst EULA_ACCEPT=YES USERNAME="%USERNAME%" COMPANYNAME="%COMPANYNAME%" INSTALLDIR="%INSTALLDIR%"<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/baywatch" class="username" rel="nofollow">baywatch</a>
+                </li>
+                <li>
+                    03/03/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3808" name="tip_3808">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3808"></div> -->
+   <div id="tip-3808" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-3808" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3808"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Whenever I tried to install (with Zenworks) I got a generic "error" message. I found on google groups that people trying to deploy with GP had a similar issue and had to put their serial number in an Adcpy.ini file. Once this was added in the install performed flawlessly.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/gcballard" class="username" rel="nofollow">gcballard</a>
+                </li>
+                <li>
+                    01/18/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3813" name="tip_3813">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3813"></div> -->
+   <div id="tip-3813" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-3813" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3813"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            You can disable the yahoo- and websearch button by pasting the following text in a new file C:\Program Files\Adobe\Acrobat\Javascripts\disable_yahoo.js:<br/>
+<br/>
+==================================<br/>
+//This hides the Yahoo toolbarbutton. <br/>
+<br/>
+app.hideToolbarButton("WebSearchView"); <br/>
+<br/>
+//This hides the menu item View&gt;Toolbars&gt;Search the Internet <br/>
+<br/>
+app.hideMenuItem("ShowHideToolbarWebSearchView"); <br/>
+==================================
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/djseppie" class="username" rel="nofollow">djseppie</a>
+                </li>
+                <li>
+                    01/29/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3803" name="tip_3803">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3803"></div> -->
+   <div id="tip-3803" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3803" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3803"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Adobe just released InstallShield Tuner 7.0 for Adobe Acrobat. A few more features than the 6.0 release. Many of the registry hacks mentioned in the 6.0 notes can now be accomidate with the new release. See <a href="http://www.adobe.com/support/downloads/detail.jsp?ftpID=2709">http://www.adobe.com/support/downloads/detail.jsp?ftpID=2709</a><br/>
+<br/>
+For entities with multiple distribution points watch out for 2203 installation errors. This error seems to be a short coming of the InstallShield product. See<br/>
+<a href="http://support.installshield.com/kb/view.asp?articleid=Q107651">http://support.installshield.com/kb/view.asp?articleid=Q107651</a>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KentD" class="username" rel="nofollow">KentD</a>
+                </li>
+                <li>
+                    02/04/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3804" name="tip_3804">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3804"></div> -->
+   <div id="tip-3804" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3804" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3804"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>The MSI includes a very nice uninstall for the 6.x family of Adobe products. If you have any 5.x you're going to need a script to uninstall before installing 7.x</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KentD" class="username" rel="nofollow">KentD</a>
+                </li>
+                <li>
+                    02/04/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3805" name="tip_3805">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3805"></div> -->
+   <div id="tip-3805" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3805" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3805"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Installs fine with tuner to all my clients through GPO. Still need to activate locally though. Unless someone can script this.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/anthonymel" class="username" rel="nofollow">anthonymel</a>
+                </li>
+                <li>
+                    02/09/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3806" name="tip_3806">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3806"></div> -->
+   <div id="tip-3806" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3806" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3806"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            For Corporate deployment, Adobe offers the "Open Options" volume license verison, which does not require activation.<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/JoeUser99" class="username" rel="nofollow">JoeUser99</a>
+                </li>
+                <li>
+                    02/10/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3810" name="tip_3810">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3810"></div> -->
+   <div id="tip-3810" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3810" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3810"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>If you have a "My Documents" folder that is redirected to anything else then the default location you wont be able to Add new PDF settings through Distiller (Settings -&gt; Add Adobe-PDF Settings (CTRL-Shift-E)). According to Adobe this is by Design and redirecting of "My Documents" folder is not supported. As of yet I have not been able to find a way to bypass this.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mbrouwer" class="username" rel="nofollow">mbrouwer</a>
+                </li>
+                <li>
+                    04/06/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3811" name="tip_3811">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3811"></div> -->
+   <div id="tip-3811" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3811" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3811"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            After encountering problems applying the Patches 7.05/7.07 and 7.08 on clients with no administrative rights, I finally decided to do an administrative installation. Then patched the admin install (msiexec /p ".msp" /a ".msi"). That way I have no problems on clients with no administrative rights because they straight install version 7.08.<br/>
+<br/>
+When the next patch is released, I will update the admin installation first and then update the clients.<br/>
+(msiexec /i {GUID} REINSTALL=vomus REINSTALL=ALL)<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rpfenninger" class="username" rel="nofollow">rpfenninger</a>
+                </li>
+                <li>
+                    07/05/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3812" name="tip_3812">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3812"></div> -->
+   <div id="tip-3812" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3812" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3812"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>If you modify the original MSI there is a problem with inputing the serial number.  This is because the property for the serial number is incorrect.  The original has ISX_SERIALNUM where it should be changed to ISX_SERIALNUMBER.  Otherwise you will receive the non descript "error" message listed above by gcballard</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/joedown" class="username" rel="nofollow">joedown</a>
+                </li>
+                <li>
+                    10/08/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3814" name="tip_3814">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3814"></div> -->
+   <div id="tip-3814" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-3814" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3814"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Security</div>
+
+            <span id="tip-text">
+            If you are running Windows at higher than default security settings, you may receive the following error when trying to print to the PDFMaker printer from various applications:  "The Document Failed to Print"  <br/>
+<br/>
+Try granting Users Full Control of the "HKLM\Software\Adobe\Acrobat Distiller" key.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ashmite" class="username" rel="nofollow">ashmite</a>
+                </li>
+                <li>
+                    01/16/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3809" name="tip_3809">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3809"></div> -->
+   <div id="tip-3809" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-3809" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3809"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For use with Zenworks 4:<br/>
+msiexec.exe /i "\\Ofzen\ZEN\install\Acrobat7Pro\AcroPro.msi"<br/>
+/QR TRANSFORMS="1031.mst"<br/>
+<br/>
+That works for me.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/kmi" class="username" rel="nofollow">kmi</a>
+                </li>
+                <li>
+                    02/13/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3815" name="tip_3815">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3815"></div> -->
+   <div id="tip-3815" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-3815" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3815"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Bonjour je me permets de rajouter un commentaire, vous avez mis un " - "au lieu d'un " / " dans votre ligne de commande:<br/>
+<br/>
+Msiexec.exe / i AcroPro.msi /qb /ISX_SERIALNUMBER =% ISX_SERIALNUM% TRANSFORMS = 1031.mst EULA_ACCEPT USERNAME = OUI = "% USERNAME%" COMPANYNAME = "%% COMPANYNAME" INSTALLDIR = "%% INSTALLDIR"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Pedrito" class="username" rel="nofollow">Pedrito</a>
+                </li>
+                <li>
+                    09/20/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/48409/103805">
+                                    7
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Acrobat Professional</h2>
+            <div><h3>Version</h3><span>7</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (17)
+                            </h3>
+            <p>Questions & Answers related to Adobe Acrobat Professional</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/corrupted-file-on-cd-installation-of-adobe-acrobat" class="title">
+            Corrupted file on CD installation of Adobe Acrobat
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="corrupted-file-on-cd-installation-of-adobe-acrobat" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="corrupted-file-on-cd-installation-of-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="corrupted-file-on-cd-installation-of-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="corrupted-file-on-cd-installation-of-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="corrupted-file-on-cd-installation-of-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Horacio" rel="nofollow">Horacio</a>
+                5 years ago 2.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/acrobat-x-disable-updates-via-push" class="title">
+            Acrobat X disable updates via push
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="acrobat-x-disable-updates-via-push" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-x-disable-updates-via-push" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-x-disable-updates-via-push" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="acrobat-x-disable-updates-via-push" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-x-disable-updates-via-push" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Sherm76b" rel="nofollow">Sherm76b</a>
+                5 years ago 10.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-x-pro-std-hide-product-registration-menu-item" class="title">
+            Adobe Acrobat X Pro/Std - hide Product Registration Menu Item
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-x-pro-std-hide-product-registration-menu-item" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-acrobat-x-pro-std-hide-product-registration-menu-item" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-x-pro-std-hide-product-registration-menu-item" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-x-pro-std-hide-product-registration-menu-item" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-x-pro-std-hide-product-registration-menu-item" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/malachi2004" rel="nofollow">malachi2004</a>
+                5 years ago 17.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-8-pro-customization-wizard-silent-e-license" class="title">
+            Adobe Acrobat 8 Pro Customization wizard: silent e-license
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-8-pro-customization-wizard-silent-e-license" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-8-pro-customization-wizard-silent-e-license" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-8-pro-customization-wizard-silent-e-license" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-acrobat-8-pro-customization-wizard-silent-e-license" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-8-pro-customization-wizard-silent-e-license" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ohiosoundguy" rel="nofollow">ohiosoundguy</a>
+                5 years ago 5.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               dgerber commented 1 month ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" class="title">
+            XenApp 6 publishing Acrobat X Pro - Trying to combine files into pdf error please check to see if you have read permission
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" type="radio" class="star" disabled="disabled"/>
+    <input name="xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" type="radio" class="star" disabled="disabled"/>
+    <input name="xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" type="radio" class="star" disabled="disabled"/>
+    <input name="xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="xenapp-6-publishing-acrobat-x-pro-trying-to-combine-files-into-pdf-error-please-check-to-see-if-you-have-read-permission" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/JAllison" rel="nofollow">JAllison</a>
+                5 years ago 5.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/during-the-acrobat-deployment-msgbox-before-killing-the-processes" class="title">
+            During the Acrobat Deployment msgBox before Killing the processes
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="during-the-acrobat-deployment-msgbox-before-killing-the-processes" type="radio" class="star" disabled="disabled"/>
+    <input name="during-the-acrobat-deployment-msgbox-before-killing-the-processes" type="radio" class="star" disabled="disabled"/>
+    <input name="during-the-acrobat-deployment-msgbox-before-killing-the-processes" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="during-the-acrobat-deployment-msgbox-before-killing-the-processes" type="radio" class="star" disabled="disabled"/>
+    <input name="during-the-acrobat-deployment-msgbox-before-killing-the-processes" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/srikanth.deep" rel="nofollow">srikanth.deep</a>
+                5 years ago 6.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/acrobat-7-with-reader" class="title">
+            Acrobat 7 with Reader
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="acrobat-7-with-reader" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-7-with-reader" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-7-with-reader" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="acrobat-7-with-reader" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-7-with-reader" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lanselots" rel="nofollow">lanselots</a>
+                5 years ago 2.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" class="title">
+            Managed installation for Adobe Acrobat Pro XI fails due to missing microsoft visual c++ 2010 runtime
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" type="radio" class="star" disabled="disabled"/>
+    <input name="managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" type="radio" class="star" disabled="disabled"/>
+    <input name="managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" type="radio" class="star" disabled="disabled"/>
+    <input name="managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="managed-installation-for-adobe-acrobat-pro-xi-fails-due-to-missing-microsoft-visual-c-2010-runtime" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/HGcn" rel="nofollow">HGcn</a>
+                4 years ago 8.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-serial-number-validation" class="title">
+            Adobe Acrobat Serial Number Validation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-serial-number-validation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-serial-number-validation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-serial-number-validation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-serial-number-validation" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-acrobat-serial-number-validation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/removedbyuser85960" rel="nofollow">removedbyuser85960</a>
+                4 years ago 17.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/another-msi-scripting-issue-patching-not-working" class="title">
+            Another MSI scripting issue - patching not working?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="another-msi-scripting-issue-patching-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="another-msi-scripting-issue-patching-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="another-msi-scripting-issue-patching-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="another-msi-scripting-issue-patching-not-working" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="another-msi-scripting-issue-patching-not-working" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sfigg" rel="nofollow">sfigg</a>
+                4 years ago 3.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" class="title">
+            Applying update patch (10.1.9) to Adobe Acrobat Pro X results in an error message:  adobearmhelper.exe cannot be installed.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" type="radio" class="star" disabled="disabled"/>
+    <input name="applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" type="radio" class="star" disabled="disabled"/>
+    <input name="applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" type="radio" class="star" disabled="disabled"/>
+    <input name="applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" type="radio" class="star" disabled="disabled"/>
+    <input name="applying-update-patch-10-1-9-to-adobbe-acrobat-prox-x-results-in-an-error-message-adobearmhelper-exe-cannot-be-installed" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/wwfservicedesk" rel="nofollow">wwfservicedesk</a>
+                3 years ago 7.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/repair-installation-in-adobe-dc-professional" class="title">
+            Repair Installation in Adobe DC Professional
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="repair-installation-in-adobe-dc-professional" type="radio" class="star" disabled="disabled"/>
+    <input name="repair-installation-in-adobe-dc-professional" type="radio" class="star" disabled="disabled"/>
+    <input name="repair-installation-in-adobe-dc-professional" type="radio" class="star" disabled="disabled"/>
+    <input name="repair-installation-in-adobe-dc-professional" type="radio" class="star" disabled="disabled"/>
+    <input name="repair-installation-in-adobe-dc-professional" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Viveks" rel="nofollow">Viveks</a>
+                2 years ago 3.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               vjaneczko answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                8
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobepro-xi-silent-install" class="title">
+            AdobePro XI Silent Install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobepro-xi-silent-install" type="radio" class="star" disabled="disabled"/>
+    <input name="adobepro-xi-silent-install" type="radio" class="star" disabled="disabled"/>
+    <input name="adobepro-xi-silent-install" type="radio" class="star" disabled="disabled"/>
+    <input name="adobepro-xi-silent-install" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobepro-xi-silent-install" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/IneptNewby" rel="nofollow">IneptNewby</a>
+                2 years ago 1.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               IneptNewby commented 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-standard-7-0-printer-port-creation" class="title">
+            Adobe Acrobat Standard 7.0 printer port creation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-standard-7-0-printer-port-creation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-standard-7-0-printer-port-creation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-standard-7-0-printer-port-creation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-standard-7-0-printer-port-creation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-standard-7-0-printer-port-creation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/meenasm" rel="nofollow">meenasm</a>
+                11 years ago 22.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                7
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-pro-7-with-7-0-5-repackage" class="title">
+            Adobe Acrobat Pro 7 with 7.0.5 Repackage
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-pro-7-with-7-0-5-repackage" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-pro-7-with-7-0-5-repackage" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-pro-7-with-7-0-5-repackage" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-pro-7-with-7-0-5-repackage" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-pro-7-with-7-0-5-repackage" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Mikg" rel="nofollow">Mikg</a>
+                11 years ago 15.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                21
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-acrobat-7-professional-product-activation" class="title">
+            Adobe Acrobat 7 Professional - Product Activation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-7-professional-product-activation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-7-professional-product-activation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-7-professional-product-activation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-7-professional-product-activation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-7-professional-product-activation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ret" rel="nofollow">ret</a>
+                12 years ago 129.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                13
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/uninstall-acrobat-reader-7-silently" class="title">
+            Uninstall Acrobat Reader 7 silently
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="uninstall-acrobat-reader-7-silently" type="radio" class="star" disabled="disabled"/>
+    <input name="uninstall-acrobat-reader-7-silently" type="radio" class="star" disabled="disabled"/>
+    <input name="uninstall-acrobat-reader-7-silently" type="radio" class="star" disabled="disabled"/>
+    <input name="uninstall-acrobat-reader-7-silently" type="radio" class="star" disabled="disabled"/>
+    <input name="uninstall-acrobat-reader-7-silently" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mattyskinner" rel="nofollow">mattyskinner</a>
+                12 years ago 19.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Adobe Acrobat Professional</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/how-to-deploy-adobe-acrobat-9-5-4-through-gpo" class="title">
+                How To Deploy Adobe Acrobat 9.5.4 through GPO
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-adobe-acrobat-9-5-4-through-gpo" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-deploy-adobe-acrobat-9-5-4-through-gpo" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-deploy-adobe-acrobat-9-5-4-through-gpo" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-deploy-adobe-acrobat-9-5-4-through-gpo" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="how-to-deploy-adobe-acrobat-9-5-4-through-gpo" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                4 years ago 4.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (28)
+                            </h3>
+
+            <p>Links related to Adobe Acrobat Professional</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 4.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/partners" class="title">
+                Partners
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="partners" type="radio" class="star" disabled="disabled"/>
+    <input name="partners" type="radio" class="star" disabled="disabled"/>
+    <input name="partners" type="radio" class="star" disabled="disabled"/>
+    <input name="partners" type="radio" class="star" disabled="disabled"/>
+    <input name="partners" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkruiser" rel="nofollow">bkruiser</a>
+                11 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-1" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-1" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-1" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-1" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-1" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-1" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 4.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-2" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-2" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-2" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-2" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-2" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-2" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 4.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" class="title">
+                Acrobat software deployment, SDK, Adobe customization Wizard | Adobe Acrobat
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jcauthorn" rel="nofollow">jcauthorn</a>
+                8 years ago 3.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9 : Thank You
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cblake" rel="nofollow">cblake</a>
+                9 years ago 3.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-3" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-3" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-3" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-3" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-3" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-3" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/lancaster" rel="nofollow">lancaster</a>
+                8 years ago 5.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                8 years ago 5.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows" class="title">
+                Adobe - Acrobat : For Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                8 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9-1" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-1" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/uerueluem" rel="nofollow">uerueluem</a>
+                9 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9 : Thank You
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-1" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/misterd" rel="nofollow">misterd</a>
+                8 years ago 2.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9 : Thank You
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-2" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/uerueluem" rel="nofollow">uerueluem</a>
+                9 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" class="title">
+                Using Group Policy to Deploy Adobe Acrobat 9.3.2 guide
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" type="radio" class="star" disabled="disabled"/>
+    <input name="using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" type="radio" class="star" disabled="disabled"/>
+    <input name="using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" type="radio" class="star" disabled="disabled"/>
+    <input name="using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" type="radio" class="star" disabled="disabled"/>
+    <input name="using-group-policy-to-deploy-adobe-acrobat-9-3-2-guide" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/shrapnel09" rel="nofollow">shrapnel09</a>
+                7 years ago 1.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" class="title">
+                Acrobat software deployment, SDK, Adobe customization Wizard | Adobe Acrobat
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-1" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/mculmone" rel="nofollow">mculmone</a>
+                9 years ago 2.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-4" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-4" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-4" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-4" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-4" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-4" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 3.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-5" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-5" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-5" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-5" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-5" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-5" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" class="title">
+                Adobe - Acrobat : For Windows : Adobe Customization Wizard 9 : Thank You
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-acrobat-for-windows-adobe-customization-wizard-9-thank-you-3" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/pkaak" rel="nofollow">pkaak</a>
+                9 years ago 2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" class="title">
+                Acrobat software deployment, SDK, Adobe customization Wizard | Adobe Acrobat
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" type="radio" class="star" disabled="disabled"/>
+    <input name="acrobat-software-deployment-sdk-adobe-customization-wizard-adobe-acrobat-2" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jcauthorn" rel="nofollow">jcauthorn</a>
+                7 years ago 2.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-6" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-6" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-6" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-6" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-6" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-6" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jcauthorn" rel="nofollow">jcauthorn</a>
+                7 years ago 2.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/update-patch-acrobat-reader-7-x-9-x-windows-7" class="title">
+                Update, patch | Acrobat, Reader 7.x - 9.x | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-7" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-7" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-7" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-7" type="radio" class="star" disabled="disabled"/>
+    <input name="update-patch-acrobat-reader-7-x-9-x-windows-7" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                7 years ago 2.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                                    <div class="show-more"><a href="/tag/adobe-acrobat-professional-7/link">More Links</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Adobe Acrobat Professional</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xMHBjVkgAAAJPSURBVEiJrVU9ixNRFD3vvTufmSRuFm20ETu7NSBqY5XGxUXBZq3USgOKhZUg/gXBRmxsBbuFrUT/gb9EEdTsZj7eu9di4iSz2SQTzIUU995557xzz52JunbrWY88/60hf08pnWADIcJjZ4tDW2RDCqP2m1Zn+34QJdCaAKX+Fx3MLsrS0b2j3z8Mxe2t3aR7Fl4QQSm9CQEQYXhBBIjskh/EhigApGxsKoh8+EHskygFgWwU/F+IUiBhATOvNXvfU3h0t4+dy+fRSUIAwPE4x8OXn6ANTQlEQMIOwq4xAbPD/u0ruHn1Uv22IiiyY/hha1pjB2Jh8BoERZ7i+s7FUzoCazMQhzOX4VLBOgS2SNHtxFV+58FrfP85QhAlSLrnSqyaAmawa+6Bs66W/0kJ3d4FaCJo45dYswqYm42IncXB+ydz9S8fXwEAjsYZ9p9/qJ9ZZ0R5Pl7ax8RkL5iOT9iBHDs4tgCWE9giW4EvKIocmvyq5ioP2K0kAIAbey+QjUf49vldVesPHkMbAy+IEbe3ayYzu5kRrSBQhhAmW7UXCQCi5Ay8IIbSBkqb+hYJg5hl4vwqBQrGBDBU1KqGQpA3mbugvkWOQdxQQXWIeS6fvfXJHok09wAAWNxcvpBA3My3qCEBToJV509/drJFTTwoQ6DQHwxhixTkhQha3bmxVfgsIBEBS3MCpQ28uA3iFpTW5eYs+C9hKT1wsoaCcpt8wMyoWqBAmHPN7A6ZGSIb/pXeHJAtsqfaeL423kAp1WsoY3mI/HLOfrVFOvwLfr2cvFzgk+IAAAAASUVORK5CYII=" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABX1BMVEVFu+tlu/BsvvBLw+xsvvBywvFLv+xxwfFNxexOwe2EzPNKt+xLt+xMuOxMuexNxuxQxe1Qxu1Rve1Rwu1Tv+1Tx+1Uw+1Vw+1VxO1WyO1Xue5Xw+1XxO1Xxu5Yvu5ZyO5au+5axO5aye5bxO5bx+5cyO5dve5dxu5eyu5fxu5hyu9iy+9jx+9jye9jyu9kyO9lxO5nyO9nze9oxe9qx/BqzfBryfBryvBrzvBsy/BvyvBwzfBwz/BzwvF0y/F00PF1zvB10fF3zfF4zfJ60fF60vF7zvJ+0fJ/z/N/0/KB0POE0POE1fOGzPOG1fOH0fOI1vOK1POL0vON0vSN0/SN1/SS0/WS2fSU2fWV1PWW1fWW2vWa2fWa2/We3Paf3Pah3fai3fak3vap3faw3/e04Pe25fi34vi/5/jB6fnK6/rO7frj9Pzn9f3v+f33/P74/P75/P78/v/9/v////9mrPf1AAAAC3RSTlMVFairq66x9vn5+XR/mDIAAAESSURBVCjPbVGxTsQwDI0dp1VFT4d0iOHUL7iJiW9g5yP5Bb6BhZUBiQlGBtRrL3GdkCYtOq61lFr183vWswHA3KvLeBEB81BpuKgH6Z/JbA0sGKEw8Fgv6xFpCUJYARSQX60rT+LHLLuq+9ZngNAwjNmVqrLFGTBMDIsKLP1jeE4N8R3iY/eJ84wkJVOjAWsmBidlnhVazgyehsdPeIotxWYzzMNnKdgjKMSQAdG32sc4NVrdHINGCD7FiTh1+GiivosK3Wu2yXqHMsbXPrlAfA/p3+ktjNm3bw2M0M9HBiw0dR7W9UPcJ5bX2X9LzmUHdMVxOVBwWpFyJP3fCfS0m+y8w9V7dCS8eloBpU25qFuWX2lyjb3ArGdtAAAAAElFTkSuQmCC" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAbCAMAAAC9SNpyAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAE3RSTlMAECAwQFBgcICQnqCosLXA0ODw4l5hTgAAAhlJREFUSMe1VtuSrCAMlIsIh2UD+P//eggBBMGtrRo3L6OZSJNOk7BtxYTxJ5o3Yvsjk3BeBvJPMMw5mvl8SSFHRlglSkttAj2zT0ESNXv/njGcGJjzL4DoG1exR1XxBcZGEIkYI38CUeSbILBYcEeNvQgi0np2CnHJi9kZgCtJAaCqVg4HAE5d+mAKPeAOQaGJjIAOqBXhEwgvVRmylC09HYvWWy1VbPr3kugpVqTlFtk6WnAJwvqTS7mp/BxI/9CDZJZa3GgH7WEJYmtX2FH8mAtDcvIyQgeqxVCTBx3JZxBURfmepYQDo+jGOd9eAOkJxhRSBnoW42cgfFCKzohqVs8dZF+AqEcQNfScdAIiAcdDPIL4dQexj+pKe49wGW2mtPEIth6dAST9HWYM5No8gtxsODl1z9OJV0sFi19lAmBaDygobtm74jQ9YpFL7EFIQ8dPbU0eoRR57sLTjPKUCIaqnllHqfPnxsgCEbaYJ3cU9v2vrz9Z+vygn5+GDYkaVzX3yRguHeNwZp5a395VzJYUdF9FcSxI0BQV2DTjQ9Z5JtVkj6gb0BjMXS1p9pm8ANd0aFTqXLRiDpNFUC75mLZifVv5av01D8nTQ+iuFzy/JF356ixBxWPbMDx96MbfeO8SOB7KJBPh8tf0+15vWZ5R832q3IGGGVtvkEA3SH71CEUruP40SUubN7x9DufoSUTh/qKT23/tNjs0imzt8gAAAABJRU5ErkJggg==" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":863,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

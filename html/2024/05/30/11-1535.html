@@ -1,0 +1,2277 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Citrix Citrix ICA Client 11</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Citrix Citrix ICA Client 11">
+    <meta name="keywords" content="Citrix,Citrix Citrix ICA Client,Citrix ICA Client 11">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/citrix/citrix-ica-client/11-1535" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/citrix">Citrix</a></li>
+    <li><a href="/software-library/company/citrix/citrix-ica-client">Citrix ICA Client</a></li>
+    <li>11</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Citrix Citrix ICA Client</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 11
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/citrix-ica-client/11-1535"
+                                            >
+                                            11.x <span>(12 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/citrix-ica-client/9-1525"
+                                            >
+                                            9.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/citrix-ica-client/8-1802"
+                                            >
+                                            8.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/citrix/citrix-ica-client/4-3709"
+                                            >
+                                            4.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/59534/JTJGc29mdHdhcmUlMkZjaXRyaXglMkZjaXRyaXgtaWNhLWNsaWVudCUyRjExLTE1MzU=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/59534/JTJGc29mdHdhcmUlMkZjaXRyaXglMkZjaXRyaXgtaWNhLWNsaWVudCUyRjExLTE1MzU=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 22.3k &nbsp|&nbsp
+    Created: 11/21/2008
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="59534"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Citrix ICA Client has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">5 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">5 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (12)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/orange.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>4 / 5 (Somewhat Difficult)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Repackaged (to a setup.msi)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/citrix/citrix-ica-client/11-1535#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/citrix/citrix-ica-client/11-1535/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_4874" name="tip_4874">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4874"></div> -->
+   <div id="tip-4874" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">12</div>
+   <div id="tip-4874" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4874"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Download the "XenApp Plugin for Hosted Apps" (which is the new name for the ICA Client) from <br />
+http://www.citrix.com/site/SS/downloads/index.asp<br />
+<br />
+The XenAppHosted.msi can be customized with the Client Packager by using the following command line:<br />
+msiexec.exe /a path/XenAppHosted.msi<br />
+<br />
+Unlike many custom tuners, this doesn't create an .mst file, it actually modifies the .msi itself.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hnewman" class="username" rel="nofollow">hnewman</a>
+                </li>
+                <li>
+                    11/22/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4875" name="tip_4875">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4875"></div> -->
+   <div id="tip-4875" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">9</div>
+   <div id="tip-4875" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4875"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I faced the following challenges while deploying this client:<br />
+<br />
+1. I tried to avoid using the Client Packager because I don't like modifying shipping .msi files and losing track of the changes. But I found that every .mst file I tried to create was ignored at some level, resulting in the wrong features being installed. I tried AdminStudio Tuner and InstEd with similar results.<br />
+<br />
+2. This version doesn't install cleanly over previous versions if the user is not an Administrator, even with elevated rights delivered by ZEN.<br />
+<br />
+3. The MSI that results from the Client Repackager does not install correctly without Administrative rights, even with elevated rights delivered by ZEN. It appears to work, but all of the program files actually go to %userprofile%\Local Settings\Application Data instead of c:\program files.<br />
+<br />
+I was able to overcome all of these challenges with the following steps:<br />
+<br />
+1. Use the Client Repackager to build an MSI that met my installation needs.<br />
+<br />
+2. Edit the MSI and change the ALLUSERS Property value from 2 to 1. This overcomes the rights problem that sends the files to the wrong location.<br />
+<br />
+3. Manually uninstall previous versions with a script that looks like this:<br />
+<br />
+@echo Uninstalling previous versions of the Citrix client. Please wait...<br />
+@echo off<br />
+MSIEXEC /x {4E21223F-8D6C-446E-9CD3-587D206A8400} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {76E4A642-BC3E-438A-8450-0C15A36B5B18l} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {7A1FB67F-A340-472A-97C3-A6AFFE078AAE} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {94F321B9-45B0-4125-970D-DE3D98CBCA1C} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {B2AE44CB-2AAB-4C08-A54B-D264BD604DA8} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {D989BCC0-757C-4FB6-893C-512DF4382656} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {DF1D5FEC-D67C-43C8-9230-41F5DF350196} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {E92B7A19-5FD5-4AEE-9FEF-7AD5DD3A675E} /qn REBOOT=ReallySuppress<br />
+deltree /Y "c:\program files\citrix\ica client"<br />
+<br />
+I included all of the ProductCodes that I could gather, and I think I've caught v7 through v10. If I've missed any, please add them to these notes.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hnewman" class="username" rel="nofollow">hnewman</a>
+                </li>
+                <li>
+                    11/22/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4878" name="tip_4878">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4878"></div> -->
+   <div id="tip-4878" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">8</div>
+   <div id="tip-4878" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4878"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Citrix has changed the install entirely for version 11.2. The install is now a large exe wrapped around several MSI and other files. To install I found the following command line worked:<br />
+<br />
+"CitrixOnlinePluginFull.exe" /silent SERVER_LOCATION="[server]/config.xml<br />
+<br />
+But the wierdest part is the uninstall:<br />
+<br />
+C:\Documents and Settings\All Users\Application Data\Citrix\Citrix online plug-in\TrolleyExpress.exe /uninstall /cleanup
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Mick_G" class="username" rel="nofollow">Mick_G</a>
+                </li>
+                <li>
+                    10/02/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4877" name="tip_4877">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4877"></div> -->
+   <div id="tip-4877" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-4877" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4877"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Here is the vbscript I am using to detect and remove any Citrix Software that is installed.  I have noticed that it will not detect the XenApp Plugin, but I have tested it to remove version 7 through 11 of the Program Neighborhood.<br />
+<br />
+Caution:  If you have software from Citrix that you don';t want removed, don't run this vbs as it will enumerate and remove all installed packages that have Metaframe or Citrix in the title.<br />
+<br />
+Option Explicit<br />
+Dim objReg, strcomputer, strKey, strEntry1a, strEntry5, objShell, arrSubkeys, strSubkey<br />
+Dim strValue1, intRet1, V, W, X, intValue5, arrCitrix, strEntry1b, arrMSIExec<br />
+<br />
+Const HKLM = &H80000002<br />
+strComputer = "."<br />
+strKey = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"<br />
+strEntry1a = "DisplayName"<br />
+strEntry5 = "UninstallString"<br />
+<br />
+Set objShell=CreateObject("WScript.Shell")<br />
+Set objReg = GetObject("winmgmts://" & strComputer & "/root/default:StdRegProv")<br />
+objReg.EnumKey HKLM, strKey, arrSubkeys<br />
+WScript.Echo "Installed Applications" & VbCrLf<br />
+For Each strSubkey In arrSubkeys<br />
+		intRet1 = objReg.GetStringValue(HKLM, strKey & strSubkey, strEntry1a, strValue1)<br />
+		If intRet1 &lt;&gt; 0 Then<br />
+				objReg.GetStringValue HKLM, strKey & strSubkey, strEntry1b, strValue1<br />
+		End If<br />
+		If strValue1 &lt;&gt; "" Then<br />
+				V=InStr(1,UCASE(strValue1),"CITRIX")<br />
+				W=InStr(1,UCASE(strValue1),"METAFRAME")<br />
+				X = V+W<br />
+				If X&lt;&gt;0 Then<br />
+						objReg.GetStringValue HKLM, strKey & strSubkey, strEntry5, intValue5<br />
+						If intValue5 &lt;&gt; "" Then<br />
+								arrCitrix = Split(intValue5," ")<br />
+								Select Case UCASE(arrCitrix(0))<br />
+										Case "C:\WINDOWS\ISUNINST.EXE"<br />
+												WScript.Echo "Running command " & intValue5 & " -a"<br />
+												objShell.Run intValue5 & " -a",0,True<br />
+										Case "MSIEXEC.EXE"<br />
+												arrMSIExec = Split(intValue5,"{")<br />
+												WScript.Echo "Running command MSIExec.exe /qn /X{"&arrMSIExec(1)<br />
+												objShell.Run "MSIExec.exe /qn /X{"&arrMSIExec(1),0,True<br />
+								End Select<br />
+						End If<br />
+				End If<br />
+		End If<br />
+Next<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/dgrimard" class="username" rel="nofollow">dgrimard</a>
+                </li>
+                <li>
+                    03/05/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4879" name="tip_4879">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4879"></div> -->
+   <div id="tip-4879" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-4879" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4879"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            You can redirect deployed client to different Server URL with that reg file:<br />
+<br />
+Windows Registry Editor Version 5.00<br />
+<br />
+[-HKEY_CURRENT_USER\SOFTWARE\Citrix\]<br />
+<br />
+[HKEY_LOCAL_MACHINE\SOFTWARE\Citrix\PNAgent]<br />
+"ServerURL"="https://your-new-server-url"<br />
+[HKEY_LOCAL_MACHINE\SOFTWARE\Citrix\PNAgent]<br />
+"ServerURLCopy"="your-new-server-url"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/gotch" class="username" rel="nofollow">gotch</a>
+                </li>
+                <li>
+                    10/16/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4881" name="tip_4881">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4881"></div> -->
+   <div id="tip-4881" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-4881" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4881"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Try CitrixOnlinePluginFull.exe /? in CMD to find out supported parameters, such as:<br />
+<br />
+/help<br />
+/uninstall<br />
+/silent<br />
+/noreboot<br />
+/preview <br />
+/extract <br />
+<br />
+MSI-Property Values are supported too.<br />
+<br />
+CitrixOnlinePluginFull.exe /silent ADDLOCAL="ICA_Client,PN_Agent,SSON,Flash,U<br />
+SB,DesktopViewer" SERVER_LOCATION="my.server" ENABLE_SSON="No" INSTALLDIR="C:\my<br />
+folder" ENABLE_DYNAMIC_CLIENT_NAME="No" CLIENT_NAME="my_overrided_name" DEFAULT_<br />
+NDSCONTEXT="Context1,Context2"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Moeki" class="username" rel="nofollow">Moeki</a>
+                </li>
+                <li>
+                    01/13/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4883" name="tip_4883">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4883"></div> -->
+   <div id="tip-4883" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-4883" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4883"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I used the following script with SMS/SCCM to take advantage of using the SMS/SCCM Distribution Points (DP's) in area's where you might have slow WAN connections. It runs the script from the current location and also expects the installer to be in that location as well. <br />
+<br />
+1. It runs the MSIEXEC unistaller for previous versions of the client.<br />
+<br />
+2. Then it also imports two reg keys that fix an SSO/Passthough Authentication issue with the client.<br />
+<br />
+3. Then it runs the installer with command line options to specify Server Location, SSO on/off, Dynamic Client naming, silent install, as well as an ALLUSERS=1 which fixs some issues when deploying to multiuser environments.<br />
+<br />
+Here it is:<br />
+<br />
+Set WshShell = WScript.CreateObject("WScript.Shell")<br />
+<br />
+On Error Resume Next<br />
+WshShell.Run "MSIEXEC /x {4E21223F-8D6C-446E-9CD3-587D206A8400} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {76E4A642-BC3E-438A-8450-0C15A36B5B18l} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {7A1FB67F-A340-472A-97C3-A6AFFE078AAE} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {94F321B9-45B0-4125-970D-DE3D98CBCA1C} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {B2AE44CB-2AAB-4C08-A54B-D264BD604DA8} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {D989BCC0-757C-4FB6-893C-512DF4382656} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {DF1D5FEC-D67C-43C8-9230-41F5DF350196} /qn REBOOT=ReallySuppress", 0, True<br />
+WshShell.Run "MSIEXEC /x {E92B7A19-5FD5-4AEE-9FEF-7AD5DD3A675E} /qn REBOOT=ReallySuppress", 0, True<br />
+On Error GoTo 0<br />
+<br />
+'This merges 2 reg keys used for Citrix SSO<br />
+WshShell.Run "regedit.exe /s" & sCurPath & "citrix_sso1.reg", 0, True<br />
+WshShell.Run "regedit.exe /s" & sCurPath & "citrix_sso2.reg", 0, True<br />
+WScript.Sleep (10000)<br />
+<br />
+'***************************************************<br />
+<br />
+Dim sCurPath<br />
+<br />
+'This uninstalls old versions of the Citrix Client and then installs the new version<br />
+sCurPath = CreateObject("Scripting.FileSystemObject").GetAbsolutePathName(".")<br />
+sInstallPath = sCurPath & "\CitrixOnlinePluginFull_v11_2.exe ALLUSERS=1 DONOTSTARTCC=1 /silent /noreboot ENABLE_DYNAMIC_CLIENT_NAME=""Yes"" SERVER_LOCATION=""http://yourserver"" ENABLE_SSON=""Yes"""<br />
+<br />
+<br />
+WshShell.Run(sInstallPath), 0, True<br />
+WScript.Sleep (15000)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jdwolfe" class="username" rel="nofollow">jdwolfe</a>
+                </li>
+                <li>
+                    03/31/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4884" name="tip_4884">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4884"></div> -->
+   <div id="tip-4884" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-4884" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4884"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            11.2 through 12.1<br />
+<br />
+Needed to perform a non-interactive install (as a service) whilst the user was logged on. Errors included hung installations, VC++ runtime errors, visible dialog boxes and partially failed installs. Some minimized dialog boxes are inevitable.<br />
+<br />
+Solution to hangs on install partly solved by...<br />
+http://forums.citrix.com/thread.jspa?threadID=262150&tstart=0<br />
+<br />
+'notstrict.mst' disables the wfcrun32.exe /regserver command<br />
+<br />
+extract the msi's, then install<br />
+(order suggested by citrix KB will fail), important to place webwrapper 1st as it contains dependancies for the others.<br />
+<br />
+ICAWebWrapper.msi /quiet /norestart DONOTSTARTCC=1 TRANSFORMS=notstrict.mst<br />
+PNAWrapper.msi /quiet /norestart SERVER_LOCATION="http://&lt;server location&gt;"<br />
+CitrixHDXMediaStreamForFlash-ClientInstall.msi /quiet /norestart<br />
+DesktopViewer.msi /quiet /norestart<br />
+GenericUSB.msi /quiet /norestart<br />
+SSONWrapper.msi /quiet /norestart ENABLE_SSON="YES"<br />
+<br />
+put in the HKLM runonce or preferably run as a shutdown script to avoid conflicts<br />
+<br />
+"C:\Program Files\Citrix\ICA Client\wfcrun32.exe" /regserver<br />
+<br />
+It is also sugegsted to use GPO preferences to deploy the clients server location...<br />
+<br />
+HKEY_LOCAL_MACHINE\SOFTWARE\Citrix\PNAgent serverURL (SZ)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/michaeltrs2004" class="username" rel="nofollow">michaeltrs2004</a>
+                </li>
+                <li>
+                    06/28/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4876" name="tip_4876">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4876"></div> -->
+   <div id="tip-4876" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-4876" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4876"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I decided to add the current version to the uninstall routine, just in case there was a problem and it needed to be reinstalled. So now the script looks like this (the comments are just to keep the user interested):<br />
+<br />
+@echo Uninstalling previous versions of the Citrix client. Please wait...<br />
+@echo off<br />
+MSIEXEC /x {4E21223F-8D6C-446E-9CD3-587D206A8400} /qn REBOOT=ReallySuppress<br />
+@echo working...<br />
+MSIEXEC /x {76E4A642-BC3E-438A-8450-0C15A36B5B18l} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {7A1FB67F-A340-472A-97C3-A6AFFE078AAE} /qn REBOOT=ReallySuppress<br />
+@echo still working...<br />
+MSIEXEC /x {94F321B9-45B0-4125-970D-DE3D98CBCA1C} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {B2AE44CB-2AAB-4C08-A54B-D264BD604DA8} /qn REBOOT=ReallySuppress<br />
+@echo still working...<br />
+MSIEXEC /x {D989BCC0-757C-4FB6-893C-512DF4382656} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {DF1D5FEC-D67C-43C8-9230-41F5DF350196} /qn REBOOT=ReallySuppress<br />
+@echo almost done...<br />
+MSIEXEC /x {E92B7A19-5FD5-4AEE-9FEF-7AD5DD3A675E} /qn REBOOT=ReallySuppress<br />
+MSIEXEC /x {388C130B-0079-46B4-A0D5-DC2DD7A89A7B} /qn REBOOT=ReallySuppress<br />
+deltree /Y "c:\program files\citrix\ica client"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hnewman" class="username" rel="nofollow">hnewman</a>
+                </li>
+                <li>
+                    01/22/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4880" name="tip_4880">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4880"></div> -->
+   <div id="tip-4880" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-4880" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4880"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Hi, <br />
+<br />
+Modification to the registry as below elevates the installer to Admin as long as you grant the logged on user rights to the area the application needs to install in.<br />
+<br />
+This worked when used in conjunction with the ALLUSERS=1<br />
+<br />
+On a computer running Windows NT 4.0 or Windows 2000, an administrator can set the AlwaysInstallElevated registry keys for both per-user and per-machine installations on the computer. If you want to make sure that all Windows Installer packages are installed with elevated (system) privileges, you must set the AlwaysInstallElevated value to "1" under the following registry keys:<br />
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer<br />
+<br />
+HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer<br />
+<br />
+Microsoft does warn it opens up for malicious activity, I got around this by closing this up after I was done :)<br />
+<br />
+It works on XP though not documented, you will need to create the key under HKCU as it wasn't there.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tomesbr" class="username" rel="nofollow">tomesbr</a>
+                </li>
+                <li>
+                    12/23/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4882" name="tip_4882">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4882"></div> -->
+   <div id="tip-4882" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-4882" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4882"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Citrix 'ICA Client / Online plug-in' 11.2<br />
+<br />
+My usual approach to re-packaging would involve extracting the msi's (CitrixOnlinePluginWeb.exe /extract c:\temp) and applying custom transforms, however, even following the individual msi installation order specified in Citrix's documentation the client simply didn't work (see: http://support.citrix.com/proddocs/index.jsp?topic=/online-plugin-112-windows/ica-extract-msi.html). It is stated on the above page that: "Citrix does not recommend extracting the .msi files in place of running the installer packages." So, I'm left with running the CitrixOnlinePluginWeb.exe "package" directly. <br />
+<br />
+FYI - In addition to the command-line options documented above and on the Citrix docs (http://support.citrix.com/proddocs/index.jsp?topic=/online-plugin-112-windows/ica-configure-command-line.html), there's an undocumented property that appears in the example Active Directory deployment script 'DONOTSTARTCC=1', which I presume ought to be used for remote deployments etc.<br />
+<br />
+My command-line therefore looks like this:<br />
+CitrixOnlinePluginWeb.exe DONOTSTARTCC=1 /silent /noreboot<br />
+(I don't bother to configure any other options on the command-line as I don't have any requirement to.)<br />
+<br />
+The only other issue I encountered was attempting to install the plug-in on a remote machine using the PSEXEC utility. The plug-in executable resided on a network share so I specified a user account with the relevant network access:<br />
+<br />
+PSExec \\computername -u domain\username \\server\share\CitrixOnlinePluginWeb.exe  DONOTSTARTCC=1 /silent /noreboot<br />
+<br />
+This failed - sometimes I received a 1602 exit code fairly immediately, at other times psexec timed out. On the target machine a "hidden" C++ runtime error dialog was "displayed" in relation to wfica32.exe, although the dialog appeared on the start bar you couldn't actualy see it until you dragged another window over the top of it - very bizare - and even then the content was still hidden (selecting the dialog Ctrl+C, then paste into notepad revealed the error message content). I can only guess that the installer had issues running in the context of an account without a fully loaded profile as running the install as the logged on user worked fine (perhaps the %temp% environment variable was unavailable & so the installer didn't know where to extract its content?). The resolution was to copy the installer to the target machine and run via PSExec under the LocalSystem account (by using the -s switch, instead of '-u domain\username'):<br />
+<br />
+PSExec \\computername -s c:\temp\CitrixOnlinePluginWeb.exe  DONOTSTARTCC=1 /silent /noreboot<br />
+<br />
+No special considerations where necessary when deploying the plugin via "normal" methods e.g. Group Policy, SMS/SCCM etc.<br />
+<br />
+Hopefully these notes will help someone else avoid the best part of a wasted day...
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Matthew%20Glew" class="username" rel="nofollow">Matthew Glew</a>
+                </li>
+                <li>
+                    01/22/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_4885" name="tip_4885">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-4885"></div> -->
+   <div id="tip-4885" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-4885" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-4885"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            hidden SILENT flag<br />
+<br />
+PNAWrapper.msi /quiet /norestart SILENT=1<br />
+<br />
+hides a minimied dialog that appears during install
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/michaeltrs2004" class="username" rel="nofollow">michaeltrs2004</a>
+                </li>
+                <li>
+                    06/28/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/59534/127679">
+                                    11
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Citrix ICA Client</h2>
+            <div><h3>Version</h3><span>11</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (5)
+                            </h3>
+            <p>Questions & Answers related to Citrix Citrix ICA Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/what-is-the-best-practice-to-un-install-all-versions-of-citrix-receiver-clients-using-kace-sma-k1000-to-do-these-tasks-what-are-their-parameters-to-do-quietly-or-silently-in-the-background" class="title">
+            what is the best practice to un/install all versions of Citrix Receiver clients using KACE SMA (K1000) to do these tasks? What are their parameters to do quietly or silently in the background?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43552"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/M%20F" rel="nofollow">M F</a>
+                4 years ago 1.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Kiyolaka answered 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-do-i-deploy-a-pre-configured-citrix-receiver" class="title">
+            How do I deploy a pre-configured citrix receiver?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="25330"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jcorder" rel="nofollow">jcorder</a>
+                11 years ago 6.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/ica-client-batch-file-for-home-installations" class="title">
+            ICA client batch file for home installations
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="22223"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/westbg" rel="nofollow">westbg</a>
+                11 years ago 2.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/outlook-in-citrix-freezing" class="title">
+            Outlook in Citrix freezing
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="18942"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tuttlebob" rel="nofollow">tuttlebob</a>
+                12 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                8
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/msi-local-cache-question" class="title">
+            MSI local cache question
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="11055"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dodgy" rel="nofollow">dodgy</a>
+                15 years ago 11.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Citrix Citrix ICA Client</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/citrix-office" class="title">
+            Citrix &amp; Office
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1787"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/tuttlebob" rel="nofollow">tuttlebob</a>
+                12 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (5)
+                            </h3>
+
+            <p>Links related to Citrix Citrix ICA Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/ctx112674-how-to-make-the-program-neighborhood-agent-url-persistent-for-all-users-logging-on-to-a-particular-system-citrix-knowledge-center" class="title">
+                CTX112674 - How to Make the Program Neighborhood Agent URL Persistent for All Users Logging on to a Particular System - Citrix Knowledge Center
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2561"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/gotch" rel="nofollow">gotch</a>
+                14 years ago 5.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/programmatically-uninstall-citrix-clients-citrixtools-net" class="title">
+                Programmatically Uninstall Citrix Clients &gt; CitrixTools.Net
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2516"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/pmarmignon" rel="nofollow">pmarmignon</a>
+                14 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/packaging-the-citrix-metaframe-client-install-by-joe-thompson-foxware-design" class="title">
+                Packaging the Citrix Metaframe Client Install by Joe Thompson, FoxWare Design
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1743"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                22 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/installing-citrix-clients-without-user-interaction-by-david-carroll" class="title">
+                Installing Citrix Clients without User Interaction, by David Carroll
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1788"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                22 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/citrix-client-ica-rollout-options-by-mike-foster" class="title">
+                Citrix Client ICA Rollout Options, by Mike Foster
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1833"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                22 years ago 4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Citrix Citrix ICA Client</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

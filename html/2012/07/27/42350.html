@@ -1,0 +1,66 @@
+<style>
+
+/* inventory record */
+#software-view-version-revision-list {
+    float: left;
+    width: 200px;
+    border:blue;
+}
+#software-view-version-revision-details {
+    float: right;
+    width: 400px;
+    margin-left: 10px;
+}
+
+#software-view-version-revision-details div  {
+    width:400px;
+    border-top:  1px solid grey;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+#software-view-version-revision-details div label {
+    width:150px;
+    float: left;
+}
+
+#software-view-version-revision-details div span {
+    width:250px;
+    float: left;
+}
+
+
+</style>
+<div id="software-view-version-revision-list">
+    <div class="title">Versions</div>
+            <p><a title="90069">12.0.742.91</a></p>
+            <p><a title="90070">12.0.742.100</a></p>
+            <p><a title="90071">12.0.742.122</a></p>
+            <p><a title="90072">12.0.742.112</a></p>
+    </div>
+<div id="software-view-version-revision-details">
+    <h2>Chrome Frame</h2>
+        <div><label>Version</label><span>12.0.742.91</span></div>
+    <div><label>Contact</label></div>
+    <div><label>Comments</label></div>
+    <div><label>Help</label></div>
+    <div><label>Phone</label></div>
+    <div><label>Readme</label></div>
+    <div><label>Quiet Uninstall String</label></div>
+    <div><label>Uninstall String</label>&quot;C:\Program Files\Google\Chrome Frame\Application\12.0.742.91\Installer\setup.exe&quot;  --uninstall --chrome-frame --system-level --verbose-logging
+&quot;C:\Program Files (x86)\Google\Chrome Frame\Application\12.0.742.91\Installer\setup.exe&quot;  --uninstall --chrome-</div>
+    <div><label>More Info URL</label></div>
+    <div><label>Quiet Install String</label></div>
+    <div><label>Command Line Help</label></div>
+    <div><label>Quiet Uninstall String</label></div>
+    <div><label>Kace Description</label></div>
+    </div>
+<script language="javascript">
+$('#software-view-version-revision-list a').click( function() {
+    
+    $.get('/software/version/revision/42350/'+$(this).attr('title'), function(data) {
+        $("#fancybox-content").html(data);
+    });
+});
+
+</script>

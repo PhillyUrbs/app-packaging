@@ -1,0 +1,3381 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Microsoft .NET Framework 4</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft .NET Framework 4">
+    <meta name="keywords" content="Microsoft,Microsoft .NET Framework,.NET Framework 4">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/microsoft/net-framework/4-2284" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2023 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/microsoft">Microsoft</a></li>
+    <li><a href="/software-library/company/microsoft/net-framework">.NET Framework</a></li>
+    <li>4</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Microsoft .NET Framework</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 4
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/9-919"
+                                            >
+                                            9.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/4-2284"
+                                            >
+                                            4.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/3-3128"
+                                            >
+                                            3.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/02-44"
+                                            >
+                                            02.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/2-4542"
+                                            >
+                                            2.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/1-9381"
+                                            >
+                                            1.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/35454/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZuZXQtZnJhbWV3b3JrJTJGNC0yMjg0">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/35454/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZuZXQtZnJhbWV3b3JrJTJGNC0yMjg0">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 49.4k &nbsp|&nbsp
+    Created: 09/06/2009
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="35454"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=1
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                .NET Framework has <a href="#inventory-records" id="scrollInv">8 inventory records</a>,
+                <a href="#q-a" id="scrollQA">19 Questions</a>,
+                <a href="#blogs" id="scrollBlog">5 Blogs</a>
+                and <a href="#links" id="scrollLinks">4 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (13)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (MSI)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/blue.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>1 / 5 (Very Easy)</strong>
+                            based on <strong>4</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer Command Line (No MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+            
+
+                <div class="inner summary">
+                    <h4>Deployment Tip Summary</h4>
+
+                                            <div id="software-view-deployment-summary-text-raw">.NET Framework Deployment Guide for Administrators -&gt; http://msdn.microsoft.com/en-us/library/ee390831.aspx 
+</div>
+                                            
+
+
+                    
+                </div>
+
+            
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/net-framework/4-2284#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/net-framework/4-2284/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_5642" name="tip_5642">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5642"></div> -->
+   <div id="tip-5642" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">29</div>
+   <div id="tip-5642" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-5642"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            We run this to install it:<br />
+<br />
+dotNetFx40_Full_x86_x64.exe /q /norestart /log %temp%\dotNetFx40.log<br />
+<br />
+If you run dotNetFx40_Full_x86_x64.exe /?, it will extract the setup files into a temporary directory and then display help text reproduced below.  However, setup.exe can't be run directly and will just give you an error message, so the text below appears to be misleading.<br />
+<br />
+---------------------------<br />
+Microsoft .NET Framework 4 Setup<br />
+---------------------------<br />
+Usage:		Setup [switches] <br />
+				All switches are optional. <br />
+<br />
+/CEIPconsent - Optionally send anonymous feedback to improve the customer experience. <br />
+/chainingpackage &lt;name&gt; - Optionally record the name of a package chaining this one. <br />
+/createlayout &lt;full path&gt; - Download all files and associated resources to the specified location. Perform no other action.  * Disabled * <br />
+/lcid - Set the display language to be used by this program, if possible. Example: /lcid 1031 <br />
+/log &lt;file | folder&gt; - Location of the log file. Default is the process temporary folder with a name based on the package. <br />
+/msioptions - Specify options to be passed for .msi and .msp items. Example: /msioptions "PROPERTY1='Value'" <br />
+/norestart - If the operation requires a reboot to complete, Setup should neither prompt nor cause a reboot. <br />
+/passive - Shows progress bar advancing but requires no user interaction. <br />
+/showfinalerror - Passive mode only: shows final page if the install is not successful. <br />
+/pipe &lt;name&gt; - Optionally create a communication channel to allow a chaining package to get progress. <br />
+/promptrestart - If the operation requires a reboot to complete, Setup should prompt, and trigger it if the user agrees. <br />
+/q - Quiet mode, no user input required or output shown. <br />
+/repair - Repair the payloads. <br />
+/serialdownload - Force install operation to happen only after all the payload is downloaded. <br />
+/uninstall - Uninstall the payloads. <br />
+/parameterfolder &lt;full path&gt; - Specifies the path to the Setupâs configuration and data files. <br />
+/NoSetupVersionCheck - Do not check ParameterInfo.xml for setup version conflicts. <br />
+/uninstallpatch {patch code} - Removes update for all products the patch has been applied to. <br />
+/? - Display this help.<br />
+<br />
+Examples:<br />
+<br />
+Silently install the package and create log file SP123.htm in the temp folder:	Setup /q /log %temp%\SP123.htm<br />
+Install with no user interaction unless reboot is needed to complete the operation:	Setup /passive /promptrestart<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nzdude" class="username" rel="nofollow">nzdude</a>
+                </li>
+                <li>
+                    05/10/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2815" name="tip_2815">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2815"></div> -->
+   <div id="tip-2815" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">26</div>
+   <div id="tip-2815" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2815"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>The above post about "Blocking Issues" when running the setup.exe from the extracted files is respectfully, incorrect. You must add an extra switch, either "/x86" or "/x64" in addition to the options you select.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/kkwapnioski" class="username" rel="nofollow">kkwapnioski</a>
+                </li>
+                <li>
+                    05/26/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-11196">
+            <a name="comment-11196"></a>
+            
+
+
+
+</li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2813" name="tip_2813">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2813"></div> -->
+   <div id="tip-2813" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">23</div>
+   <div id="tip-2813" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2813"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            We run this to install it:<br />
+<br />
+dotNetFx40_Full_x86_x64.exe /q /norestart /log %temp%\dotNetFx40.log<br />
+<br />
+If you run dotNetFx40_Full_x86_x64.exe /?, it will extract the setup files into a temporary directory and then display help text reproduced below.  However, setup.exe can't be run directly and will just give you an error message, so the text below appears to be misleading.<br />
+<br />
+---------------------------<br />
+Microsoft .NET Framework 4 Setup<br />
+---------------------------<br />
+Usage:		Setup [switches] <br />
+				All switches are optional. <br />
+<br />
+/CEIPconsent - Optionally send anonymous feedback to improve the customer experience. <br />
+/chainingpackage &lt;name&gt; - Optionally record the name of a package chaining this one. <br />
+/createlayout &lt;full path&gt; - Download all files and associated resources to the specified location. Perform no other action.  * Disabled * <br />
+/lcid - Set the display language to be used by this program, if possible. Example: /lcid 1031 <br />
+/log &lt;file | folder&gt; - Location of the log file. Default is the process temporary folder with a name based on the package. <br />
+/msioptions - Specify options to be passed for .msi and .msp items. Example: /msioptions "PROPERTY1='Value'" <br />
+/norestart - If the operation requires a reboot to complete, Setup should neither prompt nor cause a reboot. <br />
+/passive - Shows progress bar advancing but requires no user interaction. <br />
+/showfinalerror - Passive mode only: shows final page if the install is not successful. <br />
+/pipe &lt;name&gt; - Optionally create a communication channel to allow a chaining package to get progress. <br />
+/promptrestart - If the operation requires a reboot to complete, Setup should prompt, and trigger it if the user agrees. <br />
+/q - Quiet mode, no user input required or output shown. <br />
+/repair - Repair the payloads. <br />
+/serialdownload - Force install operation to happen only after all the payload is downloaded. <br />
+/uninstall - Uninstall the payloads. <br />
+/parameterfolder &lt;full path&gt; - Specifies the path to the SetupÃ¢Â€Â™s configuration and data files. <br />
+/NoSetupVersionCheck - Do not check ParameterInfo.xml for setup version conflicts. <br />
+/uninstallpatch {patch code} - Removes update for all products the patch has been applied to. <br />
+/? - Display this help.<br />
+<br />
+Examples:<br />
+<br />
+Silently install the package and create log file SP123.htm in the temp folder:	Setup /q /log %temp%\SP123.htm<br />
+Install with no user interaction unless reboot is needed to complete the operation:	Setup /passive /promptrestart<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nzdude" class="username" rel="nofollow">nzdude</a>
+                </li>
+                <li>
+                    05/10/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2816" name="tip_2816">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2816"></div> -->
+   <div id="tip-2816" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">15</div>
+   <div id="tip-2816" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2816"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            If you like the MSI approach:<br />
+<br />
+- This example is for x86 machines, I assume you can use the same method for x64 systems (not tested)<br />
+- Please note that your system meets the right Prerequisites, like OS service pack, windows installer version, WIC .. (For Win XP SP2 you need MS Installer 3.1 + wic_x86_enu.exe)<br />
+<br />
+0 - Download the full package "dotNetFx40_Full_x86_x64.exe"<br />
+1 - Use 7Zip or commandline (/x:ExtractionDestination<br />
+) to extract the "dotNetFx40_Full_x86_x64.exe" content<br />
+2 - Install in the following order:<br />
+a) RGB9Rast_x86.msi (No props needed, this package is not mandatory)<br />
+b) netfx_Core_x86.msi (See 3)<br />
+c) netfx_Extended_x86.msi (See 3)<br />
+3 - Use MST or commandline to add the following propertyÃ¢Â€Â™s:<br />
+A) "EXTUI"="1"   --&gt; making solo MSI install possible<br />
+B) "UserLanguageID"="%####%"   --&gt; Choose LANG code, example 1043 (this is not mandatory)<br />
+C) "SystemLanguageID"="%####%" --&gt; Choose LANG code, example 1043 (this is not mandatory)<br />
+D) "REBOOT"="ReallySuppress"<br />
+E) "ROOTDRIVE"="C:\" (this is not mandatory, but best practise)<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/funnyanme" class="username" rel="nofollow">funnyanme</a>
+                </li>
+                <li>
+                    02/24/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5643" name="tip_5643">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5643"></div> -->
+   <div id="tip-5643" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">15</div>
+   <div id="tip-5643" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-5643"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            If you like the MSI approach:<br />
+<br />
+- This example is for x86 machines, I assume you can use the same method for x64 systems (not tested)<br />
+- Please note that your system meets the right Prerequisites, like OS service pack, windows installer version, WIC .. (For Win XP SP2 you need MS Installer 3.1 + wic_x86_enu.exe)<br />
+<br />
+0 - Download the full package "dotNetFx40_Full_x86_x64.exe"<br />
+1 - Use 7Zip or commandline (/x:ExtractionDestination<br />
+) to extract the "dotNetFx40_Full_x86_x64.exe" content<br />
+2 - Install in the following order:<br />
+a) RGB9Rast_x86.msi (No props needed, this package is not mandatory)<br />
+b) netfx_Core_x86.msi (See 3)<br />
+c) netfx_Extended_x86.msi (See 3)<br />
+3 - Use MST or commandline to add the following propertyâs:<br />
+A) "EXTUI"="1"   --&gt; making solo MSI install possible<br />
+B) "UserLanguageID"="%####%"   --&gt; Choose LANG code, example 1043 (this is not mandatory)<br />
+C) "SystemLanguageID"="%####%" --&gt; Choose LANG code, example 1043 (this is not mandatory)<br />
+D) "REBOOT"="ReallySuppress"<br />
+E) "ROOTDRIVE"="C:\" (this is not mandatory, but best practise)<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/funnyanme" class="username" rel="nofollow">funnyanme</a>
+                </li>
+                <li>
+                    02/24/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2817" name="tip_2817">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2817"></div> -->
+   <div id="tip-2817" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">13</div>
+   <div id="tip-2817" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2817"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>With a simple dotNetFx40_Full_x86_x64.exe /q /norestart it installs silently. The help dialog does not prompt :)</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/shinrage" class="username" rel="nofollow">shinrage</a>
+                </li>
+                <li>
+                    03/16/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-3255">
+            <a name="comment-3255"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">I used this, but it didn't seem to work until i added /x64 to it. -
+                    <a class="username" href="/user/Lysell" rel="nofollow">Lysell</a>
+                    <small>10 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5644" name="tip_5644">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5644"></div> -->
+   <div id="tip-5644" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-5644" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-5644"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Â Â All switches are optional.<br />
+<br />
+/CEIPconsent â Optionally send anonymous feedback to improve the customer<br />
+experience.<br />
+/chainingpackage &lt;name&gt; â Optionally record the name of a package chaining<br />
+this one.<br />
+/createlayout &lt;full path&gt; â Download all files and associated resources to the<br />
+specified location. Perform no other action.  * Disabled *<br />
+/lcid â Set the display language to be used by this program, if possible. Example:<br />
+/lcid 1031<br />
+/log &lt;file | folder&gt; â Location of the log file. Default is the process temporary<br />
+folder with a name based on the package.<br />
+/msioptions â Specify options to be passed for .msi and .msp items. Example:<br />
+/msioptions "PROPERTY1='Value'"<br />
+/norestart â If the operation requires a reboot to complete, Setup should neither<br />
+prompt nor cause a reboot.<br />
+/passive â Shows progress bar advancing but requires no user interaction.<br />
+/showfinalerror â Passive mode only: shows final page if the install is not<br />
+successful.<br />
+/pipe &lt;name&gt; â Optionally create a communication channel to allow a chaining<br />
+package to get progress.<br />
+/promptrestart â If the operation requires a reboot to complete, Setup should<br />
+prompt, and trigger it if the user agrees.<br />
+/q â Quiet mode, no user input required or output shown.<br />
+/repair â Repair the payloads.<br />
+/serialdownload â Force install operation to happen only after all the payload is<br />
+downloaded.<br />
+/uninstall â Uninstall the payloads.<br />
+/parameterfolder &lt;full path&gt; â Specifies the path to the Setupâs configuration and<br />
+data files.<br />
+/NoSetupVersionCheck â Do not check ParameterInfo.xml for setup version<br />
+conflicts.<br />
+/uninstallpatch {patch code} â Removes update for all products the patch has<br />
+been applied to.<br />
+/? â Display this help.<br />
+<br />
+Examples:<br />
+<br />
+Silently install the package and create log file SP123.htm in the temp folder:<br />
+Setup /q /log %temp%\SP123.htm<br />
+Install with no user interaction unless reboot is needed to complete the operation:<br />
+Setup /passive /promptrestart<br />
+<br />
+Some command line switches are disabled for this package: create layout<br />
+(c) Microsoft Corporation. All Rights Reserved.<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/windows8" class="username" rel="nofollow">windows8</a>
+                </li>
+                <li>
+                    12/22/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2818" name="tip_2818">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2818"></div> -->
+   <div id="tip-2818" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-2818" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2818"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            This relates to Windows XP:<br />
+<br />
+If you do have only .NET 2 installed on your target machines, the package wants to install the RGB9Rast_x86.msi as it prepares the installer for later versions of .NET installations.<br />
+<br />
+You may recive an error like:<br />
+"MSI (E:\073b39cc3bdd7647a3baf06ef854a959\RGB9Rast_x86.msi) Installation failed"<br />
+<br />
+PerformOperation returned 1603 (translates to HRESULT = 0x80070643"<br />
+This means fatal error during installation of the RGB9Rast_x86.msi<br />
+<br />
+Simply extract the RGB9Rast_x86.msi from the package and install it before the .NET 4 package like:<br />
+RGB9Rast_x86.msi /qn /norestart ALLUSERS=2
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Blaky" class="username" rel="nofollow">Blaky</a>
+                </li>
+                <li>
+                    10/19/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2819" name="tip_2819">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2819"></div> -->
+   <div id="tip-2819" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-2819" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2819"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Ã‚Â Ã‚Â All switches are optional.<br />
+<br />
+/CEIPconsent Ã¢Â€Â Optionally send anonymous feedback to improve the customer<br />
+experience.<br />
+/chainingpackage &lt;name&gt; Ã¢Â€Â Optionally record the name of a package chaining<br />
+this one.<br />
+/createlayout &lt;full path&gt; Ã¢Â€Â Download all files and associated resources to the<br />
+specified location. Perform no other action.  * Disabled *<br />
+/lcid Ã¢Â€Â Set the display language to be used by this program, if possible. Example:<br />
+/lcid 1031<br />
+/log &lt;file | folder&gt; Ã¢Â€Â Location of the log file. Default is the process temporary<br />
+folder with a name based on the package.<br />
+/msioptions Ã¢Â€Â Specify options to be passed for .msi and .msp items. Example:<br />
+/msioptions "PROPERTY1='Value'"<br />
+/norestart Ã¢Â€Â If the operation requires a reboot to complete, Setup should neither<br />
+prompt nor cause a reboot.<br />
+/passive Ã¢Â€Â Shows progress bar advancing but requires no user interaction.<br />
+/showfinalerror Ã¢Â€Â Passive mode only: shows final page if the install is not<br />
+successful.<br />
+/pipe &lt;name&gt; Ã¢Â€Â Optionally create a communication channel to allow a chaining<br />
+package to get progress.<br />
+/promptrestart Ã¢Â€Â If the operation requires a reboot to complete, Setup should<br />
+prompt, and trigger it if the user agrees.<br />
+/q Ã¢Â€Â Quiet mode, no user input required or output shown.<br />
+/repair Ã¢Â€Â Repair the payloads.<br />
+/serialdownload Ã¢Â€Â Force install operation to happen only after all the payload is<br />
+downloaded.<br />
+/uninstall Ã¢Â€Â Uninstall the payloads.<br />
+/parameterfolder &lt;full path&gt; Ã¢Â€Â Specifies the path to the SetupÃ¢Â€Â™s configuration and<br />
+data files.<br />
+/NoSetupVersionCheck Ã¢Â€Â Do not check ParameterInfo.xml for setup version<br />
+conflicts.<br />
+/uninstallpatch {patch code} Ã¢Â€Â Removes update for all products the patch has<br />
+been applied to.<br />
+/? Ã¢Â€Â Display this help.<br />
+<br />
+Examples:<br />
+<br />
+Silently install the package and create log file SP123.htm in the temp folder:<br />
+Setup /q /log %temp%\SP123.htm<br />
+Install with no user interaction unless reboot is needed to complete the operation:<br />
+Setup /passive /promptrestart<br />
+<br />
+Some command line switches are disabled for this package: create layout<br />
+(c) Microsoft Corporation. All Rights Reserved.<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/windows8" class="username" rel="nofollow">windows8</a>
+                </li>
+                <li>
+                    12/22/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6576" name="tip_6576">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6576"></div> -->
+   <div id="tip-6576" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-6576" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6576"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>Doing some lab testing for ConfigMgr 2012.&nbsp; I wanted to install App-V 5.0 Beta but it needed the .NET Framework 4 Full as a prereq.&nbsp; So, created the .NET Framework 4 Full application with the following command line:</p>
+<p>dotNetFx40_Full_x86_x64.exe /q /norestart /ChainingPackage "SCCM 2012"</p>
+<p>Gathered info from:&nbsp; <a href="http://msdn.microsoft.com/en-us/library/ee942965.aspx">http://msdn.microsoft.com/en-us/library/ee942965.aspx</a></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/slegler" class="username" rel="nofollow">slegler</a>
+                </li>
+                <li>
+                    06/30/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-3195">
+            <a name="comment-3195"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">Doing some lab testing for ConfigMgr 2012.  I wanted to install App-V 5.0 Beta but it needed the .NET Framework 4 Full as a prereq.  So, created the .NET Framework 4 Full application with the following command line:<br />
+<br />
+dotNetFx40_Full_x86_x64.exe /q /norestart /ChainingPackage "SCCM 2012"<br />
+<br />
+Gathered info from:  http://msdn.microsoft.com/en-us/library/ee942965.aspx -
+                    <a class="username" href="/user/slegler" rel="nofollow">slegler</a>
+                    <small>10 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+            <div class="tip" id="tip_6861" name="tip_6861">
+            <div id="widget-hidden-content" class="hidden-content">
+    <img src="/build/static/icons/hidden.png" class="hidden-content-image">
+    This content is currently hidden from public view.<br/>
+    <small>Reason: <em>Removed by member request</em> For more information, visit our <a href="/faq"><strong> FAQ's.</strong></a></small>
+
+</div>
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6862" name="tip_6862">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6862"></div> -->
+   <div id="tip-6862" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6862" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6862"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p style="color: #212121; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">You can deploy .NET 3.5 on Windows 8 machines by calling DISM in two ways an online option</p>
+<pre style="padding: 15px; background-color: #f7f7f7; color: #212121; font-size: 12px;">&nbsp;&nbsp;<span style="font-family: Consolas, Courier, monospace; font-size: 13px;">DISM /Online /Enable-Feature /FeatureName:NetFx3 /All</span></pre>
+<p style="color: #212121; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">OR a source media option</p>
+<pre style="padding: 15px; background-color: #f7f7f7; color: #212121; font-size: 12px;">&nbsp;<span style="font-family: Consolas, Courier, monospace; font-size: 13px;">DISM /Online /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:d:\sources\sxs</span></pre>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jdornan" class="username" rel="nofollow">jdornan</a>
+                </li>
+                <li>
+                    11/29/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+            <li id="comment-26428">
+            <a name="comment-26428"></a>
+            
+
+
+
+
+    
+        <div class="comment-wrap">
+            <div >
+                                <div class="the-comment">Should be moved to version 3.x instead of 4.x, imho. -
+                    <a class="username" href="/user/dizzi90" rel="nofollow">dizzi90</a>
+                    <small>8 years ago</small>
+                </div>
+
+                    <div class="small-moderation-tools comment-links">
+                        <ul>
+                                                            <li>
+                                                                    </li>
+                                <li class="report-spam-link-container">
+                                                                    </li>
+                                                                
+                                                                                </ul>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <ul id="comment-list" class="comments">
+    </ul>
+
+
+    </li>
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6648" name="tip_6648">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6648"></div> -->
+   <div id="tip-6648" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6648" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6648"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p><span class="input">dotNetFx40_Full_x86_x64.exe /q /norestart /ChainingPackage ADMINDEPLOYMENT</span></p>
+<p>&nbsp;</p>
+<p><span class="input">Download the full package at this link -&gt; <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=17718">http://www.microsoft.com/fr-fr/download/details.aspx?id=17718</a></span></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/afgaetan" class="username" rel="nofollow">afgaetan</a>
+                </li>
+                <li>
+                    08/17/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2814" name="tip_2814">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2814"></div> -->
+   <div id="tip-2814" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">-13</div>
+   <div id="tip-2814" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2814"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            With this package, you cannot extract the files out by running dotNetFx40_Full_x86_x64.exe and then looking for the setup.exe where the files were extracted.  If you just run setup.exe, you'll get the following error message:<br />
+<br />
+Blocking Issues:<br />
+You cannot use this setup program to install the .NET Framework.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nzdude" class="username" rel="nofollow">nzdude</a>
+                </li>
+                <li>
+                    05/10/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (8)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/35454/74387">
+                                    4.0.30319
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/74388">
+                                    4.0.30128
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/74389">
+                                    4.5.40805
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/74390">
+                                    4.0.20506
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/74391">
+                                    4.0.21006
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/74392">
+                                    4.0.30320
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/135936">
+                                    4.5.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35454/136156">
+                                    4.5.2
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>.NET Framework</h2>
+            <div><h3>Version</h3><span>4.0.30319</span></div>
+                                        <div><h3>Readme</h3>http://go.microsoft.com/fwlink/?LinkId=164156</div>                <div><h3>Uninstall String</h3>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\SetupCache\Client\Setup.exe /repair /x86 /parameterfolder Client
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\SetupCache\Client\Setup.exe /repair /x86 /x64 /parameterfolder Client
+E:\Windows\Microsoft.NET\F</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (19)
+                            </h3>
+            <p>Questions & Answers related to Microsoft .NET Framework</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/post-install-task-for-net-framework-3-5" class="title">
+            Post Install Task for .NET Framework 3.5
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="43585"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/abratton" rel="nofollow">abratton</a>
+                3 years ago 985 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               PhillipR answered 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/highest-current-version-of-net-framework" class="title">
+            Newest / Current version of .NET framework
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="41421"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bgarcevic" rel="nofollow">bgarcevic</a>
+                5 years ago 851 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               JasonEgg answered 5 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/net-framework-4-6-1-detection-method-sccm" class="title">
+            .NET Framework 4.6.1 detection method SCCM
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="39248"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Markje678" rel="nofollow">Markje678</a>
+                6 years ago 13.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               suprnova74 commented 4 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/hello-have-you-got-a-guide-or-better-still-the-msi-and-mst-for-net-framework-4-5-2-yet" class="title">
+            Hello, have you got a guide or better still the MSI and MST for .net framework 4.5.2 yet?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="33907"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Russell1980" rel="nofollow">Russell1980</a>
+                8 years ago 2.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               EdT answered 8 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/anyone-having-issues-deploying-dot-net-4-5-2-as-a-post-install-task-on-k2000" class="title">
+            Anyone having issues deploying Dot net 4.5.2 as a post install task on K2000?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="32888"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ma034001" rel="nofollow">ma034001</a>
+                8 years ago 39.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               ma034001 commented 8 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/dotnetframework-and-desktop-authority" class="title">
+            .NET Framework and Desktop Authority
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="26870"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Bonsai" rel="nofollow">Bonsai</a>
+                9 years ago 3.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-long-will-a-dependency-remain-in-kace-dependency-dir" class="title">
+            How long will a dependency remain in KACE_DEPENDENCY_DIR?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21636"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jobla" rel="nofollow">jobla</a>
+                10 years ago 6.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" class="title">
+            .NET RUNTIME ERROR IN WINDOWS XP PRO SP3, EVENT ID 5000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21188"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/shespnz" rel="nofollow">shespnz</a>
+                10 years ago 8.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/add-pre-requisites-to-installer-package" class="title">
+            How can I add pre-requisites to an MSI installer package?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20551"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/saranyadurairasu" rel="nofollow">saranyadurairasu</a>
+                10 years ago 8.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" class="title">
+            can we make (.net framework 3.5,3.0,2.0 and visual c++ 2005 and IE7) this applications in to one package if yes how?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19706"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/nunepally" rel="nofollow">nunepally</a>
+                11 years ago 3.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-correctly-capture-net-applications-and-global-assembly-cache" class="title">
+            How to correctly capture .NET applications and Global Assembly Cache?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19561"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/MicrosoftBob" rel="nofollow">MicrosoftBob</a>
+                11 years ago 7.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-net-4" class="title">
+            how to deploy .net 4
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19525"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/flintlock" rel="nofollow">flintlock</a>
+                11 years ago 6.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                8
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/no-longer-able-to-install-kbox-client-to-laptops" class="title">
+            No longer able to install KBOX client to laptops
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19039"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/swilczewski" rel="nofollow">swilczewski</a>
+                11 years ago 5.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/what-is-the-silent-installation-parameter-for-net-framework-4-0" class="title">
+            what is the silent installation parameter for .net framework 4.0
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19029"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/KunalParab" rel="nofollow">KunalParab</a>
+                11 years ago 23k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               perumal9791 answered 8 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/batch-script-to-check-and-install-dotnet4-0" class="title">
+            batch script to check and install dotnet4.0
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="7598"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bulbul" rel="nofollow">bulbul</a>
+                11 years ago 20.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               EdT answered 7 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/install-ini-file-only-if-it-does-not-exist" class="title">
+            Install .ini file only if it does not exist
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="18521"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/deranjer" rel="nofollow">deranjer</a>
+                12 years ago 9.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               HUNTERMONSTER commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/1001-installutillib-dll-unknown-error" class="title">
+            1001 InstallUtilLib.dll unknown error
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2126"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jgb" rel="nofollow">jgb</a>
+                13 years ago 21.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/intuit-profile-2008-3-1" class="title">
+            Intuit ProFile 2008.3.1
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="18782"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/GBoucher" rel="nofollow">GBoucher</a>
+                13 years ago 6.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                7
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/the-system-administrator-has-set-policies-to-prevent-this-installation-1" class="title">
+            The system administrator has set policies to prevent this installation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="8944"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/y0u5uf" rel="nofollow">y0u5uf</a>
+                17 years ago 334.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (5)
+                            </h3>
+            <p>Blog posts related to Microsoft .NET Framework</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/goalkicker-free-programming-books" class="title">
+            GoalKicker: Free Programming Books
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="31040"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jonniipalos" rel="nofollow">jonniipalos</a>
+                3 years ago 7.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/what-s-new-in-pace-suite-3-5-5-4-new-features-and-bug-fixes" class="title">
+            WHAT’S NEW in PACE Suite 3.5.5: 4 New Features and Bug Fixes!
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="30005"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/pace-support" rel="nofollow">pace-support</a>
+                7 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/deploy-net-dot-net-4-5-1-via-gpo" class="title">
+            Deploy .Net (Dot Net) 4.5.1 via GPO
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27343"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                9 years ago 52.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/ase-installation-errors-on-windows-8" class="title">
+            ASE Installation Errors on Windows 8
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="17196"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                9 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/microsoft-visual-studio-2012-premium" class="title">
+            Microsoft Visual Studio 2012 Premium
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3730"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                10 years ago 16.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (4)
+                            </h3>
+
+            <p>Links related to Microsoft .NET Framework</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/msdn-blogs" class="title">
+                MSDN Blogs
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2190"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/snissen" rel="nofollow">snissen</a>
+                11 years ago 5.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/aaron-stebners-net-framework-deployment-blog" class="title">
+                Aaron Stebners .NET Framework Deployment blog
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2145"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/msenn" rel="nofollow">msenn</a>
+                12 years ago 4.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" class="title">
+                Download: Microsoft .NET Framework 4 (Standalone Installer) - Microsoft Download Center - Download Details
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2055"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                13 years ago 9.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/net-framework-deployment-guide-for-administrators" class="title">
+                .NET Framework Deployment Guide for Administrators
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2100"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                13 years ago 4.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft .NET Framework</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2023 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,3626 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Oracle JAVA 6 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle JAVA 6">
+        <meta name="keywords" content="Oracle,Oracle JAVA,JAVA 6">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/oracle/java-2/6-1070" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li><a href="/software/oracle/java-2/versions">JAVA</a></li>
+    <li>6</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Oracle JAVA</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 6
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-2/8-update-60"
+                                            >
+                                            8 Update 60.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-2/8u25"
+                                            >
+                                            8u25.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-2/7-552"
+                                            >
+                                            7.x <span>(39 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-2/6-1070"
+                                            >
+                                            6.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-2/1-11465"
+                                            >
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/20620/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTIlMkY2LTEwNzA=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/20620/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTIlMkY2LTEwNzA=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 24.7k &nbsp|&nbsp
+    Created: 11/02/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version20620" type="radio" class="star" disabled="disabled"  />
+    <input name="Version20620" type="radio" class="star" disabled="disabled"  />
+    <input name="Version20620" type="radio" class="star" disabled="disabled"  />
+    <input name="Version20620" type="radio" class="star" disabled="disabled"  />
+    <input name="Version20620" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                JAVA has <a href="#inventory-records" id="scrollInv">22 inventory records</a>,
+                <a href="#q-a" id="scrollQA">91 Questions</a>,
+                <a href="#blogs" id="scrollBlog">14 Blogs</a>
+                and <a href="#links" id="scrollLinks">11 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (14)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/green.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>2 / 5 (Somewhat Easy)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/20620" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="SFUFneOQyEzULxvyoIDSD6DGJK4rRuAm0-PVyWR1hsY"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/java-2/6-1070#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/java-2/6-1070/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_5757" name="tip_5757">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5757"></div> -->
+   <div id="tip-5757" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">8</div>
+   <div id="tip-5757" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5757"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Due to issues with Java partially installing (even when run with ESD with the systems logged off) the following script was used to work around this (also run logged off to avoid open IE sessions):<br />
+<br />
+rem Installs requires certs if not already installed - This is only necessary for environments that don't get root certs via another method<br />
+certutil -f -addstore root VeriSignRootExp5182018.cer<br />
+certutil -f -addstore root VeriSignRootExp8012028.cer<br />
+<br />
+rem This is done to repair a corrupted install to allow for uninstall - May not be an issue if you do not currently have this condition<br />
+COPY /Y "%~dp0regutils.dll" "C:\Program Files\Java\jre6\bin"<br />
+<br />
+rem Uninstall 6_29 - Any uninstal could be here<br />
+MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216029FF} /quiet /norestart<br />
+<br />
+rem Ensure Uninstall removes directory - this appears to be a key step<br />
+rd /s /q "C:\Program Files\Java\jre6"<br />
+<br />
+rem Installs JRE with automatic updates turned off<br />
+msiexec /i "%~dp0jre1.6.0_30.msi" /qn REBOOT=Suppress IEXPLORER=1 AUTOUPDATECHECK=0 JU=0 AU=0 <br />
+REG ADD "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v EnableJavaUpdate /t REG_DWORD /d 0 /f<br />
+REG ADD "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v EnableAutoUpdateCheck /t REG_DWORD /d 0 /f<br />
+REG ADD "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v NotifyDownload /t REG_DWORD /d 0 /f<br />
+REG ADD "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v NotifyInstall /t REG_DWORD /d 0 /f<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jriekse5555" class="username" rel="nofollow">jriekse5555</a>
+                </li>
+                <li>
+                    01/11/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5834" name="tip_5834">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5834"></div> -->
+   <div id="tip-5834" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">5</div>
+   <div id="tip-5834" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5834"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Silent install:<br />
+32 bit<br />
+jre-6u27-windows-i586.exe /s /v/qn<br />
+64 bit<br />
+jre-6u27-windows-x64.exe /s /v/qn<br />
+<br />
+Exe's found on Oracle Download
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/DHogan" class="username" rel="nofollow">DHogan</a>
+                </li>
+                <li>
+                    09/28/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5758" name="tip_5758">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5758"></div> -->
+   <div id="tip-5758" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-5758" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5758"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Java(TM) 6 Update 30 (64-bit) 6.0.300 I used the following... <br />
+<br />
+Full Command Line: jre-6u30-windows-x64.exe /s /v "/qn ADDLOCAL=ALL IEXPLORER=1 JAVAUPDATE=0
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    01/19/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5835" name="tip_5835">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5835"></div> -->
+   <div id="tip-5835" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-5835" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5835"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            To get MSI Source for Java 6.27 you have to execute the setup file.<br />
+<br />
+Pick up the MSI files from %AppData%\Sun\...
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KuMpEl2" class="username" rel="nofollow">KuMpEl2</a>
+                </li>
+                <li>
+                    10/18/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5836" name="tip_5836">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5836"></div> -->
+   <div id="tip-5836" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-5836" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5836"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            jre-6u27-windows-i586.exe isn't going to work in Windows 7 64-bit, running as the System user.  The installer gets C:\Windows\system32\config\systemprofile and C:\Windows\SysWOW64\config\systemprofile mixed up.  Find the folder where the msi is extracted, and install that manually:<br />
+<br />
+msiexec /i jre1.6.0_27.msi /qn<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                </li>
+                <li>
+                    10/19/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5761" name="tip_5761">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5761"></div> -->
+   <div id="tip-5761" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-5761" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5761"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Mixed Mode Security Setting<br />
+<br />
+-This setting can be changed be creating/editing a .MST file or by editing the deployment.properties file.<br />
+<br />
+-When editing the .MST file with Windows Installer Editor, go to "Properties" and create a new property called "deployment.security.mixcode".  Set the value based on your needs.  The options on what values to pick are here (http://docs.oracle.com/javase/6/docs/technotes/guides/deployment/deployment-guide/properties.html).<br />
+<br />
+"ENABLE"<br />
+"HIDE_RUN"<br />
+"HIDE_CANCEL"<br />
+"DISABLE" <br />
+<br />
+-The link also shows you how to modify the deployment.properties file.  <br />
+<br />
+-Please note there are two different locations for the deployment.properties file.  One for user settings and another for system level settings.  <br />
+<br />
+-Please note creating a Java x86 package will work for both <br />
+x86 and x64 systems but if you install the package (x86) on a x64 system not all of the settings in your .MST file will stick.  (i.e. Mixed Mode Security Settings)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nyc161st" class="username" rel="nofollow">nyc161st</a>
+                </li>
+                <li>
+                    01/27/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-10035">
+        <a name="comment-10035"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/KevinViolette" rel="nofollow" class="moderator ">
+               <img src="/uploads/images/23751/6MEVlV.png?1466083948545" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/KevinViolette" rel="nofollow">KevinViolette</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        4 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Link is broken :-(</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5759" name="tip_5759">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5759"></div> -->
+   <div id="tip-5759" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5759" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5759"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Do not install the msi of the same java version twice.  It will break the install and you'll have to copy regutils.dll to jre6\bin again to uninstall it.  I recommend something like:<br />
+<br />
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{26A24AE4-039D-4CA4-87B4-2F83216030FF}<br />
+if errorlevel 1 start /wait msiexec.exe /i jre1.6.0_30.msi /qb /log install.log<br />
+<br />
+The .exe installer will not work in win 7 64 bit run as the System user.<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                </li>
+                <li>
+                    01/27/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7039" name="tip_7039">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7039"></div> -->
+   <div id="tip-7039" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7039" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7039"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>For Windows 7 and Oracle Java 6 Update 41 I found the files in the following location</p>
+<p>C:\Users\&lt;User&gt;\AppData\LocalLow\Sun\Java\jre1.6.0_41</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/CBurgess" class="username" rel="nofollow">CBurgess</a>
+                </li>
+                <li>
+                    02/22/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5760" name="tip_5760">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5760"></div> -->
+   <div id="tip-5760" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5760" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5760"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Java(TM) 6 Update 30 6.0.300 I used the following... <br />
+<br />
+Full Command Line: msiexec /i jre1.6.0_30.msi /quiet
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    01/27/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5762" name="tip_5762">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5762"></div> -->
+   <div id="tip-5762" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5762" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5762"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Java(TM) 6 Update 30 (64-bit) 6.0.300 I used the following... <br />
+<br />
+Full Command Line: MsiExec.exe /quiet /X{26A24AE4-039D-4CA4-87B4-2F86416030FF}
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    03/07/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5763" name="tip_5763">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5763"></div> -->
+   <div id="tip-5763" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5763" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5763"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Java(TM) 6 Update 30 6.0.300 I used the following... <br />
+<br />
+Full Command Line: MsiExec.exe /quiet /X{26A24AE4-039D-4CA4-87B4-2F83216030FF}
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    03/07/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5764" name="tip_5764">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5764"></div> -->
+   <div id="tip-5764" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5764" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5764"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Easy and good silent...<br />
+<br />
+- Run firstly jre-6u31-windows-i586-s.exe<br />
+- Click "Install" button and after dont click "Next" button.<br />
+- Now, dont close setup window and open "%APPDATA%\Sun\Java\jre1.6.0_31" directory<br />
+- Copy jre1.6.0_23.msi and Data1.cab files<br />
+- And thats batch commands<br />
+<br />
+msiexec.exe /i jre1.6.0_31.msi" /qn ADDLOCAL=ALL IEXPLORER=1 MOZILLA=1 SYSTRAY=0 JAVAUPDATE=0 JU=0 AUTOUPDATECHECK=0 MODIFYREMOVE=modify<br />
+"C:\Program Files\Java\jre6\bin\jqs.exe" -unregister<br />
+regedit /s settings.reg
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Enigmatic" class="username" rel="nofollow">Enigmatic</a>
+                </li>
+                <li>
+                    03/12/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-10036">
+        <a name="comment-10036"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/KevinViolette" rel="nofollow" class="moderator ">
+               <img src="/uploads/images/23751/6MEVlV.png?1466083948545" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/KevinViolette" rel="nofollow">KevinViolette</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        4 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">What`s in your "settings.reg" file ?</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5837" name="tip_5837">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5837"></div> -->
+   <div id="tip-5837" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5837" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5837"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            %AppData% took me to C:\Users\[username]\AppData\Roaming in Windows 7.<br />
+<br />
+I found the Java MSI by browsing to C:\Users\[username]\AppData\Local\Sun\.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/bbowen8" class="username" rel="nofollow">bbowen8</a>
+                </li>
+                <li>
+                    10/28/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5838" name="tip_5838">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5838"></div> -->
+   <div id="tip-5838" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-5838" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5838"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Looks like running that msi twice breaks the java install.  It will still be listed in Programs and Features, but the folder C:\Program Files(x86)\Java\jre6\bin\ will be practically empty.<br />
+<br />
+Put regutils.dll back in the bin directory, then you can uninstall or upgrade it.<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                </li>
+                <li>
+                    01/27/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (22)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/20620/42526">
+                                    6.0.210
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42527">
+                                    6.0.300
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42528">
+                                    6.0.290
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42529">
+                                    6.0.260
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42530">
+                                    6.0.310
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42531">
+                                    6.0.270
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42532">
+                                    6.0.230
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42533">
+                                    6.0.240
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42534">
+                                    6.0.220
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/42535">
+                                    6.0.250
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92606">
+                                    6.0.120
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92607">
+                                    6.0.50
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92608">
+                                    6.0.200
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92610">
+                                    6.0.100
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92611">
+                                    6.0.130
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92615">
+                                    6.0.160
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92616">
+                                    6.0.190
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92618">
+                                    6.0.140
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92620">
+                                    6.0.110
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92621">
+                                    6.0.150
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92624">
+                                    6.0.170
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/20620/92625">
+                                    6.0.180
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>JAVA</h2>
+            <div><h3>Version</h3><span>6.0.210</span></div>
+        <div><h3>Contact</h3>http://java.com</div>                                <div><h3>Readme</h3>C:\Program Files\Java\jre6\README.txt</div>                <div><h3>Uninstall String</h3>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216021FF}
+MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216021F0}</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (91)
+                            </h3>
+            <p>Questions & Answers related to Oracle JAVA</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                67
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-uninstall-java-all-versions" class="title">
+            Silent Uninstall Java All Versions
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silent-uninstall-java-all-versions" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muaddip" rel="nofollow">muaddip</a>
+                10 years ago 265.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               ahunn commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/enable-java-for-mozilla-browsers" class="title">
+            Enable Java for Mozilla browsers
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="enable-java-for-mozilla-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="enable-java-for-mozilla-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="enable-java-for-mozilla-browsers" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="enable-java-for-mozilla-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="enable-java-for-mozilla-browsers" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/andemats" rel="nofollow">andemats</a>
+                5 years ago 8.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               AshkanV answered 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-1-6-update-31-deployment-config-and-deployment-properties" class="title">
+            JAVA 1.6 update 31 - deployment.config and deployment.properties
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-1-6-update-31-deployment-config-and-deployment-properties" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Rohabu" rel="nofollow">Rohabu</a>
+                5 years ago 9.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java6-update-31-how-to-install-using-static-1-with-no-user-intervention" class="title">
+            Java6 Update 31: How to install using [STATIC=1] with no user intervention?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java6-update-31-how-to-install-using-static-1-with-no-user-intervention" type="radio" class="star" disabled="disabled"  />
+    <input name="java6-update-31-how-to-install-using-static-1-with-no-user-intervention" type="radio" class="star" disabled="disabled"  />
+    <input name="java6-update-31-how-to-install-using-static-1-with-no-user-intervention" type="radio" class="star" disabled="disabled"  />
+    <input name="java6-update-31-how-to-install-using-static-1-with-no-user-intervention" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java6-update-31-how-to-install-using-static-1-with-no-user-intervention" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/raurick99@koorsen.com" rel="nofollow">raurick99@koorsen.com</a>
+                5 years ago 4.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-7-update-7-deployment" class="title">
+            Java 7 Update 7 deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-update-7-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-7-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-7-deployment" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-7-update-7-deployment" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-7-deployment" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jt_sierra" rel="nofollow">jt_sierra</a>
+                5 years ago 7.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-t-deploy-java-7-update-9-as-a-managed-installation" class="title">
+            Can&#039;t deploy Java 7 Update 9 as a managed installation.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-t-deploy-java-7-update-9-as-a-managed-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-deploy-java-7-update-9-as-a-managed-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-deploy-java-7-update-9-as-a-managed-installation" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-deploy-java-7-update-9-as-a-managed-installation" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="can-t-deploy-java-7-update-9-as-a-managed-installation" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dwilliams" rel="nofollow">dwilliams</a>
+                5 years ago 5.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/problems-with-java" class="title">
+            Problems with Java
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Foyet" rel="nofollow">Foyet</a>
+                5 years ago 3.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/best-way-to-deploy-stgms-software" class="title">
+            Best way to deploy STGMS software
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cartc" rel="nofollow">cartc</a>
+                5 years ago 2.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" class="title">
+            Using K1000 and Managed Install for Java 7u11 and getting pop ups during silent install.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/petelanglois" rel="nofollow">petelanglois</a>
+                5 years ago 12.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               hf13207 commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/change-java-default-security-level" class="title">
+            Change Java Default Security Level?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                5 years ago 45.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-create-a-script-for-java-7-update-11-in-kace-1000" class="title">
+            How to create a script for Java 7 Update 11 in Kace 1000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lsisupport" rel="nofollow">lsisupport</a>
+                5 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               dnnelson1969 commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/uninstall-java-and-get-ssvagent-exe-prompt" class="title">
+            Uninstall Java and get ssvagent.exe prompt
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jasonk146" rel="nofollow">jasonk146</a>
+                5 years ago 6.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-install-java-in-multi-architecture-environment" class="title">
+            Silent install Java in multi architecture environment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/akilpatrick" rel="nofollow">akilpatrick</a>
+                5 years ago 4.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/disable-auto-update-in-java-v7-u11-13" class="title">
+            disable auto-update in Java v7 u11 &amp; 13
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sburkey2" rel="nofollow">sburkey2</a>
+                5 years ago 6.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-7-x-with-low-security" class="title">
+            Java 7.x with low security
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/aderek39" rel="nofollow">aderek39</a>
+                5 years ago 3.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-7-upd-15-x86-missing-update-tab" class="title">
+            Java 7 upd 15 x86 missing update tab
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/JonE_Sysadmin" rel="nofollow">JonE_Sysadmin</a>
+                5 years ago 7.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-32-and-64-on-64-bit-machines" class="title">
+            Java 32 and 64 on 64 bit machines?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/TBG_Associate" rel="nofollow">TBG_Associate</a>
+                4 years ago 6.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" class="title">
+            Java 1.6.0.22 Upgrade/Installation of 1.6.0.24 - SCCM shows success, nothing on client and uninstall broken?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" type="radio" class="star" disabled="disabled"  />
+    <input name="java-1-6-0-22-upgrade-installation-of-1-6-0-24-sccm-shows-success-nothing-on-client-and-uninstall-broken" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Xenman" rel="nofollow">Xenman</a>
+                4 years ago 5.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/jre-7-update-21-control-panel-error" class="title">
+            JRE 7 update 21, control panel error
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="jre-7-update-21-control-panel-error" type="radio" class="star" disabled="disabled"  />
+    <input name="jre-7-update-21-control-panel-error" type="radio" class="star" disabled="disabled"  />
+    <input name="jre-7-update-21-control-panel-error" type="radio" class="star" disabled="disabled"  />
+    <input name="jre-7-update-21-control-panel-error" type="radio" class="star" disabled="disabled"  />
+    <input name="jre-7-update-21-control-panel-error" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tylerism" rel="nofollow">tylerism</a>
+                4 years ago 6.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-7u21-and-recent-changes-to-prompting-behavior" class="title">
+            Java 7u21 and Recent Changes to Prompting Behavior?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7u21-and-recent-changes-to-prompting-behavior" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7u21-and-recent-changes-to-prompting-behavior" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7u21-and-recent-changes-to-prompting-behavior" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7u21-and-recent-changes-to-prompting-behavior" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-7u21-and-recent-changes-to-prompting-behavior" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                4 years ago 5.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                                    <div class="show-more"><a href="/tag/oracle-java-6/question">More Questions</a>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (14)
+                            </h3>
+            <p>Blog posts related to Oracle JAVA</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" class="title">
+                How to deploy Java JRE7u5 32 bit to 64 bit machines as system account using KACE
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Shootifitmoves" rel="nofollow">Shootifitmoves</a>
+                5 years ago 12.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-why-do-you-hate-me-so" class="title">
+                Java - Why do you hate me so?
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                5 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/kace-java-7-update-11-is-in-the-kace-patching-feed" class="title">
+                KACE:  Java 7 Update 11 Is In The KACE Patching Feed
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                5 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" class="title">
+                Deploying 32-bit Java silently to both 32-bit and 64-bit Windows via MI
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ashlea" rel="nofollow">ashlea</a>
+                5 years ago 12.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-jre-7-update-15" class="title">
+                Java JRE 7 Update 15
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/kmwhiten12" rel="nofollow">kmwhiten12</a>
+                5 years ago 5.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/multi-version-application-uninstaller-java-reader-flash-etc" class="title">
+                Multi Version Application Uninstaller: Java, Reader, Flash, etc.
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="multi-version-application-uninstaller-java-reader-flash-etc" type="radio" class="star" disabled="disabled"  />
+    <input name="multi-version-application-uninstaller-java-reader-flash-etc" type="radio" class="star" disabled="disabled"  />
+    <input name="multi-version-application-uninstaller-java-reader-flash-etc" type="radio" class="star" disabled="disabled"  />
+    <input name="multi-version-application-uninstaller-java-reader-flash-etc" type="radio" class="star" disabled="disabled"  />
+    <input name="multi-version-application-uninstaller-java-reader-flash-etc" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/haxin" rel="nofollow">haxin</a>
+                4 years ago 5.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-7-update-25-best-way-to-deploy-with-customized-settings" class="title">
+                Java 7 Update 25 Best way to deploy with customized settings
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-25-best-way-to-deploy-with-customized-settings" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 57.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/java-runtime-environment-version-7-0-update-40" class="title">
+                Java Runtime Environment Version 7.0 Update 40
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-version-7-0-update-40" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/rovabu" rel="nofollow">rovabu</a>
+                4 years ago 26.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploying-java-7-through-gpo" class="title">
+                Deploying Java 7 Through GPO
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploying-java-7-through-gpo" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                4 years ago 30.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/silently-deploying-java-7-update-67" class="title">
+                Silently deploying Java 7 Update 67
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silently-deploying-java-7-update-67" type="radio" class="star" disabled="disabled"  />
+    <input name="silently-deploying-java-7-update-67" type="radio" class="star" disabled="disabled"  />
+    <input name="silently-deploying-java-7-update-67" type="radio" class="star" disabled="disabled"  />
+    <input name="silently-deploying-java-7-update-67" type="radio" class="star" disabled="disabled"  />
+    <input name="silently-deploying-java-7-update-67" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/rmavery" rel="nofollow">rmavery</a>
+                3 years ago 8.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/expertassist-giving-errors-about-java-with-chrome-42" class="title">
+                ExpertAssist giving errors about Java with Chrome 42
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="expertassist-giving-errors-about-java-with-chrome-42" type="radio" class="star" disabled="disabled"  />
+    <input name="expertassist-giving-errors-about-java-with-chrome-42" type="radio" class="star" disabled="disabled"  />
+    <input name="expertassist-giving-errors-about-java-with-chrome-42" type="radio" class="star" disabled="disabled"  />
+    <input name="expertassist-giving-errors-about-java-with-chrome-42" type="radio" class="star" disabled="disabled"  />
+    <input name="expertassist-giving-errors-about-java-with-chrome-42" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/brucegoose03" rel="nofollow">brucegoose03</a>
+                2 years ago 3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/powershell-script-for-deployment-of-java-and-general-applications" class="title">
+                Powershell script for deployment of Java and general applications
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="powershell-script-for-deployment-of-java-and-general-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="powershell-script-for-deployment-of-java-and-general-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="powershell-script-for-deployment-of-java-and-general-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="powershell-script-for-deployment-of-java-and-general-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="powershell-script-for-deployment-of-java-and-general-applications" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/arivarton" rel="nofollow">arivarton</a>
+                2 years ago 6.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/adjusting-advanced-java-settings" class="title">
+                Adjusting advanced Java settings
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+    <input name="adjusting-advanced-java-settings" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/brucegoose03" rel="nofollow">brucegoose03</a>
+                1 year ago 1.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/matches-regex-101" class="title">
+                KACE: Matches REGEX 101
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="matches-regex-101" type="radio" class="star" disabled="disabled"  />
+    <input name="matches-regex-101" type="radio" class="star" disabled="disabled"  />
+    <input name="matches-regex-101" type="radio" class="star" disabled="disabled"  />
+    <input name="matches-regex-101" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="matches-regex-101" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/c_brock" rel="nofollow">c_brock</a>
+                5 years ago 8.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (11)
+                            </h3>
+
+            <p>Links related to Oracle JAVA</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-6-0-update-29" class="title">
+                Java 6.0 Update 29
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ohiosoundguy" rel="nofollow">ohiosoundguy</a>
+                6 years ago 2.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-7-update-10-lets-users-restrict-java-apps-in-browsers" class="title">
+                Java 7 update 10 lets users restrict Java apps in browsers
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/samzeeco" rel="nofollow">samzeeco</a>
+                5 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/oracle-java-deployment-guide" class="title">
+                Oracle Java Deployment Guide
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                5 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/critical-java-vulnerabilies-confirmed-in-latest-version" class="title">
+                Critical Java vulnerabilies confirmed in latest version
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/atulnimje" rel="nofollow">atulnimje</a>
+                5 years ago 2.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-should-you-remove-it" class="title">
+                Java: should you remove it?
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/atulnimje" rel="nofollow">atulnimje</a>
+                5 years ago 2.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-users-beware" class="title">
+                Java Users Beware
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-users-beware" type="radio" class="star" disabled="disabled"  />
+    <input name="java-users-beware" type="radio" class="star" disabled="disabled"  />
+    <input name="java-users-beware" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-users-beware" type="radio" class="star" disabled="disabled"  />
+    <input name="java-users-beware" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                4 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" class="title">
+                Deploying 32-bit Java silently to both 32-bit and 64-bit Windows via MI
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-32-bit-java-silently-to-both-32-bit-and-64-bit-windows-via-mi" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/ashlea" rel="nofollow">ashlea</a>
+                4 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/batch-script-to-list-all-java-product-and-uninstall-keys" class="title">
+                Batch script to list all Java product and uninstall keys.
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled"  />
+    <input name="batch-script-to-list-all-java-product-and-uninstall-keys" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jknox" rel="nofollow">jknox</a>
+                4 years ago 5.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-7-update-40-is-ready-to-download" class="title">
+                Java 7 Update 40 is ready to download
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-7-update-40-is-ready-to-download" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-40-is-ready-to-download" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-40-is-ready-to-download" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-40-is-ready-to-download" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-40-is-ready-to-download" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tecrumors" rel="nofollow">tecrumors</a>
+                4 years ago 3.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-archives" class="title">
+                Java Archives
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled"  />
+    <input name="java-archives" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cserrins" rel="nofollow">cserrins</a>
+                2 years ago 1.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/java-wpkg-open-source-software-deployment-and-distribution-1" class="title">
+                Java - WPKG | Open Source Software Deployment and Distribution.
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/dnnelson1969" rel="nofollow">dnnelson1969</a>
+                5 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle JAVA</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">2.16.54 Sprint 16 2012-Aug-06 b17a9c836505362ecb151f6dd5d3407e56e7d905<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

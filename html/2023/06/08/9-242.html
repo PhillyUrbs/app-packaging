@@ -1,0 +1,1248 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Microsoft Visual Studio 2008 Professional 9</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft Visual Studio 2008 Professional 9">
+    <meta name="keywords" content="Microsoft,Microsoft Visual Studio 2008 Professional,Visual Studio 2008 Professional 9">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/microsoft/visual-studio-2008-professional/9-242" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2023 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/microsoft">Microsoft</a></li>
+    <li><a href="/software-library/company/microsoft/visual-studio-2008-professional">Visual Studio 2008 Professional</a></li>
+    <li>9</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Microsoft Visual Studio 2008 Professional</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 9
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/visual-studio-2008-professional/9-242"
+                                            >
+                                            9.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/10080/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZ2aXN1YWwtc3R1ZGlvLTIwMDgtcHJvZmVzc2lvbmFsJTJGOS0yNDIlM0Zmcm9tJTNEYXBwZGVwbG95LmNvbQ==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/10080/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZ2aXN1YWwtc3R1ZGlvLTIwMDgtcHJvZmVzc2lvbmFsJTJGOS0yNDIlM0Zmcm9tJTNEYXBwZGVwbG95LmNvbQ==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 8.1k &nbsp|&nbsp
+    Created: 11/13/2008
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="10080"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Visual Studio 2008 Professional has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (5)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/visual-studio-2008-professional/9-242#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/visual-studio-2008-professional/9-242/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_941" name="tip_941">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-941"></div> -->
+   <div id="tip-941" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">7</div>
+   <div id="tip-941" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-941"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            You can read the instructions on: <br />
+http://download.microsoft.com/download/4/9/0/490EADD1-19C0-47F9-9748-E901C926F925/adminreadme2008.htm <br />
+<br />
+...to suit your needs. This is however how I did the install to be assigned through GPO deployment.<br />
+<br />
+<br />
+Visual Studio 2008 requires<br />
+...on Windows XP:<br />
+- XP with atleast SP2<br />
+- Internet Explorer 6.0 Service Pack 1<br />
+- Windows Installer 3.1 (Included in XP SP3)<br />
+<br />
+...on all Windows platforms:<br />
+- Microsoft .NET Framework 3.5<br />
+- Microsoft Web Designer Tools<br />
+- Microsoft Document Explorer 2007<br />
+<br />
+I created a GPO and a corresponding security group, as a normal GPO deployment.<br />
+<br />
+I chose to script these components with a startup script but still making Visual Studio 2008 an assigned application in this GPO. Not sure I can recommend this approach since it will try to install VS 2008 first, fail once and then run the script with the required components - then you have to reboot to initialize the VS 2008 installation. Dirty but it works, and this way we can still use "Uninstall this application when it falls out of the scope of management" to uninstall VS 2008 if needed.<br />
+<br />
+These are the steps i took:<br />
+- Extract contents of the CD/ISO to a local drive<br />
+- Manually install the prerequired components or you will likely get an error trying to install VS 2008.<br />
+- Create transform with desired settings<br />
+        &lt;path to extracted cd&gt;\setup.exe /CreateTransform &lt;path to extracted cd&gt;\setup.mst<br />
+- Create administrative installation point<br />
+    msiexec /a vs_setup.msi /qb /L*v C:\vs_setup.log TRANSFORMS=vs_setup.mst PIDKEY=&lt;product_key without "-" or spaces&gt; TARGETDIR=D:\VS<br />
+    (This will include all prerequired install files under the folder WCU\)<br />
+- Copy contents of D:\VS to \\&lt;path to VSSHARE&gt;- Create .vbs installscript that does the following:<br />
+' --- If VisualStudio components is already installed: Do nothing, quit script.<br />
+' --- Check OS Version - Warn if not SP 3.x - Option to proceed anyway<br />
+' --- Check version of Windows Installer. If lower than 3.1.4001.5512 - install 3.1.<br />
+    objShell.Exec("%comspec% /c \\&lt;VSSHARE&gt;\WCU\msi31\WindowsInstaller-KB893803-v2-x86.exe /quiet /norestart")<br />
+' --- Install .NET Framework 3.5 bundle (installs 2.0 first if not installed)<br />
+    objShell.Exec("%comspec% /c \\&lt;VSSHARE&gt;\WCU\dotNetFramework\dotNetFx35setup.exe /qb /norestart")<br />
+' --- Install Microsoft Web Designer Tools<br />
+    objShell.Exec("%comspec% /c \\&lt;VSSHARE&gt;\WCU\WebDesignerCore\WebDesignerCore.EXE /Q /install")<br />
+' --- Install Microsoft Document Explorer 2007<br />
+    objShell.Exec("%comspec% /c \\&lt;VSSHARE&gt;\WCU\DExplore\DExplore.exe /q")<br />
+' --- Ask user if they want to reboot (since after reboot the installation of VS 2008 starts, which can take around an hour to complete, I wanted the users to have the option to wait)<br />
+<br />
+Interesting to note that..<br />
+    Microsoft SQL Server 2005 Express Edition<br />
+    Crystal Reports Basic for Visual Studio 2008<br />
+    ..are installed by default on Administrative setup but can only be unselected in normal setup.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Arctos" class="username" rel="nofollow">Arctos</a>
+                </li>
+                <li>
+                    11/19/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_943" name="tip_943">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-943"></div> -->
+   <div id="tip-943" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">7</div>
+   <div id="tip-943" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-943"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            To create a transform run:<br />
+setup.exe /CreateTransform &lt;Path&gt;\VS2008.mst<br />
+<br />
+To apply the transform<br />
+setup.exe /msipassthru=BEGIN"TRANSFORMS=&lt;Path&gt;\VS2008.mst"END
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/msenn" class="username" rel="nofollow">msenn</a>
+                </li>
+                <li>
+                    12/01/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_942" name="tip_942">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-942"></div> -->
+   <div id="tip-942" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-942" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-942"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I worked on Visual Studio and found that various setup.exe switches can be used to install the application. Basically, /q , /full , /norestart. I tried creating MST but unfortunately that .mst switch did not work with me. <br />
+<br />
+I finally wrote two vbscripts to install and uninstall the application separately. I am not sure whether it is a good practice or not. <br />
+<br />
+Following is the VB i wrote to install the application silently without restarting and fully:(The setup.exe launched is inside setup folder on CD and not on the root)<br />
+<br />
+dim shell<br />
+set shell = WScript.CreateObject("WScript.Shell")<br />
+<br />
+shell.Run("setup\setup.exe /q /norestart /full") <br />
+<br />
+To Uninstall: <br />
+<br />
+<br />
+dim shell<br />
+set shell = WScript.CreateObject("WScript.Shell")<br />
+<br />
+shell.Run("setup\setup.exe /q /remove /norestart /full") <br />
+<br />
+Not sure whether this will give any error during deployment. <br />
+<br />
+SOURCE: http://blogs.msdn.com/astebner/archive/2007/09/12/4887301.aspx
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/satnix" class="username" rel="nofollow">satnix</a>
+                </li>
+                <li>
+                    11/28/2008 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_944" name="tip_944">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-944"></div> -->
+   <div id="tip-944" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">4</div>
+   <div id="tip-944" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-944"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Silent install with transform.<br />
+<br />
+Copy The Visual studio 2008 Pro media to a local folder on the hard drive.<br />
+<br />
+Transform creation:<br />
+From run:<br />
+SourceFolder\Setup\Setup.exe /CreateTransform SourceFolder\settings.mst<br />
+<br />
+Example: C:\VS2008\Setup\setup.exe /CreateTransform C:\VS2008\settings.mst<br />
+<br />
+Note: The Setup in the root folder does not work for this action! Use the one in Setup folder.<br />
+<br />
+To run the installation silent<br />
+From run:<br />
+SourceFolder\vs_setup.msi TRANSFORMS=SourceFolder\settings.mst /QB!<br />
+<br />
+Example:<br />
+C:\VS2008\vs_setup.msi TRANSFORMS=C:\VS2008\settings.mst /QB<br />
+<br />
+To run the Uninstall silent:<br />
+From run:<br />
+msiexec /X{veryLongUnicProductIdOfMSIFile} /QB!<br />
+<br />
+Method tested with SCCM 2007 on a Windows XP Image with the prerequisites in place on forehand (.NET etc). Works.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/danseegert" class="username" rel="nofollow">danseegert</a>
+                </li>
+                <li>
+                    07/17/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_945" name="tip_945">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-945"></div> -->
+   <div id="tip-945" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-945" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-945"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            For those who used the setup\setup.exe silent switches to install (/q /norestart /full), here's the order/product code of everything that is installed by Visual Studio. Everything need to be uninstalled manually since the uninstall of VS 2008 only uninstall VS 2008 ...<br />
+<br />
+MSI_NAME = "Microsoft Office Visual Web Developer 2007"<br />
+MSI_GUID = "{90120000-0021-0000-0000-0000000FF1CE}" <br />
+<br />
+MSI_NAME = "Microsoft SQL Server Compact 3.5 ENU"<br />
+MSI_GUID = "{BCC899FE-2DAA-460C-A5FB-60291E73D9C3}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server Database Publishing Wizard 1.2"<br />
+MSI_GUID = "{9A33B83D-FFC4-44CF-BEEF-632DECEF2FCD}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server Compact 3.5 Design Tools ENU"<br />
+MSI_GUID = "{2E5C075E-11AB-4BDD-918C-7B9A68953FF8}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server Compact 3.5 for Devices ENU"<br />
+MSI_GUID = "{241F2BF7-69EB-42A4-9156-96B2426C7504}"<br />
+<br />
+MSI_NAME = "Windows Mobile 5.0 SDK R2 for Pocket PC"<br />
+MSI_GUID = "{6C9F6D23-E9AD-43C9-B43A-011562AAF876}"<br />
+<br />
+MSI_NAME = "Windows Mobile 5.0 SDK R2 for Smartphone"<br />
+MSI_GUID = "{9656F3AC-6BA9-43F0-ABED-F214B5DAB27B}"<br />
+<br />
+MSI_NAME = "Crystal Reports Basic for Visual Studio 2008"<br />
+MSI_GUID = "{AA467959-A1D6-4F45-90CD-11DC57733F32}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server 2005 Express Edition (SQLEXPRESS)"<br />
+MSI_GUID = "{2AFFFDD7-ED85-4A90-8C52-5DA9EBDC9B8F}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server 2005 Tools Express Edition"<br />
+MSI_GUID = "{2750B389-A2D2-4953-99CA-27C1F2A8E6FD}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server Setup Support Files (English)"<br />
+MSI_GUID = "{53F5C3EE-05ED-4830-994B-50B2F0D50FCE}"<br />
+<br />
+MSI_NAME = "Visual Studio Tools for the Office system 3.0 Runtime"<br />
+MSI_GUID = "{8FB53850-246A-3507-8ADE-0060093FFEA6}"<br />
+<br />
+MSI_NAME = "Microsoft Visual Studio 2005 Tools for Office Runtime"<br />
+MSI_GUID = "{388E4B09-3E71-4649-8921-F44A3A2954A7}"<br />
+<br />
+MSI_NAME = "Microsoft Windows SDK for Visual Studio 2008 .NET Framework Tools"<br />
+MSI_GUID = "{05EC21B8-4593-3037-A781-A6B5AFFCB19D}"<br />
+<br />
+MSI_NAME = "Microsoft Windows SDK for Visual Studio 2008 Headers and Libraries"<br />
+MSI_GUID = "{842FAF7C-50EF-4463-9B8F-6222E1384D7D}"<br />
+<br />
+MSI_NAME = "Microsoft Windows SDK for Visual Studio 2008 SDK Reference Assemblies and IntelliSense"<br />
+MSI_GUID = "{64c5b887-b5ee-42b8-8596-78905a6b5f1f}"<br />
+<br />
+MSI_NAME = "Microsoft Windows SDK for Visual Studio 2008 Tools"<br />
+MSI_GUID = "{CAA376AF-0DE8-4FCA-942E-C6AC579B94B3}"<br />
+<br />
+MSI_NAME = "Microsoft Windows SDK for Visual Studio 2008 Win32 Tools"<br />
+MSI_GUID = "{B268E9A1-04A9-40D0-9866-846BE2B74BA7}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server Native Client"<br />
+MSI_GUID = "{F9B3DD02-B0B3-42E9-8650-030DFF0D133D}"<br />
+<br />
+MSI_NAME = "Microsoft SQL Server VSS Writer"<br />
+MSI_GUID = "{E9F44C98-B8B6-480F-AF7B-E42A0A46F4E3}"<br />
+<br />
+MSI_NAME = "Microsoft Office Shared MUI (English) 2007"<br />
+MSI_GUID = "{90120000-006E-0409-0000-0000000FF1CE}"<br />
+<br />
+MSI_NAME = "Microsoft Office Shared Setup Metadata MUI (English) 2007"<br />
+MSI_GUID = "{90120000-0115-0409-0000-0000000FF1CE}"<br />
+<br />
+MSI_NAME = "Microsoft Office Visual Web Developer MUI (English) 2007"<br />
+MSI_GUID = "{90120000-0021-0409-0000-0000000FF1CE}"<br />
+<br />
+MSI_NAME = "Microsoft Document Explorer 2008"<br />
+MSI_GUID = "{6753B40C-0FBD-3BED-8A9D-0ACAC2DCD85D}"<br />
+<br />
+MSI_NAME = "Microsoft Device Emulator version 3.0 - ENU"<br />
+MSI_GUID = "{B32E7732-B2FB-3FD0-81AC-6025B1104C66}"<br />
+<br />
+MSI_NAME = "Microsoft .NET Compact Framework 2.0 SP2"<br />
+MSI_GUID = "{EDDF99D9-9FE3-4871-A7DB-D1522C51EE9A}"<br />
+<br />
+MSI_NAME = "Microsoft .NET Compact Framework 3.5"<br />
+MSI_GUID = "{291B3A3B-F808-45B8-8113-DF232FCB6C82}"<br />
+<br />
+MSI_NAME = "Microsoft Visual Studio 2008 Professional Edition - ENU"<br />
+MSI_GUID = "{D7DAD1E4-45F4-3B2B-899A-EA728167EC4F}"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Mencaliss" class="username" rel="nofollow">Mencaliss</a>
+                </li>
+                <li>
+                    06/28/2010 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/10080/20856">
+                                    9
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Visual Studio 2008 Professional</h2>
+            <div><h3>Version</h3><span>9</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1)
+                            </h3>
+            <p>Questions & Answers related to Microsoft Visual Studio 2008 Professional</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/darkgdk-vs-2008-c-express-silent-install" class="title">
+            DarkGDK / VS 2008 C++ Express Silent Install?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24161"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                10 years ago 2.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Microsoft Visual Studio 2008 Professional</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Microsoft Visual Studio 2008 Professional</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft Visual Studio 2008 Professional</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2023 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

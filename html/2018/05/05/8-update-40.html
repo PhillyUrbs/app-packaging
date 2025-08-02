@@ -1,0 +1,1533 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Oracle Java 8 8 Update 40 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Java 8 8 Update 40">
+        <meta name="keywords" content="Oracle,Oracle Java 8,Java 8 8 Update 40">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/oracle/java-8/8-update-40" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li><a href="/software/oracle/java-8/versions">Java 8</a></li>
+    <li>8 Update 40</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Oracle Java 8</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 8 Update 40
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/update-141"
+                                            >
+                                            Update 141.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8u144"
+                                            >
+                                            8u144.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-update-92"
+                                            >
+                                            8 Update 92.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-update-66"
+                                            >
+                                            8 Update 66.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-update-60-1"
+                                            >
+                                            8 Update 60.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-update-45"
+                                            >
+                                            8 Update 45.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-update-40"
+                                            >
+                                            8 Update 40.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/8-1927"
+                                            >
+                                            8.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/java-8/java-8-update-25"
+                                            >
+                                            Java 8 Update 25.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/64384/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTglMkY4LXVwZGF0ZS00MA==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/64384/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTglMkY4LXVwZGF0ZS00MA==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 16.2k &nbsp|&nbsp
+    Created: 03/11/2015
+    
+            by: <a href="/user/mpace" rel="nofollow">mpace</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version64384" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64384" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64384" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64384" type="radio" class="star" disabled="disabled"  />
+    <input name="Version64384" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Java 8 has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">12 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (4)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (MSI)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>3</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer Command Line (No MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/64384" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="9aAD55orzG4_0S5-MGo6gm5cbi2kPrxGOFRWT70c_4Y"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/java-8/8-update-40#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/java-8/8-update-40/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8176" name="tip_8176">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8176"></div> -->
+   <div id="tip-8176" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-8176" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8176"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Silent install of Java 8 Update 40 MSI: <span style="font-family:monospace;font-size:12px;line-height:12px;white-space:pre-wrap;background-color:rgb(242,246,248);">msiexec /i jre1.8.0_40.msi AUTO_UPDATE=0 EULA=0 NOSTARTMENU=1 SPONSORS=0 WEB_ANALYTICS=0 WEB_JAVA=1 WEB_JAVA_SECURITY_LEVEL=H /qb</span><div><span style="font-family:monospace;font-size:12px;line-height:12px;white-space:pre-wrap;background-color:rgb(242,246,248);"><br /></span></div><div><span style="font-family:'Helvetica Neue';font-size:12px;line-height:12px;white-space:pre-wrap;">The MSI can be found in %appdata&amp;\LocalLow\Sun\Java\jre1.8.0_40_x64\ while the EXE Java installer is open. </span></div><div><span style="font-family:'Helvetica Neue';font-size:12px;line-height:12px;white-space:pre-wrap;"><br /></span></div><div><span style="font-family:'Helvetica Neue';font-size:12px;line-height:12px;white-space:pre-wrap;">An alternate option is using a config file for customizing the installation: http://docs.oracle.com/javase/8/docs/technotes/guides/install/config.html</span></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mpace" class="username" rel="nofollow">mpace</a>
+                </li>
+                <li>
+                    03/11/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8178" name="tip_8178">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8178"></div> -->
+   <div id="tip-8178" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-8178" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8178"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            This vbscript will extract the msi's from the exe files provided by Oracle and place them into folder the "Extracted" folder inside the working directory. Have fun guys!<div><br /></div><div><table class="table table-bordered"><tbody><tr><td><font style="font-family:'Courier New';font-size:10pt;"><font style="color:#008000;">'Define Target Computer</font><br /><font style="color:#000000;">strComputer</font><font style="color:#000000;"> = </font><font style="color:#808080;">"."</font><br /><br /><font style="color:#008000;">'Set object values</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oArguments</font><font style="color:#000000;"> = WScript.Arguments.Named</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oFSO</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">CreateObject</font><font style="color:#000000;">(</font><font style="color:#808080;">"Scripting.FileSystemObject"</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oDrives</font><font style="color:#000000;"> = oFSO.Drives</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oShell</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">CreateObject</font><font style="color:#000000;">(</font><font style="color:#808080;">"WScript.Shell"</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oWMI</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">GetObject</font><font style="color:#000000;">(</font><font style="color:#808080;">"winmgmts:{impersonationLevel=impersonate}!\\"</font><font style="color:#000000;"> &amp; strComputer</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\root\CIMV2"</font><font style="color:#000000;">)</font><br /><br /><font style="color:#008000;">'Define ASCII Characters</font><br /><font style="color:#000000;">chrSpace</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Chr</font><font style="color:#000000;">(</font><font style="color:#800000;">32</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">chrSingleQuote</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Chr</font><font style="color:#000000;">(</font><font style="color:#800000;">39</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">chrDoubleQuote</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Chr</font><font style="color:#000000;">(</font><font style="color:#800000;">34</font><font style="color:#000000;">)</font><br /><br /><font style="color:#008000;">'Define Folder Locations</font><br /><font style="color:#000000;">WorkingDir</font><font style="color:#000000;"> = oFSO.GetParentFolderName</font><font style="color:#000000;">(WScript.ScriptFullName</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">SoftwareTempDir</font><font style="color:#000000;"> = oFSO.GetParentFolderName</font><font style="color:#000000;">(oShell.ExpandEnvironmentStrings</font><font style="color:#000000;">(</font><font style="color:#808080;">"%APPDATA%"</font><font style="color:#000000;">)) &amp; </font><font style="color:#808080;">"\LocalLow\Sun\Java"</font><br /><br /><font style="color:#008000;">'Define Variables</font><br /><font style="color:#000000;">CurrentDate</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Replace</font><font style="color:#000000;">(</font><font style="color:#0000FF;">Date</font><font style="color:#000000;">, chrSpace</font><font style="color:#000000;">, </font><font style="color:#808080;">""</font><font style="color:#000000;">)</font><br /><br /><font style="color:#008000;">'Gather information from WMI</font><br /><br /><font style="color:#008000;">'Query # 1 - Determine the Operating System Architecture</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oArchitectures</font><font style="color:#000000;"> = oWMI.ExecQuery</font><font style="color:#000000;">(</font><font style="color:#808080;">"Select * from Win32_OperatingSystem"</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">For</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Each</font><font style="color:#000000;"> oArchitecture</font><font style="color:#000000;"> </font><font style="color:#0000FF;">in</font><font style="color:#000000;"> oArchitectures</font><br /><font style="color:#000000;">        OSArchitecture</font><font style="color:#000000;"> = oArchitecture.OSArchitecture</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">Next</font><font style="color:#000000;">    </font><br /><font style="color:#008000;">'Modify the string value of the "OSArchitecture" variable</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (OSArchitecture</font><font style="color:#000000;"> = </font><font style="color:#808080;">"32-bit"</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    OSArchitecture</font><font style="color:#000000;"> = </font><font style="color:#808080;">"x86"</font><br /><font style="color:#0000FF;">ElseIf</font><font style="color:#000000;"> (OSArchitecture</font><font style="color:#000000;"> = </font><font style="color:#808080;">"64-bit"</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    OSArchitecture</font><font style="color:#000000;"> = </font><font style="color:#808080;">"x64"</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#008000;">'Remove software temporary directory</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (oFSO.FolderExists</font><font style="color:#000000;">(oFSO.GetParentFolderName</font><font style="color:#000000;">(SoftwareTempDir</font><font style="color:#000000;">))) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    RemoveSoftwareTempDir</font><font style="color:#000000;"> = oFSO.DeleteFolder</font><font style="color:#000000;">(oFSO.GetParentFolderName</font><font style="color:#000000;">(SoftwareTempDir</font><font style="color:#000000;">), </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#008000;">'Create the required folder(s)</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Not</font><font style="color:#000000;"> oFSO.FolderExists</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Source"</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    oFSO.CreateFolder</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Source"</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Not</font><font style="color:#000000;"> oFSO.FolderExists</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted"</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    oFSO.CreateFolder</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted"</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#008000;">'Open the Java files one at a time, this allows the MSI files to be extracted</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> SourceDir</font><font style="color:#000000;"> = oFSO.GetFolder</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Source"</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oFiles</font><font style="color:#000000;"> = SourceDir.Files</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex86</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Nothing</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex64</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Nothing</font><br /><font style="color:#0000FF;">For</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Each</font><font style="color:#000000;"> oFile</font><font style="color:#000000;"> </font><font style="color:#0000FF;">In</font><font style="color:#000000;"> oFiles</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oFile.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"jre"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oFile.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"i586"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">If</font><font style="color:#000000;"> (LatestFilex86</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Is</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Nothing</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        </font><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex86</font><font style="color:#000000;"> = oFile</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">ElseIf</font><font style="color:#000000;"> (oFSO.GetFileVersion</font><font style="color:#000000;">(oFile.Path</font><font style="color:#000000;">)) &gt; (oFSO.GetFileVersion</font><font style="color:#000000;">(LatestFilex86.Path</font><font style="color:#000000;">)) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        </font><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex86</font><font style="color:#000000;"> = oFile</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oFile.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"jre"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oFile.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"x64"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">If</font><font style="color:#000000;"> (LatestFilex64</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Is</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Nothing</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        </font><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex64</font><font style="color:#000000;"> = oFile</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">ElseIf</font><font style="color:#000000;"> (oFSO.GetFileVersion</font><font style="color:#000000;">(oFile.Path</font><font style="color:#000000;">)) &gt; (oFSO.GetFileVersion</font><font style="color:#000000;">(LatestFilex64.Path</font><font style="color:#000000;">)) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        </font><font style="color:#0000FF;">Set</font><font style="color:#000000;"> LatestFilex64</font><font style="color:#000000;"> = oFile</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><font style="color:#000000;">    </font><br /><font style="color:#0000FF;">Next</font><font style="color:#000000;">    </font><br /><br /><font style="color:#008000;">'Extract the version number from each file name</font><br /><font style="color:#000000;">arrLatestFilex86</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Split</font><font style="color:#000000;">(LatestFilex86</font><font style="color:#000000;">, </font><font style="color:#808080;">"-"</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">arrLatestFilex64</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Split</font><font style="color:#000000;">(LatestFilex64</font><font style="color:#000000;">, </font><font style="color:#808080;">"-"</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">LatestFileVersionx86</font><font style="color:#000000;"> = arrLatestFilex86</font><font style="color:#000000;">(</font><font style="color:#800000;">1</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">LatestFileVersionx64</font><font style="color:#000000;"> = arrLatestFilex64</font><font style="color:#000000;">(</font><font style="color:#800000;">1</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">LatestFileArchitecturex86</font><font style="color:#000000;"> = </font><font style="color:#808080;">"x86"</font><br /><font style="color:#000000;">LatestFileArchitecturex64</font><font style="color:#000000;"> = </font><font style="color:#808080;">"x64"</font><br /><br /><font style="color:#008000;">'Create the destination folders</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Not</font><font style="color:#000000;"> (oFSO.FolderExists</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx86</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\x86"</font><font style="color:#000000;">)) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    CreateDestinationFolderx86</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(</font><font style="color:#808080;">"cmd.exe /c mkdir"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx86</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\x86"</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;">, </font><font style="color:#800000;">0</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Not</font><font style="color:#000000;"> (oFSO.FolderExists</font><font style="color:#000000;">(WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx64</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\x64"</font><font style="color:#000000;">)) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    CreateDestinationFolderx64</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(</font><font style="color:#808080;">"cmd.exe /c mkdir"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx64</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\x64"</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;">, </font><font style="color:#800000;">0</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#000000;">comRunLatestFilex86</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(chrDoubleQuote</font><font style="color:#000000;"> &amp; LatestFilex86.Path</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;">, </font><font style="color:#800000;">1</font><font style="color:#000000;">, </font><font style="color:#0000FF;">False</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">WScript.Sleep</font><font style="color:#000000;">(</font><font style="color:#800000;">15000</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">comTerminateLatestFilex86</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(</font><font style="color:#808080;">"taskkill.exe"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"/im"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; LatestFilex86.Name</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"/f"</font><font style="color:#000000;">, </font><font style="color:#800000;">0</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">WScript.Sleep</font><font style="color:#000000;">(</font><font style="color:#800000;">15000</font><font style="color:#000000;">)</font><br /><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (OSArchitecture</font><font style="color:#000000;"> = </font><font style="color:#808080;">"x64"</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    comRunLatestFilex64</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(chrDoubleQuote</font><font style="color:#000000;"> &amp; LatestFilex64.Path</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;">, </font><font style="color:#800000;">1</font><font style="color:#000000;">, </font><font style="color:#0000FF;">False</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">    WScript.Sleep</font><font style="color:#000000;">(</font><font style="color:#800000;">15000</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">    comTerminateLatestFilex64</font><font style="color:#000000;"> = oShell.Run</font><font style="color:#000000;">(</font><font style="color:#808080;">"taskkill.exe"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"/im"</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; LatestFilex64.Name</font><font style="color:#000000;"> &amp; chrDoubleQuote</font><font style="color:#000000;"> &amp; chrSpace</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"/f"</font><font style="color:#000000;">, </font><font style="color:#800000;">0</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">    WScript.Sleep</font><font style="color:#000000;">(</font><font style="color:#800000;">15000</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> SoftwareTempDir</font><font style="color:#000000;"> = oFSO.GetFolder</font><font style="color:#000000;">(SoftwareTempDir</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">Set</font><font style="color:#000000;"> oSubfolders</font><font style="color:#000000;"> = SoftwareTempDir.SubFolders</font><br /><font style="color:#0000FF;">For</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Each</font><font style="color:#000000;"> oSubFolder</font><font style="color:#000000;"> </font><font style="color:#0000FF;">In</font><font style="color:#000000;"> oSubFolders</font><font style="color:#000000;"> </font><br /><font style="color:#000000;">    arrDateModified</font><font style="color:#000000;"> = </font><font style="color:#0000FF;">Split</font><font style="color:#000000;">(oSubFolder.DateLastModified</font><font style="color:#000000;">, chrSpace</font><font style="color:#000000;">)</font><br /><font style="color:#000000;">    DateModified</font><font style="color:#000000;"> = arrDateModified</font><font style="color:#000000;">(</font><font style="color:#800000;">0</font><font style="color:#000000;">)   </font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">If</font><font style="color:#000000;"> (DateModified</font><font style="color:#000000;"> = CurrentDate</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oSubFolder.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"jre"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> </font><font style="color:#0000FF;">Not</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oSubFolder.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"x64"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        CopySourceFolder</font><font style="color:#000000;"> = oFSO.CopyFolder</font><font style="color:#000000;">(oSubFolder.Path</font><font style="color:#000000;">, WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx86</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\"</font><font style="color:#000000;"> &amp; LatestFileArchitecturex86</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)        </font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">If</font><font style="color:#000000;"> (DateModified</font><font style="color:#000000;"> = CurrentDate</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oSubFolder.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"jre"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">And</font><font style="color:#000000;"> (</font><font style="color:#0000FF;">InStr</font><font style="color:#000000;">(oSubFolder.Name</font><font style="color:#000000;">, </font><font style="color:#808080;">"x64"</font><font style="color:#000000;">) &gt; </font><font style="color:#800000;">0</font><font style="color:#000000;">) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">        CopySourceFolder</font><font style="color:#000000;"> = oFSO.CopyFolder</font><font style="color:#000000;">(oSubFolder.Path</font><font style="color:#000000;">, WorkingDir</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\Extracted\"</font><font style="color:#000000;"> &amp; LatestFileVersionx64</font><font style="color:#000000;"> &amp; </font><font style="color:#808080;">"\"</font><font style="color:#000000;"> &amp; LatestFileArchitecturex64</font><font style="color:#000000;">, </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)        </font><br /><font style="color:#000000;">    </font><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><font style="color:#0000FF;">Next</font><br /><br /><font style="color:#008000;">'Remove software temporary directory</font><br /><font style="color:#0000FF;">If</font><font style="color:#000000;"> (oFSO.FolderExists</font><font style="color:#000000;">(oFSO.GetParentFolderName</font><font style="color:#000000;">(SoftwareTempDir</font><font style="color:#000000;">))) </font><font style="color:#0000FF;">Then</font><br /><font style="color:#000000;">    RemoveSoftwareTempDir</font><font style="color:#000000;"> = oFSO.DeleteFolder</font><font style="color:#000000;">(oFSO.GetParentFolderName</font><font style="color:#000000;">(SoftwareTempDir</font><font style="color:#000000;">), </font><font style="color:#0000FF;">True</font><font style="color:#000000;">)</font><br /><font style="color:#0000FF;">End</font><font style="color:#000000;"> </font><font style="color:#0000FF;">If</font><br /><br /><font style="color:#000000;">WScript.Echo</font><font style="color:#000000;">(</font><font style="color:#808080;">"MSI Extraction Completed Successfully!"</font><font style="color:#000000;">)</font><br /></font></td></tr></tbody></table><br /></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer with Custom Transform (MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/truealph" class="username" rel="nofollow">truealph</a>
+                </li>
+                <li>
+                    03/13/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8193" name="tip_8193">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8193"></div> -->
+   <div id="tip-8193" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8193" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8193"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>Grab the 32-bit JRE installer EXE from Oracle and extract the MSI.  Rename it to jre-8-windows-i586.msi.  This is so that you can re-use the script and just change versions in one location in the script as future versions come out.  Perhaps use the tip from truealph to do the extraction.</p><p>NOTE: You are not entitled to use the "Enterprise MSI installer" labeled as such that you can download from the Oracle Support site, unless you have a valid Java SE support contract costing $10,000+, so just use the normal exe and extract the MSI.</p><p>We use a VBScript wrapper for all of our deployments.  In SCCM (or elsewhere), just call "cscript.exe Install-OracleJavaRuntimeEnvironment.vbs".  </p><p>Uninstall is "cscript.exe Uninstall-OracleJavaRuntimeEnvironment.vbs".  I don't actually use the uninstaller, preferring instead to check that IE isn't running, and taking care of the uninstall of previous installations in the install script prior to actually installing the new version.</p><p>All the other required  files are here.  Save them all at the root level along with the .msi and Install-OracleJavaRuntimeEnvironment.vbs</p><p>This script relies on a log folder %WINDIR%\CCM\Logs existing.  If you're running SCCM, it will exist.  If not, change the path for each location to your desired logging directory.</p><p><br /></p><p>***** START OF Install-OracleJavaRuntimeEnvironment.vbs *****<br /></p><p>Option Explicit</p><p>Dim objShell, objFSO <br />Dim strApplicationShortName, strCurrentVersion, strInstallMSI<br />Dim strInstallCommandLine, strLogFile<br />Dim strLogPath, strInstallCMD, strInstallLogPath, strCurrentDirectory, qt, strFileToCopy, strWindowsDirectory<br />Dim objSysEnv, Path, NewPath, PathToAdd<br />Dim strUninstallGUID, strUninstallLogPath, strUninstallCommandLine<br />Dim objWMI, colProcessList<br />Dim arrPathEntries, n, PathItem, PathToRemove<br />Dim strProcessKill, objProcess</p><p>Const WindowsFolder = 0</p><p>Set objShell = CreateObject("WScript.Shell") <br />Set objFSO = CreateObject("Scripting.FileSystemObject")<br />Set objWMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") </p><p>qt = Chr(34)<br />strCurrentDirectory = objFSO.GetParentFolderName(WScript.ScriptFullName)<br />Set strWindowsDirectory = objFSO.GetSpecialFolder(WindowsFolder)</p><p>' Check to see if Internet Explorer is running, and quit the script if it is, as the install will fail otherwise.  <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name = 'iexplore.exe'") <br />If Not colProcessList.Count = 0 Then <br />WScript.Quit<br />End If <br />Set colProcessList = Nothing</p><p>' Kill any remaining non-IE Java processes<br />strProcessKill = "'java%.exe'" <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name LIKE " &amp; strProcessKill )<br />For Each objProcess In colProcessList<br /> objProcess.Terminate()<br /> WScript.sleep 2000<br />Next </p><p>' Kill any remaining non-IE-related jp2launcher processes<br />strProcessKill = "'jp2launcher.exe'" <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name = " &amp; strProcessKill )<br />For Each objProcess In colProcessList<br /> objProcess.Terminate()<br /> WScript.sleep 2000<br />Next</p><p>If objFSO.FileExists("C:\Program Files (x86)\Java\jre6\bin\java.exe") Then </p><p> '=============================================================================================================<br /> 'Uninstall any JRE6 versions (you might need to add to this list if you have any additional installs)<br /> '=============================================================================================================<br /> strApplicationShortName = "JavaSecurityFiles" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "6.0" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "8560E04B-6144-4783-96B3-959887F91784" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "6.0.650" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83216065FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "6.0.450" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83216045FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "6.0.390" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83216039FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "6.0.380" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83216038FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> <br /> WScript.sleep 10000</p><p> 'Remove JRE 6 from path<br /> Set objSysEnv = objShell.Environment("SYSTEM")<br /> Path = objSysEnv("PATH")<br /> NewPath = ""<br /> PathToRemove = "c:\Program Files (x86)\Java\jre6\bin"<br /> <br /> arrPathEntries = split(Path,";")<br /> For n = 0 to ubound(arrPathEntries)<br />  PathItem = arrPathEntries(n)<br />  If lcase(PathItem) &lt;&gt; lcase(PathToRemove) Then<br />   NewPath = NewPath &amp; arrPathEntries(n) &amp; ";"<br />  End If<br /> Next<br /> objSysEnv.Item("PATH") = NewPath<br /> Set objSysEnv = Nothing<br /> NewPath = ""<br /> Path = ""<br /> <br /> 'Delete remnants of JRE 6 folder<br /> If objFSO.FolderExists("C:\Program Files (x86)\Java\jre6") Then<br />  objFSO.DeleteFolder "C:\Program Files (x86)\Java\jre6",True<br /> End If<br /> '=============================================================================================================<br />End If</p><p>If objFSO.FileExists("C:\Program Files (x86)\Java\jre7\bin\java.exe") Then <br /> '=============================================================================================================<br /> 'Uninstall any JRE7 versions (you might need to add to this list if you have any additional installs)<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.760" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F03217076FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.720" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F03217072FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.650" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F03217065FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.550" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83217055FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.510" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83217051FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "7.0.450" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83216045FF" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================</p><p> WScript.sleep 10000</p><p> 'Remove JRE 7 from path<br /> Set objSysEnv = objShell.Environment("SYSTEM")<br /> Path = objSysEnv("PATH")<br /> NewPath = ""<br /> PathToRemove = "c:\Program Files (x86)\Java\jre7\bin"<br /> <br /> arrPathEntries = split(Path,";")<br /> For n = 0 to ubound(arrPathEntries)<br />  PathItem = arrPathEntries(n)<br />  If lcase(PathItem) &lt;&gt; lcase(PathToRemove) Then<br />   NewPath = NewPath &amp; arrPathEntries(n) &amp; ";"<br />  End If<br /> Next<br /> objSysEnv.Item("PATH") = NewPath<br /> Set objSysEnv = Nothing<br /> NewPath = ""<br /> Path = ""<br /> <br /> 'Delete remnants of JRE 7 folder<br /> If objFSO.FolderExists("C:\Program Files (x86)\Java\jre7") Then<br />  objFSO.DeleteFolder "C:\Program Files (x86)\Java\jre7",True<br /> End If<br /> '=============================================================================================================<br />End If</p><p><br />If objFSO.FileExists("C:\Program Files (x86)\Java\jre8\bin\java.exe") Then <br /> '=============================================================================================================<br /> 'Uninstall any JRE8 versions (you might need to add to this list if you have any additional installs)<br /> '=============================================================================================================<br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "8.0.400" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83218040F0" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '============================================================================================================= <br /> strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br /> strCurrentVersion = "8.0.310" 'application version, e.g. 6.1.7601<br /> strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83218031F0" 'insert application GUID, WITHOUT the curly brackets<br /> strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br /> strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath<br /> objShell.Run strUninstallCommandLine,0,True<br /> '=============================================================================================================<br /> WScript.sleep 10000</p><p> 'Remove JRE 8 from path<br /> Set objSysEnv = objShell.Environment("SYSTEM")<br /> Path = objSysEnv("PATH")<br /> NewPath = ""<br /> PathToRemove = "c:\Program Files (x86)\Java\jre8\bin"<br /> <br /> arrPathEntries = split(Path,";")<br /> For n = 0 to ubound(arrPathEntries)<br />  PathItem = arrPathEntries(n)<br />  If lcase(PathItem) &lt;&gt; lcase(PathToRemove) Then<br />   NewPath = NewPath &amp; arrPathEntries(n) &amp; ";"<br />  End If<br /> Next<br /> objSysEnv.Item("PATH") = NewPath<br /> Set objSysEnv = Nothing<br /> NewPath = ""<br /> Path = ""<br /> <br /> 'Delete remnants of JRE 8 folder<br /> If objFSO.FolderExists("C:\Program Files (x86)\Java\jre8") Then<br />  objFSO.DeleteFolder "C:\Program Files (x86)\Java\jre8",True<br /> End If<br /> '=============================================================================================================<br />End If</p><p>'=============================================================================================================<br />'Define the values of the application installation here<br />'=============================================================================================================<br />strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br />strCurrentVersion = "8.0.400" 'application version, e.g. 6.1.7601 (change this for each version)<br />strInstallMSI = "jre-8-windows-i586" 'name of MSI file WITHOUT the MSI extension  (remember to rename the .msi itself from jre-8u40-windows-i586.msi)<br />'=============================================================================================================<br />'Pre-stage java.settings.cfg to workaround this bug:<br />'https://bugs.openjdk.java.net/browse/JDK-8071303?page=com.atlassian.jira.plugin.system.issuetabpanels:worklog-tabpanel<br />'Delete it if it's already there, though, or you will get a permission denied error.</p><p>If objFSO.FileExists("C:\ProgramData\Oracle\Java\java.settings.cfg") Then<br /> objFSO.DeleteFile "C:\ProgramData\Oracle\Java\java.settings.cfg",True<br />End If </p><p>If objFSO.FolderExists("C:\ProgramData\Oracle") = False Then<br /> objFSO.CreateFolder "C:\ProgramData\Oracle"<br />End If<br />If objFSO.FolderExists("C:\ProgramData\Oracle\Java") = False Then<br /> objFSO.CreateFolder "C:\ProgramData\Oracle\Java"<br />End If<br />If objFSO.FolderExists("C:\ProgramData\Oracle\Java") Then<br /> If objFSO.FileExists(strCurrentDirectory &amp; "\java.settings.cfg") Then<br />  objFSO.CopyFile strCurrentDirectory &amp; "\java.settings.cfg","C:\ProgramData\Oracle\Java\java.settings.cfg",True<br /> End If <br />End If </p><p>WScript.sleep 2000</p><p>'Sets the location of the installation log<br />strInstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Install_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"<br />'Build application install command line<br />strInstallCommandLine = "msiexec.exe /i " &amp; qt &amp; strCurrentDirectory &amp; "\" &amp; strInstallMSI &amp; ".msi" &amp; qt &amp; " INSTALLCFG=" &amp; qt &amp; strCurrentDirectory &amp; "\install.cfg" &amp; qt &amp; " INSTALLDIR=" &amp; qt &amp; "C:\Program Files (x86)\Java\jre8" &amp; qt &amp; " REBOOT=ReallySuppress /qn /LiV " &amp; strInstallLogPath<br />'Installs the Application. It will wait for the command to finish executing before continuing<br />objShell.Run strInstallCommandLine,0,True</p><p>'Add JRE to beginning of path (if it's not already there)<br />Set objSysEnv = objShell.Environment("SYSTEM")<br />Path = objSysEnv("PATH")<br />PathToAdd = "C:\Program Files (x86)\Java\jre8\bin"<br />If Not InStr(LCase(Path), LCase(PathToAdd)) &gt; 0 Then<br /> Path = PathToAdd &amp; ";" &amp; Path<br /> objSysEnv.Item("PATH") = Path<br />End If<br />Set objSysEnv = Nothing<br />Path = ""</p><p>'Configure Oracle Java Runtime Environment<br />Dim strCurrentRegFile<br />strCurrentRegFile = qt &amp; strCurrentDirectory &amp; "\DisableJQSService.reg" &amp; qt<br />objShell.Run "regedit.exe /s " &amp; strCurrentRegFile,0,True<br />strCurrentRegFile = qt &amp; strCurrentDirectory &amp; "\noautoupdate.reg" &amp; qt<br />objShell.Run "regedit.exe /s " &amp; strCurrentRegFile,0,True<br />strCurrentRegFile = qt &amp; strCurrentDirectory &amp; "\DisableSponsors.reg" &amp; qt<br />objShell.Run "regedit.exe /s " &amp; strCurrentRegFile,0,True</p><p>'Prevent Java expiration check, which is different to AutoUpdate.  This one removes the Update or Block prompt.</p><p>If objFSO.FolderExists("C:\Windows\Sun") = False Then<br /> objFSO.CreateFolder "C:\Windows\Sun"<br />End If<br />If objFSO.FolderExists("C:\Windows\Sun\Java") = False Then<br /> objFSO.CreateFolder "C:\Windows\Sun\Java"<br />End If<br />If objFSO.FolderExists("C:\Windows\Sun\Java\Deployment") = False Then<br /> objFSO.CreateFolder "C:\Windows\Sun\Java\Deployment"<br />End If</p><p>If objFSO.FolderExists("C:\Windows\Sun\Java\Deployment") Then<br /> If objFSO.FileExists(strCurrentDirectory &amp; "\deployment.config") Then <br />  objFSO.CopyFile strCurrentDirectory &amp; "\deployment.config","C:\Windows\Sun\Java\Deployment\deployment.config",True<br /> End If<br /> If objFSO.FileExists(strCurrentDirectory &amp; "\deployment.properties") Then <br />  objFSO.CopyFile strCurrentDirectory &amp; "\deployment.properties","C:\Windows\Sun\Java\Deployment\deployment.properties",True<br /> End If<br />End If</p><p>''If you need to copy custom policy and security files to get specific old-school Java apps to work, do it here.  It's commented out though.<br />'If objFSO.FolderExists("C:\Program Files (x86)\Java\jre8\lib\security") Then<br />' If objFSO.FileExists(strCurrentDirectory &amp; "\java.policy") Then <br />'  objFSO.CopyFile strCurrentDirectory &amp; "\java.policy","C:\Program Files (x86)\Java\jre8\lib\security\java.policy",True<br />' End If<br />' If objFSO.FileExists(strCurrentDirectory &amp; "\java.security") Then <br />'  objFSO.CopyFile strCurrentDirectory &amp; "\java.security","C:\Program Files (x86)\Java\jre8\lib\security\java.security",True<br />' End If<br />' If objFSO.FileExists(strCurrentDirectory &amp; "\local_policy.jar") Then <br />'  objFSO.CopyFile strCurrentDirectory &amp; "\local_policy.jar","C:\Program Files (x86)\Java\jre8\lib\security\local_policy.jar",True<br />' End If <br />' If objFSO.FileExists(strCurrentDirectory &amp; "\US_export_policy.jar") Then <br />'  objFSO.CopyFile strCurrentDirectory &amp; "\US_export_policy.jar","C:\Program Files (x86)\Java\jre8\lib\security\US_export_policy.jar",True<br />' End If<br />'End If</p><p>'Force user config to prevent update/later/block security dialog when new version released<br />If objFSO.FileExists("c:\Program Files (x86)\Java\jre8\bin\javaws.exe") Then <br /> strInstallCommandLine = qt &amp; "c:\Program Files (x86)\Java\jre8\bin\javaws.exe" &amp; qt &amp; " -userConfig deployment.expiration.check.enabled false"<br /> objShell.Run strInstallCommandLine,0,True<br /> WScript.sleep 5000<br />End If</p><p>set objShell = Nothing<br />set objFSO = Nothing</p><p><br />***** END OF Install-OracleJavaRuntimeEnvironment.vbs *****</p><p><br />Additional files used by the script:</p><p><br />***** START OF install.cfg *****</p><p>STATIC=Disable<br />AUTO_UPDATE=Disable<br />WEB_ANALYTICS=Disable<br />NOSTARTMENU=Enable<br />REBOOT=Disable</p><p>***** END OF install.cfg *****</p><p><br /></p><p>***** START OF java.settings.cfg *****</p><p>AUTO_UPDATE=Disable<br />WEB_ANALYTICS=Disable<br /></p><p>***** END OF java.settings.cfg *****</p><p><br /></p><p>***** START OF DisableJQSService.reg *****</p><p>Windows Registry Editor Version 5.00</p><p>[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\JavaQuickStarterService]<br />"Type"=dword:00000010<br />"Start"=dword:00000004<br />"ErrorControl"=dword:00000001<br />"ImagePath"=hex(2):22,00,43,00,3a,00,5c,00,50,00,72,00,6f,00,67,00,72,00,61,00,\<br />  6d,00,20,00,46,00,69,00,6c,00,65,00,73,00,5c,00,4a,00,61,00,76,00,61,00,5c,\<br />  00,6a,00,72,00,65,00,36,00,5c,00,62,00,69,00,6e,00,5c,00,6a,00,71,00,73,00,\<br />  2e,00,65,00,78,00,65,00,22,00,20,00,2d,00,73,00,65,00,72,00,76,00,69,00,63,\<br />  00,65,00,20,00,2d,00,63,00,6f,00,6e,00,66,00,69,00,67,00,20,00,22,00,43,00,\<br />  3a,00,5c,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,20,00,46,00,69,00,6c,\<br />  00,65,00,73,00,5c,00,4a,00,61,00,76,00,61,00,5c,00,6a,00,72,00,65,00,36,00,\<br />  5c,00,6c,00,69,00,62,00,5c,00,64,00,65,00,70,00,6c,00,6f,00,79,00,5c,00,6a,\<br />  00,71,00,73,00,5c,00,6a,00,71,00,73,00,2e,00,63,00,6f,00,6e,00,66,00,22,00,\<br />  00,00<br />"DisplayName"="Java Quick Starter"<br />"ObjectName"="LocalSystem"<br />"Description"="Prefetches JRE files for faster startup of Java applets and applications"</p><p>[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\JavaQuickStarterService\Security]<br />"Security"=hex:01,00,14,80,90,00,00,00,9c,00,00,00,14,00,00,00,30,00,00,00,02,\<br />  00,1c,00,01,00,00,00,02,80,14,00,ff,01,0f,00,01,01,00,00,00,00,00,01,00,00,\<br />  00,00,02,00,60,00,04,00,00,00,00,00,14,00,fd,01,02,00,01,01,00,00,00,00,00,\<br />  05,12,00,00,00,00,00,18,00,ff,01,0f,00,01,02,00,00,00,00,00,05,20,00,00,00,\<br />  20,02,00,00,00,00,14,00,8d,01,02,00,01,01,00,00,00,00,00,05,0b,00,00,00,00,\<br />  00,18,00,fd,01,02,00,01,02,00,00,00,00,00,05,20,00,00,00,23,02,00,00,01,01,\<br />  00,00,00,00,00,05,12,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00</p><p>[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\JavaQuickStarterService\Enum]<br />"0"="Root\\LEGACY_JAVAQUICKSTARTERSERVICE\\0000"<br />"Count"=dword:00000001<br />"NextInstance"=dword:00000001</p><p>***** END OF DisableJQSService.reg *****</p><p><br /></p><p>***** START OF noautoupdate.reg *****</p><p>Windows Registry Editor Version 5.00</p><p>[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy]<br />"EnableJavaUpdate"=dword:00000000<br />"NotifyDownload"=dword:00000001<br />"NotifyInstall"=dword:00000001<br />"LastUpdateBeginTime"=""<br />"LastUpdateFinishTime"=""<br />"UpdateSchedule"=dword:0000000f<br />"Frequency"=dword:010f0000<br />"EnableAutoUpdateCheck"=dword:00000000<br />"PromptAutoUpdateCheck"=-<br />"VisitorId"=-</p><p>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]<br />"SunJavaUpdateSched"=-</p><p><br />***** END OF noautoupdate.reg *****</p><p>***** START OF DisableSponsors.reg *****</p><p>Windows Registry Editor Version 5.00</p><p>[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\JreMetrics]<br />"DisableSponsors"="Y"</p><p>***** END OF DisableSponsors.reg *****</p><p><br /></p><p><br /></p><p>***** START OF deployment.config *****</p><p>deployment.system.config=file:///C:/Windows/Sun/Java/Deployment/deployment.properties<br />deployment.system.config.mandatory=true</p><p>***** END OF deployment.config *****</p><p><br /></p><p>***** START OF deployment.properties *****</p><p>deployment.expiration.check.enabled=false</p><p>***** END OF deployment.properties *****</p><p><br /></p><p>***** START OF Uninstall-OracleJavaRuntimeEnvironment.vbs *****</p><p>Option Explicit</p><p>Dim objShell, objFSO, strAllUsersStartMenu<br />Dim strApplicationShortName, strCurrentVersion, strUninstallGUID<br />Dim strUninstallCommandLine, strUninstallLogPath, strCurrentDirectory, qt, strWindowsDirectory<br />Dim objSysEnv, Path, NewPath, PathToAdd<br />Dim objWMI, colProcessList<br />Dim arrPathEntries, n, PathItem, PathToRemove<br />Dim strProcessKill, objProcess</p><p>Const CommonAppData = &amp;H23&amp;<br />Const CSIDL_PROGRAM_FILESX86 = &amp;H2a<br />Const WindowsFolder = 0</p><p>Set objShell = CreateObject("WScript.Shell") <br />Set objFSO = CreateObject("Scripting.FileSystemObject")<br />Set objWMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") <br />qt = Chr(34)</p><p>'Determines the current folder the script is being run from, and the Windows directory for logging.<br />strCurrentDirectory = objFSO.GetParentFolderName(WScript.ScriptFullName)<br />Set strWindowsDirectory = objFSO.GetSpecialFolder(WindowsFolder)</p><p>' Check to see if Internet Explorer is running, and quit the script if it is.  <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name = 'iexplore.exe'") <br />If Not colProcessList.Count = 0 Then <br />WScript.Quit<br />End If <br />Set colProcessList = Nothing</p><p>' Kill any remaining non-IE-related Java processes<br />strProcessKill = "'java%.exe'" <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name LIKE " &amp; strProcessKill )<br />For Each objProcess In colProcessList<br /> objProcess.Terminate()<br /> WScript.sleep 2000<br />Next </p><p>' Kill any remaining non-IE-related jp2launcher processes<br />strProcessKill = "'jp2launcher.exe'" <br />Set colProcessList = objWMI.ExecQuery ("Select * from Win32_Process Where Name = " &amp; strProcessKill )<br />For Each objProcess In colProcessList<br /> objProcess.Terminate()<br /> WScript.sleep 2000<br />Next </p><p>'=============================================================================================================<br />'Define the values of the application uninstallation here<br />'=============================================================================================================<br />strApplicationShortName = "OracleJavaRuntimeEnvironment" 'application name without spaces, e.g. MicrosoftOfficeProPlus<br />strCurrentVersion = "8.0.400" 'application version, e.g. 6.1.7601<br />strUninstallGUID = "26A24AE4-039D-4CA4-87B4-2F83218040F0" 'insert application GUID, WITHOUT the curly brackets<br />'=============================================================================================================</p><p>'Sets the location of the uninstallation log<br />strUninstallLogPath = strWindowsDirectory &amp; "\CCM\LOGS\Uninstall_" &amp; strApplicationShortName &amp; "_" &amp; strCurrentVersion &amp; ".log"</p><p>'Build application uninstall command line<br />strUninstallCommandLine = "MsiExec.exe /x{" &amp; strUninstallGUID &amp; "} REBOOT=ReallySuppress /qn /Liv " &amp; strUninstallLogPath</p><p>'Uninstalls the Application. It will wait for the command to finish executing before continuing<br />objShell.Run strUninstallCommandLine,0,True</p><p>WScript.sleep 5000</p><p>'Remove JRE 8 from path<br />Set objSysEnv = objShell.Environment("SYSTEM")<br />Path = objSysEnv("PATH")<br />NewPath = ""<br />PathToRemove = "c:\Program Files (x86)\Java\jre8\bin"</p><p>arrPathEntries = split(Path,";")<br />For n = 0 to ubound(arrPathEntries)<br /> PathItem = arrPathEntries(n)<br /> If lcase(PathItem) &lt;&gt; lcase(PathToRemove) Then<br />  NewPath = NewPath &amp; arrPathEntries(n) &amp; ";"<br /> End If<br />Next<br />objSysEnv.Item("PATH") = NewPath<br />Set objSysEnv = Nothing<br />NewPath = ""<br />Path = ""</p><p>If objFSO.FolderExists("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java") Then<br /> objFSO.DeleteFolder "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java",True<br />End If</p><p>set objShell = Nothing<br />set objFSO = Nothing<br /></p><p><br />***** END OF Uninstall-OracleJavaRuntimeEnvironment.vbs *****<br /><br /></p><p><br /></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nzdude" class="username" rel="nofollow">nzdude</a>
+                </li>
+                <li>
+                    04/01/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8195" name="tip_8195">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8195"></div> -->
+   <div id="tip-8195" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8195" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8195"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I created some documentation and a utility to aid with <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jweb/security/deployment_rules.html" target="_blank">Java Deployment Rule Sets</a>. Oracle's documentation is <a href="http://docs.oracle.com/javase/tutorial/deployment/jar/packageman.html" target="_blank">HERE</a> for Manifest.txt. </p><p>All of the files are located <a href="http://bit.ly/1CeB5JF" target="_blank">HERE</a>&nbsp;shared on my DropBox.&nbsp;I updated the WiseScript so it prompts you for your company name. The WiseScript will use the company name you input for the "Blocked by &lt;Your Company Name&gt;" in the last rule that blocks everything not specified.</p><div>Please view the README.txt for details on each of the files.</div><div>&nbsp;</div><div>Please let me know if you have any questions.</div><div>&nbsp;</div><div>Any and all feedback is greatly appreciated!<br></div><div>-Kevin</div><div><br></div><div><br></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/kevinelwell" class="username" rel="nofollow">kevinelwell</a>
+                </li>
+                <li>
+                    04/08/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+            <div class="tip" id="tip_8182" name="tip_8182">
+            <div id="widget-hidden-content" class="hidden-content">
+<strong>This content is currently hidden from public view.</strong><br/>
+    <small>Reason: <em>Removed by member request</em>
+    <br/>For more information, visit our <a href="/faq"><strong> FAQ's.</strong></a></small>
+</div>
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64384/136140">
+                                    8 Update 40
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Java 8</h2>
+            <div><h3>Version</h3><span>8 Update 40</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (12)
+                            </h3>
+            <p>Questions & Answers related to Oracle Java 8</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" class="title">
+            Java 8 Update 25 Can&#039;t install to default path, always getting the &quot;static&quot; path
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/BigPackage" rel="nofollow">BigPackage</a>
+                3 years ago 9.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Ladewig answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/why-java-exe-is-removed-from-c-windows-system32-in-jre-8" class="title">
+            why java.exe is removed from c:\windows\system32 in jre 8?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"  />
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"  />
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"  />
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"  />
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/vivekjazzwal" rel="nofollow">vivekjazzwal</a>
+                3 years ago 8.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Badger commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-will-not-quit-with-out-force-quit" class="title">
+            Java will not quit with out force quit.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/kallun" rel="nofollow">kallun</a>
+                1 year ago 795 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                9
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-java-8-update-101-with-sccm" class="title">
+            Deploying Java 8 Update 101 with SCCM
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dsgoody" rel="nofollow">dsgoody</a>
+                1 year ago 8.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               VBScab commented 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-t-find-uninstall-key-for-java-8-update-101-x32bit" class="title">
+            Can&#039;t find uninstall key for Java 8 update 101 x32bit
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/winterelegy" rel="nofollow">winterelegy</a>
+                1 year ago 1.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               tonyland_sf commented 5 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java8-overwrites-deployment-properties-file-java-8-update-121" class="title">
+            Java8 Overwrites Deployment.properties file (java 8 update 121)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"  />
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"  />
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"  />
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"  />
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/vscamp" rel="nofollow">vscamp</a>
+                11 months ago 1.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               vscamp answered 10 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-java-uninstall-hangs" class="title">
+            Silent Java Uninstall hangs
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cantoris" rel="nofollow">cantoris</a>
+                7 months ago 497 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cantoris commented 7 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-t-suppress-java-1-8-upd-74-update-prompts" class="title">
+            Can&#039;t suppress Java 1.8 Upd 74 update prompts
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"  />
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cantoris" rel="nofollow">cantoris</a>
+                6 months ago 1.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cantoris answered 6 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/break-script-and-start-when-the-user-click-in-window" class="title">
+            Break script and start when the user click in Window
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"  />
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"  />
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"  />
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"  />
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lpansarini" rel="nofollow">lpansarini</a>
+                6 months ago 326 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/i-get-a-vb-script-error" class="title">
+            I get a VB Script error
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="i-get-a-vb-script-error" type="radio" class="star" disabled="disabled"  />
+    <input name="i-get-a-vb-script-error" type="radio" class="star" disabled="disabled"  />
+    <input name="i-get-a-vb-script-error" type="radio" class="star" disabled="disabled"  />
+    <input name="i-get-a-vb-script-error" type="radio" class="star" disabled="disabled"  />
+    <input name="i-get-a-vb-script-error" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cottonakin" rel="nofollow">cottonakin</a>
+                2 years ago 1.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cottonakin answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" class="title">
+            msiexec /i jre1.8.0_40.msi AUTO_UPDATE=0 EULA=0 NOSTARTMENU=1 SPONSORS=0 WEB_ANALYTICS=0 WEB_JAVA=1 WEB_JAVA_SECURITY_LEVEL=H /qb
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" type="radio" class="star" disabled="disabled"  />
+    <input name="msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" type="radio" class="star" disabled="disabled"  />
+    <input name="msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" type="radio" class="star" disabled="disabled"  />
+    <input name="msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" type="radio" class="star" disabled="disabled"  />
+    <input name="msiexec-i-jre1-8-0-40-msi-auto-update-0-eula-0-nostartmenu-1-sponsors-0-web-analytics-0-web-java-1-web-java-security-level-h-qb" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jillkristy" rel="nofollow">jillkristy</a>
+                2 years ago 4.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               aragorn.2003 answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-8-disable-auto-update" class="title">
+            Java 8 disable auto update
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-8-disable-auto-update" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-disable-auto-update" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-disable-auto-update" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-disable-auto-update" type="radio" class="star" disabled="disabled"  />
+    <input name="java-8-disable-auto-update" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/rmalohlava" rel="nofollow">rmalohlava</a>
+                2 years ago 14.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               rmalohlava answered 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Oracle Java 8</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Oracle Java 8</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Java 8</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">2.16.54 Sprint 16 2012-Aug-06 b17a9c836505362ecb151f6dd5d3407e56e7d905<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

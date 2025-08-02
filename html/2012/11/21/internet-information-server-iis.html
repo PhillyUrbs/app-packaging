@@ -1,0 +1,864 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>Microsoft - Internet Information Server (IIS) - 7 | ITNinja</title>
+        <meta name="description" content="Deployment tips and related materials related to Microsoft Internet Information Server (IIS) 7">
+        <meta name="keywords" content="Microsoft Internet Information Server (IIS),Microsoft">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/4f9a382.css" />
+        
+        <link href="/css/df4eb8b.css" rel="stylesheet" type="text/css" />
+        
+            <link rel="stylesheet" type="text/css" media="screen" href="/css/8975654.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript">
+            window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.6.1.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com';
+        </script>
+
+        <!--[if IE]>
+            <script src="/js/001a46f.js"></script>            <script>
+                $(document).ready(function(){
+                    $('input').placeholder();
+                })
+            </script>
+        <![endif]-->
+
+                    </head>
+    <body>
+                <header>
+            <p id="kace-link">&nbsp;</p>
+            <ul id="user-info">
+    <li class="last"><a href="/register" class="register">register</a><a href="/login" class="button">Log in</a></li>
+</ul>            <span id="logo"><a href="/"><img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="53" /></a></span>
+            <nav>
+                                    <form method="get" action="/search#search-filter-by-keyword" id="nav-search"><input type="text" name="q" class="q" placeholder="search"/><input type="image" name="i" class="i" src="/bundles/itninjaweb/img/search_icon.png" alt="go" title="go" /><input type="hidden" name="cx" value="014503921158165719423:3hy89iql-j8" /><input type="hidden" name="t" value="search-filter-by-keyword" /></form>
+                                    <ul>
+                <li class="first">        <a href="/question">Ask</a>            <ul class="menu_level_1">
+                <li class="first last">        <a href="/question/new">Ask A Question</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/research">Research</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/software/browse?Popular=1">Software</a>        
+    </li>
+
+        <li>        <a href="/tips">Deployment Tips</a>        
+    </li>
+
+        <li>        <a href="/question">Q &amp; A</a>        
+    </li>
+
+        <li>        <a href="/blog">Blogs</a>        
+    </li>
+
+        <li class="last">        <a href="/link">Links</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/share">Share</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/question/unanswered">Answer a Question</a>        
+    </li>
+
+        <li>        <a href="/blog/post/new">Write a Blog Post</a>        
+    </li>
+
+        <li>        <a href="/tips">Share a Deployment Tip</a>        
+    </li>
+
+        <li class="last">        <a href="/link/new">Share a Link</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/topics">Topics</a>        
+    </li>
+
+        <li class="last">        <a href="/about">About</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/tour">Site Tour</a>        
+    </li>
+
+        <li>        <a href="/faq">FAQ</a>        
+    </li>
+
+        <li>        <a href="/faq#PointsFAQ">ITNinja Points</a>        
+    </li>
+
+        <li class="last">        <a href="/faq#ADFAQ">AppDeploy</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+            </nav>
+            <div id="secondary-nav"></div>
+        </header>
+        <div id="global-content">
+            <ul id="breadcrumbs">
+                <li class="home"><a href="/">
+                    <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                    <li><a href="/research">Research</a></li>
+    <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/microsoft/browse">Microsoft</a></li>
+    <li>Internet Information Server (IIS)</li>
+            </ul>
+            <div id="stage">
+    <div class="tag-header">
+        <div class="title-wrap">
+            <h1>Microsoft Internet Information Server (IIS)</h1>
+
+            <div id="version-wrapper">
+
+                <span class="version-name" id="version-changer">
+                    Version: 7
+                    <div id="version-list">
+                        <div class="version-list-top"></div>
+                        <ul id="version-list-items">
+                                                            <li>
+                                    <a href="/software/microsoft/internet-information-server-iis/7-1100">
+                                        7.x <span>(3 tips)</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/software/microsoft/internet-information-server-iis/6-1551">
+                                        6.x <span>(12 tips)</span>
+                                    </a>
+                                </li>
+                                                    </ul>
+                        <div class="version-list-bottom"></div>
+                    </div>
+                </span>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="tr-meta">
+        
+Average Rating: <span id="average-rating">0</span>
+<div class="stars-wrap">
+        <div class="rating">
+    <input name="Software23522" type="radio" class="star" disabled="disabled"  />
+    <input name="Software23522" type="radio" class="star" disabled="disabled"  />
+    <input name="Software23522" type="radio" class="star" disabled="disabled"  />
+    <input name="Software23522" type="radio" class="star" disabled="disabled"  />
+    <input name="Software23522" type="radio" class="star" disabled="disabled"  />
+</div>    </div>
+
+<br class="clear"/>
+
+Views: 28 &nbsp|&nbsp
+Created: 07/05/2004 &nbsp|&nbsp
+Followers:2
+
+
+
+
+<div class="follow-widget-right">
+            <a class="btn-follow" rel="nofollow" href="https://www.itninja.com/login?/follow/version/29540?tb=L3NvZnR3YXJlL21pY3Jvc29mdC9pbnRlcm5ldC1pbmZvcm1hdGlvbi1zZXJ2ZXItaWlzLzctMTEwMA==">
+            <span class="follow-title">Follow this Version </span>
+            <span class="followers" title="followers"><div></div>2</span>
+        </a>
+    </div>    </div>
+
+    <div class="additional-meta">
+        Internet Information Server (IIS) has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+        <a href="#q-a" id="scrollQA">0 Questions</a>,
+        <a href="#blogs" id="scrollBlog">1 Blogs</a>
+        and <a href="#links" id="scrollLinks">6 links</a>. Please help add to this by sharing more!
+
+    </div>
+
+
+    <div class="software-section" id="deployment-tips">
+
+        <h2 class="section-title"><a href="#" class="plus toggle minus"></a> Deployment Tips (3)</h2>
+        
+        <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+            </div>
+
+            <!-- end rating secion -->
+
+            <div class="inner summary">
+
+                                                        <h3>Deployment Tip Summary</h3>
+                    <p><a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fmicrosoft%2Finternet-information-server-iis%2F7-1100" class="btn">Add a Summary</a></p>
+                
+                <div id="software-view-deployment-summary-form" class="hidden">
+                    <h3>Deployment Tip Summary</h3>
+                    <form action="/version/summary/new/29540" method="POST" novalidate>
+    <div id="form"><input type="hidden" id="form__token" name="form[_token]" value="62c7aa6c154883a10682ca78860bac18233cae7c" /><div><label for="form_text" class=" required">Enter your tip</label><textarea id="form_text" name="form[text]" required="required"></textarea></div></div>
+
+    <input type="hidden" name="redirectUrl" value="http://www.itninja.com/software/microsoft/internet-information-server-iis/7-1100" />
+    <input type="submit" value="Submit" id="submit1" class="btn"/>
+    <span id="software-view-deployment-summary-cancel" class="btn" >Cancel</span>
+</form>                </div>
+
+                <div id="software-view-deployment-summary-text" class="hidden">
+
+                    <h3>Deployment Tip Summary</h3>
+                    <div id="software-view-deployment-summary-text-raw"></div>
+                                                        </div>
+
+            </div>
+            <!--end summary -->
+
+            <div class="inner">
+
+                <div class="version-subsections">
+                    
+                    <div id="tabs">
+                        <ul class="tabs clearfix">
+                            <li><a href="#software-tag-view-tab-notes">Notes (3)</a></li>
+                            <li><a href="#software-tag-view-tab-command-line">Command Line (0)</a></li>
+                            <li><a href="#software-tag-view-tab-script">Script (0)</a></li>
+                            <li><a href="#software-tag-view-tab-securityinfo">Security (0)</a></li>
+                            <li><a href="#software-tag-view-tab-terminal">Terminal Services (0)</a></li>
+                            <li><a href="#software-tag-view-tab-virtualization">Virtualization (0)</a></li>
+                        </ul>
+                        <div class="tabs-loading">
+                            Please wait.
+                        </div>
+                        <div id="software-tag-view-tab-notes" class="tabs-hide">
+                            <div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2475"></div>
+    <div class="avg-rating">5</div>
+     <div class="arrow_down" id="tip-2475"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>IIS 7.0 can be installed unattended using one of 3 methods:<br><br />-Pkgmgr.exe	(Works in Vista, Server 2008, and Server 2008 R2)<br><br />-Servermanagercmd.exe	(Server 2008 and deprecated in Server 2008 R2) (not available in Vista or Seven)<br><br />-ServerManager PowerShell cmdlets (Server 2008 R2 ONLY!!)<br><br><br />In true MS form, MS has turned on the upgrade threadmill by scrapping the old sysocmgr.exe and its INF file. Now there are way more features to pick from than IIS 6.0 but NNTP is dropped and the SMTP is now separated from IIS and is now listed as a *feature* in Windows 2008's Server Manager. <br><br><br />Other changes are explained here:<br><a href="http://blogs.technet.com/mscom/archive/2007/09/07/the-tasty-morsels-found-in-dogfood-mscom-ops-top-10-changes-in-iis7-0.aspx" rel="nofollow">http://blogs.technet.com/mscom/archive/2007/09/07/the-tasty-morsels-found-in-dogfood-mscom-ops-top-10-changes-in-iis7-0.aspx</a><br><br><br />In either method, you can no longer specify where the files are to be installed at the onset. This is confirmed with the existence of a batch file to move ISS to another drive written by an IIS team member! Another thing that could be done is to format a new partition and instead of assigning it a drive letter, use the "mount in the following empty NTFS folder" option in disk management to host C:\inetpub before the install.&nbsp; With the lack of ability to specify where to install ANY Service or Feature with the any of the 3 methods, it's as if MS is hinting that UNIX's way of partitions instead of drive letters is the way to go!<br><br><br />All 3 methods share the same key words for installing Roles, Role Services and Features. The following methods work "as-is" on Server 2008 R1 except for PowerShell method which is Server 2008 R2 only. The names of the Roles, Role Services and Features have slightly changed from R1 to R2.<br><br><br />**************<br><br />The Pkgmgr.exe method is the simplest but you cannot install SMTP.<br><br />It is explained here <a href="http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/" rel="nofollow">http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/</a><br><br />And <a href="http://learn.iis.net/page.aspx/132/install-iis-7-from-the-command-line/" rel="nofollow">http://learn.iis.net/page.aspx/132/install-iis-7-from-the-command-line/</a><br><br />NOTE: It's very important that the Windows build version within the xml file (version="6.0.6001.16659") is the full version number of the OS, otherwise the xml file won't work.<br><br><br />You can use the following to install ALL of&nbsp; IIS' 7.0 features:<br><br />-Create unattend.xml from:<br><br><br />&lt;?xml version="1.0" ?&gt;<br><br />&lt;!-- <a href="http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/" rel="nofollow">http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/</a> --&gt;<br><br />&lt;unattend xmlns="urn:schemas-microsoft-com:unattend"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; xmlns:wcm="<a href="http://schemas.microsoft.com/WMIConfig/2002/State" rel="nofollow">http://schemas.microsoft.com/WMIConfig/2002/State"&gt;</a><br><br />&lt;servicing&gt;<br><br />&nbsp; &nbsp; &nbsp; &lt;!-- Install a selectable update in a package that is in the Windows Foundation namespace --&gt;<br><br />&nbsp; &nbsp; &nbsp; &lt;package action="configure"&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;assemblyIdentity<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="Microsoft-Windows-Foundation-Package"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; version="6.0.5308.6"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; language="neutral"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; processorArchitecture="x86"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; publicKeyToken="31bf3856ad364e35"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; versionScope="nonSxS"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServerRole" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServer" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CommonHttpFeatures" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-StaticContent" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DefaultDocument" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DirectoryBrowsing" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpErrors" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpRedirect" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ApplicationDevelopment" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ASPNET" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-NetFxExtensibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ASP" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CGI" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ISAPIExtensions" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ISAPIFilter" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ServerSideIncludes" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HealthAndDiagnostics" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LoggingLibraries" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-RequestMonitor" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpTracing" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CustomLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ODBCLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Security" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-BasicAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WindowsAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DigestAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ClientCertificateMappingAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IISCertificateMappingAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-URLAuthorization" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-RequestFiltering" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IPSecurity" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Performance" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpCompressionStatic" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpCompressionDynamic" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServerManagementTools" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementConsole" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementScriptingTools" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IIS6ManagementCompatibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Metabase" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WMICompatibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LegacyScripts" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LegacySnapIn" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPPublishingService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPServer" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPManagement" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-WindowsActivationService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-ProcessModel" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-NetFxEnvironment" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-ConfigurationAPI" state="true"/&gt;<br><br />&nbsp; &nbsp; &lt;/package&gt;<br><br />&lt;/servicing&gt;<br><br />&lt;/unattend&gt;<br><br><br />And then launch with:&nbsp;  start /w pkgmgr /n:unattend.xml<br><br><br><br />You can also skip the XML file creation with this one liner:<br><br />start /w pkgmgr /l:log.etw /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HttpRedirect;IIS-ApplicationDevelopment;IIS-ASPNET;IIS-NetFxExtensibility;IIS-ASP;IIS-ISAPIExtensions;IIS-ISAPIFilter;IIS-ServerSideIncludes;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-HttpTracing;IIS-Security;IIS-ClientCertificateMappingAuthentication;IIS-IISCertificateMappingAuthentication;IIS-RequestFiltering;IIS-IPSecurity;IIS-Performance;IIS-HttpCompressionStatic;IIS-HttpCompressionDynamic;IIS-WebServerManagementTools;IIS-ManagementConsole;IIS-ManagementScriptingTools;IIS-ManagementService;IIS-IIS6ManagementCompatibility;IIS-Metabase;IIS-WMICompatibility;IIS-LegacyScripts;IIS-LegacySnapIn;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI<br><br><br />Now this will install IIS but ONLY on the %SystemDrive% ( C:\ drive).<br><br />See the batch file in the next section on how to move it to another drive letter.<br><br><br />******************<br><br />The Servermanagercmd.exe will not work in a workstation OS (Vista or Seven) but will be able to install SMTP and any other Features/server Roles you wish at the same time as IIS 7.0. The catch is that MS has deprecated (aka "to be phased out later") in Windows server 2008 R2.<br><br><br />Syntax is as follows:<br><br />ServerManagerCmd.exe -query [&lt;query.xml&gt;] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -inputPath &lt;answer.xml&gt; [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -install &lt;command-Id&gt; [-setting &lt;setting-name&gt;=&lt;setting value&gt;][-allSubFeatures] [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -remove &lt;command-Id&gt; [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe [-help | -?]<br><br><br />Every time you launch it or its GUI counterpart it updates a log in: C:\windows\LOGS\ServerManager.log<br><br><br />The hardest thing to figure out is the difference between a Role, Role Services and Features.<br><br />A Role is a grouping of Role Services. Features are basically Services that have not been grouped under a Role. Role Services can also be part of other Roles. If you specify to install a Role (e.g. Web-Server for IIS 7), its default Role Services will be installed. You can get a full list here: <a href="http://technet.microsoft.com/en-us/library/cc875805(WS.10).aspx" rel="nofollow">http://technet.microsoft.com/en-us/library/cc875805(WS.10).aspx</a>&nbsp; (Well, at least it was here Aug 28, 2009) but notice they don't tell you which is the "Role" and which is the "Role Service". Since it&Atilde;&cent;&Acirc;&#128;&Acirc;&#153;s Trial and Error, use the -whatif parameter. You can also get a hint as what is a Role Service by running:&nbsp; ServerManagerCmd.exe -query<br><br><br />Notice that Sub-Roles also exists (e.g. Web-App-Development)<br><br><br />This will install IIS 7.0 (aka the Web-Server "role") without SMTP:<br><br />ServerManagerCmd.exe -install Web-Server -allSubFeatures -resultPath C:\TEMP\WebServer.xml -restart<br><br><br />To install IIS 7.0 with default "role services" plus the SMTP "Feature", create IIS7_w_SMTP.xml with the following:<br><br />&lt;ServerManagerConfiguration Action="Install" xmlns="<a href="http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1" rel="nofollow">http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1"&gt;</a><br><br />&lt;Role Id="Web-Server"/&gt;<br><br />&lt;Feature Id="SMTP-Server"/&gt;<br><br />&lt;/ServerManagerConfiguration&gt;<br><br><br />Then launch:<br><br />ServerManagerCmd.exe -inputPath .\IIS7_w_SMTP.xml -resultPath .\IIS7_Log_file.xml<br><br><br />Other things to remember: <br><br />-If you want to install IIS with your selection of Role Services, don't mention the Web-Server Role or Sub-Roles, just the "Role Services" themselves.<br><br />-You cannot have comments in the xml file (e.g. - &lt;!--&nbsp; ====== --&gt;&nbsp; ) in R1. They are, however, allowed in R2. (Go figure!)<br><br><br><br />To install IIS 7.0 with ALL "Role Services" plus the SMTP "Feature", create IIS7_w_SMTP.xml with the following:<br><br />&lt;ServerManagerConfiguration Action="Install" xmlns="<a href="http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1" rel="nofollow">http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1"&gt;</a><br><br />&lt;RoleService Id="Web-WebServer"/&gt;<br><br />&lt;RoleService Id="Web-Common-Http"/&gt;<br><br />&lt;RoleService Id="Web-Static-Content"/&gt;<br><br />&lt;RoleService Id="Web-Default-Doc"/&gt;<br><br />&lt;RoleService Id="Web-Dir-Browsing"/&gt;<br><br />&lt;RoleService Id="Web-Http-Errors"/&gt;<br><br />&lt;RoleService Id="Web-Http-Redirect"/&gt;<br><br />&lt;RoleService Id="Web-Asp-Net"/&gt;<br><br />&lt;RoleService Id="Web-Net-Ext"/&gt;<br><br />&lt;RoleService Id="Web-ASP"/&gt;<br><br />&lt;RoleService Id="Web-CGI"/&gt;<br><br />&lt;RoleService Id="Web-ISAPI-Ext"/&gt;<br><br />&lt;RoleService Id="Web-ISAPI-Filter"/&gt;<br><br />&lt;RoleService Id="Web-Includes"/&gt;<br><br />&lt;RoleService Id="Web-Health"/&gt;<br><br />&lt;RoleService Id="Web-Http-Logging"/&gt;<br><br />&lt;RoleService Id="Web-Log-Libraries"/&gt;<br><br />&lt;RoleService Id="Web-Request-Monitor"/&gt;<br><br />&lt;RoleService Id="Web-Http-Tracing"/&gt;<br><br />&lt;RoleService Id="Web-Custom-Logging"/&gt;<br><br />&lt;RoleService Id="Web-ODBC-Logging"/&gt;<br><br />&lt;RoleService Id="Web-Security"/&gt;<br><br />&lt;RoleService Id="Web-Basic-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Windows-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Digest-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Client-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Cert-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Url-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Filtering"/&gt;<br><br />&lt;RoleService Id="Web-IP-Security"/&gt;<br><br />&lt;RoleService Id="Web-Performance"/&gt;<br><br />&lt;RoleService Id="Web-Stat-Compression"/&gt;<br><br />&lt;RoleService Id="Web-Dyn-Compression"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Tools"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Console"/&gt;<br><br />&lt;RoleService Id="Web-Scripting-Tools"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Service"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Compat"/&gt;<br><br />&lt;RoleService Id="Web-Metabase"/&gt;<br><br />&lt;RoleService Id="Web-WMI"/&gt;<br><br />&lt;RoleService Id="Web-Lgcy-Scripting"/&gt;<br><br />&lt;RoleService Id="Web-Lgcy-Mgmt-Console"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Publishing"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Server"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Mgmt-Console"/&gt;<br><br />&lt;Feature Id="SMTP-Server"/&gt;<br><br />&lt;/ServerManagerConfiguration&gt;<br><br><br><br />Now this will install IIS but ONLY on the %SystemDrive% ( C:\ drive).<br><a href="http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx" rel="nofollow">http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx</a><br><br />Here, Thomas Deml, an ISS team member shares a script to move the IIS INETPUB folder *after* it is installed. What follows is that script (with a bug fix) since MS' web sites are made of vapour and disappears on a whim:<br><br><br />&lt;&lt; Start of moveiis7root.bat &gt;&gt;<br><br />@echo off<br><br />IF "%1" == "" goto err<br><br />setlocal<br><br />set MOVETO=%1:\<br><br><br />REM simple error handling if drive does not exist or argument is wrong <br><br />IF NOT EXIST %MOVETO% goto err<br><br><br />REM Backup IIS config before we start changing config to point to the new path<br><br />%windir%\system32\inetsrv\appcmd add backup beforeRootMove<br><br><br><br />REM Stop all IIS services<br><br />iisreset /stop<br><br><br />REM Copy all content <br><br />REM /O - copy ACLs<br><br />REM /E - copy sub directories including empty ones<br><br />REM /I - assume destination is a directory<br><br />REM /Q - quiet<br><br><br />REM echo on, because user will be prompted if content already exists.<br><br />echo on<br><br />xcopy %systemdrive%\inetpub %MOVETO%inetpub /O /E /I /Q<br><br />@echo off<br><br />REM Move AppPool isolation directory <br><br />reg add HKLM\System\CurrentControlSet\Services\WAS\Parameters /v ConfigIsolationPath /t REG_SZ /d %MOVETO%inetpub\temp\appPools /f<br><br><br />REM Move logfile directories<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/sites -siteDefaults.traceFailedRequestsLogging.directory:"%MOVETO%inetpub\logs\FailedReqLogFiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/sites -siteDefaults.logfile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/log -centralBinaryLogFile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/log -centralW3CLogFile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br><br />REM Move config history location, temporary files, the path for the Default Web Site and the custom error locations<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationhost/configHistory -path:%MOVETO%inetpub\history<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.webServer/asp -cache.disktemplateCacheDirectory:"%MOVETO%inetpub\temp\ASP Compiled Templates"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.webServer/httpCompression -directory:"%MOVETO%inetpub\temp\IIS Temporary Compressed Files"<br><br />%windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:%MOVETO%inetpub\wwwroot<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='401'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='403'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='404'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='405'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='406'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='412'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='500'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='501'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='502'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br><br />REM Make sure Service Pack and Hotfix Installers know where the IIS root directories are<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathWWWRoot /t REG_SZ /d %moveto%inetpub\wwwroot /f<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathFTPRoot /t REG_SZ /d %moveto%inetpub\ftproot /f<br><br><br />REM Restart all IIS services<br><br />iisreset /start<br><br />echo.<br><br />echo.<br><br />echo ===============================================================================<br><br />echo Moved IIS7 root directory from %systemdrive%\ to %MOVETO%.<br><br />echo.<br><br />echo Please verify if the move worked. If so you can delete the %systemdrive%\inetpub directory.<br><br />echo If something went wrong you can restore the old settings via <br><br />echo&nbsp; &nbsp;  "APPCMD restore backup beforeRootMove" <br><br />echo and <br><br />echo&nbsp; &nbsp;  "REG delete HKLM\System\CurrentControlSet\Services\WAS\Parameters\ConfigIsolationPath"<br><br />echo You also have to reset the PathWWWRoot and PathFTPRoot registry values<br><br />echo in HKEY_LOCAL_MACHINE\Software\Microsoft\InetStp.<br><br />echo ===============================================================================<br><br />echo.<br><br />echo.<br><br />endlocal<br><br />goto success<br><br><br />REM error message if no argument or drive does not exist<br><br />:err<br><br />echo. <br><br />echo New root drive letter required. <br><br />echo Here an example how to move the IIS root to the F:\ drive:<br><br />echo. <br><br />echo MOVEIISROOT.BAT F<br><br />echo.<br><br />echo. <br><br><br />:success<br><br />&lt;&lt; End of moveiis7root.bat &gt;&gt;<br><br><br />AppCMD.exe can be used to tweak some more after the install is completed but I digress.<br><a href="http://blogs.iis.net/webdevelopertips/archive/2009/01/11/tip-42-did-you-know-configurationeditor-allows-you-to-generate-c-javascript-or-appcmd-script-to-update-configuration.aspx" rel="nofollow">http://blogs.iis.net/webdevelopertips/archive/2009/01/11/tip-42-did-you-know-configurationeditor-allows-you-to-generate-c-javascript-or-appcmd-script-to-update-configuration.aspx</a><br><br><br><br />**************<br><br />If you have the RTM version of Windows Server 2008 R2 then you can also use PowerShell.<br><br />To launch PowerShell 2.0 from the command-line type:&nbsp; POWERSHELL<br><br />&nbsp; &nbsp; &nbsp; &nbsp; * Import the Server Manager Module with: Import-Module ServerManager<br><br />&nbsp; &nbsp; &nbsp; &nbsp; * You will get the following cmdlets to list/add/remove features and roles:<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Get-WindowsFeature --&gt; lists available/Installed features and roles<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add-WindowsFeature --&gt; installs a feature or role<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Remove-WindowsFeature --&gt; removes a feature or role<br><br />The rest is poorly documented right now but it seems to borrow heavily from the 2 previous methods.<br><br><a href="http://technet.microsoft.com/en-us/library/cc732757.aspx" rel="nofollow">http://technet.microsoft.com/en-us/library/cc732757.aspx</a><br><br><br />At this time, there is no PowerShell script to install IIS 7.0 so here is the one I wrote:<br><br><br /># Installs IIS 7.0 with ALL Role-Services Plus SMTP feature<br><br /># Creates a log file in the same folder as this script<br><br /># CAVEAT: This *ONLY* works on Windows server 2008 R2 (and later?)<br><br />#<br><br />#<br><br /># To Run this Powershell script<br><br /># Step 1: Allow Powershell scripts to run<br><br />#	Start -&gt; Run<br><br />#	Type: PowerShell &lt;Press Enter&gt;<br><br />#	Type: Set-ExecutionPolicy Unrestricted &lt;Press Enter&gt;<br><br />#	Type: &lt;Press Enter&gt;<br><br />#<br><br /># Step 2: Run this Powershell Script <br><br />#	From the PowerShell Prompt<br><br />#		Browse to the folder where this Powershell Script is located<br><br />#		Type: . &lt;name of this Script&gt;<br><br /># 	OR<br><br />#<br><br />#	Right-click on the Powershell Script file (*.ps1)<br><br />#		Select "Run with PowerShell"<br><br />#<br><br /># Powershell Tip: Do not point Add-WindowsFeature's -logPath and redirection (&gt;&gt; $LogFile) to the same file<br><br /># 	Powershell gets confused as to what encoding to use (ANSI/UTF-8) and you will get Chinese characters!?!<br><br />#	Use "transcript" instead as done below.<br><br />#	NOTE: for some reasons it talks about "activities not shown..."<br><br />#<br><br><br />#Make $LogFile match the Powershell script name with a date and time stamp followed by ".log"<br><br />$dt = Get-Date -format "yyyyMMdd_hhmm"<br><br />$LogFile&nbsp; = ($MyInvocation.MyCommand.Name).Replace(".ps1","_$dt.log")<br><br><br><br />start-transcript $LogFile 	#start the transcript (aka Logging)<br><br />trap { stop-transcript; break}	#error trapping code to stop the transcript and break out of script<br><br />								#(alternatively could use "continue" execution) <br><br><br><br /># Load ServerManager Powershell module <br><br />Import-Module ServerManager<br><br><br />Add-WindowsFeature -Name Web-WebServer<br><br />Add-WindowsFeature -Name Web-Common-Http<br><br />Add-WindowsFeature -Name Web-Static-Content<br><br />Add-WindowsFeature -Name Web-Default-Doc<br><br />Add-WindowsFeature -Name Web-Dir-Browsing<br><br />Add-WindowsFeature -Name Web-Http-Errors<br><br />Add-WindowsFeature -Name Web-Http-Redirect<br><br />Add-WindowsFeature -Name Web-DAV-Publishing<br><br />Add-WindowsFeature -Name Web-Asp-Net<br><br />Add-WindowsFeature -Name Web-Net-Ext<br><br />Add-WindowsFeature -Name Web-ASP<br><br />Add-WindowsFeature -Name Web-CGI<br><br />Add-WindowsFeature -Name Web-ISAPI-Ext<br><br />Add-WindowsFeature -Name Web-ISAPI-Filter<br><br />Add-WindowsFeature -Name Web-Includes<br><br />Add-WindowsFeature -Name Web-Health<br><br />Add-WindowsFeature -Name Web-Http-Logging<br><br />Add-WindowsFeature -Name Web-Log-Libraries<br><br />Add-WindowsFeature -Name Web-Request-Monitor<br><br />Add-WindowsFeature -Name Web-Http-Tracing<br><br />Add-WindowsFeature -Name Web-Custom-Logging<br><br />Add-WindowsFeature -Name Web-ODBC-Logging<br><br />Add-WindowsFeature -Name Web-Security<br><br />Add-WindowsFeature -Name Web-Basic-Auth<br><br />Add-WindowsFeature -Name Web-Windows-Auth<br><br />Add-WindowsFeature -Name Web-Digest-Auth<br><br />Add-WindowsFeature -Name Web-Client-Auth<br><br />Add-WindowsFeature -Name Web-Cert-Auth<br><br />Add-WindowsFeature -Name Web-Url-Auth<br><br />Add-WindowsFeature -Name Web-Filtering<br><br />Add-WindowsFeature -Name Web-IP-Security<br><br />Add-WindowsFeature -Name Web-Performance<br><br />Add-WindowsFeature -Name Web-Stat-Compression<br><br />Add-WindowsFeature -Name Web-Dyn-Compression<br><br />Add-WindowsFeature -Name Web-Mgmt-Tools<br><br />Add-WindowsFeature -Name Web-Mgmt-Console<br><br />Add-WindowsFeature -Name Web-Scripting-Tools<br><br />Add-WindowsFeature -Name Web-Mgmt-Service<br><br />Add-WindowsFeature -Name Web-Mgmt-Compat<br><br />Add-WindowsFeature -Name Web-Metabase<br><br />Add-WindowsFeature -Name Web-WMI<br><br />Add-WindowsFeature -Name Web-Lgcy-Scripting<br><br />Add-WindowsFeature -Name Web-Lgcy-Mgmt-Console<br><br />Add-WindowsFeature -Name Web-Ftp-Server<br><br />Add-WindowsFeature -Name Web-WHC<br><br><br />Add-WindowsFeature -Name SMTP-Server<br><br><br />stop-transcript #stop the transcript (aka Logging)<br><br><br />#pause 50 Seconds (There is no "PAUSE" in PS, thx MS!)<br><br />Start-sleep -s 50<br><br><br><br />You are still able to use AppCMD.exe to tweak after install (e.g. the batch file to move c:\ inetpub) but it is rumoured that it will also be assimilated into a PowerSmell module.<br></p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/misterd" class="username" rel="nofollow">misterd</a>
+            10/27/2009 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fmicrosoft%2Finternet-information-server-iis%2F7-1100">log in</a> to comment
+
+    </div>
+</div>
+<div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6113"></div>
+    <div class="avg-rating">5</div>
+     <div class="arrow_down" id="tip-6113"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>IIS 7.0 can be installed unattended using one of 3 methods:<br><br />-Pkgmgr.exe	(Works in Vista, Server 2008, and Server 2008 R2)<br><br />-Servermanagercmd.exe	(Server 2008 and deprecated in Server 2008 R2) (not available in Vista or Seven)<br><br />-ServerManager PowerShell cmdlets (Server 2008 R2 ONLY!!)<br><br><br />In true MS form, MS has turned on the upgrade threadmill by scrapping the old sysocmgr.exe and its INF file. Now there are way more features to pick from than IIS 6.0 but NNTP is dropped and the SMTP is now separated from IIS and is now listed as a *feature* in Windows 2008's Server Manager. <br><br><br />Other changes are explained here:<br><a href="http://blogs.technet.com/mscom/archive/2007/09/07/the-tasty-morsels-found-in-dogfood-mscom-ops-top-10-changes-in-iis7-0.aspx" rel="nofollow">http://blogs.technet.com/mscom/archive/2007/09/07/the-tasty-morsels-found-in-dogfood-mscom-ops-top-10-changes-in-iis7-0.aspx</a><br><br><br />In either method, you can no longer specify where the files are to be installed at the onset. This is confirmed with the existence of a batch file to move ISS to another drive written by an IIS team member! Another thing that could be done is to format a new partition and instead of assigning it a drive letter, use the "mount in the following empty NTFS folder" option in disk management to host C:\inetpub before the install.&nbsp; With the lack of ability to specify where to install ANY Service or Feature with the any of the 3 methods, it's as if MS is hinting that UNIX's way of partitions instead of drive letters is the way to go!<br><br><br />All 3 methods share the same key words for installing Roles, Role Services and Features. The following methods work "as-is" on Server 2008 R1 except for PowerShell method which is Server 2008 R2 only. The names of the Roles, Role Services and Features have slightly changed from R1 to R2.<br><br><br />**************<br><br />The Pkgmgr.exe method is the simplest but you cannot install SMTP.<br><br />It is explained here <a href="http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/" rel="nofollow">http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/</a><br><br />And <a href="http://learn.iis.net/page.aspx/132/install-iis-7-from-the-command-line/" rel="nofollow">http://learn.iis.net/page.aspx/132/install-iis-7-from-the-command-line/</a><br><br />NOTE: It's very important that the Windows build version within the xml file (version="6.0.6001.16659") is the full version number of the OS, otherwise the xml file won't work.<br><br><br />You can use the following to install ALL of&nbsp; IIS' 7.0 features:<br><br />-Create unattend.xml from:<br><br><br />&lt;?xml version="1.0" ?&gt;<br><br />&lt;!-- <a href="http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/" rel="nofollow">http://learn.iis.net/page.aspx/133/using-unattend-setup-to-install-iis-7/</a> --&gt;<br><br />&lt;unattend xmlns="urn:schemas-microsoft-com:unattend"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; xmlns:wcm="<a href="http://schemas.microsoft.com/WMIConfig/2002/State" rel="nofollow">http://schemas.microsoft.com/WMIConfig/2002/State"&gt;</a><br><br />&lt;servicing&gt;<br><br />&nbsp; &nbsp; &nbsp; &lt;!-- Install a selectable update in a package that is in the Windows Foundation namespace --&gt;<br><br />&nbsp; &nbsp; &nbsp; &lt;package action="configure"&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;assemblyIdentity<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name="Microsoft-Windows-Foundation-Package"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; version="6.0.5308.6"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; language="neutral"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; processorArchitecture="x86"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; publicKeyToken="31bf3856ad364e35"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; versionScope="nonSxS"<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServerRole" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServer" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CommonHttpFeatures" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-StaticContent" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DefaultDocument" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DirectoryBrowsing" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpErrors" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpRedirect" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ApplicationDevelopment" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ASPNET" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-NetFxExtensibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ASP" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CGI" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ISAPIExtensions" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ISAPIFilter" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ServerSideIncludes" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HealthAndDiagnostics" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LoggingLibraries" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-RequestMonitor" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpTracing" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-CustomLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ODBCLogging" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Security" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-BasicAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WindowsAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-DigestAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ClientCertificateMappingAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IISCertificateMappingAuthentication" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-URLAuthorization" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-RequestFiltering" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IPSecurity" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Performance" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpCompressionStatic" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-HttpCompressionDynamic" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WebServerManagementTools" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementConsole" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementScriptingTools" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-ManagementService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-IIS6ManagementCompatibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-Metabase" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-WMICompatibility" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LegacyScripts" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-LegacySnapIn" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPPublishingService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPServer" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="IIS-FTPManagement" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-WindowsActivationService" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-ProcessModel" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-NetFxEnvironment" state="true"/&gt;<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &lt;selection name="WAS-ConfigurationAPI" state="true"/&gt;<br><br />&nbsp; &nbsp; &lt;/package&gt;<br><br />&lt;/servicing&gt;<br><br />&lt;/unattend&gt;<br><br><br />And then launch with:&nbsp;  start /w pkgmgr /n:unattend.xml<br><br><br><br />You can also skip the XML file creation with this one liner:<br><br />start /w pkgmgr /l:log.etw /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HttpRedirect;IIS-ApplicationDevelopment;IIS-ASPNET;IIS-NetFxExtensibility;IIS-ASP;IIS-ISAPIExtensions;IIS-ISAPIFilter;IIS-ServerSideIncludes;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-HttpTracing;IIS-Security;IIS-ClientCertificateMappingAuthentication;IIS-IISCertificateMappingAuthentication;IIS-RequestFiltering;IIS-IPSecurity;IIS-Performance;IIS-HttpCompressionStatic;IIS-HttpCompressionDynamic;IIS-WebServerManagementTools;IIS-ManagementConsole;IIS-ManagementScriptingTools;IIS-ManagementService;IIS-IIS6ManagementCompatibility;IIS-Metabase;IIS-WMICompatibility;IIS-LegacyScripts;IIS-LegacySnapIn;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI<br><br><br />Now this will install IIS but ONLY on the %SystemDrive% ( C:\ drive).<br><br />See the batch file in the next section on how to move it to another drive letter.<br><br><br />******************<br><br />The Servermanagercmd.exe will not work in a workstation OS (Vista or Seven) but will be able to install SMTP and any other Features/server Roles you wish at the same time as IIS 7.0. The catch is that MS has deprecated (aka "to be phased out later") in Windows server 2008 R2.<br><br><br />Syntax is as follows:<br><br />ServerManagerCmd.exe -query [&lt;query.xml&gt;] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -inputPath &lt;answer.xml&gt; [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -install &lt;command-Id&gt; [-setting &lt;setting-name&gt;=&lt;setting value&gt;][-allSubFeatures] [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe -remove &lt;command-Id&gt; [-resultPath &lt;result.xml&gt; [-restart] | -whatIf] [-logPath &lt;log.txt&gt;]<br><br />ServerManagerCmd.exe [-help | -?]<br><br><br />Every time you launch it or its GUI counterpart it updates a log in: C:\windows\LOGS\ServerManager.log<br><br><br />The hardest thing to figure out is the difference between a Role, Role Services and Features.<br><br />A Role is a grouping of Role Services. Features are basically Services that have not been grouped under a Role. Role Services can also be part of other Roles. If you specify to install a Role (e.g. Web-Server for IIS 7), its default Role Services will be installed. You can get a full list here: <a href="http://technet.microsoft.com/en-us/library/cc875805(WS.10).aspx" rel="nofollow">http://technet.microsoft.com/en-us/library/cc875805(WS.10).aspx</a>&nbsp; (Well, at least it was here Aug 28, 2009) but notice they don't tell you which is the "Role" and which is the "Role Service". Since it&acirc;??s Trial and Error, use the -whatif parameter. You can also get a hint as what is a Role Service by running:&nbsp; ServerManagerCmd.exe -query<br><br><br />Notice that Sub-Roles also exists (e.g. Web-App-Development)<br><br><br />This will install IIS 7.0 (aka the Web-Server "role") without SMTP:<br><br />ServerManagerCmd.exe -install Web-Server -allSubFeatures -resultPath C:\TEMP\WebServer.xml -restart<br><br><br />To install IIS 7.0 with default "role services" plus the SMTP "Feature", create IIS7_w_SMTP.xml with the following:<br><br />&lt;ServerManagerConfiguration Action="Install" xmlns="<a href="http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1" rel="nofollow">http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1"&gt;</a><br><br />&lt;Role Id="Web-Server"/&gt;<br><br />&lt;Feature Id="SMTP-Server"/&gt;<br><br />&lt;/ServerManagerConfiguration&gt;<br><br><br />Then launch:<br><br />ServerManagerCmd.exe -inputPath .\IIS7_w_SMTP.xml -resultPath .\IIS7_Log_file.xml<br><br><br />Other things to remember: <br><br />-If you want to install IIS with your selection of Role Services, don't mention the Web-Server Role or Sub-Roles, just the "Role Services" themselves.<br><br />-You cannot have comments in the xml file (e.g. - &lt;!--&nbsp; ====== --&gt;&nbsp; ) in R1. They are, however, allowed in R2. (Go figure!)<br><br><br><br />To install IIS 7.0 with ALL "Role Services" plus the SMTP "Feature", create IIS7_w_SMTP.xml with the following:<br><br />&lt;ServerManagerConfiguration Action="Install" xmlns="<a href="http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1" rel="nofollow">http://schemas.microsoft.com/sdm/Windows/ServerManager/Configuration/2007/1"&gt;</a><br><br />&lt;RoleService Id="Web-WebServer"/&gt;<br><br />&lt;RoleService Id="Web-Common-Http"/&gt;<br><br />&lt;RoleService Id="Web-Static-Content"/&gt;<br><br />&lt;RoleService Id="Web-Default-Doc"/&gt;<br><br />&lt;RoleService Id="Web-Dir-Browsing"/&gt;<br><br />&lt;RoleService Id="Web-Http-Errors"/&gt;<br><br />&lt;RoleService Id="Web-Http-Redirect"/&gt;<br><br />&lt;RoleService Id="Web-Asp-Net"/&gt;<br><br />&lt;RoleService Id="Web-Net-Ext"/&gt;<br><br />&lt;RoleService Id="Web-ASP"/&gt;<br><br />&lt;RoleService Id="Web-CGI"/&gt;<br><br />&lt;RoleService Id="Web-ISAPI-Ext"/&gt;<br><br />&lt;RoleService Id="Web-ISAPI-Filter"/&gt;<br><br />&lt;RoleService Id="Web-Includes"/&gt;<br><br />&lt;RoleService Id="Web-Health"/&gt;<br><br />&lt;RoleService Id="Web-Http-Logging"/&gt;<br><br />&lt;RoleService Id="Web-Log-Libraries"/&gt;<br><br />&lt;RoleService Id="Web-Request-Monitor"/&gt;<br><br />&lt;RoleService Id="Web-Http-Tracing"/&gt;<br><br />&lt;RoleService Id="Web-Custom-Logging"/&gt;<br><br />&lt;RoleService Id="Web-ODBC-Logging"/&gt;<br><br />&lt;RoleService Id="Web-Security"/&gt;<br><br />&lt;RoleService Id="Web-Basic-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Windows-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Digest-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Client-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Cert-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Url-Auth"/&gt;<br><br />&lt;RoleService Id="Web-Filtering"/&gt;<br><br />&lt;RoleService Id="Web-IP-Security"/&gt;<br><br />&lt;RoleService Id="Web-Performance"/&gt;<br><br />&lt;RoleService Id="Web-Stat-Compression"/&gt;<br><br />&lt;RoleService Id="Web-Dyn-Compression"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Tools"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Console"/&gt;<br><br />&lt;RoleService Id="Web-Scripting-Tools"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Service"/&gt;<br><br />&lt;RoleService Id="Web-Mgmt-Compat"/&gt;<br><br />&lt;RoleService Id="Web-Metabase"/&gt;<br><br />&lt;RoleService Id="Web-WMI"/&gt;<br><br />&lt;RoleService Id="Web-Lgcy-Scripting"/&gt;<br><br />&lt;RoleService Id="Web-Lgcy-Mgmt-Console"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Publishing"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Server"/&gt;<br><br />&lt;RoleService Id="Web-Ftp-Mgmt-Console"/&gt;<br><br />&lt;Feature Id="SMTP-Server"/&gt;<br><br />&lt;/ServerManagerConfiguration&gt;<br><br><br><br />Now this will install IIS but ONLY on the %SystemDrive% ( C:\ drive).<br><a href="http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx" rel="nofollow">http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx</a><br><br />Here, Thomas Deml, an ISS team member shares a script to move the IIS INETPUB folder *after* it is installed. What follows is that script (with a bug fix) since MS' web sites are made of vapour and disappears on a whim:<br><br><br />&lt;&lt; Start of moveiis7root.bat &gt;&gt;<br><br />@echo off<br><br />IF "%1" == "" goto err<br><br />setlocal<br><br />set MOVETO=%1:\<br><br><br />REM simple error handling if drive does not exist or argument is wrong <br><br />IF NOT EXIST %MOVETO% goto err<br><br><br />REM Backup IIS config before we start changing config to point to the new path<br><br />%windir%\system32\inetsrv\appcmd add backup beforeRootMove<br><br><br><br />REM Stop all IIS services<br><br />iisreset /stop<br><br><br />REM Copy all content <br><br />REM /O - copy ACLs<br><br />REM /E - copy sub directories including empty ones<br><br />REM /I - assume destination is a directory<br><br />REM /Q - quiet<br><br><br />REM echo on, because user will be prompted if content already exists.<br><br />echo on<br><br />xcopy %systemdrive%\inetpub %MOVETO%inetpub /O /E /I /Q<br><br />@echo off<br><br />REM Move AppPool isolation directory <br><br />reg add HKLM\System\CurrentControlSet\Services\WAS\Parameters /v ConfigIsolationPath /t REG_SZ /d %MOVETO%inetpub\temp\appPools /f<br><br><br />REM Move logfile directories<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/sites -siteDefaults.traceFailedRequestsLogging.directory:"%MOVETO%inetpub\logs\FailedReqLogFiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/sites -siteDefaults.logfile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/log -centralBinaryLogFile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationHost/log -centralW3CLogFile.directory:"%MOVETO%inetpub\logs\logfiles"<br><br><br />REM Move config history location, temporary files, the path for the Default Web Site and the custom error locations<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.applicationhost/configHistory -path:%MOVETO%inetpub\history<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.webServer/asp -cache.disktemplateCacheDirectory:"%MOVETO%inetpub\temp\ASP Compiled Templates"<br><br />%windir%\system32\inetsrv\appcmd set config -section:system.webServer/httpCompression -directory:"%MOVETO%inetpub\temp\IIS Temporary Compressed Files"<br><br />%windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:%MOVETO%inetpub\wwwroot<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='401'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='403'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='404'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='405'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='406'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='412'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='500'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='501'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br />%windir%\system32\inetsrv\appcmd set config -section:httpErrors /[statusCode='502'].prefixLanguageFilePath:%MOVETO%inetpub\custerr<br><br><br />REM Make sure Service Pack and Hotfix Installers know where the IIS root directories are<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathWWWRoot /t REG_SZ /d %moveto%inetpub\wwwroot /f<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathFTPRoot /t REG_SZ /d %moveto%inetpub\ftproot /f<br><br><br />REM Restart all IIS services<br><br />iisreset /start<br><br />echo.<br><br />echo.<br><br />echo ===============================================================================<br><br />echo Moved IIS7 root directory from %systemdrive%\ to %MOVETO%.<br><br />echo.<br><br />echo Please verify if the move worked. If so you can delete the %systemdrive%\inetpub directory.<br><br />echo If something went wrong you can restore the old settings via <br><br />echo&nbsp; &nbsp;  "APPCMD restore backup beforeRootMove" <br><br />echo and <br><br />echo&nbsp; &nbsp;  "REG delete HKLM\System\CurrentControlSet\Services\WAS\Parameters\ConfigIsolationPath"<br><br />echo You also have to reset the PathWWWRoot and PathFTPRoot registry values<br><br />echo in HKEY_LOCAL_MACHINE\Software\Microsoft\InetStp.<br><br />echo ===============================================================================<br><br />echo.<br><br />echo.<br><br />endlocal<br><br />goto success<br><br><br />REM error message if no argument or drive does not exist<br><br />:err<br><br />echo. <br><br />echo New root drive letter required. <br><br />echo Here an example how to move the IIS root to the F:\ drive:<br><br />echo. <br><br />echo MOVEIISROOT.BAT F<br><br />echo.<br><br />echo. <br><br><br />:success<br><br />&lt;&lt; End of moveiis7root.bat &gt;&gt;<br><br><br />AppCMD.exe can be used to tweak some more after the install is completed but I digress.<br><a href="http://blogs.iis.net/webdevelopertips/archive/2009/01/11/tip-42-did-you-know-configurationeditor-allows-you-to-generate-c-javascript-or-appcmd-script-to-update-configuration.aspx" rel="nofollow">http://blogs.iis.net/webdevelopertips/archive/2009/01/11/tip-42-did-you-know-configurationeditor-allows-you-to-generate-c-javascript-or-appcmd-script-to-update-configuration.aspx</a><br><br><br><br />**************<br><br />If you have the RTM version of Windows Server 2008 R2 then you can also use PowerShell.<br><br />To launch PowerShell 2.0 from the command-line type:&nbsp; POWERSHELL<br><br />&nbsp; &nbsp; &nbsp; &nbsp; * Import the Server Manager Module with: Import-Module ServerManager<br><br />&nbsp; &nbsp; &nbsp; &nbsp; * You will get the following cmdlets to list/add/remove features and roles:<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Get-WindowsFeature --&gt; lists available/Installed features and roles<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Add-WindowsFeature --&gt; installs a feature or role<br><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Remove-WindowsFeature --&gt; removes a feature or role<br><br />The rest is poorly documented right now but it seems to borrow heavily from the 2 previous methods.<br><br><a href="http://technet.microsoft.com/en-us/library/cc732757.aspx" rel="nofollow">http://technet.microsoft.com/en-us/library/cc732757.aspx</a><br><br><br />At this time, there is no PowerShell script to install IIS 7.0 so here is the one I wrote:<br><br><br /># Installs IIS 7.0 with ALL Role-Services Plus SMTP feature<br><br /># Creates a log file in the same folder as this script<br><br /># CAVEAT: This *ONLY* works on Windows server 2008 R2 (and later?)<br><br />#<br><br />#<br><br /># To Run this Powershell script<br><br /># Step 1: Allow Powershell scripts to run<br><br />#	Start -&gt; Run<br><br />#	Type: PowerShell &lt;Press Enter&gt;<br><br />#	Type: Set-ExecutionPolicy Unrestricted &lt;Press Enter&gt;<br><br />#	Type: &lt;Press Enter&gt;<br><br />#<br><br /># Step 2: Run this Powershell Script <br><br />#	From the PowerShell Prompt<br><br />#		Browse to the folder where this Powershell Script is located<br><br />#		Type: . &lt;name of this Script&gt;<br><br /># 	OR<br><br />#<br><br />#	Right-click on the Powershell Script file (*.ps1)<br><br />#		Select "Run with PowerShell"<br><br />#<br><br /># Powershell Tip: Do not point Add-WindowsFeature's -logPath and redirection (&gt;&gt; $LogFile) to the same file<br><br /># 	Powershell gets confused as to what encoding to use (ANSI/UTF-8) and you will get Chinese characters!?!<br><br />#	Use "transcript" instead as done below.<br><br />#	NOTE: for some reasons it talks about "activities not shown..."<br><br />#<br><br><br />#Make $LogFile match the Powershell script name with a date and time stamp followed by ".log"<br><br />$dt = Get-Date -format "yyyyMMdd_hhmm"<br><br />$LogFile&nbsp; = ($MyInvocation.MyCommand.Name).Replace(".ps1","_$dt.log")<br><br><br><br />start-transcript $LogFile 	#start the transcript (aka Logging)<br><br />trap { stop-transcript; break}	#error trapping code to stop the transcript and break out of script<br><br />								#(alternatively could use "continue" execution) <br><br><br><br /># Load ServerManager Powershell module <br><br />Import-Module ServerManager<br><br><br />Add-WindowsFeature -Name Web-WebServer<br><br />Add-WindowsFeature -Name Web-Common-Http<br><br />Add-WindowsFeature -Name Web-Static-Content<br><br />Add-WindowsFeature -Name Web-Default-Doc<br><br />Add-WindowsFeature -Name Web-Dir-Browsing<br><br />Add-WindowsFeature -Name Web-Http-Errors<br><br />Add-WindowsFeature -Name Web-Http-Redirect<br><br />Add-WindowsFeature -Name Web-DAV-Publishing<br><br />Add-WindowsFeature -Name Web-Asp-Net<br><br />Add-WindowsFeature -Name Web-Net-Ext<br><br />Add-WindowsFeature -Name Web-ASP<br><br />Add-WindowsFeature -Name Web-CGI<br><br />Add-WindowsFeature -Name Web-ISAPI-Ext<br><br />Add-WindowsFeature -Name Web-ISAPI-Filter<br><br />Add-WindowsFeature -Name Web-Includes<br><br />Add-WindowsFeature -Name Web-Health<br><br />Add-WindowsFeature -Name Web-Http-Logging<br><br />Add-WindowsFeature -Name Web-Log-Libraries<br><br />Add-WindowsFeature -Name Web-Request-Monitor<br><br />Add-WindowsFeature -Name Web-Http-Tracing<br><br />Add-WindowsFeature -Name Web-Custom-Logging<br><br />Add-WindowsFeature -Name Web-ODBC-Logging<br><br />Add-WindowsFeature -Name Web-Security<br><br />Add-WindowsFeature -Name Web-Basic-Auth<br><br />Add-WindowsFeature -Name Web-Windows-Auth<br><br />Add-WindowsFeature -Name Web-Digest-Auth<br><br />Add-WindowsFeature -Name Web-Client-Auth<br><br />Add-WindowsFeature -Name Web-Cert-Auth<br><br />Add-WindowsFeature -Name Web-Url-Auth<br><br />Add-WindowsFeature -Name Web-Filtering<br><br />Add-WindowsFeature -Name Web-IP-Security<br><br />Add-WindowsFeature -Name Web-Performance<br><br />Add-WindowsFeature -Name Web-Stat-Compression<br><br />Add-WindowsFeature -Name Web-Dyn-Compression<br><br />Add-WindowsFeature -Name Web-Mgmt-Tools<br><br />Add-WindowsFeature -Name Web-Mgmt-Console<br><br />Add-WindowsFeature -Name Web-Scripting-Tools<br><br />Add-WindowsFeature -Name Web-Mgmt-Service<br><br />Add-WindowsFeature -Name Web-Mgmt-Compat<br><br />Add-WindowsFeature -Name Web-Metabase<br><br />Add-WindowsFeature -Name Web-WMI<br><br />Add-WindowsFeature -Name Web-Lgcy-Scripting<br><br />Add-WindowsFeature -Name Web-Lgcy-Mgmt-Console<br><br />Add-WindowsFeature -Name Web-Ftp-Server<br><br />Add-WindowsFeature -Name Web-WHC<br><br><br />Add-WindowsFeature -Name SMTP-Server<br><br><br />stop-transcript #stop the transcript (aka Logging)<br><br><br />#pause 50 Seconds (There is no "PAUSE" in PS, thx MS!)<br><br />Start-sleep -s 50<br><br><br><br />You are still able to use AppCMD.exe to tweak after install (e.g. the batch file to move c:\ inetpub) but it is rumoured that it will also be assimilated into a PowerSmell module.<br></p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/misterd" class="username" rel="nofollow">misterd</a>
+            10/27/2009 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fmicrosoft%2Finternet-information-server-iis%2F7-1100">log in</a> to comment
+
+    </div>
+</div>
+<div class="tip">
+    <div class="tip-part">
+        <div class="tip-rating">
+
+                
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-2476"></div>
+    <div class="avg-rating">3</div>
+     <div class="arrow_down" id="tip-2476"></div>
+</div>            </div>
+        <div class="tip-info">
+    <div class="the-tip">
+                    <p>The following is the Move_IIS7.bat (moveiis7root.zip) translated to PowerShell. <br><br />&gt;&gt;&gt; Use at your own risk. &lt;&lt;&lt;<br><br><br><br /># REM The following it the CMD created by Thomas Deml, an ISS team member<br><br />#<a href="http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx" rel="nofollow">http://blogs.iis.net/thomad/archive/2008/02/10/moving-the-iis7-inetpub-directory-to-a-different-drive.aspx</a><br><br /># now translated to Powershell by misterd (Ottawa, Canada)<br><br><br />#Pickup Drive letter from command line<br><br><br />$MOVETO=$arg:<br><br />Write-host $MOVETO<br><br><br />#REM simple error handling if drive does not exist or argument is wrong <br><br />if (-not (test-path $MOVETO)){<br><br />		echo $MOVETO + " drive does not exist"<br><br />		EXIT 2<br><br />		}<br><br><br />Write-host <br><br />Write-host *****************************************<br><br />Write-host Moving C:\inetpub\ to ${MOVETO}inetpubWrite-host *****************************************<br><br />Write-host <br><br><br><br><br />Write-host REM Backup IIS config before we start changing config to point to the new path<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd add backup beforeRootMove<br><br><br><br />Write-host Stop all IIS services<br><br />iisreset /stop<br><br><br />#REM Copy all content <br><br />#REM /O - copy ACLs<br><br />#REM /E - copy sub directories including empty ones<br><br />#REM /I - assume destination is a directory<br><br />#REM /Q - quiet<br><br><br />#CAVEAT: the following does not show up in log files<br><br><br />Write-host REM Xcopy $env:systemdrive\inetpub to ${MOVETO}inetpub folder<br><br />xcopy $env:systemdrive\inetpub ${MOVETO}inetpub /O /E /I /Q<br><br><br><br />Write-host REM Move AppPool isolation directory <br><br />reg add HKLM\System\CurrentControlSet\Services\WAS\Parameters /v ConfigIsolationPath /t REG_SZ /d "${MOVETO}inetpub\temp\appPools" /f<br><br><br><br />Write-host REM Move logfile directories<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.applicationHost/sites" "-siteDefaults.traceFailedRequestsLogging.directory: ""${MOVETO}inetpub\logs\FailedReqLogFiles"""<br><br />&amp; $env:windir\system32\inetsrv\appcmd set config "-section:system.applicationHost/sites" "-siteDefaults.logfile.directory:""${MOVETO}inetpub\logs\FailedReqLogFiles"""<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.applicationHost/log" "-centralBinaryLogFile.directory:""${MOVETO}inetpub\logs\logfiles"""<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.applicationHost/log" "-centralW3CLogFile.directory:""${MOVETO}inetpub\logs\logfiles"""<br><br><br><br />Write-host REM Move config history location<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.applicationhost/configHistory" "-path:${MOVETO}inetpub\history"<br><br><br><br />Write-host REM Move temporary files location<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.webServer/asp" "-cache.disktemplateCacheDirectory:${MOVETO}inetpub\temp\ASP Compiled Templates"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:system.webServer/httpCompression" "-directory:${MOVETO}inetpub\temp\IIS Temporary Compressed Files"<br><br><br><br />Write-host REM Move the path for the Default Web Site location<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set vdir "Default Web Site/" "-physicalPath:${MOVETO}inetpub\wwwroot"<br><br><br><br />Write-host REM Move the path for the custom error locations<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='401'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='403'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='404'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='405'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='406'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='412'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='500'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='501'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br />&amp; $env:WINDIR\system32\inetsrv\appcmd set config "-section:httpErrors" "/[statusCode='502'].prefixLanguageFilePath:${MOVETO}inetpub\custerr"<br><br><br><br />Write-host REM Make sure Service Pack and Hotfix Installers know where the IIS root directories are<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathWWWRoot /t REG_SZ /d ${MOVETO}inetpub\wwwroot /f<br><br />reg add HKLM\Software\Microsoft\inetstp /v PathFTPRoot /t REG_SZ /d ${MOVETO}inetpub\ftproot /f<br><br><br />Write-host REM Restart all IIS services<br><br />iisreset /start<br><br><br />Write-host<br><br />Write-host ===============================================================================<br><br />Write-host&nbsp; Moved IIS7 root directory from $env:{systemdrive}\ to ${MOVETO}\.<br><br />Write-host <br><br />Write-host&nbsp; Please verify if the move worked. If so you can delete the $env:{systemdrive}\inetpub directory.<br><br />Write-host&nbsp; If something went wrong you can restore the old settings via <br><br />Write-host&nbsp; &nbsp; &nbsp; "APPCMD restore backup beforeRootMove" <br><br />Write-host&nbsp; and <br><br />Write-host&nbsp; &nbsp; &nbsp; "REG delete HKLM\System\CurrentControlSet\Services\WAS\Parameters\ConfigIsolationPath"<br><br />Write-host&nbsp; You also have to reset the PathWWWRoot and PathFTPRoot registry values<br><br />Write-host&nbsp; in HKEY_LOCAL_MACHINE\Software\Microsoft\InetStp.<br><br />Write-host&nbsp; ===============================================================================<br><br />Write-host <br><br><br />read-host 'Press ENTER key to continue...'	# aka Pause</p><br />
+        
+        <div class="byline">
+            <span class="commentslabel collapsed-comments">Show Comments</span> |
+            <a href="/user/misterd" class="username" rel="nofollow">misterd</a>
+            11/04/2009 |
+                                </div>
+    </div>
+
+</div>
+    </div>
+    <br clear="all"/>
+    <div class="deployment-tips-comments">
+
+        <ul class="comments">
+</ul>
+            Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Fmicrosoft%2Finternet-information-server-iis%2F7-1100">log in</a> to comment
+
+    </div>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-command-line" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-script" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+
+                        </div>
+                        <div id="software-tag-view-tab-securityinfo" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-terminal" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+                        <div id="software-tag-view-tab-virtualization" class="tabs-hide">
+                            <div class="tip">
+    <p>No deployment tips yet. Be the first to add one!</p>
+</div>
+                        </div>
+
+                    </div>
+
+
+                    
+                </div>
+
+                <div id="deploy-bottom">
+
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Inventory Records (1)</h2>
+        <p>View inventory records anonymously contributed by opt-in users of the
+            <a href="http://www.kace.com/demo/index.php?tab=flash-demo&utm_medium=ITNinja&utm_source=Software+Tag&ad_group=%20Package+KB+v2&campaign_id=701400000009kH1">
+                K1000 Systems Management Appliance</a>.
+        </p>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                                        <div><a class="selected" href="/software/version/revision/29540/61319">7</a></div>
+                                    </div>
+                <div id="software-view-version-revision-details">
+                                                <h2>Internet Information Server (IIS)</h2>
+            <div><h3>Version</h3><span>7</span></div>
+                                                                                                                                        </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records secion -->
+
+    <div class="software-section" id="q-a">
+        <div class="add-links">
+               <a href="/question/new/microsoft-internet-information-server-%28iis%29-7" class="add-tip">Ask a new question</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Questions & Answers (0)</h2>
+        <p>Questions & Answers related to Microsoft Internet Information Server (IIS)</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A secion -->
+
+    <div class="software-section" id="blogs">
+        <div class="add-links">
+            <a href="/blog/post/new/microsoft-internet-information-server-%28iis%29-7" class="add-tip">Write a blog post</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Blogs (1)</h2>
+        <p>Blog posts related to Microsoft Internet Information Server (IIS)</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/microsoft-internet-information-services-iis-7-manager">
+                Microsoft Internet Information Services(IIS) 7 Manager
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="microsoft-internet-information-services-iis-7-manager" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-internet-information-services-iis-7-manager" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-internet-information-services-iis-7-manager" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-internet-information-services-iis-7-manager" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="microsoft-internet-information-services-iis-7-manager" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                3 weeks ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Blogs secion -->
+
+    <div class="software-section" id="links">
+        <div class="add-links">
+            <a href="/link/new/microsoft-internet-information-server-%28iis%29-7" class="add-tip">Share a link</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Links (6)</h2>
+        <p>Links related to Microsoft Internet Information Server (IIS)</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site">
+                Using Unattended Setup to Install IIS 7.0 : Installing IIS 7 : Installing and Configuring IIS 7 : The Official Microsoft IIS Site
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" type="radio" class="star" disabled="disabled"  />
+    <input name="using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" type="radio" class="star" disabled="disabled"  />
+    <input name="using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" type="radio" class="star" disabled="disabled"  />
+    <input name="using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" type="radio" class="star" disabled="disabled"  />
+    <input name="using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/misterd" rel="nofollow">misterd</a>
+                3 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/creating-an-answer-file-for-server-manager-commands">
+                Creating an Answer File for Server Manager Commands
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="creating-an-answer-file-for-server-manager-commands" type="radio" class="star" disabled="disabled"  />
+    <input name="creating-an-answer-file-for-server-manager-commands" type="radio" class="star" disabled="disabled"  />
+    <input name="creating-an-answer-file-for-server-manager-commands" type="radio" class="star" disabled="disabled"  />
+    <input name="creating-an-answer-file-for-server-manager-commands" type="radio" class="star" disabled="disabled"  />
+    <input name="creating-an-answer-file-for-server-manager-commands" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/misterd" rel="nofollow">misterd</a>
+                3 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/how-to-add-or-remove-windows-components-with-sysocmgr-exe">
+                How to Add or Remove Windows Components with Sysocmgr.exe
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                8 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/how-to-add-or-remove-windows-components-with-sysocmgr-exe-1">
+                How to Add or Remove Windows Components with Sysocmgr.exe
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                6 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/iis-configuration-script-iiscnfg-vbs">
+                IIS Configuration Script (iiscnfg.vbs)
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="iis-configuration-script-iiscnfg-vbs" type="radio" class="star" disabled="disabled"  />
+    <input name="iis-configuration-script-iiscnfg-vbs" type="radio" class="star" disabled="disabled"  />
+    <input name="iis-configuration-script-iiscnfg-vbs" type="radio" class="star" disabled="disabled"  />
+    <input name="iis-configuration-script-iiscnfg-vbs" type="radio" class="star" disabled="disabled"  />
+    <input name="iis-configuration-script-iiscnfg-vbs" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                8 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/microsofts-installing-iis-document">
+                Microsofts Installing IIS document
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="microsofts-installing-iis-document" type="radio" class="star" disabled="disabled"  />
+    <input name="microsofts-installing-iis-document" type="radio" class="star" disabled="disabled"  />
+    <input name="microsofts-installing-iis-document" type="radio" class="star" disabled="disabled"  />
+    <input name="microsofts-installing-iis-document" type="radio" class="star" disabled="disabled"  />
+    <input name="microsofts-installing-iis-document" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                8 years ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end links secion -->
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <footer>
+                        <div id="footer-nav">
+                <div>
+                    <strong>Home Pages</strong>
+                    <ul>
+                        <li><a href="/software">Software</a></li>
+                        <li><a href="/tips">Deployment Tips</a></li>
+                        <li><a href="/question">Questions</a></li>
+                        <li><a href="/blog">Blog Posts</a></li>
+                        <li><a href="/link">Shared Links</a></li>
+                    </ul>
+                </div>
+                <div>
+                   <strong>FAQ &amp; Support</strong>
+                   <ul>
+                       <li><a href="/faq">Site FAQ</a></li>
+                       <!--<li><a href="/faq/beta">Beta FAQ</a></li>-->
+                       <li><a href="/faq#PointsFAQ">Ninja Points FAQ</a></li>
+                       <li><a href="/faq#ADFAQ">AppDeploy FAQ</a></li>
+                       <li><a href="/kace">Dell KACE Support</a></li>
+                   </ul>
+               </div>
+                <div>
+                    <strong>About</strong>
+                    <ul>
+                        <li><a href="/about">ITNinja</a></li>
+                        <li><a href="/about">Welcome Video</a></li>
+                        <li><a href="/tour">Tour</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="share">
+                    <strong>Share/Contribute</strong>
+                    <ul class="share-list">
+                        <li><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                            </ul>
+                </div>
+            </div>
+        <br clear="all"/>
+        <br clear="all"/>
+            <div id="footer-links">
+                <p>&copy; Dell Inc. All rights reserved.</p>
+                <ul>
+                    <li><a href="/legal">Legal</a></li>
+                    <li><a href="/about" class="last">About</a></li>
+                </ul>
+                <p id="footer-logos">
+                    <a href="http://www.kace.com/about/index.php?utm_medium=ITNinja&utm_source=Page+Footer&ad_group=ITNinja&campaign_id=701400000009kH1"><img src="/bundles/itninjaweb/img/DellKace_logo.png" alt="Dell | Kace" /></a>
+                </p>
+                <div id="version"><span id="revision">0cb8058</span><span id="build-date">Tue Nov 20 11:20:29 EST 2012</span>
+ninjaweb02<span id="server">www.itninja.com</span></div>
+            </div>
+        </footer>
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/c7062e8.js"></script>
+        
+        
+        <script src="/js/0c271c0.js"></script>
+<script>
+// has to be in here for the asset parameters to get rendered by twig
+    $(function(){
+
+        $('.toggle').click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('minus');
+            var content = $(this).parents('.software-section').children('.inner-content');
+
+            if (!$(content).is(':animated')){
+                $(content).toggle('fast');
+            }
+
+        });
+
+        $('#scrollQA').click(function(){
+            $('html,body').animate({scrollTop: $('#q-a').offset().top},'slow');
+        });
+        $('#scrollBlog').click(function(){
+            $('html,body').animate({scrollTop: $('#blogs').offset().top},'slow');
+        });
+        $('#scrollInv').click(function(){
+            $('html,body').animate({scrollTop: $('#inventory-records').offset().top},'slow');
+        });
+        $('#scrollLinks').click(function(){
+            $('html,body').animate({scrollTop: $('#links').offset().top},'slow');
+        });
+        $('.top').click(function(){
+            $('html,body').animate({scrollTop: $('#global-content').offset().top},'slow');
+        });
+
+        var list = $('#version-list');
+
+        $('#version-changer').live("click", function(){
+
+            if (list.hasClass('show')){
+
+            } else {
+                $("body").addClass('menu-open');
+                list.addClass('show');
+            }
+        });
+        $("body.menu-open").live("click", function(){
+            list.removeClass('show');
+            $("body").removeClass('menu-open');
+        });
+
+        $('#software-view-version-revision-list a').click( function(evt) {
+            $("#software-view-version-revision-list a").removeClass('selected');
+            $(this).addClass('selected');
+            evt.preventDefault();
+            $.get($(this).attr('href'), function(data) {
+                $("#software-view-version-revision-details").html(data);
+            });
+        });
+
+
+        $.get("/software/version/deployment_ratings/29540", function(data) {
+              $("#deployment-ratings-summary").html(data);
+              ratings.init();
+        });
+
+
+
+});
+</script>
+            <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-26553848-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+            </script>
+                            <script type="text/javascript">
+              var uvOptions = {};
+              (function() {
+                var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+                uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/1cft4y4FWQ7YXJ6BaxBYQ.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+              })();
+            </script>
+            <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrf2","beacon-1.newrelic.com","fa2fb87fc4",520511,"b1BUNhNQC0dUWkANC1YaYxAIHgRERRdEDBQ=",0,255,new Date().getTime()]);</script>
+</body>
+</html>

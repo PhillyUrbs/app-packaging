@@ -1,0 +1,2353 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Microsoft Silverlight 5 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft Silverlight 5">
+        <meta name="keywords" content="Microsoft,Microsoft Silverlight,Silverlight 5">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/microsoft/silverlight/5-2022" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+            <li class="first "><a href="/software">Software Tips</a></li>
+            <li ><a href="/question">Questions</a></li>
+            <li ><a href="/blog">Blogs</a></li>
+            <li ><a href="/link">Links</a></li>
+            <li ><a href="/community">Communities</a></li>
+                    </ul>
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/microsoft/browse">Microsoft</a></li>
+    <li><a href="/software/microsoft/silverlight/versions">Silverlight</a></li>
+    <li>5</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Microsoft Silverlight</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 5
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/10-972"
+                                            >
+                                            10.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/7-1492"
+                                            >
+                                            7.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/5-2022"
+                                            >
+                                            5.x <span>(11 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/4-2466"
+                                            >
+                                            4.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/3-3424"
+                                            >
+                                            3.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/2-4925"
+                                            >
+                                            2.x <span>(7 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/1-10246"
+                                            >
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/silverlight/0-1342"
+                                            >
+                                            0.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/38642/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZzaWx2ZXJsaWdodCUyRjUtMjAyMg==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/38642/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZzaWx2ZXJsaWdodCUyRjUtMjAyMg==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 5 based on 1 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 70.3k &nbsp|&nbsp
+    Created: 07/16/2011
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version38642" type="radio" class="star" disabled="disabled"  />
+    <input name="Version38642" type="radio" class="star" disabled="disabled"  />
+    <input name="Version38642" type="radio" class="star" disabled="disabled"  />
+    <input name="Version38642" type="radio" class="star" disabled="disabled"  />
+    <input name="Version38642" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">5</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Silverlight has <a href="#inventory-records" id="scrollInv">5 inventory records</a>,
+                <a href="#q-a" id="scrollQA">8 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">6 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (11)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/blue.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>1 / 5 (Very Easy)</strong>
+                            based on <strong>5</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/38642" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="8lT50bQ4a8c2A_Leru3jgQ0alX0K5DhTL_BJHoThYY4"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/silverlight/5-2022#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/silverlight/5-2022/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_3026" name="tip_3026">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3026"></div> -->
+   <div id="tip-3026" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">14</div>
+   <div id="tip-3026" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3026"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Go to http://www.microsoft.com/getsilverlight/Get-Started/Install/Default.aspx, and download silverlight.exe.<br />
+Silent installation from the .exe:<br />
+<br />
+silverlight.exe /q<br />
+<br />
+(doing a silent install from the .exe will also upgrade previous versions without the prior need to uninstall)<br />
+<br />
+If you want to use the .msi, you can extract is by running silverlight.exe /extract. You'll also see a silverlight.7z file, from which you can extract silverlight.msp using WinZip (or your choice of unzipper). You can discard all other files except for the .msi and .msp.<br />
+<br />
+You can then do a silent installation from the .msi, but first uninstall Silverlight 4.0 if it's installed otherwise it'll complain:<br />
+<br />
+start /w msiexec.exe /X{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00} /qn<br />
+<br />
+Then, install 5.0:<br />
+<br />
+start /w msiexec /i silverlight.msi /update Silverlight.msp ALLUSERS=2 /qn /LiV %temp%\Silverlight5.log<br />
+<br />
+<br />
+Silent uninstallation of 5.0 using the .exe:<br />
+<br />
+silverlight /qu<br />
+<br />
+Silent uninstallation of 5.0 using msiexec (same GUID as Silverlight 2.0, 3.0 and 4.0):<br />
+<br />
+start /w msiexec.exe /X{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00} /qn<br />
+<br />
+To create an admin install:<br />
+<br />
+msiexec /p silverlight.msp /a silverlight.msi /qb<br />
+Disabling features:<br />
+<br />
+[HKEY_LOCAL_MACHINE \Software\Microsoft\Silverlight]<br />
+"AllowWebcam"=dword:00000000<br />
+"DRMEnabled"=dword:00000000<br />
+"UpdateMode"=dword:00000002
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nzdude" class="username" rel="nofollow">nzdude</a>
+                </li>
+                <li>
+                    12/13/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-6421">
+        <a name="comment-6421"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/vjaneczko" rel="nofollow" class="moderator ">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/vjaneczko" rel="nofollow">vjaneczko</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        5 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Keys should be under HKCU, not HKLM.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-19275">
+        <a name="comment-19275"></a>
+               <div id="widget-hidden-content" class="hidden-content">
+<strong>This content is currently hidden from public view.</strong><br/>
+    <small>Reason: <em>Removed by member request</em>
+    <br/>For more information, visit our <a href="/faq"><strong> FAQ's.</strong></a></small>
+</div>
+</li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3028" name="tip_3028">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3028"></div> -->
+   <div id="tip-3028" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-3028" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3028"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            The .exe you can download from microsoft.com/silverlight offers an easy switch for quiet installation:<br />
+"silverlight.exe" /q<br />
+<br />
+Silverlight 5.0 still creates a folder in the Start Menu for All Users, so you may want to use this to clean up:<br />
+rmdir /s /q "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Microsoft Silverlight"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cshbell" class="username" rel="nofollow">cshbell</a>
+                </li>
+                <li>
+                    12/13/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3029" name="tip_3029">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3029"></div> -->
+   <div id="tip-3029" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-3029" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3029"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            /q unattended installation<br />
+/qu unattended deinstallation
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Tartuffeln" class="username" rel="nofollow">Tartuffeln</a>
+                </li>
+                <li>
+                    12/13/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8175" name="tip_8175">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8175"></div> -->
+   <div id="tip-8175" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-8175" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8175"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <h3 style="text-align:left;line-height:2;"><span style="font-family:Arial;">Microsoft Silverlight 5.1.30514.0</span></h3>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;">Resources:</span></h4>
+
+<p class="MsoNoSpacing" style="text-align:left;line-height:1;"><span style="font-family:Arial;">Download Silverlight <a href="http://www.microsoft.com/getsilverlight" target="_blank">microsoft.com/getsilverlight</a></span></p><p class="MsoNoSpacing" style="text-align:left;line-height:1;"><span style="font-family:Arial;line-height:1;">Silverlight Deployment Guide: </span><a href="http://download.microsoft.com/download/C/D/5/CD5AAAE3-21F7-47A8-B7D5-39E36BAF9AC8/Silverlight_Deployment_Guide.docx" style="font-family:Arial;line-height:1;background-color:rgb(255,255,255);" target="_blank">http://download.microsoft.com/download/C/D/5/CD5AAAE3-21F7-47A8-B7D5-39E36BAF9AC8/Silverlight_Deployment_Guide.docx</a></p>
+
+<p class="MsoNoSpacing" style="text-align:left;line-height:1;"></p><p style="font-family:Arial;"> </p>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;">Recipe:</span></h4>
+
+<p class="MsoNormal" style="text-align:left;"><span style="font-family:Arial;line-height:1;">My main issue with Silverlight is that I </span><span style="font-family:Arial;">didn't</span><span style="font-family:Arial;line-height:1;"> want any
+sort of Auto-Update to be on, which as many of you probably know, it’s on by
+default. There are some registry entries you can edit, which my first thought
+was to extract the MSI from the EXE. However, I did come across the Silverlight
+Deployment Guide written by David Tesar and edited by Nick Kramer from
+Microsoft. </span></p><p></p>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">The guide describes all system, requirements and deployment
+methods available to you. After giving it a read I decided that I would use
+their method of installation switches with the EXE. Here are the switches
+listed in the Guide:</span></p><p></p>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;">Installation Switches:</span></h4>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">The Silverlight install executable file has a number of
+different switches to customize the installation.  The syntax of the setup file is as follows:</span></p><p></p>
+
+<p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><span lang="en-us" style="font-family:Arial;" xml:lang="en-us">Silverlight<i>&lt;version&gt;</i>.exe</span></p><p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><b style="font-family:Arial;line-height:1;text-indent:-18pt;"><span lang="en-us" xml:lang="en-us">/q</span></b><span lang="en-us" style="font-family:Arial;line-height:1;text-indent:-18pt;" xml:lang="en-us"> = quiet install or upgrade.  This installs or upgrades Silverlight without
+seeing the GUI.  When Silverlight is
+installed quietly, by default privacy related features such as DRM protected
+media playback and the Silverlight auto-update feature will be configured to
+prompt the user for permission on 1<sup>st</sup> use of the respective
+features. The Silverlight auto-update feature requires administrative rights so
+non-admin users will not be prompted.</span></p><p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><b style="line-height:1;font-family:Arial;text-indent:-18pt;"><span lang="en-us" xml:lang="en-us">/doNotRequireDRMPrompt</span></b><span lang="en-us" style="line-height:1;font-family:Arial;text-indent:-18pt;" xml:lang="en-us"> = turns off the 1st
+use prompt allowing content protected by Digital Rights Management (DRM) to
+play without requiring any end-user intervention.    When Silverlight is installed quietly, DRM
+Playback is set to prompt on 1st use by default.</span></p><p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><b style="font-family:Arial;line-height:1;text-indent:-18pt;"><span lang="en-us" xml:lang="en-us">/ignorewarnings</span></b><span lang="en-us" style="font-family:Arial;line-height:1;text-indent:-18pt;" xml:lang="en-us"> = non-fatal warnings
+will not be reflected in the quiet installer return code but will instead
+return zero indicating success.  This is
+useful if in testing or custom installation software requires a zero return
+code.</span></p><p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><b style="font-family:Arial;line-height:1;text-indent:-18pt;"><span lang="en-us" xml:lang="en-us">/noupdate</span></b><span lang="en-us" style="font-family:Arial;line-height:1;text-indent:-18pt;" xml:lang="en-us"> = disables the Silverlight
+internal auto-updater. The Silverlight auto-updater requires administrative
+rights, so in environments where users have admin rights this switch may be
+used to prevent administrative users from being prompted to install updates if
+you want to control when updates to Silverlight are distributed.  Group policy can also be used to implement
+this setting – see <a href="#DSDOC_e35b8b47_4867_46d5_a46f_0a0b05e1ca">Managing
+Silverlight Settings through Group Policy</a> in this document for more
+information.</span></p><p class="AlertText" style="text-align:left;margin-left:0cm;line-height:1;"><b style="font-family:Arial;line-height:1;text-indent:-18pt;"><span lang="en-us" xml:lang="en-us">/qu</span></b><span lang="en-us" style="font-family:Arial;line-height:1;text-indent:-18pt;" xml:lang="en-us"> = quiet uninstall. This uninstalls
+Silverlight without seeing the GUI. <b>Note</b>:
+This will only uninstall the exact same version that it installed, so is
+typically only useful for testing scenarios.</span></p>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;"><b>Note:</b> The <b>/doNotRequireDRMPrompt</b> and <b>/ignorewarnings</b> switches are only
+available with the version of Silverlight 2 GDR 1 (KB  960353 / 2.0.40115.0) or later.</span></p><p></p>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;line-height:1;">Silverlight Setup performs the following tasks:</span></p><p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;line-height:1;text-indent:-18pt;">- Pre-requisite check (see </span><a href="#DSDOC_BKMK_101d179b2_1040_42a1_82e6_68de" style="font-family:Arial;line-height:1;text-indent:-18pt;background-color:rgb(255,255,255);">Installation Requirements</a><span style="font-family:Arial;line-height:1;text-indent:-18pt;">
+in this document)</span></p><p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;line-height:1;text-indent:-18pt;">- Ensure a later version isn’t
+installed</span></p><p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;line-height:1;text-indent:-18pt;">- Uninstall previously installed
+version if present</span></p><p class="MsoNormal" style="text-align:left;"><span lang="en-us" style="font-family:Arial;text-indent:-18pt;" xml:lang="en-us"><span>-</span><span style="line-height:normal;font-size:7pt;"> </span></span><span lang="en-us" style="line-height:1;font-family:Arial;text-indent:-18pt;" xml:lang="en-us">Install the product</span></p><p class="MsoNormal" style="text-align:left;"><span style="font-family:Arial;line-height:1;text-indent:-18pt;">    - Write Silverlight registry keys</span></p><p class="MsoNormal" style="text-align:left;"><span style="font-family:Arial;line-height:1;text-indent:-18pt;">    - Create files in
+%ProgramFiles%\Microsoft Silverlight\</span></p>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;color:inherit;line-height:1;">Deployment:</span></h4>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">Looking at this, I had a go at the following command: </span></p><p></p>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">Silverlight.exe /q /doNotRequireDRMPrompt /noupdate</span></p><p></p>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;">Testing:</span></h4>
+
+<p class="MsoNormal" style="text-align:left;"><span style="font-family:Arial;line-height:1;">The deployment came back as successful, and I also went to a
+website which requires Silverlight to do a quick test, and also look at the
+Microsoft Silverlight Configuration. On the Updates tab it </span><span style="font-family:Arial;">doesn't</span><span style="font-family:Arial;line-height:1;"> actually
+have anything ticked, not even the “Never check for updates” but everything is
+just greyed out instead, personally I </span><span style="font-family:Arial;">wouldn't</span><span style="font-family:Arial;line-height:1;"> mind the never check to be
+ticked.  </span></p><p></p>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">I also noticed that it did indeed remove the previous
+version already on the test machine without any issues. </span></p><p></p>
+
+<h4 style="text-align:left;line-height:1;"><span style="font-family:Arial;">Logs:</span></h4>
+
+<p class="MsoNormal" style="text-align:left;line-height:1;"><span style="font-family:Arial;">If you have any issues the installer creates two log files,
+Silverlight0.log and SilverlightMSI.log which are created in your %TEMP% variable. </span></p><p></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jaycominos" class="username" rel="nofollow">jaycominos</a>
+                </li>
+                <li>
+                    03/11/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_3027" name="tip_3027">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-3027"></div> -->
+   <div id="tip-3027" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-3027" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-3027"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Silverlight.exe /q worked for me. /qu for uninstallation.<br />
+<br />
+(The extracted msi file has the same product code as the previous versions and version number 1.0.0.0. It's sad that MS can't follow their own msi standard)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/gsb" class="username" rel="nofollow">gsb</a>
+                </li>
+                <li>
+                    12/13/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6924" name="tip_6924">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6924"></div> -->
+   <div id="tip-6924" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6924" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6924"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>If you download Silverlight from a x64 computer you will get "Silverlight_x64.exe"</p>
+<p>I had to go to a 32bit computer to be able to download the 32bit version of Silverlight (Silverlight.exe).</p>
+<p>No need to mess around with msi file for this one...exe works fine with the /q switch.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KevinViolette" class="username" rel="nofollow">KevinViolette</a>
+                </li>
+                <li>
+                    01/11/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7500" name="tip_7500">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7500"></div> -->
+   <div id="tip-7500" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-7500" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7500"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>To disable Silverlight Updates on 64 bit machines, just add/edit this registery input</p>
+<p>&nbsp;</p>
+<p>Windows Registry Editor Version 5.00</p>
+<p>&nbsp;</p>
+<p>[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Silverlight]</p>
+<p>"UpdateConsentMode"=dword:00000000</p>
+<p>"UpdateMode"=dword:00000002</p>
+<p>&nbsp;</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Dries.Willems" class="username" rel="nofollow">Dries.Willems</a>
+                </li>
+                <li>
+                    11/04/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7952" name="tip_7952">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7952"></div> -->
+   <div id="tip-7952" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7952" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7952"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Just wanted to add a little bit to the "updates off" discussion.&nbsp; Theres two keys that control the update features of Silverlight: one is in <span id="tip-text">[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Silverlight] (if using 32bit Silverlight) or [</span><span id="tip-text">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Silverlight] (if using 64bit Silverlight), and the second one is in [</span><span id="tip-text"><span id="tip-text">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Silverlight].<br><br>Both areas need an UpdateMode DWORD entry to truly turn off the update options.&nbsp; The HKCU key controls which update option is enabled for SIlverlight (Install updates automatically, Check for updates but let me choose whether to download and install them, or Never check for updates) and the HKLM entry disables or enables the ability of the end user to change the update options in the Silverlight control panel. <br><br>During my deployment testing, I found that when only adding the HKLM entry, then the ability to change the update options in the Silverlight was greyed out, but stuck on "check for updates, but let me choose wether to download and install them" since there was already an existing Silverlight installation in my environment.&nbsp; Obviously to have your update options all the way off, then thats not what you want.&nbsp; Adding the HKCU UpdateMode DWORD to 2 sets the update option to "never check for updates" and then setting the HKLM UpdateMode DWORD to 2 greys the options out so that the end users cannot modify them.&nbsp; <br><br>I used a configuration item through System Center 2012 to manage this, but theres probably other ways (GPO, script, etc) to control it too.&nbsp; Hope this helps someone like it did me!<br><br><span style="color: rgb(255, 0, 0);"><span style="background-color: rgb(255, 255, 255);">EDIT TO ORIGINAL THOUGHTS (8-18-2014):&nbsp;</span></span> Upon revisiting this in preparation to deploy it to my organization, I found some issues with the info above.&nbsp; First: whether you are using 32 bit or 64 bit Silverlight, the HKLM UpdateMode DWORD entry <span style="background-color: rgb(255, 255, 255);"><span style="color: rgb(255, 0, 0);">MUST</span></span> be in </span></span><br><span id="tip-text">HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Silverlight.&nbsp; This is the only way that Ive found where things work correctly.&nbsp; Secondly: I found that my SCCM 2012 configuration items dont work correctly because they deploy the UpdateMode keys with a QWORD data type instead of DWORD.&nbsp; From my research, it appears that SCCM 2012 cannot deploy 32 bit DWORD registry keys, only 64 bit QWORD keys.&nbsp; This leaves you with GPO, scripts, or a deployed application to modify the registry and achieve the auto-update off results that you want.&nbsp; <br></span>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span></span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/traviswt" class="username" rel="nofollow">traviswt</a>
+                </li>
+                <li>
+                    07/01/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7764" name="tip_7764">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7764"></div> -->
+   <div id="tip-7764" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7764" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7764"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I just ran the exe with silent switch and then added these keys..</p>
+<p>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Silverlight]<br />"UpdateConsentMode"=dword:00000000<br />"UpdateMode"=dword:00000000</p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11pt;">Also had a bit of fun with x86 and x64, you cant have both. I guess that depends on your default browser but x86 install on x64 seems the best way to go in an organisation.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Badger" class="username" rel="nofollow">Badger</a>
+                </li>
+                <li>
+                    01/17/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8587" name="tip_8587">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8587"></div> -->
+   <div id="tip-8587" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8587" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8587"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p><img style="width:500px;" src="/uploads/images/141096/iCJzC0.png" alt="iCJzC0.png" /></p><p>Hello,</p><p>As i was using the wizard and the msi I have an issue to limit the deployment to machines which version lower than 5.1.50907.0 as I have only "Equals To" or "Not Equals To" available...</p><p>I am looking for :</p><p>Installation for version less than 5.1.50907.0</p><p>No installation for Version greater or equal to 5.1.50907.0</p><p>I saw these oprion in the Sofware Update deployment wizard but not in the deployment/depleyment types of an Application...</p><p>Thanks,</p><p>Dom</p><p><br /></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span></span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ducheming" class="username" rel="nofollow">ducheming</a>
+                </li>
+                <li>
+                    10/20/2017 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6287" name="tip_6287">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6287"></div> -->
+   <div id="tip-6287" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6287" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-6287"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            Since in the K1000 there was 1 software entry for Silverlight, I decided against creating a separate entry for SIlverlight for x64 systems so I zipped up both installers and wrote a small batch script that does the following:
+
+IF  %PROCESSOR_ARCHITECTURE%==x86 (
+Silverlight_x86.exe /Q
+) ELSE (
+Silverlight_x64.exe /Q
+)
+
+This checks the Processor architecture and if it is 32bit then it will run the 32bit installer, whereas if its not 32bit it can only be 64bit and will run the x64 installer instead. Both run silently and do not need the web browser to be closed or the system to be rebooted.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tekCTRL" class="username" rel="nofollow">tekCTRL</a>
+                </li>
+                <li>
+                    03/27/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-18246">
+        <a name="comment-18246"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/Daz" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/Daz" rel="nofollow">Daz</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        4 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">This only checks *process* 'bitness' not the processor architecture.<br />
+<br />
+On a 64-bit Windows installation, if you open<br />
+C:\Windows\System32\cmd.exe <br />
+and type <br />
+echo %PROCESSOR_ARCHITECTURE% <br />
+you will get AMD64, but if, on the same computer, you execute <br />
+C:\Windows\SysWOW64\cmd.exe<br />
+ (which is the 32-bit cmd.exe) then type <br />
+echo %PROCESSOR_ARCHITECTURE%<br />
+ you will get x86.<br />
+<br />
+So unless you can guarantee the correct cmd.exe will always be used, I would not use this technique.<br />
+<br />
+This would be more reliable in testing if the OS was 64-bit:<br />
+<br />
+IF "%ProgramFiles(x86)%"=="" (<br />
+Silverlight_x86.exe /Q <br />
+) ELSE ( <br />
+Silverlight_x64.exe /Q <br />
+)<br />
+<br />
+Daz.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (5)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/38642/81617">
+                                    5.0.60401.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38642/81618">
+                                    5.0.61118.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38642/81619">
+                                    5.0.51209.1124
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38642/81620">
+                                    5.0.60818.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38642/134870">
+                                    5.1.10411.0
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Silverlight</h2>
+            <div><h3>Version</h3><span>5.0.60401.0</span></div>
+                                                        <div><h3>Uninstall String</h3>MsiExec.exe /X{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00}</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (8)
+                            </h3>
+            <p>Questions & Answers related to Microsoft Silverlight</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-silverlight-5-with-kace" class="title">
+            How to deploy Silverlight 5 with KACE
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-silverlight-5-with-kace" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-silverlight-5-with-kace" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-deploy-silverlight-5-with-kace" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-silverlight-5-with-kace" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-silverlight-5-with-kace" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/brandonswaffer" rel="nofollow">brandonswaffer</a>
+                5 years ago 6.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-microsoft-silverlight-using-kace-1000" class="title">
+            Deploying Microsoft Silverlight using Kace 1000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-microsoft-silverlight-using-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-microsoft-silverlight-using-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-microsoft-silverlight-using-kace-1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploying-microsoft-silverlight-using-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="deploying-microsoft-silverlight-using-kace-1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/fitzsilver" rel="nofollow">fitzsilver</a>
+                5 years ago 7.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/getting-1638-on-silverlight-upgrade-can-someone-help" class="title">
+            Getting 1638 on Silverlight upgrade, can someone help?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="getting-1638-on-silverlight-upgrade-can-someone-help" type="radio" class="star" disabled="disabled"  />
+    <input name="getting-1638-on-silverlight-upgrade-can-someone-help" type="radio" class="star" disabled="disabled"  />
+    <input name="getting-1638-on-silverlight-upgrade-can-someone-help" type="radio" class="star" disabled="disabled"  />
+    <input name="getting-1638-on-silverlight-upgrade-can-someone-help" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="getting-1638-on-silverlight-upgrade-can-someone-help" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/hipsterdoofus" rel="nofollow">hipsterdoofus</a>
+                5 years ago 4.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silver-light-package-for-windows-7-x64-machines" class="title">
+            Silverlight package for Windows 7 x64 machines
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silver-light-package-for-windows-7-x64-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="silver-light-package-for-windows-7-x64-machines" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silver-light-package-for-windows-7-x64-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="silver-light-package-for-windows-7-x64-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="silver-light-package-for-windows-7-x64-machines" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sccmghost" rel="nofollow">sccmghost</a>
+                5 years ago 5.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/doest-silverlight-with-default-settings-update-or-not" class="title">
+            Does Silverlight with default settings update or not?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="doest-silverlight-with-default-settings-update-or-not" type="radio" class="star" disabled="disabled"  />
+    <input name="doest-silverlight-with-default-settings-update-or-not" type="radio" class="star" disabled="disabled"  />
+    <input name="doest-silverlight-with-default-settings-update-or-not" type="radio" class="star" disabled="disabled"  />
+    <input name="doest-silverlight-with-default-settings-update-or-not" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="doest-silverlight-with-default-settings-update-or-not" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Baker" rel="nofollow">Baker</a>
+                4 years ago 2.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/package-via-wise-script" class="title">
+            Package Conditions via Wise script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="package-via-wise-script" type="radio" class="star" disabled="disabled"  />
+    <input name="package-via-wise-script" type="radio" class="star" disabled="disabled"  />
+    <input name="package-via-wise-script" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="package-via-wise-script" type="radio" class="star" disabled="disabled"  />
+    <input name="package-via-wise-script" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Rajnish%20Kumar" rel="nofollow">Rajnish Kumar</a>
+                4 years ago 2.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/k1000-silverlight-reporting" class="title">
+            K1000 Silverlight reporting
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="k1000-silverlight-reporting" type="radio" class="star" disabled="disabled"  />
+    <input name="k1000-silverlight-reporting" type="radio" class="star" disabled="disabled"  />
+    <input name="k1000-silverlight-reporting" type="radio" class="star" disabled="disabled"  />
+    <input name="k1000-silverlight-reporting" type="radio" class="star" disabled="disabled"  />
+    <input name="k1000-silverlight-reporting" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/steven.collett" rel="nofollow">steven.collett</a>
+                1 year ago 581 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               SMal.tmcc answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silverlight-upgrade-leaves-older-version-folder-files-behind" class="title">
+            Silverlight upgrade leaves older version folder\files behind
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silverlight-upgrade-leaves-older-version-folder-files-behind" type="radio" class="star" disabled="disabled"  />
+    <input name="silverlight-upgrade-leaves-older-version-folder-files-behind" type="radio" class="star" disabled="disabled"  />
+    <input name="silverlight-upgrade-leaves-older-version-folder-files-behind" type="radio" class="star" disabled="disabled"  />
+    <input name="silverlight-upgrade-leaves-older-version-folder-files-behind" type="radio" class="star" disabled="disabled"  />
+    <input name="silverlight-upgrade-leaves-older-version-folder-files-behind" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/northturton" rel="nofollow">northturton</a>
+                7 months ago 380 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Microsoft Silverlight</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/microsoft-visual-studio-2012-premium" class="title">
+                Microsoft Visual Studio 2012 Premium
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="microsoft-visual-studio-2012-premium" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-visual-studio-2012-premium" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-visual-studio-2012-premium" type="radio" class="star" disabled="disabled"  />
+    <input name="microsoft-visual-studio-2012-premium" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="microsoft-visual-studio-2012-premium" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                5 years ago 13.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (6)
+                            </h3>
+
+            <p>Links related to Microsoft Silverlight</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/technet-blogs" class="title">
+                TechNet Blogs
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="technet-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="technet-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="technet-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="technet-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="technet-blogs" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                9 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/msdn-blogs-2" class="title">
+                MSDN Blogs
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="msdn-blogs-2" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs-2" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs-2" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs-2" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs-2" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                9 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/get-silverlight-microsoft-silverlight" class="title">
+                Get Silverlight | Microsoft Silverlight
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="get-silverlight-microsoft-silverlight" type="radio" class="star" disabled="disabled"  />
+    <input name="get-silverlight-microsoft-silverlight" type="radio" class="star" disabled="disabled"  />
+    <input name="get-silverlight-microsoft-silverlight" type="radio" class="star" disabled="disabled"  />
+    <input name="get-silverlight-microsoft-silverlight" type="radio" class="star" disabled="disabled"  />
+    <input name="get-silverlight-microsoft-silverlight" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nheim" rel="nofollow">nheim</a>
+                9 years ago 4.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/unattended-software-installation-deployment-ebook" class="title">
+                Unattended software installation/deployment eBook
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="unattended-software-installation-deployment-ebook" type="radio" class="star" disabled="disabled"  />
+    <input name="unattended-software-installation-deployment-ebook" type="radio" class="star" disabled="disabled"  />
+    <input name="unattended-software-installation-deployment-ebook" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="unattended-software-installation-deployment-ebook" type="radio" class="star" disabled="disabled"  />
+    <input name="unattended-software-installation-deployment-ebook" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/tererecool" rel="nofollow">tererecool</a>
+                5 years ago 5.9k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/netflix-users-in-danger-of-unknowingly-picking-up-malware" class="title">
+                Netflix users in danger of unknowingly picking up malware
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="netflix-users-in-danger-of-unknowingly-picking-up-malware" type="radio" class="star" disabled="disabled"  />
+    <input name="netflix-users-in-danger-of-unknowingly-picking-up-malware" type="radio" class="star" disabled="disabled"  />
+    <input name="netflix-users-in-danger-of-unknowingly-picking-up-malware" type="radio" class="star" disabled="disabled"  />
+    <input name="netflix-users-in-danger-of-unknowingly-picking-up-malware" type="radio" class="star" disabled="disabled"  />
+    <input name="netflix-users-in-danger-of-unknowingly-picking-up-malware" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/samzeeco" rel="nofollow">samzeeco</a>
+                4 years ago 2.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/installing-silverlight-through-gpo" class="title">
+                Installing Silverlight through GPO
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="installing-silverlight-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-silverlight-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-silverlight-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-silverlight-through-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="installing-silverlight-through-gpo" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                4 years ago 4.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (1)
+                                  </h3>
+
+               <p>Reviews related to Microsoft Silverlight</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+                       <a name="review-27"></a>
+
+                       
+                        
+                            <div class="content-row version-review">
+                                <div class="md-12 review-wrap ">
+
+                                    <h4>Deployed with success.</h4>
+                                    <div class="byline">
+                                        <ul>
+                                            <li><div id="scale-rating" class="rating">
+    <input name="Review_File27" type="radio" class="star" disabled="disabled"  />
+    <input name="Review_File27" type="radio" class="star" disabled="disabled"  />
+    <input name="Review_File27" type="radio" class="star" disabled="disabled"  />
+    <input name="Review_File27" type="radio" class="star" disabled="disabled"  />
+    <input name="Review_File27" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></li>
+                                            <li>Reviewed by: guruleenyc on  05/19/2016</li>
+                                            <li></li>
+
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="byline helpfulbyline">
+                                        <ul>
+                                           <li><span class="helpfulResponses">0</span>
+                                               of
+                                               <span class="helpfulTotalResponses">0</span>
+                                               people found this helpful
+                                           </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="review">Thank you! This worked as planned with Desktop Authority using a login script with the EXE and /y.</div>
+
+                                    <div id="helpful-27" class="helpful">
+                                      Was this helpful?
+                                      <input type="hidden" name="reviewId" value="27" />
+                                      <input type="hidden" name="reviewType" value="Review_Software_Version" />
+                                      <button type="submit" value="1" class="btn btn-itn">Yes</button>
+                                      <button type="submit" value="0" class="btn btn-itn">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                                           
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">bd7ebcd</div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

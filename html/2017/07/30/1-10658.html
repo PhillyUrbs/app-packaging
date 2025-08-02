@@ -1,0 +1,1785 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for Adobe Creative Cloud 1 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Adobe Creative Cloud 1">
+        <meta name="keywords" content="Adobe,Adobe Creative Cloud,Creative Cloud 1">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/xapple-touch-icon.png.pagespeed.ic.AvVF0T_Kij.png">
+	<link rel="canonical" href="http://www.itninja.com/software/adobe/creative-cloud/1-10658"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/221x75xITN_logo_no_AD.png.pagespeed.ic.ygkSqJQslZ.png" alt="ITNinja Home" width="221" height="75"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/xBreadcrumb_cap.png.pagespeed.ic.PYZOZjr0P5.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/adobe/browse">Adobe</a></li>
+    <li><a href="/software/adobe/creative-cloud/versions">Creative Cloud</a></li>
+    <li>1</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Adobe Creative Cloud</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 1
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/adobe/creative-cloud/2017-1">
+                                            2017.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/creative-cloud/1-10658">
+                                            1.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/63893/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmNyZWF0aXZlLWNsb3VkJTJGMS0xMDY1OA==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/63893/JTJGc29mdHdhcmUlMkZhZG9iZSUyRmNyZWF0aXZlLWNsb3VkJTJGMS0xMDY1OA==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 29.2k &nbsp|&nbsp
+    Created: 06/20/2013
+    
+            by: <a href="/user/Antda" rel="nofollow">Antda</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version63893" type="radio" class="star" disabled="disabled"/>
+    <input name="Version63893" type="radio" class="star" disabled="disabled"/>
+    <input name="Version63893" type="radio" class="star" disabled="disabled"/>
+    <input name="Version63893" type="radio" class="star" disabled="disabled"/>
+    <input name="Version63893" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Creative Cloud has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">11 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">3 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (5)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (MSI)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/xyellow.png.pagespeed.ic.R0YdZSd5pG.png" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>4</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer Command Line (No MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/63893" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="1dfb5c7d39a1f5ade53355aa33a8ad5a1a7a6652" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/adobe/creative-cloud/1-10658#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/adobe/creative-cloud/1-10658/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                           <li><a href="/software/adobe/creative-cloud/1-10658/mac-os#tips">
+                               Mac OS Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_7261" name="tip_7261">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7261"></div> -->
+   <div id="tip-7261" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-7261" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7261"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>The full suite is divided in 2 parts :</p>
+<ol>
+<li>the MSI package created by Adobe Creative Cloud Packager<br/><a href="http://helpx.adobe.com/creative-cloud/packager/creative-cloud-packager.html" target="_blank">http://helpx.adobe.com/creative-cloud/packager/creative-cloud-packager.html</a></li>
+<li>exceptions, also generated by Adobe Creative Cloud Packager but not MSI<br/><a href="http://helpx.adobe.com/creative-cloud/packager/installing-products-exception-folder.html" target="_blank">http://helpx.adobe.com/creative-cloud/packager/installing-products-exception-folder.html</a><br/><ol>
+<li>pre-install exception (Acrobat Pro XI)<a href="http://helpx.adobe.com/creative-cloud/packager/deploying-acrobat.html" target="_blank"><br/>http://helpx.adobe.com/creative-cloud/packager/deploying-acrobat.html</a></li>
+<li>post-install exceptions (Lightroom 5.0, PDF Settings CC, Service Manager, Muse ...)</li>
+</ol></li>
+</ol>
+<p>In SCCM 2012 I created 3 Software :</p>
+<ul>
+<li>Creative Cloud, MSI Based</li>
+<li>Creative Exceptions, script based, with 2 deployments types<br/>
+<ul>
+<li>Pre install (Acrobat) :</li>
+</ul>
+<pre><span class="code">ExceptionDeployer.exe --workflow=install --mode=pre </span></pre>
+<br/>
+<ul>
+<li>Post Install (others) :</li>
+</ul>
+<pre><span class="code">ExceptionDeployer.exe --workflow=install --mode=post&nbsp;</span></pre>
+</li>
+<li>Acrobat Pro Update 3 (MSP)<br/><br/></li>
+</ul>
+<p>Then I created the following dependencies:<br/>Creative Exceptions post -&gt; Creative Cloud -&gt; Acrobat Pro Update 3 -&gt; Creative Exceptions Pre</p>
+<p>I published only the Creative Exceptions post deployment type on the catalogue</p>
+<p>The client will install</p>
+<ol>
+<li>Acrobat XI as pre-requierment</li>
+<li>Acrobat XI Update 3 as pre-requierment</li>
+<li>Creative Cloud Suite</li>
+<li>Creative Exceptions (all the rest)</li>
+</ol>
+<p>I hope this will help, in the future Adobe should (will ?) include all CC software as part of the bundle so all exceptions should disappear (except Acrobat XI which will always stays separated I'm afraid )</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Difficult
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Antda" class="username" rel="nofollow">Antda</a>
+                </li>
+                <li>
+                    06/20/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 3 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-14754">
+        <a name="comment-14754"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/AhrimanSefid" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/AhrimanSefid" rel="nofollow">AhrimanSefid</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        4 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Me test Not Work</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-18823">
+        <a name="comment-18823"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/rgetter" rel="nofollow" class="">
+               <img src="/uploads/images/81116/xqiS7Ye.jpeg,q1416930096698.pagespeed.ic.SkjOrz4WGe.jpg" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/rgetter" rel="nofollow">rgetter</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        3 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Has anyone come up with a way to do the pre-, Cloud, and post- installs just using the K1000?</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+    <li id="comment-30335">
+        <a name="comment-30335"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/smooochy" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/smooochy" rel="nofollow">smooochy</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        2 years ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">I'm interested to see how you set up your detection methods.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8074" name="tip_8074">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8074"></div> -->
+   <div id="tip-8074" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-8074" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8074"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <span style="font-weight:bold;">1. Gain access to the creative cloud packager, download and install. </span><div><br/></div><div>From the Adobe documentation:<div><div class="parbase compbase section header" style="margin:0px 0px 13px;padding:0px;border:0px;font-family:'adobe-clean', sans-serif;line-height:19px;"><div style="margin:0px;padding:0px;border:0px;font-weight:inherit;font-family:inherit;"><h2 style="margin:18px 0px 9px;padding:12px 100px 0px 0px;border-width:1px 0px 0px;border-top-style:solid;border-top-color:rgb(221,221,221);font-weight:bold;font-size:18px;font-family:inherit;line-height:1.3em;"><span style="font-style:italic;">Download Creative Cloud Packager</span></h2></div></div><div class="text parbase section" style="margin:0px 0px 13px;padding:0px;border:0px;font-family:'adobe-clean', sans-serif;line-height:19px;"><span style="font-style:italic;"><a style="margin:0px;padding:0px;border:0px;font-weight:inherit;font-family:inherit;color:rgb(51,153,204);"></a></span><div class="text" style="margin:0px;padding:0px;border:0px;font-family:inherit;"><p style="font-weight:inherit;margin-top:2px;margin-right:100px;margin-bottom:8px;padding:0px;border:0px;font-family:inherit;line-height:18px;"><span style="font-style:italic;">Download Adobe Creative Cloud Packager.</span></p><ul style="font-weight:inherit;margin-top:2px;margin-right:100px;margin-bottom:8px;padding:0px 0px 0px 10px;border:0px;font-family:inherit;list-style-position:outside;margin-left:1em;"><li style="margin:0px 0px 4px;padding:0px;border:0px;font-family:inherit;"><span style="font-style:italic;">If you are a Creative Cloud for teams customer, download Adobe Creative Cloud Packager from the Team Admin Portal in <a href="https://creative.adobe.com/" style="margin:0px;padding:0px;border:0px;font-weight:inherit;font-family:inherit;color:rgb(60,167,221);text-decoration:underline;" target="_blank">Adobe Creative Cloud.</a></span></li><li style="margin:0px 0px 4px;padding:0px;border:0px;font-family:inherit;"><span style="font-style:italic;">If you are a Creative Cloud for Enterprise customer, download Adobe Creative Cloud Packager from the <a href="https://www.adobe.com/go/lws" style="margin:0px;padding:0px;border:0px;font-weight:inherit;font-family:inherit;color:rgb(51,153,204);" target="_blank">Adobe Licensing Web Site</a> (LWS) or <a href="http://aedash.adobe.com/" style="margin:0px;padding:0px;border:0px;font-weight:inherit;font-family:inherit;color:rgb(51,153,204);" target="_blank">Enterprise Dashboard</a>.</span></li></ul><div style="font-weight:inherit;font-style:inherit;"><span style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:20px;">( Ref </span><a href="http://helpx.adobe.com/creative-cloud/packager/creating-packages.html" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:20px;background-color:rgb(255,255,255);" target="_blank">http://helpx.adobe.com/creative-cloud/packager/creating-packages.html</a><span style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:20px;">)</span><br/></div><div style="font-weight:inherit;font-style:inherit;"><span style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:20px;"><br/></span></div><div style="font-style:inherit;"><span style="font-weight:bold;">2. Use the tool to select the packages you want.</span></div><div style="font-style:inherit;"><span style="font-weight:inherit;"><br/></span></div><div style="font-style:inherit;"><span style="font-weight:inherit;"> I choose to install most of the packages as this was a Citrix deployment and I wanted the capability of delivering most of the CC utilities. </span></div><div style="font-weight:inherit;font-style:inherit;"><br/></div><div style="font-style:inherit;"><span style="font-weight:bold;">3. </span><span style="font-style:inherit;font-family:inherit;font-weight:bold;">MSI Command Line Options:</span></div><div style="font-style:inherit;">REBOOT=ReallySuppress  - Suppresses the Reboot</div><div style="font-style:inherit;">ADOBEINSTALLDIR="DIRECTORY"  - Allows you to set a custom install dir</div><div style="font-style:inherit;">MSIRESTARTMANAGERCONTROL=Disable  - Disables the MSI process restart which in my case causes this install to fail<br/></div><div style="font-style:inherit;"><br/></div><div style="font-style:inherit;"><span style="font-weight:bold;">4. My Example Usage of the Command Line Options:</span></div><div style="font-weight:inherit;font-style:inherit;">Install Adobe Acrobat first if it is not already installed (See documentation on this site for using the adobe customization wizard to generate a transform for acrobat: <a href="http://www.adobe.com/support/downloads/detail.jsp?ftpID=5515" target="_blank">http://www.adobe.com/support/downloads/detail.jsp?ftpID=5515</a>)</div><div style="font-weight:inherit;font-style:inherit;"><br/></div><div style="font-weight:inherit;font-style:inherit;">msiexec /i "\\NETWORKPATH\PACKAGENAME\Exceptions\ACROBATDIR\Acropro.msi" /qn /lv c:\windows\temp\Adobe_acrobat_install.log TRANSFORMS="\\NETWORKPATH\PACKAGENAME\Exceptions\ACROBATDIR\YourTransforms.mst" REBOOT=ReallySuppress</div><div style="font-weight:inherit;font-style:inherit;"><br/></div><div style="font-weight:inherit;font-style:inherit;">Next Perform the creative cloud install. </div><div style="font-weight:inherit;font-style:inherit;"><span style="font-style:inherit;font-family:inherit;font-weight:inherit;">msiexec /i "</span><span style="font-family:inherit;font-weight:inherit;">\\NETWORKPATH\PACKAGENAME\</span><span style="font-family:inherit;font-style:inherit;font-weight:inherit;">Build\MSIFILENAME.msi" /lv c:\windows\temp\adobe_cc_install.log /qn REBOOT=ReallySuppress ADOBEINSTALLDIR="C</span><span style="font-family:inherit;font-style:inherit;font-weight:inherit;">:\program files\Adobe\Adobe CC" MSIRESTARTMANAGERCONTROL=Disable</span></div><div style="font-weight:inherit;font-style:inherit;"><span style="font-family:inherit;font-style:inherit;font-weight:inherit;"><br/></span></div><div style="font-weight:inherit;font-style:inherit;"><span style="font-family:inherit;font-style:inherit;font-weight:inherit;">Finally Perform any post install exceptions like Lightroom or Muse. </span></div><div style="font-weight:inherit;font-style:inherit;">msiexec /i "\\NETWORKPATH\PACKAGENAME\Exceptions\LTRM5.7en_US\Adobe_Lightroom_x64.msi" /qn REBOOT=ReallySuppress INSTALLDIR="c:\program files\Adobe\Adobe CC\Adobe Photoshop Lightroom 5.7"</div><div style="font-weight:inherit;font-style:inherit;"><br/></div></div></div></div></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer with Custom Transform (MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Average
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/darkharmonics" class="username" rel="nofollow">darkharmonics</a>
+                </li>
+                <li>
+                    11/25/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-40993">
+        <a name="comment-40993"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/kericson" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/kericson" rel="nofollow">kericson</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        9 months ago
+                    </li>
+                    <li>
+                                                    last edited 9 months ago
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Does not work</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8401" name="tip_8401">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8401"></div> -->
+   <div id="tip-8401" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-8401" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8401"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <h3 align="center">Adobe Creative Cloud for SCCM 2012 Deployments</h3><h6 align="center">As a Application, not OSD.</h6><div align="center"><br></div><p align="left">Stupid software...</p><p align="left">This is for enterprise licenses only!</p><p align="left"><br></p><p align="left"><b><u>Step 1</u></b><br>Create the Adobe Creative Cloud package with the CCP tool.<br><sup>Get the Creative Cloud Packager from the Adobe Licensing Website (LWS) or Enterprise Dashboard. See </sup><a href="https://helpx.adobe.com/creative-cloud/packager/creative-cloud-packager.html#DownloadCreativeCloudPackager" target="_blank"><sup>here</sup></a><sup> for more details.</sup></p><p align="left"><img style="width:500px;" alt="PEHJgO.png" src="/uploads/images/50090/500xNxPEHJgO.png.pagespeed.ic.mPi4pml_zU.png"></p><p align="left"><br></p><p align="left"><b><u>Step 2</u></b><br>This is the information that states Acrobat will not get installed, reads the notes section.<br>https://helpx.adobe.com/creative-cloud/packager/deploying-acrobat.html<br><br>Read <a href="https://helpx.adobe.com/creative-cloud/packager/using-exceptions-deployer.html" target="_blank">this</a> link, this contains the information for the Batch script you will use in SCCM. Its important to note that if you use the <u>MSI</u> installer, Adobe Acrobat <u>will not</u> get installed as mentioned above.<br><sup>https://helpx.adobe.com/creative-cloud/packager/using-exceptions-deployer.html</sup><br></p><p align="left"><br></p><p align="left">The document states that if you use the <u>setup.exe</u> then Acrobat will get installed. The problem is that is if you use the setup.exe, the deployment is inconsistent from SCCM. Check in Program &amp; Features (Add/Remove Programs), sometimes it will install 20 line items, the next machine will install 23 line items, the next machine will install 28 line items etc etc. The full suite consists of 28 line items, including Acrobat.</p><p align="left"><i><font color="#cec6ce">Quote: For Acrobat DC, Exception Deployer Application is not required. For Acrobat DC, you only need to run the setup.exe in the Build folder which will install Acrobat DC, the chosen type of license and any main applications not found in the Exceptions directory.</font></i></p><p align="left"><br></p><p align="left">So following the guidance from the link above from Adobe, we will be using the Batch script with some modifications. After the Exceptions Deploy Pre section, we want to add this code to the script. Make sure you are traversing up and back down&nbsp;the correct amount of folders!</p><p align="left">Its important you install Acrobat <u>before</u> the main Creative Cloud install! This will allow Acrobat to be licensed correctly, otherwise when you start Acrobat, it will ask you to sign into AAM.<br></p><pre><div>cd Exceptions<br>&nbsp;exceptionDeployer.exe --workflow=install --mode=pre --installLanguage=en_US<br></div><div><br><font style="background-color: rgb(255, 231, 156);">cd ..\Build\Setup\APRO15.0\Adobe Acrobat<br>&nbsp;Start /WAIT setup.exe /sALL /rs /sPP /extUI /sl "en_GB" /msi INSTALLDIR="C:\Program Files (x86)\Adobe\Acrobat DC" EULA_ACCEPT="YES" SUITEMODE=1 OWNERSHIP_STATE=1 LANG_LIST="en_GB" AS_DISABLE_LEGACY_COLOR=1 IGNOREAAM=1 REMOVE_PREVIOUS_ACROBAT=NO DISABLEDESKTOPSHORTCUT=2 DISABLE_ARM_SERVICE_INSTALL=1<br><br></font></div><div><font style="background-color: rgb(255, 231, 156);">cd ..\..\..\</font><font style="background-color: inherit;"><br>&nbsp; start /wait msiexec /i "Adobe CC All.msi" /qn /lv* "%TEMP%\CC_all_msiexec.log"</font></div><font style="background-color: rgb(255, 231, 156);"></font></pre><p align="left"><br></p><p align="left">If you want to have no shortcuts on the desktop then add this after the Exceptions <br></p><pre>cd ..\Exceptions<br>&nbsp;exceptionDeployer.exe --workflow=install --mode=post<br>&nbsp;<br><font style="background-color: rgb(255, 231, 156);">del "C:\Users\Default\Desktop\adobe*.lnk" /s<br>del "C:\Users\Public\Desktop\adobe*.lnk" /s</font><br></pre><p align="left"><br></p><p align="left"><b><u>Optional<br></u></b>Adobe Acrobat, you can either use the command line above. Or you can use the Adobe Customization Wizard to create a transform to apply via the ini fill within the Acrobat setup 'bits'.</p><p align="left">Key to disable Acrobat to take ownership causing a UAC prompt, will need to GPO this bit.</p><pre><p style="margin:0in;font-family:&quot;Courier New&quot;;font-size:8.0pt">Windows
+Registry Editor Version 5.00
+</p><p style="margin:0in;font-family:Calibri;font-size:11.0pt">
+</p><p style="margin:0in;font-family:&quot;Courier New&quot;;font-size:8.0pt">[HKEY_CURRENT_USER\SOFTWARE\Adobe\Adobe
+Acrobat\DC\AVAlert\cCheckbox]
+
+</p><p style="margin:0in;font-family:&quot;Courier New&quot;;font-size:8.0pt">"iAppDoNotTakePDFOwnershipAtLaunch"=dword:00000001<br></p></pre><p align="left"><br></p><p align="left"><br></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rileyz" class="username" rel="nofollow">rileyz</a>
+                </li>
+                <li>
+                    07/26/2016 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7786" name="tip_7786">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7786"></div> -->
+   <div id="tip-7786" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7786" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7786"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>As built, the "Build" folder MSIs created by Creative Cloud Packager clobber the SCCM 2012 R2 client. &nbsp;If installing the app from Software Center, Software Center exits at the end of the installation. &nbsp;When installing as part of an OSD Task Sequence, the task sequence hangs forever on the installation step.</p>
+<p>I tracked the problem down to MSIEXEC's Restart Manager which exits and restarts processes using files the installer needs to touch. &nbsp;Restart Manager was shutting down the SCCM client and when it restarted, SCCM didn't know what to do.</p>
+<p>The solution to this problem is to suppress reboots using</p>
+<pre>REBOOT=ReallySuppress</pre>
+<p>&nbsp;as part of the command line calling MSIEXEC and to also pass along the property</p>
+<pre>MSIRESTARTMANAGERCONTROL=Disable</pre>
+<p>&nbsp;which disables Restart Manager. &nbsp;Once I did this, the MSI installed without trouble and SCCM worked correctly. &nbsp;Software Center didn't crash and my task sequences moved on.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Difficult
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Bitmapped" class="username" rel="nofollow">Bitmapped</a>
+                </li>
+                <li>
+                    02/01/2014 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8302" name="tip_8302">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8302"></div> -->
+   <div id="tip-8302" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8302" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8302"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            1. Use the Adobe Creative Cloud Packager to create your package.<div>2. Using Disk Utility, create a dmg that contains the installer .pkg only.</div><div>3. Copy the dmg to the clientdrop folder on your k1000.</div><div>4. Associate the file with a software title. (I created a custom inventory rule to look for a .plist file from one of the installed apps)</div><div>5. Create the managed install and leave it set to default. No commands are needed to execute the installer. It will mount and run the pkg automatically.</div><div><br/></div><div>This may be a no-brainer for some, but as someone who has only just begun to manage Macs it took me a while to figure this out.</div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Mac OS </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/animerunt" class="username" rel="nofollow">animerunt</a>
+                </li>
+                <li>
+                    10/14/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/63893/135759">
+                                    2
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Creative Cloud</h2>
+            <div><h3>Version</h3><span>2</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (11)
+                            </h3>
+            <p>Questions & Answers related to Adobe Creative Cloud</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-creative-cloud-aamee-package-not-installing" class="title">
+            Adobe Creative Cloud AAMEE package not installing
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-creative-cloud-aamee-package-not-installing" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-aamee-package-not-installing" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-aamee-package-not-installing" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-aamee-package-not-installing" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-creative-cloud-aamee-package-not-installing" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/iaef" rel="nofollow">iaef</a>
+                3 years ago 5.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/install-adobe-creative-cloud-via-script-while-user-is-logged-off" class="title">
+            Install Adobe Creative Cloud Via Script While User Is Logged Off
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="install-adobe-creative-cloud-via-script-while-user-is-logged-off" type="radio" class="star" disabled="disabled"/>
+    <input name="install-adobe-creative-cloud-via-script-while-user-is-logged-off" type="radio" class="star" disabled="disabled"/>
+    <input name="install-adobe-creative-cloud-via-script-while-user-is-logged-off" type="radio" class="star" disabled="disabled"/>
+    <input name="install-adobe-creative-cloud-via-script-while-user-is-logged-off" type="radio" class="star" disabled="disabled"/>
+    <input name="install-adobe-creative-cloud-via-script-while-user-is-logged-off" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/codyjbates" rel="nofollow">codyjbates</a>
+                3 years ago 10.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               chucksteel commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                10
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" class="title">
+            Silent Install switch for CreativeCloudSet-Up.exe and readerdc_en_ha_install.exe
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-switch-for-creativecloudset-up-exe-and-readerdc-en-ha-install-exe" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lgovindprakash" rel="nofollow">lgovindprakash</a>
+                2 years ago 5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               lgovindprakash commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/need-to-know-more-about-cloud-scripting" class="title">
+            Need to know more about Cloud , scripting.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="need-to-know-more-about-cloud-scripting" type="radio" class="star" disabled="disabled"/>
+    <input name="need-to-know-more-about-cloud-scripting" type="radio" class="star" disabled="disabled"/>
+    <input name="need-to-know-more-about-cloud-scripting" type="radio" class="star" disabled="disabled"/>
+    <input name="need-to-know-more-about-cloud-scripting" type="radio" class="star" disabled="disabled"/>
+    <input name="need-to-know-more-about-cloud-scripting" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Yogesh%20AM" rel="nofollow">Yogesh AM</a>
+                1 year ago 809 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-creative-cloud-2014-silent-uninstallation" class="title">
+            Adobe Creative Cloud 2014 silent uninstallation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-creative-cloud-2014-silent-uninstallation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-2014-silent-uninstallation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-2014-silent-uninstallation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-2014-silent-uninstallation" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-creative-cloud-2014-silent-uninstallation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ramyaj" rel="nofollow">ramyaj</a>
+                1 year ago 11.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Tempril commented 1 month ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" class="title">
+            Software Catalog Not Identifying Popular Software or Separating Software into Different Software Items
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" type="radio" class="star" disabled="disabled"/>
+    <input name="undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" type="radio" class="star" disabled="disabled"/>
+    <input name="undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" type="radio" class="star" disabled="disabled"/>
+    <input name="undiscovered-software-catalog-not-identifying-popular-software-or-separating-software-into-different-software-items" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/DaveFromRyerson" rel="nofollow">DaveFromRyerson</a>
+                1 year ago 881 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/automate-adobe-creative-cloud-install-package-using-command-or-script" class="title">
+            Automate Adobe Creative Cloud install package using command or script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="automate-adobe-creative-cloud-install-package-using-command-or-script" type="radio" class="star" disabled="disabled"/>
+    <input name="automate-adobe-creative-cloud-install-package-using-command-or-script" type="radio" class="star" disabled="disabled"/>
+    <input name="automate-adobe-creative-cloud-install-package-using-command-or-script" type="radio" class="star" disabled="disabled"/>
+    <input name="automate-adobe-creative-cloud-install-package-using-command-or-script" type="radio" class="star" disabled="disabled"/>
+    <input name="automate-adobe-creative-cloud-install-package-using-command-or-script" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Madhan" rel="nofollow">Madhan</a>
+                1 year ago 1.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               kericson commented 9 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/edge-tools-and-services" class="title">
+            Edge Tools and Services
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="edge-tools-and-services" type="radio" class="star" disabled="disabled"/>
+    <input name="edge-tools-and-services" type="radio" class="star" disabled="disabled"/>
+    <input name="edge-tools-and-services" type="radio" class="star" disabled="disabled"/>
+    <input name="edge-tools-and-services" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="edge-tools-and-services" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/joshbuss" rel="nofollow">joshbuss</a>
+                3 years ago 2.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-creative-cloud-patching" class="title">
+            Adobe Creative Cloud Patching
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-creative-cloud-patching" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-patching" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-patching" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-patching" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-creative-cloud-patching" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bwilkerson" rel="nofollow">bwilkerson</a>
+                3 years ago 5.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/error-1603-installing-creative-cloud-from-network-path" class="title">
+            Error 1603 Installing Creative Cloud from Network Path
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="error-1603-installing-creative-cloud-from-network-path" type="radio" class="star" disabled="disabled"/>
+    <input name="error-1603-installing-creative-cloud-from-network-path" type="radio" class="star" disabled="disabled"/>
+    <input name="error-1603-installing-creative-cloud-from-network-path" type="radio" class="star" disabled="disabled"/>
+    <input name="error-1603-installing-creative-cloud-from-network-path" type="radio" class="star" disabled="disabled"/>
+    <input name="error-1603-installing-creative-cloud-from-network-path" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/bwilkerson" rel="nofollow">bwilkerson</a>
+                3 years ago 8.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               bwilkerson commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/really-stuck-deploying-adobe-cc-to-restricted-users" class="title">
+            Really stuck deploying Adobe CC to restricted users
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="really-stuck-deploying-adobe-cc-to-restricted-users" type="radio" class="star" disabled="disabled"/>
+    <input name="really-stuck-deploying-adobe-cc-to-restricted-users" type="radio" class="star" disabled="disabled"/>
+    <input name="really-stuck-deploying-adobe-cc-to-restricted-users" type="radio" class="star" disabled="disabled"/>
+    <input name="really-stuck-deploying-adobe-cc-to-restricted-users" type="radio" class="star" disabled="disabled"/>
+    <input name="really-stuck-deploying-adobe-cc-to-restricted-users" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Tempril" rel="nofollow">Tempril</a>
+                1 year ago 864 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Tempril commented 11 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Adobe Creative Cloud</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" class="title">
+                How to (almost) fully uninstall Adobe Creative Cloud suite (and launcher)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-almost-fully-uninstall-adobe-creative-cloud-suite-and-launcher" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Tempril" rel="nofollow">Tempril</a>
+                1 month ago 557 views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (3)
+                            </h3>
+
+            <p>Links related to Adobe Creative Cloud</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/adobe-cc-packager" class="title">
+                Adobe CC packager
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-cc-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-cc-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-cc-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-cc-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-cc-packager" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/apptopack" rel="nofollow">apptopack</a>
+                1 year ago 994 views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/using-adobe-exceptions-deployer" class="title">
+                Using Adobe Exceptions Deployer
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="using-adobe-exceptions-deployer" type="radio" class="star" disabled="disabled"/>
+    <input name="using-adobe-exceptions-deployer" type="radio" class="star" disabled="disabled"/>
+    <input name="using-adobe-exceptions-deployer" type="radio" class="star" disabled="disabled"/>
+    <input name="using-adobe-exceptions-deployer" type="radio" class="star" disabled="disabled"/>
+    <input name="using-adobe-exceptions-deployer" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Antda" rel="nofollow">Antda</a>
+                4 years ago 5.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/creative-cloud-packager" class="title">
+                Creative Cloud Packager
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="creative-cloud-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="creative-cloud-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="creative-cloud-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="creative-cloud-packager" type="radio" class="star" disabled="disabled"/>
+    <input name="creative-cloud-packager" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Antda" rel="nofollow">Antda</a>
+                4 years ago 6.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Adobe Creative Cloud</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/xtwitter.png.pagespeed.ic.gQlaUvo9Df.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/xdsg.png.pagespeed.ic.ezebSmrFAj.png" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});var id='#platform-new #form_platforms_'+2;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":497,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

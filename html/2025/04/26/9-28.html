@@ -1,0 +1,4409 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Oracle Oracle Client 9</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Oracle Client 9">
+    <meta name="keywords" content="Oracle,Oracle Oracle Client,Oracle Client 9">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/oracle/oracle-client/9-28" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2025 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/oracle">Oracle</a></li>
+    <li><a href="/software-library/company/oracle/oracle-client">Oracle Client</a></li>
+    <li>9</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Oracle Oracle Client</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 9
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/12-1012"
+                                            >
+                                            12.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/11-44"
+                                            >
+                                            11.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/10-27"
+                                            >
+                                            10.x <span>(17 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/9-28"
+                                            >
+                                            9.x <span>(16 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/oracle/oracle-client/8-39"
+                                            >
+                                            8.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/1193/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZvcmFjbGUtY2xpZW50JTJGOS0yOA==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/1193/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZvcmFjbGUtY2xpZW50JTJGOS0yOA==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 16.5k &nbsp|&nbsp
+    Created: 06/25/2003
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="1193"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Oracle Client has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">14 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">3 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (16)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/yellow.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>6</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (answer file driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/oracle-client/9-28#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/oracle/oracle-client/9-28/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_128" name="tip_128">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-128"></div> -->
+   <div id="tip-128" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">121</div>
+   <div id="tip-128" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-128"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Record a custom Oracle installation to a response file.<br />
+<br />
+A custom installation of the Oracle Client can also be created by using the record method.  With this method you simply launch the OUI (setup.exe) with the command line below, choose the installation options, and the custom response file will be created with the options that were specified in the directory listed in the command.<br />
+<br />
+setup -record -destinationFile &lt;response_file_name&gt;<br />
+<br />
+ie<br />
+<br />
+Replace the &lt;response_file_name&gt; with the complete path for the new response file. For example: <br />
+<br />
+setup -record -destinationFile C:\response_files\install_oracle910<br />
+<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    04/01/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_127" name="tip_127">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-127"></div> -->
+   <div id="tip-127" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">120</div>
+   <div id="tip-127" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-127"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Automated 9i Client installation that includes all client components.<br />
+<br />
+An automated Oracle 9i Client installation can be created by running the Oracle Universal Installer against a response file.  The Oracle 9i Client comes with two default response files, client runtime and administrator.  The client runtime is a base installation including the client and some connectivity components that results in a 150mb install while the administrative installation is a complete installation of all client and adminsitrative compenents and results in a 500mb installation.<br />
+<br />
+The current runtime installation does not include the Oracle OLE or Oracle ODBC components which are common connectivity components for Microsoft Clients.  I've created a custom response file that includeds all the client connectivity componets such as ODBC, OLE, JDBC and Net9.  This particular response file can easily be modified to fit your needs by adjusting the FROM_LOCATION, LOCATION_FOR_DISK2 and LOCATION_FOR_DISK3 entries in the response file.  The resulting installation is 300mb, but includes all the client connectivity components.<br />
+<br />
+In my situation I used a software distribution tool to deploy the contents of the Oracle 9.2.0.1 Client cd to the targeted clients and installed the files to the %SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1 directory.  Once the files are put into place the package runs the installation command to install the client.  Using this method takes approximately 900mb disk space on the client so if disk space for your clients is at a premium you may consider using UNC paths or the Web installation method.<br />
+<br />
+The following command will initiate a completely silent installation:<br />
+<br />
+%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\setup.exe -silent -RESPONSEFILE %SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\Response\clientcustom.rsp<br />
+<br />
+The following command will silently remove the above installation:<br />
+<br />
+%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\setup.exe -deinstall -silent -RESPONSEFILE %SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\Response\clientcustom.rsp<br />
+<br />
+----Save the following as clientcustom.rsp--------<br />
+<br />
+####################################################################<br />
+##                                                                ##<br />
+##     Oracle9i Client Custom Install Response File Template      ##<br />
+## -------------------------------------------------------------- ##<br />
+##                                                                ##<br />
+## Copyright(c) Oracle Corporation 1998,2000. All rights reserved.##<br />
+##                                                                ##<br />
+## Specify values for the variables listed below to customize     ##<br />
+## your installation.                                             ##<br />
+##                                                                ##<br />
+## Each variable is associated with a comment. The comment        ##<br />
+## identifies the variable type.                                  ##<br />
+##                                                                ##<br />
+## Please specify the values in the following format:             ##<br />
+##                                                                ##<br />
+##         Type         Example                                   ##<br />
+##         String       "Sample Value"                            ##<br />
+##         Boolean      True or False                             ##<br />
+##         Number       1000                                      ##<br />
+##         StringList   {"String value 1","String Value 2"}       ##<br />
+##                                                                ##<br />
+## The values that are given as &lt;Value Required&gt; need to be       ##<br />
+## specified for a silent installation to be successful.          ##<br />
+##                                                                ##<br />
+##                                                                ##<br />
+## This response file is generated by Oracle Software             ##<br />
+## Packager.                                                      ##<br />
+####################################################################<br />
+<br />
+[General]<br />
+<br />
+RESPONSEFILE_VERSION=1.7.0<br />
+<br />
+[SESSION]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : UNIX_GROUP_NAME<br />
+# Datatype      : String<br />
+# Description   : Unix group to be set for the inventory<br />
+#               : directory. Valid only in Unix platforms.<br />
+# Valid values  : a string containing the group name<br />
+# Example value : "install"<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+UNIX_GROUP_NAME=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION<br />
+# Datatype      : String<br />
+# Description   : Complete path of the products.jar file from the staging area<br />
+#                 containing products to install<br />
+# Valid values  : Full path ending in "products.jar"<br />
+# Example value : "e:\stage\products.jar"<br />
+# Default value : "..\stage\products.jar"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION="%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\stage\products.jar"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION_CD_LABEL<br />
+# Datatype      : String<br />
+# Description   : This variable should only be used in multi-CD installations.<br />
+#                 It includes the label of the Compact Disk where the file<br />
+#                 "products.jar" exists. The label can be found in the file<br />
+#                 "disk.label" in the same directory as products.jar.<br />
+# Valid values  : Any string<br />
+# Example value : "oracle9i"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION_CD_LABEL=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_RESPONSE<br />
+# Datatype      : String<br />
+# Description   : Optionally specifies the full path of next session's<br />
+#                 response file. If only a file name is specified, the<br />
+#                 response file is retrieved from &lt;TEMP&gt;/oraInstall<br />
+#                 directory. This variable is only active if<br />
+#                 NEXT_SESSION is set to true.<br />
+# Valid values  : Full path to a valid response file or a response file name<br />
+# Example value : "c:\temp\install.rsp"<br />
+# Default value : None<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME<br />
+# Datatype      : String<br />
+# Description   : Full path of directory to use for installing Oracle<br />
+#                 products - the "Oracle Home"<br />
+# Valid values  : Directory path (existent or non-existent)<br />
+# Example value : "d:\oracle\products\9.0.1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME="%SystemDrive%\oracle\ora92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME_NAME<br />
+# Datatype      : String<br />
+# Description   : Name used to uniquely identify the Oracle Home on this <br />
+#                 system.<br />
+# Valid values  : String that is unique on this system<br />
+# Example value : "OHOME1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME_NAME="OraHome92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : TOPLEVEL_COMPONENT<br />
+# Datatype      : StringList<br />
+# Description   : Top-level product and version to install<br />
+#                 The format is of the form {"&lt;Internal name&gt;", "&lt;version&gt;"}<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install different top-level products, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+TOPLEVEL_COMPONENT={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEINSTALL_LIST<br />
+# Datatype      : StringList<br />
+# Description   : List of components to be deinstalled during a<br />
+#               : deinstall session<br />
+# Valid values  : &lt;"oracle.server","9.2.0.1.0"&gt;<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEINSTALL_LIST={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SPLASH_SCREEN<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the initial splash screen of the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SPLASH_SCREEN=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_WELCOME_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the Welcome page of the installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_WELCOME_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_COMPONENT_LOCATIONS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the component locations page in<br />
+#                 the installer.  This page only appears if there are<br />
+#                 products whose install directories can be changed.<br />
+#                 If you set this to false you will prevent the user<br />
+#                 from specifying alternate install directories.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_CUSTOM_TREE_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the available products<br />
+#                 selection tree during a Custom install<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SUMMARY_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the Summary page in the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SUMMARY_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_INSTALL_PROGRESS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the install progress screen.<br />
+#                 This screen shows detailed status of the<br />
+#                 installation, which file is being copied, which link<br />
+#                 action is being performed, etc.  It also shows<br />
+#                 percentage complete.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_INSTALL_PROGRESS_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_REQUIRED_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the status screen for<br />
+#                 required configuration tools.  This screen shows the<br />
+#                 status of each tool along with detailed information<br />
+#                 in the event of tool failure.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_OPTIONAL_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the optional configuration<br />
+#                 tool page which allows you to launch optional<br />
+#                 configuration tools and view details status,<br />
+#                 including details on any failures.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_OPTIONAL_CONFIG_TOOL_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_RELEASE_NOTES<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the release notes screen from<br />
+#                 which Release Notes can be viewed.  NOTE, 9.0.1 does<br />
+#                 not use any release notes so this will not be<br />
+#                 relevant for an 9.0.1 install.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_RELEASE_NOTES=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_ROOTSH_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the dialog which prompts the<br />
+#                 user to run root.sh before a database is created.<br />
+#                 If this is set to false, the root.sh script can be<br />
+#                 run manually after installation, but the Database<br />
+#                 Configuration Assistant may not have permissions to<br />
+#                 update the oratab file if this is the first Oracle<br />
+#                 installation on the machine.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_ROOTSH_CONFIRMATION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_END_SESSION_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display end session dialog.  This<br />
+#                 page shows whether the installation is successful.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_END_SESSION_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_EXIT_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display dialog for confirming exit.<br />
+#                 If set to false, installer will exit without<br />
+#                 prompting.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation.  If this is<br />
+#                 set to true, NEXT_SESSION_RESPONSE should be used to<br />
+#                 indicate location of the second reponse file.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_ON_FAIL<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation even if the<br />
+#                 first installation failed.  This flag is only<br />
+#                 relevant if NEXT_SESSION is set to true.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_ON_FAIL=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall confirmation is needed<br />
+#               : during a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_CONFIRMATION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_PROGRESS<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall progress is needed during<br />
+#               : a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_PROGRESS=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : LOCATION_FOR_DISK&lt;disk number&gt;<br />
+# Datatype      : String<br />
+# Description   : Set to the full path of the root of the subsequent CDs in <br />
+#                 the Oracle9i set.  This may be a mounted CD-ROM location or<br />
+#                 a location on the hard drive if you have copied the<br />
+#                 CD images to the hard disk.<br />
+# Valid values  : full path to the root of the CD corresponding to the disk<br />
+#                 number indicated.  <br />
+# Default value : None<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+LOCATION_FOR_DISK2="%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1"<br />
+LOCATION_FOR_DISK3="%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# End of GENERAL SESSION section<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+<br />
+#<br />
+# Oracle9i Client<br />
+#<br />
+<br />
+[oracle.client_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : COMPONENT_LANGUAGES<br />
+# Datatype      : StringList<br />
+#-----------------------------------------------------------------------------<br />
+COMPONENT_LANGUAGES={"en"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : INSTALL_TYPE<br />
+# Datatype      : String<br />
+# Description   : Type of installation for the Oracle9i Client<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install using a different install type, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+# Example       : INSTALL_TYPE = "Custom"<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+INSTALL_TYPE="Custom"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.client)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+#    oracle.emcltprod, 9.2.0.1.0 : Oracle Enterprise Manager Products 9.2.0.1.0 <br />
+#    oracle.networking.netcltprod, 9.2.0.1.0 : Oracle Network Utilities 9.2.0.1.0 	<br />
+#    oracle.utilities.util, 9.2.0.1.0 : Oracle Database Utilities 9.2.0.1.0 			Added<br />
+#    oracle.java, 9.2.0.1.0 : Oracle Java Utilities 9.2.0.1.0 					Added<br />
+#    oracle.rdbms.sqlplus, 9.2.0.1.0 : SQL*Plus 9.2.0.1.0 					Added<br />
+#    oracle.apache.isqlplus.ise, 9.2.0.1.0 : iSQL*Plus Extension for Windows 9.2.0.1.0 	<br />
+#    oracle.java.jdbc, 9.2.0.1.0 : Oracle JDBC/OCI Interfaces 9.2.0.1.0 			Added<br />
+#    oracle.java.jdbc.thin, 9.2.0.1.0 : Oracle JDBC/THIN Interfaces 9.2.0.1.0 			Added<br />
+#    oracle.oid.client, 9.2.0.1.0 : Oracle Internet Directory Client 9.2.0.1.0 			Added<br />
+#    oracle.winprod, 9.2.0.1.0 : Oracle Windows Interfaces 9.2.0.1.0 			Added<br />
+#    oracle.rdbms.ocitop, 9.2.0.1.0 : Oracle Call Interfaces 9.2.0.1.0 				Added<br />
+#    oracle.p2k, 9.2.0.1.0 : Oracle Programmer 9.2.0.1.0 <br />
+#    oracle.p2k.xmldevkit, 9.2.0.1.0 : Oracle XML Developer's Kit 9.2.0.1.0 <br />
+#    oracle.doc.windoc, 9.2.0.1.0 : Oracle9i Windows Documentation 9.2.0.1.0 <br />
+#    oracle.swd.oui, 2.0.0.8.0 : Oracle Universal Installer 2.2.0.8.0 				Added<br />
+#    oracle.options.ano, 9.2.0.1.0 : Oracle Advanced Security 9.2.0.1.0 <br />
+#    oracle.java.sqlj.sqljruntime, 9.2.0.1.0 : SQLJ Runtime 9.2.0.1.0 				Added<br />
+#    oracle.options.intermedia.imclient, 9.2.0.1.0 : Oracle interMedia Client Option 9.2.0.1.0 <br />
+#    oracle.options.olap.api, 9.2.0.1.0 : Oracle OLAP API 9.2.0.1.0 				Added<br />
+#Example : DEPENDENCY_LIST = {"oracle.emcltprod","9.2.0.1.0"}	<br />
+<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST={"oracle.utilities.util","9.2.0.1.0", "oracle.java","9.2.0.1.0", "oracle.rdbms.sqlplus","9.2.0.1.0", "oracle.java.jdbc","9.2.0.1.0", "oracle.java.jdbc.thin","9.2.0.1.0", "oracle.oid.client","9.2.0.1.0" ,"oracle.winprod","9.2.0.1.0", "oracle.rdbms.ocitop","9.2.0.1.0", "oracle.swd.oui","9.2.0.1.0", "oracle.java.sqlj.sqljruntime","9.2.0.1.0", "oracle.options.olap.api","9.2.0.1.0"}<br />
+<br />
+<br />
+#<br />
+# Oracle Enterprise Manager Products<br />
+#<br />
+<br />
+[oracle.emcltprod_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.emcltprod)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+#    oracle.sysman.client, 9.2.0.1.0 : Oracle Enterprise Manager Client 9.2.0.1.0 <br />
+#    oracle.sysman.pack.change, 9.2.0.1.0 : Oracle Change Management Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.diag, 9.2.0.1.0 : Oracle Diagnostics Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.tuning, 9.2.0.1.0 : Oracle Tuning Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.apps, 9.2.0.1.0 : Oracle Management Pack for Oracle Applications 9.2.0.1.0 <br />
+#    oracle.sysman.pack.std, 9.2.0.1.0 : Management Pack for Oracle Standard Edition 9.2.0.1.0 <br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST={ }<br />
+<br />
+<br />
+# Oracle Net Configuration Assistant<br />
+[oracle.networking.netca_9.2.0.1.0]<br />
+#-----------------------------------------------------------------------------<br />
+# Name : OPTIONAL_CONFIG_TOOLS<br />
+# Description : Specifying "netca" will launch the Oracle Net Configuration<br />
+#-----------------------------------------------------------------------------<br />
+OPTIONAL_CONFIG_TOOLS={}<br />
+#-----------------------------------------------------------------------------<br />
+# Name : s_responseFileName<br />
+# Description : This string contains the value of the -responseFile<br />
+# argument for launching the Oracle Net Configuration<br />
+# Assistant in silent mode. Use the "netca.rsp" response<br />
+# file template from the CD to customize silent database<br />
+# creation. Set the value of this variable to your<br />
+# customized NetCA response file location.<br />
+# Valid values : The full path to a customized NetCA response file based on<br />
+# the netca.rsp template.<br />
+# Example value : "c:\temp\response\netca.rsp"<br />
+# Default value : None<br />
+# Mandatory : Yes, for installs with the "-silent" flag<br />
+#-----------------------------------------------------------------------------<br />
+s_responseFileName=&lt;Value Unspecified&gt;
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    04/01/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_125" name="tip_125">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-125"></div> -->
+   <div id="tip-125" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-125" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-125"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Silent Installation of Oracle 9i Client<br />
+This proved to be relatively easy using the response files supplied on the CD and distributed using SMS 2.0.<br />
+Only trap is the reponse files don't work correctly with UNC paths, you will need to use a drive letter in the path.<br />
+Steps to follow:<br />
+<br />
+1. Obtain a copy of the appropriate response file and customise to your fit your organisation.<br />
+<br />
+2. Copy the source files to the network location.<br />
+<br />
+3. Run the following command in a batch file, temporarily mapping a drive letter to your network location (this must also be used in the reponse file):<br />
+<br />
+o:\or9201\setup.exe -silent -responseFile "o:\or9201\clientadmin.rsp"<br />
+<br />
+The above command will install the Administrative install, substitute the response file for the appropriate install.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rocket" class="username" rel="nofollow">rocket</a>
+                </li>
+                <li>
+                    03/09/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_129" name="tip_129">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-129"></div> -->
+   <div id="tip-129" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-129" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-129"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Oracle 9i2 Client Install by MSI using Wise 3.52 on a vanilla windows XP machine logged in as administrator. (ghost image taken so can always go back to this as starting point)<br />
+<br />
+(1) Copied oracle client install to C:\ dirve<br />
+(2) Install Wise 3.52<br />
+(3) Run Wise Set up capture, with setting set for C:\ and all subdirectories all other options set to blank.<br />
+(4) choosing to run explorer from window and then run Client Install<br />
+(5) Kill the Oracle Service (MTSRecovery) that was started<br />
+(6) [Next] Wise Scan Runs again, create Install<br />
+(7) Delete the oraparam.ini file from the ini files and add it to Files its in ProgFiles\Oracle\oui <br />
+(8) Setup Editor, Features, Right Click, New EV, Name=PATH, Value (from DOS Prompt PATH, include orabin directory and jre values bit) append<br />
+(9) Install Expert set these DLLs so not self registered<br />
+in oraclehome\bin<br />
+OraOLEDB.dll, OraOLEDBus.dll, VDOGW.dll, vmqbridge.dll<br />
+in oraclehome\jdk\jre\bin<br />
+NPJava(11,12,32,131_01).dll, NPOJ1600.dll<br />
+in C:\ProgFiles\Oracle\jre\1.3.1\bin<br />
+NPJava(11,12,32,131_01).dll, NPOJ1600.dll<br />
+in C:\ProgFiles\Oracle\MMCSnapIns\Admn Assist<br />
+orammcadm9.dll<br />
+(11) ODBC delete entry<br />
+(12) Registry add HKEY_LOCAL_MACHINES\Software\ODBC<br />
+(13) Remove Profiles\Admin\Local\TEMP from files <br />
+(14) Delete OUI shortcut feature (this was shortcut22 on my system it includes the file and the start menu shortcut) you will still be able to run the oui afterwards its just not in the start menu.<br />
+(15) Also needed to removed index.dat from files (as usual)<br />
+<br />
+  Hope this helps<br />
+<br />
+    Trev<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/trevgf" class="username" rel="nofollow">trevgf</a>
+                </li>
+                <li>
+                    04/14/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_130" name="tip_130">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-130"></div> -->
+   <div id="tip-130" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-130" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-130"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            A couple things to be aware of when using the Oracle Universal Installer that comes with 9.2.0.1:<br />
+<br />
+1.  If you record a response file from a Custom installation and then try to use that response file, it will not work.  The data formatting within the recorded response file is wrong, i.e. oracle.emcltprod_9.2.0.1.0 instead of "oracle.emcltprod","9.2.0.1.0"  Hard to believe such a blatant bug got past their QA, but Oracle confirmed this bug.  The best solution is to avoid recorded response files and use the templates instead.<br />
+<br />
+2.  However, there is a typo in the clientcustom.rsp template too!  See the other post about the incorrect &lt;&gt; angle braces and the correct {} curly braces.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/dcheng" class="username" rel="nofollow">dcheng</a>
+                </li>
+                <li>
+                    07/14/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_132" name="tip_132">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-132"></div> -->
+   <div id="tip-132" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-132" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-132"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            The Oracle Installer has some side effects that are worth pointing out:<br />
+<br />
+On a NTFS 5.0 filesystem ACL inheritance is turned off for the OraHome directory. If you depend on this like I do you will have to use something like<br />
+cscript xcacls.vbs /T /I ENABLE "%ProgramFiles%\ora92"<br />
+(ora92 being my OraHome) to get it back in place.<br />
+<br />
+Also I occasionally noticed similar things going on in the registry for HKLM\Software\ODBC, which was missing ACL inheritance after some reinstallations. 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    09/13/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_133" name="tip_133">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-133"></div> -->
+   <div id="tip-133" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-133" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-133"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            If using Oracle Universal Installer 2.3 or higher console output can be suppressed with Setup.exe -noconsole. <br />
+<br />
+Example for unattended installation with response file:<br />
+Setup.exe -responsefile &lt;response.rsp&gt; -noconsole<br />
+<br />
+All other parameters can be shown with Setup.exe -help.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/iti" class="username" rel="nofollow">iti</a>
+                </li>
+                <li>
+                    10/26/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_134" name="tip_134">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-134"></div> -->
+   <div id="tip-134" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-134" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-134"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Trevgf - Thanks for you comments on building a MSI install. The problem with self registration can also be solved by specifying the order in which the dlls are registered. In my install the npjava32.dll in the c:\program files\Oracle\JRE\1.3.1\bin needed to be registered before the c:\Oracle\Ora92\JDK\JRE\bin directory. Check for 1904 errors in your installation log and resolve them by one at a time.<br />
+<br />
+Java Plug-in NPJAVA131_01 is not installed properly error- This is in reference to the NPJAVA131_01.dll that is used to support HPUX runtime environment with Netscape 4.77 or later. Not a Netscape shop Delete the component, files and all reference to the files in the tables.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KentD" class="username" rel="nofollow">KentD</a>
+                </li>
+                <li>
+                    12/29/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_131" name="tip_131">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-131"></div> -->
+   <div id="tip-131" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-131" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-131"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Dcheng makes a good point.  <br />
+<br />
+I noted the syntax errors in the .rsp files after doing a record and only getting pieces of the products installed.  <br />
+<br />
+The template wasn't real useful because it's hard to tell before you install what all of the dependent products will be (there are a lot of them).  <br />
+<br />
+I'd recommend doing a recorded install, then correcting the syntax in the .rsp file as noted above.  With search and replace in your favorite text editor, and some careful editing this task shouldn't take more than one hour.  <br />
+<br />
+finally I was successful at getting the silent installation to run and install all of the selected products.  <br />
+<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/aogilmor" class="username" rel="nofollow">aogilmor</a>
+                </li>
+                <li>
+                    08/13/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_135" name="tip_135">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-135"></div> -->
+   <div id="tip-135" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-135" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-135"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Oracle 9.2 client install using Oracle installer for anyone who like us is still a few versions behind.<br />
+These were installed successfully via batch file under SMS2003.  Thanks to all of you who helped me through the RSP syntax problem.<br />
+<br />
+:: ------------ RunTime_Install<br />
+start /wait setup -silent -responsefile %cd%\RunTime.rsp<br />
+<br />
+## RunTime.rsp with the comments taken out as they are shown above ##<br />
+[General]<br />
+<br />
+RESPONSEFILE_VERSION=1.7.0<br />
+<br />
+[SESSION]<br />
+UNIX_GROUP_NAME=&lt;Value Unspecified&gt;<br />
+FROM_LOCATION="..\stage\products.jar"<br />
+FROM_LOCATION_CD_LABEL=&lt;Value Unspecified&gt;<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+ORACLE_HOME="c:\oracle\ora92"<br />
+ORACLE_HOME_NAME="OraHome92"<br />
+TOPLEVEL_COMPONENT={"oracle.client","9.2.0.1.0"}<br />
+DEINSTALL_LIST=&lt;"oracle.client","9.2.0.1.0"&gt;<br />
+SHOW_SPLASH_SCREEN=false<br />
+SHOW_WELCOME_PAGE=false<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+SHOW_SUMMARY_PAGE=true<br />
+SHOW_INSTALL_PROGRESS_PAGE=true<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=true<br />
+SHOW_OPTIONAL_CONFIG_TOOL_PAGE=false<br />
+SHOW_RELEASE_NOTES=false<br />
+SHOW_ROOTSH_CONFIRMATION=true<br />
+SHOW_END_SESSION_PAGE=false<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+NEXT_SESSION=false<br />
+NEXT_SESSION_ON_FAIL=false<br />
+SHOW_DEINSTALL_CONFIRMATION=true<br />
+SHOW_DEINSTALL_PROGRESS=true<br />
+LOCATION_FOR_DISK2="&lt;PathToSource&gt;"<br />
+LOCATION_FOR_DISK3=None<br />
+<br />
+[oracle.client_9.2.0.1.0]<br />
+INSTALL_TYPE="Runtime"<br />
+## end RunTime.rsp ##<br />
+<br />
+## Once patch 9.2.0.6 is installed the OUI is updated to version 10.x which will wait for a key press after each install<br />
+##  unless the -nowait option is used<br />
+<br />
+<br />
+:: ------------ ODBC_Install<br />
+start /wait 9i_patch_9206\setup -silent -nowait -responsefile %cd%\ODBC.rsp<br />
+<br />
+## ODBC.rsp with the comments taken out as they are shown above<br />
+RESPONSEFILE_VERSION=2.2.1.0.0<br />
+UNIX_GROUP_NAME=" "<br />
+FROM_LOCATION="\Ora92Source\ODBC\stage\products.jar"<br />
+FROM_LOCATION_CD_LABEL=&lt;Value Unspecified&gt;<br />
+ORACLE_HOME="c:\oracle\ora92"<br />
+ORACLE_HOME_NAME="OraHome92"<br />
+TOPLEVEL_COMPONENT={"oracle.p2k.odbc","9.2.0.6.5"}<br />
+SHOW_SPLASH_SCREEN=false<br />
+SHOW_WELCOME_PAGE=false<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+SHOW_SUMMARY_PAGE=false<br />
+SHOW_INSTALL_PROGRESS_PAGE=false<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=false<br />
+SHOW_CONFIG_TOOL_PAGE=false<br />
+SHOW_RELEASE_NOTES=false<br />
+SHOW_ROOTSH_CONFIRMATION=false<br />
+SHOW_END_SESSION_PAGE=false<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+NEXT_SESSION=false<br />
+NEXT_SESSION_ON_FAIL=true<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+DEINSTALL_LIST={"oracle.p2k.odbc","9.2.0.6.5"}<br />
+SHOW_DEINSTALL_CONFIRMATION=false<br />
+SHOW_DEINSTALL_PROGRESS=false<br />
+CLUSTER_NODES={}<br />
+ACCEPT_LICENSE_AGREEMENT=false<br />
+SELECTED_LANGUAGES={"en"}<br />
+INSTALL_TYPE="Custom"<br />
+## end ODBC.rsp ##<br />
+<br />
+<br />
+:: ------------ Patch_Install<br />
+start /wait 9i_patch_9206\setup -silent -nowait -responsefile %cd%\9i_patch_9206\Patch9206.rsp<br />
+<br />
+## Patch9206.rsp with the comments taken out as they are shown above<br />
+[General]<br />
+<br />
+RESPONSEFILE_VERSION=1.7.0<br />
+<br />
+[SESSION]<br />
+UNIX_GROUP_NAME=&lt;Value Unspecified&gt;<br />
+FROM_LOCATION="../stage/products.xml"<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+ORACLE_HOME="c:\oracle\ora92"<br />
+TOPLEVEL_COMPONENT={"oracle.server","9.2.0.6.0"}<br />
+SHOW_SPLASH_SCREEN=false<br />
+SHOW_WELCOME_PAGE=false<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+SHOW_SUMMARY_PAGE=false<br />
+SHOW_INSTALL_PROGRESS_PAGE=false<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=false<br />
+SHOW_OPTIONAL_CONFIG_TOOL_PAGE=false<br />
+SHOW_RELEASE_NOTES=false<br />
+SHOW_ROOTSH_CONFIRMATION=false<br />
+SHOW_END_SESSION_PAGE=false<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+NEXT_SESSION=false<br />
+NEXT_SESSION_ON_FAIL=false<br />
+<br />
+[oracle.rdbms_9.2.0.6.0]<br />
+sl_userNodeList={}<br />
+<br />
+## end Patch9206.rsp<br />
+<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/arran" class="username" rel="nofollow">arran</a>
+                </li>
+                <li>
+                    05/18/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_126" name="tip_126">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-126"></div> -->
+   <div id="tip-126" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-126" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-126"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            DEINSTALL-To deinstall an automated Oracle 9i Client installation you can use the following command:<br />
+&lt;SetupFilesPath&gt;\setup.exe -deinstall -silent -RESPONSEFILE &lt;ResponseFilePath&gt;\&lt;ResponseFile&gt;<br />
+<br />
+for example assume you deploy the installation files (contents of the CD) to the local machine in the %SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1 directory you could run the following command:<br />
+<br />
+%SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\setup.exe -deinstall -silent -RESPONSEFILE %SystemDrive%\installs\Oracle\Oracle9i\9.2.0.1\Response\clientruntime.rsp<br />
+<br />
+***Note it appears that the default response files have a syntax error for the DEINSTALL_LIST entry.  The valid value is listed as &lt;"oracle.server","9.2.0.1.0"&gt; when it actually needs a different bracket type.  The entry for the Oracle client should look like this: {"oracle.client","9.2.0.1.0"}. 
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    04/01/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_136" name="tip_136">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-136"></div> -->
+   <div id="tip-136" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-136" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-136"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Important note for silent removal of the product:<br />
+After you have applied patch 9.2.0.6, you cannot uninstall anything with the Universal Installer on the local disk, nor with the one in the source of 9.2.0.1. Only the setup.exe located in the source of the patch will work.<br />
+You can use the same rsp files you used for installation for removal. Make sure to uninstall the patch first.<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    10/12/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_137" name="tip_137">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-137"></div> -->
+   <div id="tip-137" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">116</div>
+   <div id="tip-137" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-137"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>We where required to deploy orcale 8,9 and oracleNT (forms) to all users.  Multiple homes etc you can image the headace.  Heres what we did. Used wise to package oracleNT, left it on the computer following that packaged oracle 8 and oracle 9 all on the same computer. This way the oracle installs would pick the exact home they where suppose to install into.  From this we could install any oracle in any order without any problems.  but DO NOT PUT the tnsnames file into the package.  You can use the TNS_ADMIN variable and set it to a location either on a share (if you want to monitor one tnsnames file) or build a seperate package to install the tnsnames and sqlnet.ora files.  We pointed it to c:\oracle\tnsnames.  When the DBA's came to us with a new file we simply updated the package and sent it out as a quick upgrade.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/crow" class="username" rel="nofollow">crow</a>
+                </li>
+                <li>
+                    01/22/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6002" name="tip_6002">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6002"></div> -->
+   <div id="tip-6002" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6002" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6002"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            What a nightmare what a totally unprofessional company, what headaches have been experienced due to rubbish quality control.<br />
+Let me see if I have it right You can capture a custom install in a response file and then not be able to use it to do an install???, and the only thing it can do is a uninstall WAH!!!.<br />
+Or you can use a custom template as a base which has syntax errors in it so can't install with it what a pile Poo!!! <br />
+This is worse the Microsoft no wonder this company did not make the super league.   <br />
+<br />
+Here is a response file which I configured manually based on the custom install template. <br />
+This will do a full install apart from 3 components Oracle Programmer, Oracle XML Developer's Kit<br />
+and the Oracle9i Windows Documentation. Enjoy Now where are those pills. Oh remember to change the Deinstall &lt; &gt; <br />
+DEINSTALL_LIST=&lt;"oracle.client","9.2.0.1.0"&gt; to {}.<br />
+<br />
+Packagingâ¦. I would not go there as far as I know your updateâs won't work and you will prob loose support.<br />
+<br />
+Just cut and paste this into a text file and save that text file as Customfullinstall.rsp or similar and call it:- <br />
+Setup.exe -silent -responsefile Customfullinstall.rsp "<br />
+Or Setup.exe -silent -responsefile âZ:\Software Library\2.0 In Progress\Mukhtar\crapapps\Oracle\Response\Customfullinstall.rsp"<br />
+ <br />
+<br />
+####################################################################<br />
+##                                                                ##<br />
+##     Oracle9i Client Custom Install Response File Template      ##<br />
+## -------------------------------------------------------------- ##<br />
+##                                                                ##<br />
+## Copyright(c) Oracle Corporation 1998,2000. All rights reserved.##<br />
+##                                                                ##<br />
+## Specify values for the variables listed below to customize     ##<br />
+## your installation.                                             ##<br />
+##                                                                ##<br />
+## Each variable is associated with a comment. The comment        ##<br />
+## identifies the variable type.                                  ##<br />
+##                                                                ##<br />
+## Please specify the values in the following format:             ##<br />
+##                                                                ##<br />
+##         Type         Example                                   ##<br />
+##         String       "Sample Value"                            ##<br />
+##         Boolean      True or False                             ##<br />
+##         Number       1000                                      ##<br />
+##         StringList   {"String value 1","String Value 2"}       ##<br />
+##                                                                ##<br />
+## The values that are given as &lt;Value Required&gt; need to be       ##<br />
+## specified for a silent installation to be successful.          ##<br />
+##                                                                ##<br />
+##                                                                ##<br />
+## This response file is generated by Oracle Software             ##<br />
+## Packager.                                                      ##<br />
+####################################################################<br />
+<br />
+[General]<br />
+<br />
+RESPONSEFILE_VERSION=1.7.0<br />
+<br />
+[SESSION]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : UNIX_GROUP_NAME<br />
+# Datatype      : String<br />
+# Description   : Unix group to be set for the inventory<br />
+#               : directory. Valid only in Unix platforms.<br />
+# Valid values  : a string containing the group name<br />
+# Example value : "install"<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+UNIX_GROUP_NAME=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION<br />
+# Datatype      : String<br />
+# Description   : Complete path of the products.jar file from the staging area<br />
+#                 containing products to install<br />
+# Valid values  : Full path ending in "products.jar"<br />
+# Example value : "e:\stage\products.jar"<br />
+# Default value : "..\stage\products.jar"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION_CD_LABEL<br />
+# Datatype      : String<br />
+# Description   : This variable should only be used in multi-CD installations.<br />
+#                 It includes the label of the Compact Disk where the file<br />
+#                 "products.jar" exists. The label can be found in the file<br />
+#                 "disk.label" in the same directory as products.jar.<br />
+# Valid values  : Any string<br />
+# Example value : "oracle9i"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION_CD_LABEL=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_RESPONSE<br />
+# Datatype      : String<br />
+# Description   : Optionally specifies the full path of next session's<br />
+#                 response file. If only a file name is specified, the<br />
+#                 response file is retrieved from &lt;TEMP&gt;/oraInstall<br />
+#                 directory. This variable is only active if<br />
+#                 NEXT_SESSION is set to true.<br />
+# Valid values  : Full path to a valid response file or a response file name<br />
+# Example value : "c:\temp\install.rsp"<br />
+# Default value : None<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME<br />
+# Datatype      : String<br />
+# Description   : Full path of directory to use for installing Oracle<br />
+#                 products - the "Oracle Home"<br />
+# Valid values  : Directory path (existent or non-existent)<br />
+# Example value : "d:\oracle\products\9.0.1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME="C:\oracle\ora92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME_NAME<br />
+# Datatype      : String<br />
+# Description   : Name used to uniquely identify the Oracle Home on this <br />
+#                 system.<br />
+# Valid values  : String that is unique on this system<br />
+# Example value : "OHOME1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME_NAME="OraHome92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : TOPLEVEL_COMPONENT<br />
+# Datatype      : StringList<br />
+# Description   : Top-level product and version to install<br />
+#                 The format is of the form {"&lt;Internal name&gt;", "&lt;version&gt;"}<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install different top-level products, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+TOPLEVEL_COMPONENT={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEINSTALL_LIST<br />
+# Datatype      : StringList<br />
+# Description   : List of components to be deinstalled during a<br />
+#               : deinstall session<br />
+# Valid values  : &lt;"oracle.server","9.2.0.1.0"&gt;<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEINSTALL_LIST={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SPLASH_SCREEN<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the initial splash screen of the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SPLASH_SCREEN=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_WELCOME_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the Welcome page of the installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_WELCOME_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_COMPONENT_LOCATIONS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the component locations page in<br />
+#                 the installer.  This page only appears if there are<br />
+#                 products whose install directories can be changed.<br />
+#                 If you set this to false you will prevent the user<br />
+#                 from specifying alternate install directories.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_CUSTOM_TREE_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the available products<br />
+#                 selection tree during a Custom install<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SUMMARY_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the Summary page in the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SUMMARY_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_INSTALL_PROGRESS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the install progress screen.<br />
+#                 This screen shows detailed status of the<br />
+#                 installation, which file is being copied, which link<br />
+#                 action is being performed, etc.  It also shows<br />
+#                 percentage complete.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_INSTALL_PROGRESS_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_REQUIRED_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the status screen for<br />
+#                 required configuration tools.  This screen shows the<br />
+#                 status of each tool along with detailed information<br />
+#                 in the event of tool failure.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_OPTIONAL_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the optional configuration<br />
+#                 tool page which allows you to launch optional<br />
+#                 configuration tools and view details status,<br />
+#                 including details on any failures.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_OPTIONAL_CONFIG_TOOL_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_RELEASE_NOTES<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the release notes screen from<br />
+#                 which Release Notes can be viewed.  NOTE, 9.0.1 does<br />
+#                 not use any release notes so this will not be<br />
+#                 relevant for an 9.0.1 install.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_RELEASE_NOTES=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_ROOTSH_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the dialog which prompts the<br />
+#                 user to run root.sh before a database is created.<br />
+#                 If this is set to false, the root.sh script can be<br />
+#                 run manually after installation, but the Database<br />
+#                 Configuration Assistant may not have permissions to<br />
+#                 update the oratab file if this is the first Oracle<br />
+#                 installation on the machine.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_ROOTSH_CONFIRMATION=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_END_SESSION_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display end session dialog.  This<br />
+#                 page shows whether the installation is successful.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_END_SESSION_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_EXIT_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display dialog for confirming exit.<br />
+#                 If set to false, installer will exit without<br />
+#                 prompting.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation.  If this is<br />
+#                 set to true, NEXT_SESSION_RESPONSE should be used to<br />
+#                 indicate location of the second reponse file.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_ON_FAIL<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation even if the<br />
+#                 first installation failed.  This flag is only<br />
+#                 relevant if NEXT_SESSION is set to true.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_ON_FAIL=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall confirmation is needed<br />
+#               : during a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_CONFIRMATION=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_PROGRESS<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall progress is needed during<br />
+#               : a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_PROGRESS=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : LOCATION_FOR_DISK&lt;disk number&gt;<br />
+# Datatype      : String<br />
+# Description   : Set to the full path of the root of the subsequent CDs in <br />
+#                 the Oracle9i set.  This may be a mounted CD-ROM location or<br />
+#                 a location on the hard drive if you have copied the<br />
+#                 CD images to the hard disk.<br />
+# Valid values  : full path to the root of the CD corresponding to the disk<br />
+#                 number indicated.  <br />
+# Default value : None<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+LOCATION_FOR_DISK2=&lt;Value Required&gt;<br />
+LOCATION_FOR_DISK3=&lt;Value Required&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# End of GENERAL SESSION section<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+<br />
+#<br />
+# Oracle9i Client<br />
+#<br />
+<br />
+[oracle.client_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : COMPONENT_LANGUAGES<br />
+# Datatype      : StringList<br />
+#-----------------------------------------------------------------------------<br />
+COMPONENT_LANGUAGES={"en"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : INSTALL_TYPE<br />
+# Datatype      : String<br />
+# Description   : Type of installation for the Oracle9i Client<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install using a different install type, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+# Example       : INSTALL_TYPE = "Custom"<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+INSTALL_TYPE="Custom"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.client)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+# .   oracle.emcltprod, 9.2.0.1.0 : Oracle Enterprise Manager Products 9.2.0.1.0 <br />
+# .  oracle.networking.netcltprod, 9.2.0.1.0 : Oracle Network Utilities 9.2.0.1.0 <br />
+# .   oracle.utilities.util, 9.2.0.1.0 : Oracle Database Utilities 9.2.0.1.0 <br />
+#  .  oracle.java, 9.2.0.1.0 : Oracle Java Utilities 9.2.0.1.0 <br />
+#   . oracle.rdbms.sqlplus, 9.2.0.1.0 : SQL*Plus 9.2.0.1.0 <br />
+#    .oracle.apache.isqlplus.ise, 9.2.0.1.0 : iSQL*Plus Extension for Windows 9.2.0.1.0 <br />
+#   . oracle.java.jdbc, 9.2.0.1.0 : Oracle JDBC/OCI Interfaces 9.2.0.1.0 <br />
+# ... oracle.java.jdbc.thin, 9.2.0.1.0 : Oracle JDBC/THIN Interfaces 9.2.0.1.0 <br />
+#   . oracle.oid.client, 9.2.0.1.0 : Oracle Internet Directory Client 9.2.0.1.0 <br />
+#    oracle.winprod, 9.2.0.1.0 : Oracle Windows Interface.s 9.2.0.1.0 <br />
+#  .  oracle.rdbms.ocitop, 9.2.0.1.0 : Oracle Call Interfaces 9.2.0.1.0 <br />
+#  --  oracle.p2k, 9.2.0.1.0 : Oracle Programmer 9.2.0.1.0 <br />
+# --   oracle.p2k.xmldevkit, 9.2.0.1.0 : Oracle XML Developer's Kit 9.2.0.1.0 <br />
+# --   oracle.doc.windoc, 9.2.0.1.0 : Oracle9i Windows Documentation 9.2.0.1.0 <br />
+#  .  oracle.swd.oui, 2.0.0.8.0 : Oracle Universal Installer 2.2.0.8.0 <br />
+#  .  oracle.options.ano, 9.2.0.1.0 : Oracle Advanced Security 9.2.0.1.0 <br />
+#  .  oracle.java.sqlj.sqljruntime, 9.2.0.1.0 : SQLJ Runtime 9.2.0.1.0 <br />
+#   . oracle.options.intermedia.imclient, 9.2.0.1.0 : Oracle interMedia Client Option 9.2.0.1.0 <br />
+#   . oracle.options.olap.api, 9.2.0.1.0 : Oracle OLAP API 9.2.0.1.0 <br />
+#Example : DEPENDENCY_LIST = {"oracle.emcltprod","9.2.0.1.0"}<br />
+<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST = {"oracle.emcltprod","9.2.0.1.0","oracle.networking.netcltprod","9.2.0.1.0","oracle.utilities.util","9.2.0.1.0","oracle.java","9.2.0.1.0","oracle.rdbms.sqlplus","9.2.0.1.0","oracle.apache.isqlplus.ise","9.2.0.1.0","oracle.java.jdbc","9.2.0.1.0","oracle.java.jdbc.thin","9.2.0.1.0","oracle.oid.client","9.2.0.1.0","oracle.winprod","9.2.0.1.0","oracle.rdbms.ocitop","9.2.0.1.0","oracle.swd.oui","2.0.0.8.0","oracle.options.ano","9.2.0.1.0","oracle.java.sqlj.sqljruntime","9.2.0.1.0","oracle.options.intermedia.imclient","9.2.0.1.0","oracle.options.olap.api","9.2.0.1.0"}<br />
+<br />
+<br />
+#<br />
+# Oracle Enterprise Manager Products<br />
+#<br />
+<br />
+[oracle.emcltprod_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.emcltprod)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+#    oracle.sysman.client, 9.2.0.1.0 : Oracle Enterprise Manager Client 9.2.0.1.0 <br />
+#    oracle.sysman.pack.change, 9.2.0.1.0 : Oracle Change Management Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.diag, 9.2.0.1.0 : Oracle Diagnostics Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.tuning, 9.2.0.1.0 : Oracle Tuning Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.apps, 9.2.0.1.0 : Oracle Management Pack for Oracle Applications 9.2.0.1.0 <br />
+#    oracle.sysman.pack.std, 9.2.0.1.0 : Management Pack for Oracle Standard Edition 9.2.0.1.0 <br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST={"oracle.sysman.client","9.2.0.1.0","oracle.sysman.pack.change","9.2.0.1.0","oracle.sysman.pack.diag","9.2.0.1.0","oracle.sysman.pack.tuning","9.2.0.1.0","oracle.sysman.pack.apps","9.2.0.1.0"}<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mukhtar001" class="username" rel="nofollow">mukhtar001</a>
+                </li>
+                <li>
+                    05/28/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_138" name="tip_138">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-138"></div> -->
+   <div id="tip-138" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-138" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-138"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            What a nightmare what a totally unprofessional company, what headaches have been experienced due to rubbish quality control.<br />
+Let me see if I have it right You can capture a custom install in a response file and then not be able to use it to do an install???, and the only thing it can do is a uninstall WAH!!!.<br />
+Or you can use a custom template as a base which has syntax errors in it so can't install with it what a pile Poo!!! <br />
+This is worse the Microsoft no wonder this company did not make the super league.   <br />
+<br />
+Here is a response file which I configured manually based on the custom install template. <br />
+This will do a full install apart from 3 components Oracle Programmer, Oracle XML Developer's Kit<br />
+and the Oracle9i Windows Documentation. Enjoy Now where are those pills. Oh remember to change the Deinstall &lt; &gt; <br />
+DEINSTALL_LIST=&lt;"oracle.client","9.2.0.1.0"&gt; to {}.<br />
+<br />
+PackagingÃ¢Â€Â¦. I would not go there as far as I know your updateÃ¢Â€Â™s won't work and you will prob loose support.<br />
+<br />
+Just cut and paste this into a text file and save that text file as Customfullinstall.rsp or similar and call it:- <br />
+Setup.exe -silent -responsefile Customfullinstall.rsp "<br />
+Or Setup.exe -silent -responsefile Ã¢Â€ÂœZ:\Software Library\2.0 In Progress\Mukhtar\crapapps\Oracle\Response\Customfullinstall.rsp"<br />
+ <br />
+<br />
+####################################################################<br />
+##                                                                ##<br />
+##     Oracle9i Client Custom Install Response File Template      ##<br />
+## -------------------------------------------------------------- ##<br />
+##                                                                ##<br />
+## Copyright(c) Oracle Corporation 1998,2000. All rights reserved.##<br />
+##                                                                ##<br />
+## Specify values for the variables listed below to customize     ##<br />
+## your installation.                                             ##<br />
+##                                                                ##<br />
+## Each variable is associated with a comment. The comment        ##<br />
+## identifies the variable type.                                  ##<br />
+##                                                                ##<br />
+## Please specify the values in the following format:             ##<br />
+##                                                                ##<br />
+##         Type         Example                                   ##<br />
+##         String       "Sample Value"                            ##<br />
+##         Boolean      True or False                             ##<br />
+##         Number       1000                                      ##<br />
+##         StringList   {"String value 1","String Value 2"}       ##<br />
+##                                                                ##<br />
+## The values that are given as &lt;Value Required&gt; need to be       ##<br />
+## specified for a silent installation to be successful.          ##<br />
+##                                                                ##<br />
+##                                                                ##<br />
+## This response file is generated by Oracle Software             ##<br />
+## Packager.                                                      ##<br />
+####################################################################<br />
+<br />
+[General]<br />
+<br />
+RESPONSEFILE_VERSION=1.7.0<br />
+<br />
+[SESSION]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : UNIX_GROUP_NAME<br />
+# Datatype      : String<br />
+# Description   : Unix group to be set for the inventory<br />
+#               : directory. Valid only in Unix platforms.<br />
+# Valid values  : a string containing the group name<br />
+# Example value : "install"<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+UNIX_GROUP_NAME=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION<br />
+# Datatype      : String<br />
+# Description   : Complete path of the products.jar file from the staging area<br />
+#                 containing products to install<br />
+# Valid values  : Full path ending in "products.jar"<br />
+# Example value : "e:\stage\products.jar"<br />
+# Default value : "..\stage\products.jar"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : FROM_LOCATION_CD_LABEL<br />
+# Datatype      : String<br />
+# Description   : This variable should only be used in multi-CD installations.<br />
+#                 It includes the label of the Compact Disk where the file<br />
+#                 "products.jar" exists. The label can be found in the file<br />
+#                 "disk.label" in the same directory as products.jar.<br />
+# Valid values  : Any string<br />
+# Example value : "oracle9i"<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+FROM_LOCATION_CD_LABEL=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_RESPONSE<br />
+# Datatype      : String<br />
+# Description   : Optionally specifies the full path of next session's<br />
+#                 response file. If only a file name is specified, the<br />
+#                 response file is retrieved from &lt;TEMP&gt;/oraInstall<br />
+#                 directory. This variable is only active if<br />
+#                 NEXT_SESSION is set to true.<br />
+# Valid values  : Full path to a valid response file or a response file name<br />
+# Example value : "c:\temp\install.rsp"<br />
+# Default value : None<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_RESPONSE=&lt;Value Unspecified&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME<br />
+# Datatype      : String<br />
+# Description   : Full path of directory to use for installing Oracle<br />
+#                 products - the "Oracle Home"<br />
+# Valid values  : Directory path (existent or non-existent)<br />
+# Example value : "d:\oracle\products\9.0.1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME="C:\oracle\ora92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : ORACLE_HOME_NAME<br />
+# Datatype      : String<br />
+# Description   : Name used to uniquely identify the Oracle Home on this <br />
+#                 system.<br />
+# Valid values  : String that is unique on this system<br />
+# Example value : "OHOME1"<br />
+# Default value : none<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+ORACLE_HOME_NAME="OraHome92"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : TOPLEVEL_COMPONENT<br />
+# Datatype      : StringList<br />
+# Description   : Top-level product and version to install<br />
+#                 The format is of the form {"&lt;Internal name&gt;", "&lt;version&gt;"}<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install different top-level products, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+TOPLEVEL_COMPONENT={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEINSTALL_LIST<br />
+# Datatype      : StringList<br />
+# Description   : List of components to be deinstalled during a<br />
+#               : deinstall session<br />
+# Valid values  : &lt;"oracle.server","9.2.0.1.0"&gt;<br />
+# Default value : none<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEINSTALL_LIST={"oracle.client","9.2.0.1.0"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SPLASH_SCREEN<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the initial splash screen of the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SPLASH_SCREEN=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_WELCOME_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the Welcome page of the installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_WELCOME_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_COMPONENT_LOCATIONS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the component locations page in<br />
+#                 the installer.  This page only appears if there are<br />
+#                 products whose install directories can be changed.<br />
+#                 If you set this to false you will prevent the user<br />
+#                 from specifying alternate install directories.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_COMPONENT_LOCATIONS_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_CUSTOM_TREE_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the available products<br />
+#                 selection tree during a Custom install<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_CUSTOM_TREE_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_SUMMARY_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the Summary page in the<br />
+#                 installer<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_SUMMARY_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_INSTALL_PROGRESS_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the install progress screen.<br />
+#                 This screen shows detailed status of the<br />
+#                 installation, which file is being copied, which link<br />
+#                 action is being performed, etc.  It also shows<br />
+#                 percentage complete.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_INSTALL_PROGRESS_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_REQUIRED_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the status screen for<br />
+#                 required configuration tools.  This screen shows the<br />
+#                 status of each tool along with detailed information<br />
+#                 in the event of tool failure.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_REQUIRED_CONFIG_TOOL_PAGE=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_OPTIONAL_CONFIG_TOOL_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the optional configuration<br />
+#                 tool page which allows you to launch optional<br />
+#                 configuration tools and view details status,<br />
+#                 including details on any failures.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_OPTIONAL_CONFIG_TOOL_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_RELEASE_NOTES<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to show the release notes screen from<br />
+#                 which Release Notes can be viewed.  NOTE, 9.0.1 does<br />
+#                 not use any release notes so this will not be<br />
+#                 relevant for an 9.0.1 install.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_RELEASE_NOTES=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_ROOTSH_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display the dialog which prompts the<br />
+#                 user to run root.sh before a database is created.<br />
+#                 If this is set to false, the root.sh script can be<br />
+#                 run manually after installation, but the Database<br />
+#                 Configuration Assistant may not have permissions to<br />
+#                 update the oratab file if this is the first Oracle<br />
+#                 installation on the machine.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_ROOTSH_CONFIRMATION=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_END_SESSION_PAGE<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display end session dialog.  This<br />
+#                 page shows whether the installation is successful.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_END_SESSION_PAGE=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_EXIT_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to display dialog for confirming exit.<br />
+#                 If set to false, installer will exit without<br />
+#                 prompting.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_EXIT_CONFIRMATION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation.  If this is<br />
+#                 set to true, NEXT_SESSION_RESPONSE should be used to<br />
+#                 indicate location of the second reponse file.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : NEXT_SESSION_ON_FAIL<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true to allow users to go back to the File<br />
+#                 Locations page for another installation even if the<br />
+#                 first installation failed.  This flag is only<br />
+#                 relevant if NEXT_SESSION is set to true.<br />
+# Valid values  : true, false<br />
+# Default value : false<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+NEXT_SESSION_ON_FAIL=false<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_CONFIRMATION<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall confirmation is needed<br />
+#               : during a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_CONFIRMATION=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : SHOW_DEINSTALL_PROGRESS<br />
+# Datatype      : Boolean<br />
+# Description   : Set to true if deinstall progress is needed during<br />
+#               : a deinstall session.<br />
+# Valid values  : true, false<br />
+# Default value : true<br />
+# Mandatory     : No<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+SHOW_DEINSTALL_PROGRESS=true<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : LOCATION_FOR_DISK&lt;disk number&gt;<br />
+# Datatype      : String<br />
+# Description   : Set to the full path of the root of the subsequent CDs in <br />
+#                 the Oracle9i set.  This may be a mounted CD-ROM location or<br />
+#                 a location on the hard drive if you have copied the<br />
+#                 CD images to the hard disk.<br />
+# Valid values  : full path to the root of the CD corresponding to the disk<br />
+#                 number indicated.  <br />
+# Default value : None<br />
+# Mandatory     : Yes<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+LOCATION_FOR_DISK2=&lt;Value Required&gt;<br />
+LOCATION_FOR_DISK3=&lt;Value Required&gt;<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# End of GENERAL SESSION section<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+<br />
+#<br />
+# Oracle9i Client<br />
+#<br />
+<br />
+[oracle.client_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : COMPONENT_LANGUAGES<br />
+# Datatype      : StringList<br />
+#-----------------------------------------------------------------------------<br />
+COMPONENT_LANGUAGES={"en"}<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : INSTALL_TYPE<br />
+# Datatype      : String<br />
+# Description   : Type of installation for the Oracle9i Client<br />
+# Note          : DO NOT CHANGE THE DEFAULT VALUE.<br />
+#                 To install using a different install type, use one of the<br />
+#                 other response file templates<br />
+# Mandatory     : Yes<br />
+# Example       : INSTALL_TYPE = "Custom"<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+INSTALL_TYPE="Custom"<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.client)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+# .   oracle.emcltprod, 9.2.0.1.0 : Oracle Enterprise Manager Products 9.2.0.1.0 <br />
+# .  oracle.networking.netcltprod, 9.2.0.1.0 : Oracle Network Utilities 9.2.0.1.0 <br />
+# .   oracle.utilities.util, 9.2.0.1.0 : Oracle Database Utilities 9.2.0.1.0 <br />
+#  .  oracle.java, 9.2.0.1.0 : Oracle Java Utilities 9.2.0.1.0 <br />
+#   . oracle.rdbms.sqlplus, 9.2.0.1.0 : SQL*Plus 9.2.0.1.0 <br />
+#    .oracle.apache.isqlplus.ise, 9.2.0.1.0 : iSQL*Plus Extension for Windows 9.2.0.1.0 <br />
+#   . oracle.java.jdbc, 9.2.0.1.0 : Oracle JDBC/OCI Interfaces 9.2.0.1.0 <br />
+# ... oracle.java.jdbc.thin, 9.2.0.1.0 : Oracle JDBC/THIN Interfaces 9.2.0.1.0 <br />
+#   . oracle.oid.client, 9.2.0.1.0 : Oracle Internet Directory Client 9.2.0.1.0 <br />
+#    oracle.winprod, 9.2.0.1.0 : Oracle Windows Interface.s 9.2.0.1.0 <br />
+#  .  oracle.rdbms.ocitop, 9.2.0.1.0 : Oracle Call Interfaces 9.2.0.1.0 <br />
+#  --  oracle.p2k, 9.2.0.1.0 : Oracle Programmer 9.2.0.1.0 <br />
+# --   oracle.p2k.xmldevkit, 9.2.0.1.0 : Oracle XML Developer's Kit 9.2.0.1.0 <br />
+# --   oracle.doc.windoc, 9.2.0.1.0 : Oracle9i Windows Documentation 9.2.0.1.0 <br />
+#  .  oracle.swd.oui, 2.0.0.8.0 : Oracle Universal Installer 2.2.0.8.0 <br />
+#  .  oracle.options.ano, 9.2.0.1.0 : Oracle Advanced Security 9.2.0.1.0 <br />
+#  .  oracle.java.sqlj.sqljruntime, 9.2.0.1.0 : SQLJ Runtime 9.2.0.1.0 <br />
+#   . oracle.options.intermedia.imclient, 9.2.0.1.0 : Oracle interMedia Client Option 9.2.0.1.0 <br />
+#   . oracle.options.olap.api, 9.2.0.1.0 : Oracle OLAP API 9.2.0.1.0 <br />
+#Example : DEPENDENCY_LIST = {"oracle.emcltprod","9.2.0.1.0"}<br />
+<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST = {"oracle.emcltprod","9.2.0.1.0","oracle.networking.netcltprod","9.2.0.1.0","oracle.utilities.util","9.2.0.1.0","oracle.java","9.2.0.1.0","oracle.rdbms.sqlplus","9.2.0.1.0","oracle.apache.isqlplus.ise","9.2.0.1.0","oracle.java.jdbc","9.2.0.1.0","oracle.java.jdbc.thin","9.2.0.1.0","oracle.oid.client","9.2.0.1.0","oracle.winprod","9.2.0.1.0","oracle.rdbms.ocitop","9.2.0.1.0","oracle.swd.oui","2.0.0.8.0","oracle.options.ano","9.2.0.1.0","oracle.java.sqlj.sqljruntime","9.2.0.1.0","oracle.options.intermedia.imclient","9.2.0.1.0","oracle.options.olap.api","9.2.0.1.0"}<br />
+<br />
+<br />
+#<br />
+# Oracle Enterprise Manager Products<br />
+#<br />
+<br />
+[oracle.emcltprod_9.2.0.1.0]<br />
+<br />
+#-----------------------------------------------------------------------------<br />
+# Name          : DEPENDENCY_LIST (oracle.emcltprod)<br />
+# Datatype      : StringList<br />
+# Description   : List of optional products to be installed along with<br />
+#                 this one.  The following choices are available.  The<br />
+#                 value can contain any combination of these choices.<br />
+# Note          : The products listed are optional dependencies.  Any<br />
+#                 required dependencies will automatically be installed.<br />
+# Valid values  :<br />
+#    oracle.sysman.client, 9.2.0.1.0 : Oracle Enterprise Manager Client 9.2.0.1.0 <br />
+#    oracle.sysman.pack.change, 9.2.0.1.0 : Oracle Change Management Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.diag, 9.2.0.1.0 : Oracle Diagnostics Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.tuning, 9.2.0.1.0 : Oracle Tuning Pack 9.2.0.1.0 <br />
+#    oracle.sysman.pack.apps, 9.2.0.1.0 : Oracle Management Pack for Oracle Applications 9.2.0.1.0 <br />
+#    oracle.sysman.pack.std, 9.2.0.1.0 : Management Pack for Oracle Standard Edition 9.2.0.1.0 <br />
+#-----------------------------------------------------------------------------<br />
+<br />
+DEPENDENCY_LIST={"oracle.sysman.client","9.2.0.1.0","oracle.sysman.pack.change","9.2.0.1.0","oracle.sysman.pack.diag","9.2.0.1.0","oracle.sysman.pack.tuning","9.2.0.1.0","oracle.sysman.pack.apps","9.2.0.1.0"}<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mukhtar001" class="username" rel="nofollow">mukhtar001</a>
+                </li>
+                <li>
+                    05/28/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_139" name="tip_139">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-139"></div> -->
+   <div id="tip-139" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-139" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-139"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>All available product strings needed for the DEPENDENCY_LIST can be found in the file ../stage/products.xml</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/db" class="username" rel="nofollow">db</a>
+                </li>
+                <li>
+                    12/09/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/1193/2325">
+                                    9
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Oracle Client</h2>
+            <div><h3>Version</h3><span>9</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (14)
+                            </h3>
+            <p>Questions & Answers related to Oracle Oracle Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-10g-1" class="title">
+            Oracle 10g silent installation error - PSAPI.DLL
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="33381"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/786_ak" rel="nofollow">786_ak</a>
+                10 years ago 12.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               786_ak commented 10 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/i-got-an-oracle9i-vendor-msi-i-didn-t-understand-the-behavoiur-of-that-application-when-i-installed-that-application-it-is-installing-in-the-c-drive-with-the-vendor-name-and-it-is-also-installing-in-to-the-programfiles-folder-i-never-worked-on-complex-app" class="title">
+            Questions about Oracle 9i Deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="26146"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sridhark" rel="nofollow">sridhark</a>
+                12 years ago 2.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-client-10-2-0-3-0-silent-install" class="title">
+            Oracle Client - 10.2.0.3.0 Silent install
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="25946"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Torisdale" rel="nofollow">Torisdale</a>
+                12 years ago 5.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/odac-11-2-0-3-0" class="title">
+            Deploying ODAC 11.2.0.3.0
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24977"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/oreillyr" rel="nofollow">oreillyr</a>
+                12 years ago 13.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-11g-do-i-have-to-uninstall-oracle-10g-when-installing-11g" class="title">
+            Oracle 11g Do I have to uninstall Oracle 10g when installing 11g?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24310"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/superz202" rel="nofollow">superz202</a>
+                12 years ago 3.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-uninstall-oracle-client-11g-on-windows-7-machine-silently" class="title">
+            How to uninstall Oracle Client 11g on windows 7 machine SILENTLY
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24285"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/shreeitninja" rel="nofollow">shreeitninja</a>
+                12 years ago 21.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-11g-r2-client-not-installing-after-deploying-through-sccm2012" class="title">
+            Oracle 11g r2 Client not installing after deploying through SCCM2012
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="24162"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Dabears!" rel="nofollow">Dabears!</a>
+                12 years ago 15k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/path-not-found-when-performing-a-scripted-install-and-silent-install-of-oracle-11g-r2-client" class="title">
+            Path not found when performing a Scripted Install and Silent install of Oracle 11g R2 Client
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="22165"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/rjobe" rel="nofollow">rjobe</a>
+                12 years ago 4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                5
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-sequence-the-oracle-11g-client-with-another-application" class="title">
+            How to sequence the oracle 11g client with another application?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20935"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/alberta" rel="nofollow">alberta</a>
+                12 years ago 9.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/dsc-linked-app-v-sequences-last-launching-registry-wins" class="title">
+            DSC Linked App-V Sequences - Last Launching Registry &#039;Wins&#039;?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20387"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dunnpy" rel="nofollow">dunnpy</a>
+                12 years ago 5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/reading-data-s-from-the-local-machine" class="title">
+            Reading data from the Local machine with a virtualized application
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="20370"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/virtualize" rel="nofollow">virtualize</a>
+                12 years ago 2.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-create-an-oracle-10g-client-silent-package" class="title">
+            How to create an Oracle 10g  client silent package?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="19591"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sanjaypatel_s23" rel="nofollow">sanjaypatel_s23</a>
+                13 years ago 12.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                30
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/re-packaking-oracle-9i-client" class="title">
+            Re-Packaking Oracle 9i Client
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="12991"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/weedee" rel="nofollow">weedee</a>
+                14 years ago 8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/oracle-client-8i-v8-1-7" class="title">
+            Oracle Client 8i v8.1.7
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="8473"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/rteske" rel="nofollow">rteske</a>
+                21 years ago 12.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Oracle Oracle Client</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (3)
+                            </h3>
+
+            <p>Links related to Oracle Oracle Client</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/oracle-9i-silent-installation" class="title">
+                Oracle 9i &quot;Silent&quot; Installation
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3239"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                21 years ago 4.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/using-the-oracle-universal-installer-silent-install-using-response-files" class="title">
+                Using the Oracle Universal Installer: Silent Install Using Response Files
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2193"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                23 years ago 5.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sample-resonse-file" class="title">
+                Sample Resonse File
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2238"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                23 years ago 5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Oracle Client</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2025 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

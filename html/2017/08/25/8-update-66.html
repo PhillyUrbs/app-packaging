@@ -1,0 +1,1447 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for Oracle Java 8 8 Update 66 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Oracle Java 8 8 Update 66">
+        <meta name="keywords" content="Oracle,Oracle Java 8,Java 8 8 Update 66">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAB4FBMVEUYFRwZFh0ZGB4aFx4bGB8cGSAdGiAdGyEeGyIfHCMgHSQhHiUiHyYjICckISglIigmFBomFRsmFx0mIykmJConFRsnJSsoFhwoGB4pJi0qJy4rKC8sHSMsKTAtKjAtKjEuKzEvLDIwLjQyMDY0GB41Iyg2Mzk5Fxw8GR48ICVAHiNBFRpDERdDISZEEhhGRElIGBxIHCJMFRpMSU9NFBlOHCBPHSJRT1RSEBVSFxtTEBZTHCBVExhVIyhVU1hYGRxYJChbFxteExhjHB9kYmdmHyFmISNpGBxqaGxraW1sam5ubG9vHSFvbXFwbnJwb3Jxb3NycHN1FRh1HyF1c3d3dXl5FBZ7HiF8Gh59GBp+HR+BGhyBGxyDEhaDFhiFDhKFFBaGGx2HDxKJEhSJEhWJGBqJGxyKDRGMCg6OEBOPEBOPGhqREBOSFBaTExWWFRaXGBiYFhiYlpqZDRCcExSfFBWgFBagFhahFhajERKjoaSlCw2lpKemDhCoCAuop6qpCQupExOpFBStDQ+wr7KyERO2tbe3DxC4DxC6Cgy6EBHCDg7HCQvJyMrKycvLDAzOzc/R0NLUCgrW1tfcCAjjBAXlBgbuBATxAQL09PT2AgL39/f6+fr8/Pz/AAD////CniIQAAACCElEQVQoz2WSV3PTQBhF75fdlS05sR1CAgECwfQaeu81Dp2PKqroIEiWKnoRiCIhC4KwIRDrr/KQYSYD5+3c83qR/Tw+F/8iV77PMvzuG7/R1tO7d64CgOcZno4vEwYdT9+93w6g4xcOjCvlJ8x8szwmX1FFCxFAANHL1OazGDPE6MeQAEmCFJd04vsnBIQEpIxRXR8skzmivNyuOdTJURgGKCcRY98OZ2gaqcLk12nojuj0gWVAFiRZMfpXMD+8dfvKm3A40KHf1JuQbxOyaMQYWOIF9ShIXQ5dX/uR+2NBkcwuiRhH1HUvCFzX8zxm5iiN9swvdZHorqHf7H2mfc92tMPM7HqhfW01jF4rxpGZ0jzp28yuy8wcNkO/ke6tGEYNB6mjopY+5mAs2QmzH7obW2fVUJ3aQ7Ky5lHd9xxn2G3q0G8kzNtEjGMl5CuW2NzwosRvBPVI6yC0edCsYQCtPcqYbt7Qw4mrk+T7qXlq/+cw6olRLU0ks1tioZd6zMmdOSI/RXV+/EAxDlkoFIlKlh7xk+htAVaJRMfF8201VKnVhCyqTq/uRJ8MKphQRbVoeT5G1ZJQlpDnQpuvThKWgrJIWBIxDhOU0TL7chjpM+0iR1AGZI6gvuEVhMCFtOnVX5RJAIIgBCBmjGJ0C0BUXrdhMf4eAQDJdxmy0Xtr+/5j15cs+wOeHJNpucraGwAAAABJRU5ErkJggg==">
+	<link rel="canonical" href="http://www.itninja.com/software/oracle/java-8/8-update-66"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="data:image/png;base64,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" alt="ITNinja Home"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAKxJREFUKM91kkEOwyAMBJdACRBiz/9f20NDlVbOnpBGNl6vpZvq9JcipQNaSDSALSQFIC46AHKIANgfkIE9oPSCEqE5xwmmUtaY6+MyAWAAPjZJspakvJ8sDVvzHPypbAD0yyl0W8iuV5YqgKV+K7Q5jS6pOmDfxt6zJNVDktI+fTFvaQVxy8Sh9zkizw3yzgyjBIjRx2Kcc4OH/ao+9lMHj48jO2d8AKrt9wjfHhUM057Gu+UAAAAASUVORK5CYII="/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li><a href="/software/oracle/java-8/versions">Java 8</a></li>
+    <li>8 Update 66</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Oracle Java 8</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 8 Update 66
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/update-141">
+                                            Update 141.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-update-92">
+                                            8 Update 92.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-update-66">
+                                            8 Update 66.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-update-60-1">
+                                            8 Update 60.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-update-45">
+                                            8 Update 45.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-update-40">
+                                            8 Update 40.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/8-1927">
+                                            8.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/oracle/java-8/java-8-update-25">
+                                            Java 8 Update 25.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/64464/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTglMkY4LXVwZGF0ZS02Ng==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/64464/JTJGc29mdHdhcmUlMkZvcmFjbGUlMkZqYXZhLTglMkY4LXVwZGF0ZS02Ng==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 17k &nbsp|&nbsp
+    Created: 10/30/2015
+    
+            by: <a href="/user/Dries.Willems" rel="nofollow">Dries.Willems</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version64464" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64464" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64464" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64464" type="radio" class="star" disabled="disabled"/>
+    <input name="Version64464" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Java 8 has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">9 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (2)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="data:image/png;base64,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" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>2</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/64464" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="84dfa6b9b91bf185d25257180aa84442f82f5802" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/oracle/java-8/8-update-66#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/oracle/java-8/8-update-66/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8343" name="tip_8343">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8343"></div> -->
+   <div id="tip-8343" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-8343" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8343"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            So I just got the K1000 and java doesn't install with the system account after 8.40 or something like that. So I had to build a script that installed it silently for me with the switches for the exe since the java msi doesn't exactly work the same now when you try to extract it.<br/><br/>so i pretty muched launch a program with cmd.exe /c "<span><span>jre-8u66-windows-i586.exe INSTALL_SILENT=1 STATIC=1 AUTO_UPDATE=0 WEB_JAVA_SECURITY_LEVEL=H EULA=1 REBOOT=0 SPONSORS=1 /Lv C:\JAVA.log</span>“ <br/><br/>and with admin credentials instead of system. I deployed it to my test machine and wala it worked! Hope this helps somebody because I couldn't find anything on the interwebs.<br/></span>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Difficult
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/aric89" class="username" rel="nofollow">aric89</a>
+                </li>
+                <li>
+                    01/08/2016 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-36263">
+        <a name="comment-36263"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/Dries.Willems" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/Dries.Willems" rel="nofollow">Dries.Willems</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">If you check the log, you will find out that it will place the file under the system profile (explained in my initial post)<br/>
+<br/>
+When using SCCM and installing it with SYSTEM credentials, the java installer decided to place the msi's under the appdata from the install account.<br/>
+Because appdata from the System account is under C:\Windows\System32, it would not do the correct copy actions.<br/>
+Also it was searching for java.settings.cfg under C:\ProgramData\Oracle\Java , so we needed to place the file there before installing.<br/>
+<br/>
+C:\windows\system32\config\systemprofile\AppData\LocalLow\Oracle\Java\ <br/>
+...</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-36596">
+        <a name="comment-36596"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/aric89" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/aric89" rel="nofollow">aric89</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Your solution works and everything. I just like mine since it's simplified and what not.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8309" name="tip_8309">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8309"></div> -->
+   <div id="tip-8309" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8309" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8309"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <div><div>In case you are wondering, normally I would open the EXE's and extract the MSI's.</div><div>But today I decided to use the EXE's with the default commands that Oracle delivers us.</div><div><br></div><div>Had some problems with SCCM depencies and with little time, I used a batch file.</div><div>When using SCCM and installing it with SYSTEM credentials, the java installer decided to place the msi's under the appdata from the install account.</div><div>Because appdata from the System account is under C:\Windows\System32, it would not do the correct copy actions.</div><div>Also it was searching for java.settings.cfg under C:\ProgramData\Oracle\Java , so we needed to place the file there before installing.</div><div><br></div><div>I also added some custom settings to the Java configuration.</div><div>Placing the file under APPDATA of the current user.</div><div><br></div><div>Detection Method:</div><div>Exist</div><div>C:\ProgramData\Oracle\Java\Settings_Java8u66_Installed.txt</div><div>Exist</div><div>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\4EA42A62D9304AC4784BF2381208660F</div><div>Exist</div><div>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products\4EA42A62D9304AC4784BF2681408660F</div><div><br></div><div>Installing:</div><div>cmd.exe /c InstallJavaRE8U66.cmd</div><div><br></div><div>Batchfile InstallJavaRE8U66.cmd</div><div>------------------------------------------------------------------</div><div>xcopy java.settings.cfg "%ProgramData%\Oracle\Java\"* /I /S /Y /C /R</div><div>xcopy .\jre1.8.0_66* "C:\windows\system32\config\systemprofile\AppData\LocalLow\Oracle\Java\"* /I /S /Y /C /R</div><div>xcopy .\jre1.8.0_66_x64* "C:\windows\system32\config\systemprofile\AppData\LocalLow\Oracle\Java\"* /I /S /Y /C /R</div><div>timeout.exe /T 30 /NOBREAK</div><div>jre-8u66-windows-x64.exe /s INSTALL_SILENT=1 STATIC=1 AUTO_UPDATE=0 WEB_ANALYTICS=0 REBOOT=0 NOSTARTMENU=1 SPONSORS=0 /L C:\Windows\Temp\Install_SDC_Oracle_JavaRE_1.8.0.66_01.00_EN_x64.log</div><div>jre-8u66-windows-i586.exe /s INSTALL_SILENT=1 STATIC=1 AUTO_UPDATE=0 WEB_ANALYTICS=0 REBOOT=0 NOSTARTMENU=1 SPONSORS=0 /L C:\Windows\Temp\Install_SDC_Oracle_JavaRE_1.8.0.66_01.00_EN_x86.log</div><div>type NUL &gt; %ProgramData%\Oracle\Java\Settings_Java8u66_Installed.txt</div><div>------------------------------------------------------------------</div><div><br></div><div>java.settings.cfg -&gt; Place this file under C:\ProgramData\Oracle\Java</div><div>------------------------------------------------------------------</div><div>AUTO_UPDATE=0</div><div>INSTALL_SILENT=1</div><div>NOSTARTMENU=1</div><div>SPONSORS=0</div><div>WEB_ANALYTICS=0</div><div>------------------------------------------------------------------</div><div><br></div><div>deployment.properties -&gt; Place this file under %userprofile%\appdata\locallow\Sun\Java\Deployment\deployment.properties</div><div>------------------------------------------------------------------</div><div>#deployment.properties</div><div>#Fri Oct 23 18:21:40 CEST 2015</div><div>deployment.modified.timestamp=1445617300114</div><div>deployment.roaming.profile=false</div><div>deployment.security.mixcode=DISABLE</div><div>deployment.security.revocation.check=NO_CHECK</div><div>deployment.version=8</div><div>install.disable.sponsor.offers=true</div><div>deployment.browser.path=C\:\\Program Files\\Internet Explorer\\iexplore.exe</div><div>#Java Deployment jre's</div><div>#Fri Oct 23 18:21:40 CEST 2015</div><div>deployment.javaws.jre.0.registered=true</div><div>deployment.javaws.jre.0.platform=1.8</div><div>deployment.javaws.jre.0.osname=Windows</div><div>deployment.javaws.jre.0.path=C\:\\Program Files\\Java\\jre1.8.0_66\\bin\\javaw.exe</div><div>deployment.javaws.jre.0.product=1.8.0_66</div><div>deployment.javaws.jre.0.osarch=amd64</div><div>deployment.javaws.jre.0.location=http\://java.sun.com/products/autodl/j2se</div><div>deployment.javaws.jre.0.enabled=true</div><div>deployment.javaws.jre.0.args=</div><div>------------------------------------------------------------------</div><div><br></div><div>My blog:</div><div>http://dries.metrico.be/#post96</div><div><br></div><div>https://docs.oracle.com/javase/8/docs/technotes/guides/install/config.html#table_config_file_options</div><div>http://www.itninja.com/software/oracle/java-8/8-update-45</div><div>http://serverfault.com/questions/721388/java-msi-install-error-3-2147287037</div></div>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Windows Installer Command Line (No MST)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Dries.Willems" class="username" rel="nofollow">Dries.Willems</a>
+                </li>
+                <li>
+                    10/30/2015 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 2 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-35256">
+        <a name="comment-35256"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/JHBPJF" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/JHBPJF" rel="nofollow">JHBPJF</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                                    last edited 1 year ago
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">I wanted to thank you for taking the time to configure this. We all know how Java can be.<br/>
+<br/>
+What is the deployment.properties for? I don't see it in the batch file being copied to where you are saying to put it to.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-35270">
+        <a name="comment-35270"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/Dries.Willems" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/Dries.Willems" rel="nofollow">Dries.Willems</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">I used GPP for that</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-35295">
+        <a name="comment-35295"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/JHBPJF" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/JHBPJF" rel="nofollow">JHBPJF</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">What's it for?</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+    <li id="comment-35691">
+        <a name="comment-35691"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/Phil10" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/xavatar-star.png.pagespeed.ic.MygxBYBKsF.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/Phil10" rel="nofollow">Phil10</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                                    last edited 1 year ago
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">I've added a small script to link the "right" LocalLow Path to SysWOW64<br/>
+<br/>
+<br/>
+if %UserName% == %ComputerName%$ (<br/>
+<br/>
+rmdir /s /q %windir%\SysWOW64\config\systemprofile\AppData\LocalLow\Oracle<br/>
+rmdir /s /q %windir%\SysWOW64\config\systemprofile\AppData\LocalLow\Sun<br/>
+<br/>
+mkdir %windir%\SysWOW64\config\systemprofile\AppData\LocalLow\<br/>
+<br/>
+mkdir %USERPROFILE%\AppData\LocalLow\Oracle<br/>
+mkdir %USERPROFILE%\AppData\LocalLow\Sun<br/>
+<br/>
+cd %windir%\SysWOW64\config\systemprofile\AppData\LocalLow<br/>
+<br/>
+mklink /j Oracle %USERPROFILE%\AppData\LocalLow\Oracle<br/>
+mklink /j Sun %USERPROFILE%\AppData\LocalLow\Sun<br/>
+<br/>
+)</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64464/136234">
+                                    8 Update 66
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Java 8</h2>
+            <div><h3>Version</h3><span>8 Update 66</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (9)
+                            </h3>
+            <p>Questions & Answers related to Oracle Java 8</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" class="title">
+            Java 8 Update 25 Can&#039;t install to default path, always getting the &quot;static&quot; path
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"/>
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"/>
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"/>
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"/>
+    <input name="java-8-update-25-can-t-install-to-default-path-always-getting-the-static-path" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/BigPackage" rel="nofollow">BigPackage</a>
+                2 years ago 9.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Ladewig answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/why-java-exe-is-removed-from-c-windows-system32-in-jre-8" class="title">
+            why java.exe is removed from c:\windows\system32 in jre 8?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"/>
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"/>
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"/>
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"/>
+    <input name="why-java-exe-is-removed-from-c-windows-system32-in-jre-8" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/vivekjazzwal" rel="nofollow">vivekjazzwal</a>
+                2 years ago 7.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Badger commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java-will-not-quit-with-out-force-quit" class="title">
+            Java will not quit with out force quit.
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"/>
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"/>
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"/>
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="java-will-not-quit-with-out-force-quit" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/kallun" rel="nofollow">kallun</a>
+                1 year ago 583 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                9
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/deploying-java-8-update-101-with-sccm" class="title">
+            Deploying Java 8 Update 101 with SCCM
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"/>
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"/>
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"/>
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="deploying-java-8-update-101-with-sccm" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dsgoody" rel="nofollow">dsgoody</a>
+                11 months ago 6.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               VBScab commented 10 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-t-find-uninstall-key-for-java-8-update-101-x32bit" class="title">
+            Can&#039;t find uninstall key for Java 8 update 101 x32bit
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-find-uninstall-key-for-java-8-update-101-x32bit" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/winterelegy" rel="nofollow">winterelegy</a>
+                10 months ago 781 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               emilchik answered 9 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/java8-overwrites-deployment-properties-file-java-8-update-121" class="title">
+            Java8 Overwrites Deployment.properties file (java 8 update 121)
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"/>
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"/>
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"/>
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"/>
+    <input name="java8-overwrites-deployment-properties-file-java-8-update-121" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/vscamp" rel="nofollow">vscamp</a>
+                4 months ago 597 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               vscamp answered 4 months ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-java-uninstall-hangs" class="title">
+            Silent Java Uninstall hangs
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-java-uninstall-hangs" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cantoris" rel="nofollow">cantoris</a>
+                1 month ago 135 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cantoris commented 4 weeks ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-t-suppress-java-1-8-upd-74-update-prompts" class="title">
+            Can&#039;t suppress Java 1.8 Upd 74 update prompts
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"/>
+    <input name="can-t-suppress-java-1-8-upd-74-update-prompts" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/cantoris" rel="nofollow">cantoris</a>
+                2 weeks ago 178 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               cantoris answered 1 week ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/break-script-and-start-when-the-user-click-in-window" class="title">
+            Break script and start when the user click in Window
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"/>
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"/>
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"/>
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"/>
+    <input name="break-script-and-start-when-the-user-click-in-window" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/lpansarini" rel="nofollow">lpansarini</a>
+                2 weeks ago 101 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Oracle Java 8</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Oracle Java 8</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Oracle Java 8</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xMHBjVkgAAAJPSURBVEiJrVU9ixNRFD3vvTufmSRuFm20ETu7NSBqY5XGxUXBZq3USgOKhZUg/gXBRmxsBbuFrUT/gb9EEdTsZj7eu9di4iSz2SQTzIUU995557xzz52JunbrWY88/60hf08pnWADIcJjZ4tDW2RDCqP2m1Zn+34QJdCaAKX+Fx3MLsrS0b2j3z8Mxe2t3aR7Fl4QQSm9CQEQYXhBBIjskh/EhigApGxsKoh8+EHskygFgWwU/F+IUiBhATOvNXvfU3h0t4+dy+fRSUIAwPE4x8OXn6ANTQlEQMIOwq4xAbPD/u0ruHn1Uv22IiiyY/hha1pjB2Jh8BoERZ7i+s7FUzoCazMQhzOX4VLBOgS2SNHtxFV+58FrfP85QhAlSLrnSqyaAmawa+6Bs66W/0kJ3d4FaCJo45dYswqYm42IncXB+ydz9S8fXwEAjsYZ9p9/qJ9ZZ0R5Pl7ax8RkL5iOT9iBHDs4tgCWE9giW4EvKIocmvyq5ioP2K0kAIAbey+QjUf49vldVesPHkMbAy+IEbe3ayYzu5kRrSBQhhAmW7UXCQCi5Ay8IIbSBkqb+hYJg5hl4vwqBQrGBDBU1KqGQpA3mbugvkWOQdxQQXWIeS6fvfXJHok09wAAWNxcvpBA3My3qCEBToJV509/drJFTTwoQ6DQHwxhixTkhQha3bmxVfgsIBEBS3MCpQ28uA3iFpTW5eYs+C9hKT1wsoaCcpt8wMyoWqBAmHPN7A6ZGSIb/pXeHJAtsqfaeL423kAp1WsoY3mI/HLOfrVFOvwLfr2cvFzgk+IAAAAASUVORK5CYII=" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABX1BMVEVFu+tlu/BsvvBLw+xsvvBywvFLv+xxwfFNxexOwe2EzPNKt+xLt+xMuOxMuexNxuxQxe1Qxu1Rve1Rwu1Tv+1Tx+1Uw+1Vw+1VxO1WyO1Xue5Xw+1XxO1Xxu5Yvu5ZyO5au+5axO5aye5bxO5bx+5cyO5dve5dxu5eyu5fxu5hyu9iy+9jx+9jye9jyu9kyO9lxO5nyO9nze9oxe9qx/BqzfBryfBryvBrzvBsy/BvyvBwzfBwz/BzwvF0y/F00PF1zvB10fF3zfF4zfJ60fF60vF7zvJ+0fJ/z/N/0/KB0POE0POE1fOGzPOG1fOH0fOI1vOK1POL0vON0vSN0/SN1/SS0/WS2fSU2fWV1PWW1fWW2vWa2fWa2/We3Paf3Pah3fai3fak3vap3faw3/e04Pe25fi34vi/5/jB6fnK6/rO7frj9Pzn9f3v+f33/P74/P75/P78/v/9/v////9mrPf1AAAAC3RSTlMVFairq66x9vn5+XR/mDIAAAESSURBVCjPbVGxTsQwDI0dp1VFT4d0iOHUL7iJiW9g5yP5Bb6BhZUBiQlGBtRrL3GdkCYtOq61lFr183vWswHA3KvLeBEB81BpuKgH6Z/JbA0sGKEw8Fgv6xFpCUJYARSQX60rT+LHLLuq+9ZngNAwjNmVqrLFGTBMDIsKLP1jeE4N8R3iY/eJ84wkJVOjAWsmBidlnhVazgyehsdPeIotxWYzzMNnKdgjKMSQAdG32sc4NVrdHINGCD7FiTh1+GiivosK3Wu2yXqHMsbXPrlAfA/p3+ktjNm3bw2M0M9HBiw0dR7W9UPcJ5bX2X9LzmUHdMVxOVBwWpFyJP3fCfS0m+y8w9V7dCS8eloBpU25qFuWX2lyjb3ArGdtAAAAAElFTkSuQmCC" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAbCAMAAAC9SNpyAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAE3RSTlMAECAwQFBgcICQnqCosLXA0ODw4l5hTgAAAhlJREFUSMe1VtuSrCAMlIsIh2UD+P//eggBBMGtrRo3L6OZSJNOk7BtxYTxJ5o3Yvsjk3BeBvJPMMw5mvl8SSFHRlglSkttAj2zT0ESNXv/njGcGJjzL4DoG1exR1XxBcZGEIkYI38CUeSbILBYcEeNvQgi0np2CnHJi9kZgCtJAaCqVg4HAE5d+mAKPeAOQaGJjIAOqBXhEwgvVRmylC09HYvWWy1VbPr3kugpVqTlFtk6WnAJwvqTS7mp/BxI/9CDZJZa3GgH7WEJYmtX2FH8mAtDcvIyQgeqxVCTBx3JZxBURfmepYQDo+jGOd9eAOkJxhRSBnoW42cgfFCKzohqVs8dZF+AqEcQNfScdAIiAcdDPIL4dQexj+pKe49wGW2mtPEIth6dAST9HWYM5No8gtxsODl1z9OJV0sFi19lAmBaDygobtm74jQ9YpFL7EFIQ8dPbU0eoRR57sLTjPKUCIaqnllHqfPnxsgCEbaYJ3cU9v2vrz9Z+vygn5+GDYkaVzX3yRguHeNwZp5a395VzJYUdF9FcSxI0BQV2DTjQ9Z5JtVkj6gb0BjMXS1p9pm8ANd0aFTqXLRiDpNFUC75mLZifVv5av01D8nTQ+iuFzy/JF356ixBxWPbMDx96MbfeO8SOB7KJBPh8tf0+15vWZ5R832q3IGGGVtvkEA3SH71CEUruP40SUubN7x9DufoSUTh/qKT23/tNjs0imzt8gAAAABJRU5ErkJggg==" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":541,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

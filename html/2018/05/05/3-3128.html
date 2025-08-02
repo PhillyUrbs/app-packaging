@@ -1,0 +1,1544 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IT Pro Tips for Microsoft .NET Framework 3 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft .NET Framework 3">
+        <meta name="keywords" content="Microsoft,Microsoft .NET Framework,.NET Framework 3">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+                <link rel="canonical" href="http://www.itninja.com/software/microsoft/net-framework/3-3128" />
+        
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2018 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css" />
+        
+        <link href="/bs-compiled.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/a6a67e0.css" />
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/f4e8db9.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+                   <script type="text/javascript">
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-26553848-1']);
+               _gaq.push(['_trackPageview']);
+
+               (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+           </script>
+       
+        <script type="text/javascript">
+
+            // create the itninja JS namespace
+            var Itninja = {};
+            Itninja.isIe8 = false;
+                        window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '1' === '1' ? true : false,
+                TAG_SHOW_ADD_NEW = false,
+                TAG_USER_ID = 0;
+
+            // Temporarily show notification if user is using IE 11
+            if (!$.support.leadingWhitespace) {
+                $(function(){ showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>'); });
+            }
+            
+        </script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="75" /></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                    <div class="nav-image">
+                        <a href="https://www.quest.com/kace-userkon/"
+                                                      onClick="_gaq.push(['_trackEvent', 'UserKon2018', 'click'])"
+                                                      target="_blank">
+                            <img src="/bundles/itninjaweb/img/kace-userkon.jpg"/>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/microsoft/browse">Microsoft</a></li>
+    <li><a href="/software/microsoft/net-framework/versions">.NET Framework</a></li>
+    <li>3</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Microsoft .NET Framework</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 3
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/9-919"
+                                            >
+                                            9.x <span>(3 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/4-2284"
+                                            >
+                                            4.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/3-3128"
+                                            >
+                                            3.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/02-44"
+                                            >
+                                            02.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/2-4542"
+                                            >
+                                            2.x <span>(13 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/net-framework/1-9381"
+                                            >
+                                            1.x <span>(14 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/35457/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZuZXQtZnJhbWV3b3JrJTJGMy0zMTI4">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/35457/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZuZXQtZnJhbWV3b3JrJTJGMy0zMTI4">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 8k &nbsp|&nbsp
+    Created: 01/24/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version35457" type="radio" class="star" disabled="disabled"  />
+    <input name="Version35457" type="radio" class="star" disabled="disabled"  />
+    <input name="Version35457" type="radio" class="star" disabled="disabled"  />
+    <input name="Version35457" type="radio" class="star" disabled="disabled"  />
+    <input name="Version35457" type="radio" class="star" disabled="disabled"  />
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                .NET Framework has <a href="#inventory-records" id="scrollInv">19 inventory records</a>,
+                <a href="#q-a" id="scrollQA">8 Questions</a>,
+                <a href="#blogs" id="scrollBlog">2 Blogs</a>
+                and <a href="#links" id="scrollLinks">5 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (2)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/clear.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/35457" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="BcPVTpKQyacifL6gfsgdERXpnLdlJ1z48PDUJtDI-LQ"   class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/net-framework/3-3128#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/net-framework/3-3128/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8387" name="tip_8387">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8387"></div> -->
+   <div id="tip-8387" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-8387" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8387"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>By default, Windows 10 does not include .NET 3.5 and for some reason, after you join the computer to a domain, you are no longer able to add it through the GUI from the add/remove Windows features.</p><p>Here`s what i did to publish and install it with SCCM 2012.</p><p>1) Copy the content of the SXS folder from the Windows 10 DVD to your server share.</p><p>2) I create an application that runs a batch file that copies the file needed to the remote computer then executes this commande line:</p><p><strong>DISM.EXE /Online /Add-Package /PackagePath:c:\"your-path-here"\Microsoft-Windows-NetFx3-OnDemand-Package.cab</strong></p><p>For a detection methode, i used software\microsoft\net framework setup\ndp\v3.5 from the HKLM checking for the value of "install"</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KevinViolette" class="username" rel="nofollow">KevinViolette</a>
+                </li>
+                <li>
+                    05/12/2016 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    <li id="comment-40542">
+        <a name="comment-40542"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/griffsdad" rel="nofollow" class="">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/griffsdad" rel="nofollow">griffsdad</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">Kevin, I'm having this same problem.  Do you have an example of the batch file that worked for you?<br />
+Thanks,</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+    <li id="comment-40548">
+        <a name="comment-40548"></a>
+                
+        <div class="comment-wrap">
+
+                    <a href="/user/KevinViolette" rel="nofollow" class="moderator ">
+               <img src="/uploads/images/23751/6MEVlV.png?1466083948545" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+            <div class="byline">
+
+                <ul>
+                    <li>
+                        <a class="username" href="/user/KevinViolette" rel="nofollow">KevinViolette</a>
+                    </li>
+                    <li>
+                                            </li>
+                    <li>
+                        1 year ago
+                    </li>
+                    <li>
+                                            </li>
+                    <li class="report-spam-link-container">
+                                            </li>
+
+                </ul>
+            </div>
+
+                            <div class="the-comment">here`s my bat file : <br />
+<br />
+xcopy "%~dp0*.*" "C:\yourFolder\dotnet35Win10" /E /Z /Y /I<br />
+DISM.EXE /Online /Add-Package /PackagePath:c:\dgt\dotnet35Win10\sxs\Microsoft-Windows-NetFx3-OnDemand-Package.cab<br />
+ping 127.0.0.1 -n 20 &gt; nul<br />
+<br />
+Note: the ping at the end is to make a delay before sccm executes the detection method...i`ve seen in some cases that if i don`t add this line, it won`t detect the newly installed software until the next scan and will show a status of "failled" until then.</div>
+            
+
+            <div class="comment-links">
+                            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="comment-list" class="comments">
+</ul>
+
+    </li>
+</ul>
+
+    </li>
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7071" name="tip_7071">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7071"></div> -->
+   <div id="tip-7071" class="thumbs_up" style="text-align: center; width: 28px";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7071" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;";><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-7071"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>.NET Framework 3.5 SP1 is built in to Windows 7.</p>
+<p><a title=".NET Framework 3.5 &amp; Windows 7" href="http://social.msdn.microsoft.com/Forums/en/netfxsetup/thread/347bc59c-374c-43f9-a2ed-e9bb89c6f25b" target="_blank">social.msdn.microsoft.com</a></p>
+<p><a title="Do All Versions of Windows 7 Inlcude Version 3.5 of the .NET Framework" href="http://stackoverflow.com/questions/2080142/do-all-versions-of-windows-7-include-version-3-5-of-the-net-framework" target="_blank">stackoverflow.com</a></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Ultimation" class="username" rel="nofollow">Ultimation</a>
+                </li>
+                <li>
+                    03/06/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (19)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/35457/68700">
+                                    3.5.7283
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/68701">
+                                    3.5.7066
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/68702">
+                                    3.5.7121
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74401">
+                                    3.0.04506.30
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74402">
+                                    3.5.20706
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74403">
+                                    3.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74404">
+                                    3.0.04324.17
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74405">
+                                    3.5.40825
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/74406">
+                                    3.5.21022
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/80012">
+                                    3.2.30428
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/80013">
+                                    3.2.30730
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/80014">
+                                    3.1.20706
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/80015">
+                                    3.2.30729
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/80016">
+                                    3.1.21022
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/81532">
+                                    3.5.30428
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/81533">
+                                    3.5.30730
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/81534">
+                                    3.5.30729
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/134494">
+                                    3.5 SP1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/35457/134717">
+                                    3.0
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>.NET Framework</h2>
+            <div><h3>Version</h3><span>3.5.7283</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (8)
+                            </h3>
+            <p>Questions & Answers related to Microsoft .NET Framework</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                8
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/no-longer-able-to-install-kbox-client-to-laptops" class="title">
+            No longer able to install KBOX client to laptops
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="no-longer-able-to-install-kbox-client-to-laptops" type="radio" class="star" disabled="disabled"  />
+    <input name="no-longer-able-to-install-kbox-client-to-laptops" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="no-longer-able-to-install-kbox-client-to-laptops" type="radio" class="star" disabled="disabled"  />
+    <input name="no-longer-able-to-install-kbox-client-to-laptops" type="radio" class="star" disabled="disabled"  />
+    <input name="no-longer-able-to-install-kbox-client-to-laptops" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/swilczewski" rel="nofollow">swilczewski</a>
+                5 years ago 4.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-deploy-net-4" class="title">
+            how to deploy .net 4
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-deploy-net-4" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-net-4" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-net-4" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-deploy-net-4" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-deploy-net-4" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/flintlock" rel="nofollow">flintlock</a>
+                5 years ago 5.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-correctly-capture-net-applications-and-global-assembly-cache" class="title">
+            How to correctly capture .NET applications and Global Assembly Cache?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-correctly-capture-net-applications-and-global-assembly-cache" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-correctly-capture-net-applications-and-global-assembly-cache" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-correctly-capture-net-applications-and-global-assembly-cache" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-correctly-capture-net-applications-and-global-assembly-cache" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-correctly-capture-net-applications-and-global-assembly-cache" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/MicrosoftBob" rel="nofollow">MicrosoftBob</a>
+                5 years ago 6.3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" class="title">
+            can we make (.net framework 3.5,3.0,2.0 and visual c++ 2005 and IE7) this applications in to one package if yes how?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" type="radio" class="star" disabled="disabled"  />
+    <input name="can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" type="radio" class="star" disabled="disabled"  />
+    <input name="can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" type="radio" class="star" disabled="disabled"  />
+    <input name="can-we-make-net-framework-3-5-3-0-2-0-and-visual-c-2005-and-ie7-this-applications-in-to-one-package-if-yes-how" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/nunepally" rel="nofollow">nunepally</a>
+                5 years ago 3.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/add-pre-requisites-to-installer-package" class="title">
+            How can I add pre-requisites to an MSI installer package?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="add-pre-requisites-to-installer-package" type="radio" class="star" disabled="disabled"  />
+    <input name="add-pre-requisites-to-installer-package" type="radio" class="star" disabled="disabled"  />
+    <input name="add-pre-requisites-to-installer-package" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="add-pre-requisites-to-installer-package" type="radio" class="star" disabled="disabled"  />
+    <input name="add-pre-requisites-to-installer-package" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/saranyadurairasu" rel="nofollow">saranyadurairasu</a>
+                5 years ago 6.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" class="title">
+            .NET RUNTIME ERROR IN WINDOWS XP PRO SP3, EVENT ID 5000
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" type="radio" class="star" disabled="disabled"  />
+    <input name="net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" type="radio" class="star" disabled="disabled"  />
+    <input name="net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" type="radio" class="star" disabled="disabled"  />
+    <input name="net-runtime-error-in-windows-xp-pro-sp3-event-id-5000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/shespnz" rel="nofollow">shespnz</a>
+                5 years ago 6.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-long-will-a-dependency-remain-in-kace-dependency-dir" class="title">
+            How long will a dependency remain in KACE_DEPENDENCY_DIR?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-long-will-a-dependency-remain-in-kace-dependency-dir" type="radio" class="star" disabled="disabled"  />
+    <input name="how-long-will-a-dependency-remain-in-kace-dependency-dir" type="radio" class="star" disabled="disabled"  />
+    <input name="how-long-will-a-dependency-remain-in-kace-dependency-dir" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-long-will-a-dependency-remain-in-kace-dependency-dir" type="radio" class="star" disabled="disabled"  />
+    <input name="how-long-will-a-dependency-remain-in-kace-dependency-dir" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/jobla" rel="nofollow">jobla</a>
+                5 years ago 5.4k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/dotnetframework-and-desktop-authority" class="title">
+            .NET Framework and Desktop Authority
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="dotnetframework-and-desktop-authority" type="radio" class="star" disabled="disabled"  />
+    <input name="dotnetframework-and-desktop-authority" type="radio" class="star" disabled="disabled"  />
+    <input name="dotnetframework-and-desktop-authority" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="dotnetframework-and-desktop-authority" type="radio" class="star" disabled="disabled"  />
+    <input name="dotnetframework-and-desktop-authority" type="radio" class="star" disabled="disabled"  />
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Bonsai" rel="nofollow">Bonsai</a>
+                4 years ago 2.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (2)
+                            </h3>
+            <p>Blog posts related to Microsoft .NET Framework</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/ase-installation-errors-on-windows-8" class="title">
+                ASE Installation Errors on Windows 8
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="ase-installation-errors-on-windows-8" type="radio" class="star" disabled="disabled"  />
+    <input name="ase-installation-errors-on-windows-8" type="radio" class="star" disabled="disabled"  />
+    <input name="ase-installation-errors-on-windows-8" type="radio" class="star" disabled="disabled"  />
+    <input name="ase-installation-errors-on-windows-8" type="radio" class="star" disabled="disabled"  />
+    <input name="ase-installation-errors-on-windows-8" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bkelly" rel="nofollow">bkelly</a>
+                4 years ago 3.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+
+            <a href="/blog/view/deploy-net-dot-net-4-5-1-via-gpo" class="title">
+                Deploy .Net (Dot Net) 4.5.1 via GPO
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="deploy-net-dot-net-4-5-1-via-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-net-dot-net-4-5-1-via-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-net-dot-net-4-5-1-via-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-net-dot-net-4-5-1-via-gpo" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-net-dot-net-4-5-1-via-gpo" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/trancendence" rel="nofollow">trancendence</a>
+                4 years ago 38.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (5)
+                            </h3>
+
+            <p>Links related to Microsoft .NET Framework</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" class="title">
+                Download: Microsoft .NET Framework 4 (Standalone Installer) - Microsoft Download Center - Download Details
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" type="radio" class="star" disabled="disabled"  />
+    <input name="download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" type="radio" class="star" disabled="disabled"  />
+    <input name="download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" type="radio" class="star" disabled="disabled"  />
+    <input name="download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" type="radio" class="star" disabled="disabled"  />
+    <input name="download-microsoft-net-framework-4-standalone-installer-microsoft-download-center-download-details" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                7 years ago 5.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/net-framework-deployment-guide-for-administrators" class="title">
+                .NET Framework Deployment Guide for Administrators
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="net-framework-deployment-guide-for-administrators" type="radio" class="star" disabled="disabled"  />
+    <input name="net-framework-deployment-guide-for-administrators" type="radio" class="star" disabled="disabled"  />
+    <input name="net-framework-deployment-guide-for-administrators" type="radio" class="star" disabled="disabled"  />
+    <input name="net-framework-deployment-guide-for-administrators" type="radio" class="star" disabled="disabled"  />
+    <input name="net-framework-deployment-guide-for-administrators" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/nzdude" rel="nofollow">nzdude</a>
+                7 years ago 3.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/aaron-stebners-net-framework-deployment-blog" class="title">
+                Aaron Stebners .NET Framework Deployment blog
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="aaron-stebners-net-framework-deployment-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="aaron-stebners-net-framework-deployment-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="aaron-stebners-net-framework-deployment-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="aaron-stebners-net-framework-deployment-blog" type="radio" class="star" disabled="disabled"  />
+    <input name="aaron-stebners-net-framework-deployment-blog" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/msenn" rel="nofollow">msenn</a>
+                7 years ago 3.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/msdn-blogs" class="title">
+                MSDN Blogs
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="msdn-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs" type="radio" class="star" disabled="disabled"  />
+    <input name="msdn-blogs" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="msdn-blogs" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/snissen" rel="nofollow">snissen</a>
+                5 years ago 4.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/performance-tips-and-tricks-in-net-applications" class="title">
+                Performance Tips and Tricks in .NET Applications
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="performance-tips-and-tricks-in-net-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="performance-tips-and-tricks-in-net-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="performance-tips-and-tricks-in-net-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="performance-tips-and-tricks-in-net-applications" type="radio" class="star" disabled="disabled"  />
+    <input name="performance-tips-and-tricks-in-net-applications" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/atulnimje" rel="nofollow">atulnimje</a>
+                4 years ago 2.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft .NET Framework</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2018 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/dsg.png" alt="Quest" /></a>
+                </div>
+
+                <div id="version">2.16.54 Sprint 16 2012-Aug-06 b17a9c836505362ecb151f6dd5d3407e56e7d905<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js"></script>
+    
+    <script>
+        Itninja.Helpful('div.helpful button');
+
+        $(document).ready( function() {
+        // only way to do this
+                     var id = '#platform-new #form_platforms_' + 1;
+            $(id).click(function() {
+                showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                // reclick it
+                $(this).attr("checked", true);
+            });
+                Itninja.HideContent('a.review-delete-admin','div.version-review');
+        });
+    </script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+    </body>
+</html>

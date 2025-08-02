@@ -1,0 +1,1172 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for wireshark Wireshark 1</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to wireshark Wireshark 1">
+    <meta name="keywords" content="wireshark,wireshark Wireshark,Wireshark 1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/wireshark/wireshark-2/1-10156" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/wireshark">wireshark</a></li>
+    <li><a href="/software-library/company/wireshark/wireshark-2">Wireshark</a></li>
+    <li>1</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>wireshark Wireshark</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 1
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/wireshark/wireshark-2/3-4576"
+                                            >
+                                            3.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/wireshark/wireshark-2/1-10156"
+                                            >
+                                            1.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/wireshark/wireshark-2/0-1330"
+                                            >
+                                            0.x <span>(2 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/38310/JTJGc29mdHdhcmUlMkZ3aXJlc2hhcmslMkZ3aXJlc2hhcmstMiUyRjEtMTAxNTY=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/38310/JTJGc29mdHdhcmUlMkZ3aXJlc2hhcmslMkZ3aXJlc2hhcmstMiUyRjEtMTAxNTY=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 7.8k &nbsp|&nbsp
+    Created: 04/05/2008
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="38310"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Wireshark has <a href="#inventory-records" id="scrollInv">43 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">2 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (2)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with no known command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/green.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>2 / 5 (Somewhat Easy)</strong>
+                            based on <strong>2</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer Command Line (No MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/wireshark/wireshark-2/1-10156#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/wireshark/wireshark-2/1-10156/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_6516" name="tip_6516">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6516"></div> -->
+   <div id="tip-6516" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-6516" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6516"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>You can simply start the Wireshark installer without any command line parameters, it will show you the usual interactive installer.</p>
+<p>For special cases, there are some command line parameters available:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" type="disc">
+<li class="listitem">
+<p><span class="command"><strong>/NCRC</strong></span> disables the CRC check</p>
+</li>
+<li class="listitem">
+<p><span class="command"><strong>/S</strong></span> runs the installer or uninstaller silently with default values. Please note: The silent installer won't install WinPCap!</p>
+</li>
+<li class="listitem">
+<p><span class="command"><strong>/desktopicon</strong></span> installation of the desktop icon, <span class="command"><strong>=yes</strong></span> - force installation, <span class="command"><strong>=no</strong></span> - don't install, otherwise use defaults / user settings. This option can be useful for a silent installer.</p>
+</li>
+<li class="listitem">
+<p><span class="command"><strong>/quicklaunchicon</strong></span> installation of the quick launch icon, <span class="command"><strong>=yes</strong></span> - force installation, <span class="command"><strong>=no</strong></span> - don't install, otherwise use defaults / user settings.</p>
+</li>
+<li class="listitem">
+<p><span class="command"><strong>/D</strong></span> sets the default installation directory ($INSTDIR), overriding InstallDir and InstallDirRegKey. It must be the last parameter used in the command line and must not contain any quotes, even if the path contains spaces</p>
+</li>
+</ul>
+</div>
+<p class="listitem">"wireshark-win32-1.9.0.exe /NCRC /S /desktopicon=yes<br />&nbsp; /quicklaunchicon=no /D=C:\Program Files\Foo"</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/ontari.ontari" class="username" rel="nofollow">ontari.ontari</a>
+                </li>
+                <li>
+                    06/12/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_7219" name="tip_7219">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-7219"></div> -->
+   <div id="tip-7219" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-7219" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-7219"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>I've created 2 scripts, one for installation and one for removal.</p>
+<p>==========Install===========</p>
+<p>The script is created for Wireshark-win64-1.8.4.exe, but you can modify it for any version.</p>
+<p>Install.vbs:</p>
+<pre>&nbsp;Option explicit<br /><br />'=============================<br />'==== Install Wireshark ====<br />'=============================<br />Dim strScriptPath : strScriptPath = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, "\")-1)<br />Dim objWSH<br />Dim strArch<br />Dim SetupCMD<br />Set objWSH = CreateObject("WScript.Shell")<br /><br />DisableSecurity()<br />'Installation will be done without Desktop Icon and Quicklaunch Icon<br />SetupCMD = """" &amp; strScriptPath &amp; "\Wireshark-win64-1.8.4.exe" &amp; """" &amp; " /S /NCRC /desktopicon=no /quicklaunchicon=no"<br />objWSH.Run SetupCMD<br /><br /><br />'=================================<br />'==== Install WinPCap 4.1.2 ====<br />'=================================<br />Dim MSIInstalCMD<br />Dim ProductCode<br /><br />ProductCode = "{342A9145-3489-4533-A21D-C4D9AEEE2F9D}"<br />MSIInstalCMD = "msiexec /i """ &amp; strScriptPath &amp; "\WinPCap 4.1.2 x64 en.msi"" /qn"<br /><br />objWSH.Run MSIInstalCMD,,True<br /><br />'=============================<br />'==== Sub's and Functions ====<br />'=============================<br /><br />Sub DisableSecurity()<br />	Dim objEnvProc, objWSH<br />	Set objWSH = CreateObject("WScript.Shell")<br />	Set objEnvProc = objWSH.Environment("PROCESS")<br />	objEnvProc("SEE_MASK_NOZONECHECKS") = 1<br />End Sub</pre>
+<ul>
+<li>Because in silent mode installation the WinPCap is not installed during Wireshark installation I added a section to install WinPCap msi using msiexec command. You can find the section to line 18.</li>
+</ul>
+<ul>
+<li>The installation is completely silent.</li>
+<li><em><strong>Important: The Wireshark executable name and WinPCap msi name are hardcoded in the installation script. You can modify them if you want. You can find them to line 13 and line 24.<br /></strong></em></li>
+</ul>
+<p>&nbsp;=========Remove==========</p>
+<p>For removal I created a script to read the UninstallStrig registry key from:</p>
+<ul>
+<li><em>"HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Wireshark\UninstallString" - </em>if the application is installed on a x86 Windows</li>
+<li>"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Wireshark\UninstallString" - if the application is installed on a x64 Windows</li>
+</ul>
+<p>Remove.vbs:</p>
+<pre>&nbsp;Option explicit<br /><br />'=============================<br />'==== Uninstall Wireshark ====<br />'=============================<br /><br />Dim UninstallStr_x86<br />Dim UninstallStr_x64<br />Dim UninstallStr<br />UninstallStr_x86 = "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Wireshark\UninstallString"<br />UninstallStr_x64 = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Wireshark\UninstallString"<br /><br />DisableSecurity()<br /><br />If ProcArchitecture("x86") then<br />	If ExistRegKey(UninstallStr_x86) then<br />		UninstallStr = GetRegValue(UninstallStr_x86)<br />		Launch_App UninstallStr, "/S"<br />	End IF<br />End if<br /><br />If ProcArchitecture("AMD64") then<br />	If ExistRegKey(UninstallStr_x86) then<br />		UninstallStr = GetRegValue(UninstallStr_x86)<br />		'msgbox UninstallStr<br />		Launch_App UninstallStr, "/S"<br />	End IF<br />	If ExistRegKey(UninstallStr_x64) Then<br />		UninstallStr = GetRegValue(UninstallStr_x64)<br />		'msgbox UninstallStr<br />		Launch_App UninstallStr, "/S"<br />	End IF<br />End if<br /><br />'=================================<br />'==== Uninstall WinPCap 4.1.2 ====<br />'=================================<br />Dim MSIRemoveCMD<br />Dim ProductCode<br />Dim objWSH<br /><br />Set objWSH = CreateObject("WScript.Shell")<br />ProductCode = "{342A9145-3489-4533-A21D-C4D9AEEE2F9D}"<br />MSIRemoveCMD = "msiexec /x " &amp; ProductCode &amp; " /QN"<br /><br />If MSIInstalled(ProductCode) then<br />	objWSH.Run MSIRemoveCMD,,True<br />End If	<br /><br /><br />'=============================<br />'==== Sub's and Functions ====<br />'=============================<br />Function ExistRegKey(regKey)<br />    Dim wshShell, str<br />    Set wshShell = CreateObject("WScript.Shell")<br />    On Error Resume Next<br />    str = wshShell.RegRead(regKey)<br />    If str = "" Then<br />        ExistRegKey = False<br />    Else<br />        ExistRegKey = True<br />    End If<br />    Set wshShell = Nothing<br />End Function<br /><br />Function GetRegValue(regKey)<br />    Dim wshShell, str<br />    Set wshShell = CreateObject("WScript.Shell")<br />    If ExistRegKey(regKey) Then<br />        str = wshShell.RegRead(regKey)<br />        GetRegValue = str<br />    Else<br />        GetRegValue = "NOT FOUND"<br />    End If<br />    Set wshShell = Nothing<br />End Function<br /><br />Function Launch_App (strExePath, strArg)<br />	Dim strScriptPath : strScriptPath = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, "\")-1)<br />	Dim WshShell, oExec<br />	Set WshShell = CreateObject("WScript.Shell") <br />	'msgbox strExePath &amp; " " &amp; strArg<br />	WshShell.Run strExePath &amp; " " &amp; strArg,,True <br /><br />End Function<br /><br />Sub DisableSecurity()<br />	Dim objEnvProc, objWSH<br />	Set objWSH = CreateObject("WScript.Shell")<br />	Set objEnvProc = objWSH.Environment("PROCESS")<br />	objEnvProc("SEE_MASK_NOZONECHECKS") = 1<br />End Sub<br /><br />Function MSIInstalled(strProductCode)<br />	Dim colList<br />	Dim strItem<br />	Dim objWI<br />	Set objWI = CreateObject("WindowsInstaller.Installer")<br />	<br />	For Each strItem In objWI.Products<br />		If UCase(strProductCode) = UCase(strItem) Then<br />			MSIInstalled = True<br />			Exit Function<br />		End If<br />	Next<br />	MSIInstalled = False<br />End Function<br /><br />Function ProcArchitecture(strProcArch)<br />	Dim strArch<br />	Dim objEnvSys<br />	Dim objWSH<br />	<br />	Set objWSH = CreateObject("WScript.Shell")<br />	Set objEnvSys = objWSH.Environment("System")<br />	<br />	strArch = objEnvSys("PROCESSOR_ARCHITECTURE")<br /><br />	If UCase(strArch) = UCase(strProcArch) then<br />		ProcArchitecture = True<br />		Else<br />		ProcArchitecture = False<br />	End If<br />End Function</pre>
+<ul>
+<li>The removal is totaly silent</li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;"><strong>Important:</strong></span> <em><strong>Both scripts have to be placed in the same folder with Wireshark setup executable and WinPCap 4.1.2 x64 en.msi. </strong></em></p>
+<p>&nbsp;<img src="/uploads/images/92066/RQ9ZHA.jpg?1368602761747" alt="" /></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Legacy Setup with command line support</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/terebent" class="username" rel="nofollow">terebent</a>
+                </li>
+                <li>
+                    05/15/2013 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (43)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/38310/80841">
+                                    1.2.10
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80842">
+                                    1.2.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80843">
+                                    1.4.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80844">
+                                    1.0.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80845">
+                                    1.6.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80846">
+                                    1.2.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80847">
+                                    1.6.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80848">
+                                    1.2.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80849">
+                                    1.4.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80850">
+                                    1.0.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80851">
+                                    1.2.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80852">
+                                    1.6.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80853">
+                                    1.4.7
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80854">
+                                    1.6.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80855">
+                                    1.0.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80856">
+                                    1.0.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80857">
+                                    1.0.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80858">
+                                    1.2.9
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80859">
+                                    1.2.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80860">
+                                    1.2.13
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80861">
+                                    1.0.11
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80862">
+                                    1.0.8
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80863">
+                                    1.4.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80864">
+                                    1.0.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80865">
+                                    1.4.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80866">
+                                    1.6.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80867">
+                                    1.1.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80868">
+                                    1.4.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80869">
+                                    1.6.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80870">
+                                    1.2.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80871">
+                                    1.2.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80872">
+                                    1.2.8
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80873">
+                                    1.3.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80874">
+                                    1.1.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80875">
+                                    1.7.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80876">
+                                    1.3.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80877">
+                                    1.4.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80878">
+                                    1.2.7
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80879">
+                                    1.1.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80880">
+                                    1.0.7
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80881">
+                                    1.4.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/80882">
+                                    1.0.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/38310/136006">
+                                    1.10.6
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Wireshark</h2>
+            <div><h3>Version</h3><span>1.2.10</span></div>
+                                                        <div><h3>Uninstall String</h3>&quot;C:\Program Files\Wireshark\uninstall.exe&quot;
+&quot;E:\Program Files\Wireshark\uninstall.exe&quot;</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1)
+                            </h3>
+            <p>Questions & Answers related to wireshark Wireshark</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/disable-updates-for-wireshark-1-11-3" class="title">
+            Disable updates for Wireshark 1.11.3
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="31109"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Pkumar" rel="nofollow">Pkumar</a>
+                10 years ago 6.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               Mic answered 9 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to wireshark Wireshark</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (2)
+                            </h3>
+
+            <p>Links related to wireshark Wireshark</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/silent-install-of-wireshark" class="title">
+                Silent Install of Wireshark
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4225"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/ontari.ontari" rel="nofollow">ontari.ontari</a>
+                12 years ago 17.4k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/appdeploy-package-knowledgebase-winpcap" class="title">
+                AppDeploy &gt; Package Knowledgebase &gt; WinPcap
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3868"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/niveknonrev" rel="nofollow">niveknonrev</a>
+                13 years ago 3.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to wireshark Wireshark</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

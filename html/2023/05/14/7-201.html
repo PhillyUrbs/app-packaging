@@ -1,0 +1,1835 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Sophos Anti-Virus 7</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Sophos Anti-Virus 7">
+    <meta name="keywords" content="Sophos,Sophos Anti-Virus,Anti-Virus 7">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/sophos/anti-virus/7-201" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2023 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/sophos">Sophos</a></li>
+    <li><a href="/software-library/company/sophos/anti-virus">Anti-Virus</a></li>
+    <li>7</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Sophos Anti-Virus</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 7
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/sophos/anti-virus/10-132"
+                                            >
+                                            10.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/sophos/anti-virus/9-137"
+                                            >
+                                            9.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/sophos/anti-virus/7-201"
+                                            >
+                                            7.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/sophos/anti-virus/6-291"
+                                            >
+                                            6.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/sophos/anti-virus/5-329"
+                                            >
+                                            5.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/5468/JTJGc29mdHdhcmUlMkZzb3Bob3MlMkZhbnRpLXZpcnVzJTJGNy0yMDE=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/5468/JTJGc29mdHdhcmUlMkZzb3Bob3MlMkZhbnRpLXZpcnVzJTJGNy0yMDE=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 5k &nbsp|&nbsp
+    Created: 07/12/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="5468"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=2
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Anti-Virus has <a href="#inventory-records" id="scrollInv">46 inventory records</a>,
+                <a href="#q-a" id="scrollQA">6 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">1 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (6)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Legacy Setup with command line support
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/green.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>2 / 5 (Somewhat Easy)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Repackaged (to a proprietary Format)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/sophos/anti-virus/7-201#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/sophos/anti-virus/7-201/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_533" name="tip_533">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-533"></div> -->
+   <div id="tip-533" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-533" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-533"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            From an email I received when I asked about uninstall from the command line.<br />
+<br />
+Sophos AutoUpdate<br />
+2.0 MsiExec.exe /X {15C418EB-7675-42BE-B2B3-281952DA014D}<br />
+2.5 MsiExec.exe /X {15C418EB-7675-42BE-B2B3-281952DA014D}<br />
+<br />
+Sophos Client Firewall (1.5 and 2.0)<br />
+1.5 MsiExec.exe /X {17071117-5BB2-4737-B05B-C5FABD367313} REBOOT=SUPPRESS<br />
+2.0 MsiExec.exe /X {17071117-5BB2-4737-B05B-C5FABD367313} REBOOT=SUPPRESS<br />
+2.5 MsiExec.exe /X{12C00299-B8B4-40D3-9663-66ABEA3198AB} REBOOT=SUPPRESS<br />
+<br />
+Sophos Anti-Virus\Endpoint Security and Control<br />
+Remove Sophos Client Firewall first<br />
+7.x MsiExec.exe /X {034759DA-E21A-4795-BFB3-C66D17FAD183}<br />
+9.0 MsiExec.exe /X {9ACB414D-9347-40B6-A453-5EFB2DB59DFA} REBOOT=SUPPRESS<br />
+9.5 MsiExec.exe /X {9ACB414D-9347-40B6-A453-5EFB2DB59DFA} REBOOT=SUPPRESS<br />
+<br />
+Sophos Remote Managment <br />
+Not to be performed on SUM / Console installs / Relays<br />
+3.0 MsiExec.exe /X {FF11005D-CBC8-45D5-A288-25C7BB304121}<br />
+3.1 MsiExec.exe /X {FED1005D-CBC8-45D5-A288-FFC7BB304121}<br />
+3.2 MsiExec.exe /X {FED1005D-CBC8-45D5-A288-FFC7BB304121}<br />
+<br />
+NAC Compliance Agent <br />
+3.1 MsiExec.exe /X {79406B81-26C4-4EAA-8CE2-5637B3279AC2}<br />
+3.2 MsiExec.exe /X {53613148-723B-4EF2-B45E-21F2BE0C0DB3}<br />
+3.3 MsiExec.exe /X {1A7EE8FF-391D-4030-8021-5F560189B87F}<br />
+3.5 MsiExec.exe /X{8bd17d77-227b-4cf6-bc9a-4304f569d8e9}<br />
+<br />
+How do I log the uninstall if required?<br />
+At the end of the command line use the following:<br />
+/L*v C:\pathto\sophos_uninstall.log<br />
+<br />
+Example:<br />
+MsiExec.exe /X {15C418EB-7675-42BE-B2B3-281952DA014D} /qn /L*v C:\Sophos_SAU_Uninstall.log<br />
+<br />
+How to I manually remove any remnant services?<br />
+Note: A reinstall and then uninstall should be attempted first.<br />
+<br />
+SAU<br />
+%PROGRAMFILES%\Sophos\AutoUpdate\ALSvc.exe /unregserver<br />
+%PROGRAMFILES%\Sophos\AutoUpdate\ALMon.exe /unregserver<br />
+<br />
+SAV<br />
+%PROGRAMFILES%\Sophos\Sophos Anti-Virus\SavService.exe /unregserver<br />
+%PROGRAMFILES%\Sophos\Sophos Anti-Virus\SavAdminService.exe /unregserver<br />
+%PROGRAMFILES%\Sophos\Sophos Anti-Virus\sdcservice.exe /unregserver<br />
+NOTE: (Sophos Device Control) sdcservice.exe will also remove itself if a blank device control policy is pushed out to the endpoints.<br />
+<br />
+RMS<br />
+%PROGRAMFILES%\Sophos\Remote Management System\ManagementAgentNT.exe -uninstall<br />
+%PROGRAMFILES%\Sophos\Remote Management System\AutoUpdateAgentNT.exe -uninstall<br />
+%PROGRAMFILES%\Sophos\Remote Management System\RouterNT.exe -uninstall<br />
+<br />
+SCF<br />
+%PROGRAMFILES%\Sophos\Sophos Client Firewall\SCFManager.exe /UnregServer<br />
+%PROGRAMFILES%\Sophos\Sophos Client Firewall\SCFService.exe /UnregServer<br />
+Note: For 64-bit please use %PROGRAMFILES(x86)% instead of %PROGRAMFILES%<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/BW~Merlin" class="username" rel="nofollow">BW~Merlin</a>
+                </li>
+                <li>
+                    03/09/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_534" name="tip_534">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-534"></div> -->
+   <div id="tip-534" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-534" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-534"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Antivirus for MAC 7.2 I used the following... <br />
+<br />
+Full Command Line: installer -pkg SophosAntiVirus.mpkg -target
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Istone" class="username" rel="nofollow">Istone</a>
+                </li>
+                <li>
+                    06/27/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6316" name="tip_6316">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6316"></div> -->
+   <div id="tip-6316" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6316" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6316"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            The following commands are for setup.exe used in Endpoint Security version 9.7
+
+-mng  yes|no 	yes 	Is the computer to be managed?
+-scf 	 Install Sophos Client Firewall (Windows 2000+)
+-patch http://&lt;MANAGEMENTSERVERADDRESSr&gt;  Installs Sophos Patch agent and specifies the address of the Sophos management server.  Only available with version 10+.
+-nac http://&lt;NACSERVERADDRESS&gt;  Installs network access control and specifies the address of the Sophos NAC server
+-crt R  Removes third-party security software automatically
+-updp &lt;path&gt; 	&lt;location of setup.exe&gt; 	Location of the primary CID from where the computer will get its updates.
+-user&lt;username&gt; 	blank 	Account for accessing the primary CID location.
+-pwd &lt;password&gt; 	blank 	Password for the above account.
+-ouser &lt;username&gt;  Obfuscated account name for accessing the CID location, if required.
+-opwd &lt;password&gt;  Obfuscated password.
+-mngcfg &lt;RMS config path&gt; 	&lt;location of Setup.exe&gt; 	Location of the RMS configuration files.
+-compname &lt;computername&gt;  Specify a computer name to override the one used in Windows. This name will appear in Enterprise Console.
+
+Notes:
+
+    The name must be shorter than 31 characters.
+    If you would like to include a space, it must be enclosed in "double quotes".
+
+-compdesc &lt;computerdescription&gt;  Specify a computer description to override the one used in Windows. This description will appear in Enterprise Console.
+
+-domain &lt;domainname&gt;  Specify a domainname to override that on the client. This name will appear in Enterprise Console/ Manager.
+-g "\&lt;nameofserver&gt;\&lt;Groupname&gt;"  Specifies the group (set up in Enterprise Console/ Manager) to which the computer will belong.
+The path:
+
+    is case sensitive
+    must not end in a backslash
+    must include the management server
+    must be enclosed in "double quotes" if switches (backslashes) are used
+
+Example:
+
+"\[SecServerName]\TopLevelGroup\Group"
+-rlogin 	
+	Start reinstallalation on Windows 95/98/Me computers from login scripts.
+-login 	
+	Start installation on Windows 95/98/Me computers from login scripts.
+-s 	No 	Perform installation silently.
+-ni 	No 	Perform a non-interactive installation.
+-? 	Display command line parameter help.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/noboundaries6289" class="username" rel="nofollow">noboundaries6289</a>
+                </li>
+                <li>
+                    04/04/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6317" name="tip_6317">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6317"></div> -->
+   <div id="tip-6317" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6317" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6317"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Be wary of the included firewall with Endpoint 9.7, it will by default block Citrix, Outlook, and any other 3rd party applications that are not approved.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/noboundaries6289" class="username" rel="nofollow">noboundaries6289</a>
+                </li>
+                <li>
+                    04/04/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6318" name="tip_6318">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6318"></div> -->
+   <div id="tip-6318" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-6318" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6318"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            setup.exe -s -ni -crt
+
+The script above installs Endpoint Security silently with no user interaction all while silently uninstalling any existing antivirus software.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/noboundaries6289" class="username" rel="nofollow">noboundaries6289</a>
+                </li>
+                <li>
+                    04/04/2012 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_532" name="tip_532">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-532"></div> -->
+   <div id="tip-532" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">-2</div>
+   <div id="tip-532" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-532"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            For Sophos Anti-Virus 7.6.5 I used the following... <br />
+<br />
+Full Command Line: SAV_INSTALLER.exe /silent
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/markie" class="username" rel="nofollow">markie</a>
+                </li>
+                <li>
+                    03/23/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (46)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/5468/10877">
+                                    7.6.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10878">
+                                    7.6.8
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10879">
+                                    7.6.7
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10880">
+                                    7.6.15
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10881">
+                                    7.3.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10882">
+                                    7.6.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10883">
+                                    7.6.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10884">
+                                    7.3.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10885">
+                                    7.6.14
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10886">
+                                    7.6.21
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10887">
+                                    7.0.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10888">
+                                    7.5.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10889">
+                                    7.0.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10890">
+                                    7.3.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10891">
+                                    7.1.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10892">
+                                    7.6.18
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10893">
+                                    7.5.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10894">
+                                    7.6.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10895">
+                                    7.6.0 RC2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10896">
+                                    7.0.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10897">
+                                    7.0.6
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10898">
+                                    7.0.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10899">
+                                    7.3.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10900">
+                                    7.6.13
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10901">
+                                    7.0.7
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10902">
+                                    7.5.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10903">
+                                    7.6.5
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10904">
+                                    7.1.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10905">
+                                    7.6.20
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10906">
+                                    7.0.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10907">
+                                    7.5.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10908">
+                                    7.6.12
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10909">
+                                    7.6.1 R2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10910">
+                                    7.2.0.3
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10911">
+                                    7.6.11
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10912">
+                                    7.6.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10913">
+                                    7.6.4
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10914">
+                                    7.6.9
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10915">
+                                    7.2.2
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10916">
+                                    7.6.17
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10917">
+                                    7.3.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10918">
+                                    7.6.16
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10919">
+                                    7.6.19
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10920">
+                                    7.0.0
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10921">
+                                    7.3.1
+                                </a>
+                            </li>
+                                                    <li >
+                                <a href="/software/version/revision/5468/10922">
+                                    7.6.10
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Anti-Virus</h2>
+            <div><h3>Version</h3><span>7.6.3</span></div>
+        <div><h3>Contact</h3>Sophos Technical Support</div>        <div><h3>Comments</h3>Protects your computer and network from threats</div>                                        <div><h3>Uninstall String</h3>MsiExec.exe /X{034759DA-E21A-4795-BFB3-C66D17FAD183}</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (6)
+                            </h3>
+            <p>Questions & Answers related to Sophos Anti-Virus</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sophos-swi-service" class="title">
+            Sophos SWI_Service
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="36366"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/hitechgreg" rel="nofollow">hitechgreg</a>
+                7 years ago 2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-check-if-there-is-a-pending-reboot" class="title">
+            How to check if there is a pending reboot?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="35560"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Klaroche" rel="nofollow">Klaroche</a>
+                7 years ago 14.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               SMal.tmcc answered 7 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                0
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sophos-hips-is-enabled-how-can-i-verify-it-s-actually-working" class="title">
+            Sophos HIPS is enabled.  How can I verify it&#039;s actually working?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="32375"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/awingren" rel="nofollow">awingren</a>
+                8 years ago 1.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sophos-outlook-add-in" class="title">
+            Unattended Sophos Outlook Add-in Deployment
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="26348"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/brighstarcuit" rel="nofollow">brighstarcuit</a>
+                10 years ago 7.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sophos-update-path" class="title">
+            Sophos Update Path
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21973"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dugullett" rel="nofollow">dugullett</a>
+                10 years ago 3.6k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/need-a-vb-script" class="title">
+            Need a VB Script
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="21889"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=3
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/dugullett" rel="nofollow">dugullett</a>
+                10 years ago 3k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Sophos Anti-Virus</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/sophos-anti-virus-lastupdatestatus-report" class="title">
+            Sophos Anti-Virus LastUpdateStatus Report
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="28913"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/flip1001" rel="nofollow">flip1001</a>
+                8 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (1)
+                            </h3>
+
+            <p>Links related to Sophos Anti-Virus</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/sophos-advisory-shh-updater-b-false-positives" class="title">
+                SOPHOS Advisory: Shh/Updater-B False positives
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="4478"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=5
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/dugullett" rel="nofollow">dugullett</a>
+                10 years ago 2.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Sophos Anti-Virus</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2023 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

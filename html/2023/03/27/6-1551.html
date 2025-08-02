@@ -1,0 +1,2145 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Microsoft Internet Information Server (IIS) 6</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft Internet Information Server (IIS) 6">
+    <meta name="keywords" content="Microsoft,Microsoft Internet Information Server (IIS),Internet Information Server (IIS) 6">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/microsoft/internet-information-server-iis/6-1551" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2023 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/microsoft">Microsoft</a></li>
+    <li><a href="/software-library/company/microsoft/internet-information-server-iis">Internet Information Server (IIS)</a></li>
+    <li>6</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Microsoft Internet Information Server (IIS)</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 6
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/internet-information-server-iis/7-1100"
+                                            >
+                                            7.x <span>(3 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/internet-information-server-iis/6-1551"
+                                            >
+                                            6.x <span>(12 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/29539/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZpbnRlcm5ldC1pbmZvcm1hdGlvbi1zZXJ2ZXItaWlzJTJGNi0xNTUx">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/29539/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZpbnRlcm5ldC1pbmZvcm1hdGlvbi1zZXJ2ZXItaWlzJTJGNi0xNTUx">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 5.1k &nbsp|&nbsp
+    Created: 07/05/2004
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="29539"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Internet Information Server (IIS) has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">1 Questions</a>,
+                <a href="#blogs" id="scrollBlog">1 Blogs</a>
+                and <a href="#links" id="scrollLinks">6 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (12)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/orange.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>4 / 5 (Somewhat Difficult)</strong>
+                            based on <strong>2</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Repackaged (to a setup.msi)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/internet-information-server-iis/6-1551#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/internet-information-server-iis/6-1551/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_2474" name="tip_2474">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2474"></div> -->
+   <div id="tip-2474" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-2474" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2474"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>If installing IIS via SMS, you may wish to check that the installation account / machine has access to the I386 source files.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/leegend" class="username" rel="nofollow">leegend</a>
+                </li>
+                <li>
+                    08/19/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6013" name="tip_6013">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6013"></div> -->
+   <div id="tip-6013" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-6013" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6013"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            IIS Import/Export Web Sites and FTP Sites Configuration Scripts<br />
+<br />
+Once the initial IIS 6.0 installation is complete, settings can be applied to the IIS instance using the Internet Information Services (IIS) Manager and then exported to an XML file.  The XML files contain IIS metabase entries that can then be imported to other machines running IIS.  It is important to remove all machine specific data from the exported XML file prior to importing onto another machine.<br />
+<br />
+Export IIS Configuration<br />
+<br />
+Web Sites: The following command is an example to export the base configuration for Web Sites to the c:\temp\Microsoft\IIS\6.0 directory naming the file wwwBaseConfig.xml:<br />
+<br />
+%SystemRoot%\system32\cscript.exe %SystemRoot%\system32\iiscnfg.vbs /export /f c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml /sp /LM/W3SVC /children<br />
+<br />
+	/f specifies a unique name and location for the export file.<br />
+	/sp specifies the metabase keys to export.  The parameter immediately after the /sp specifies the path of the Web site to export.<br />
+	/children exports all subkeys of the configuration.<br />
+<br />
+FTP Sites: The following command is an example to export the base configuration for FTP Sites to the c:\temp\Microsoft\IIS\6.0 directory naming the file ftpBaseConfig.xml:<br />
+<br />
+%SystemRoot%\system32\cscript.exe %SystemRoot%\system32\iiscnfg.vbs /export /f c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml /sp /lm/MSFTPSVC /children<br />
+<br />
+	/f specifies a unique name and location for the export file.<br />
+	/sp specifies the metabase keys to export.  The parameter immediately after the /sp specifies the path of the ftp site to export.<br />
+	/children exports all subkeys of the configuration.<br />
+<br />
+Import Configuration<br />
+<br />
+Web Sites: The following command is an example to import the base configuration from the c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml file to the /LM/W3SVC metabase location and subkeys.<br />
+<br />
+%SystemRoot%\system32\cscript %SystemRoot%\system32\iiscnfg.vbs /import /f c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml /sp /lm/W3SVC /dp /lm/W3SVC /children /merge<br />
+<br />
+	/f specifies the path and file name of the XML source file.<br />
+	/sp specifies the location in the XML file of the keys being imported.<br />
+	/dp specifies where in the metabase the imported keys are placed.<br />
+	/children recursively imports the subkeys of the specified key.<br />
+	/merge combines the keys in the XML file with the existing metabase keys.<br />
+<br />
+FTP Sites: The following command is an example to import the base configuration from the c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml file to the /LM/MSFTPSVC metabase location and subkeys.<br />
+<br />
+%SystemRoot%\system32\cscript %SystemRoot%\system32\iiscnfg.vbs /import /f c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml /sp /lm/MSFTPSVC /dp /lm/MSFTPSVC /children /merge<br />
+<br />
+	/f specifies the path and file name of the XML source file.<br />
+	/sp specifies the location in the XML file of the keys being imported.<br />
+	/dp specifies where in the metabase the imported keys are placed.<br />
+	/children recursively imports the subkeys of the specified key.<br />
+	/merge combines the keys in the XML file with the existing metabase keys.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_6014" name="tip_6014">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-6014"></div> -->
+   <div id="tip-6014" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-6014" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-6014"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Windows SP2 and IIS 5.1 & 6.0<br />
+<br />
+When you install SP2, Windows Firewall is enabled by default to help improve security. As a result, Web servers running Windows XP with SP2 will no longer be accessible from remote computers. For example, you will be unable to use Microsoft FrontPage® Server Extensions or SharePoint Team Services from Microsoft to browse or update Web sites.<br />
+<br />
+You can make these applications accessible by opening the Internet Information Services (IIS) port TCP 80 on your computer.<br />
+<br />
+To do this, at the command line, enter the following:<br />
+<br />
+netsh firewall ipv4 set portopening proto=tcp port=XX WebServer_Description<br />
+<br />
+XX represents the port number for the Web server. By default, this is 80.<br />
+<br />
+<br />
+See: http://www.microsoft.com/technet/prodtechnol/winxppro/deploy/relnsp2.mspx?pf=true<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KentD" class="username" rel="nofollow">KentD</a>
+                </li>
+                <li>
+                    11/12/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2465" name="tip_2465">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2465"></div> -->
+   <div id="tip-2465" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2465" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2465"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Common Files				iis_common = on/off<br />
+File Transport Protocol (FTP) Services		iis_ftp = on/off<br />
+FrontPage 2002 Server Extensions		fp_extensions = on/off<br />
+IIS Manager				iis_inetmgr = on/off<br />
+NNTP Service				iis_nntp = on/off<br />
+SMTP Service				iis_smtp = on/off<br />
+World Wide Web Publishing Service		n/a (A parent object in OCM)<br />
+Active Server Pages			iis_asp = on/off<br />
+Internet Data Connector			iis_internetdataconnector = on/off<br />
+Remote Administration (HTML) *#		sakit_web = on/off<br />
+Remote Desktop Web Connection		tswebclient = on/off<br />
+Server-Side Includes			iis_serversideincludes = on/off<br />
+WebDAV Publishing				iis_webdav = on/off<br />
+WWW Service				iis_www = on/off<br />
+Application Server Console 			appsrv_console = on/off<br />
+<br />
+<br />
+Example IIS 6.0 answer file:<br />
+<br />
+[Components]<br />
+aspnet = off<br />
+complusnetwork = off<br />
+dtcnetwork = off<br />
+bitsserverextensionsisapi = off<br />
+bitsserverextensionsmanager = off<br />
+iis_common = on<br />
+iis_ftp = on<br />
+fp_extensions = off<br />
+iis_inetmgr = on<br />
+iis_nntp = off<br />
+iis_smtp = on<br />
+iis_asp = on<br />
+iis_internetdataconnector = off<br />
+sakit_web = off<br />
+tswebclient = off<br />
+iis_serversideincludes = off<br />
+iis_webdav = off<br />
+iis_www = on<br />
+appsrv_console = on<br />
+<br />
+[NetOptionalComponents]<br />
+<br />
+[InternetServer]<br />
+PathFTPRoot=D:\Inetpub\Ftproot<br />
+PathWWWRoot=D:\Inetpub\Wwwroot<br />
+<br />
+The above settings can be save to a text file (IIS60Config.txt in this example) and can be called with the following command:<br />
+<br />
+Sysocmgr.exe /i:sysoc.inf /u:&lt;SourceDir&gt;\IIS60Config.txt /r /q<br />
+<br />
+<br />
+Removal: In order to uninstall the IIS 6.0 installation, create an answer file (IIS60Remove.txt in this example):<br />
+<br />
+[Components]<br />
+aspnet = off<br />
+complusnetwork = off<br />
+dtcnetwork = off<br />
+bitsserverextensionsisapi = off<br />
+bitsserverextensionsmanager = off<br />
+iis_common = off<br />
+iis_ftp = off<br />
+fp_extensions = off<br />
+iis_inetmgr = off<br />
+iis_nntp = off<br />
+iis_smtp = off<br />
+iis_asp = off<br />
+iis_internetdataconnector = off<br />
+sakit_web = off<br />
+tswebclient = off<br />
+iis_serversideincludes = off<br />
+iis_webdav = off<br />
+iis_www = off<br />
+appsrv_console = off<br />
+<br />
+[NetOptionalComponents]<br />
+<br />
+The above settings were saved in a text file called IIS60Config.txt and can be called with the following command:<br />
+<br />
+Sysocmgr.exe /i:sysoc.inf /u:&lt;SourceDir&gt;\IIS60Remove.txt /r /q
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2466" name="tip_2466">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2466"></div> -->
+   <div id="tip-2466" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2466" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2466"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Sysocmgr.exe /?<br />
+<br />
+/i:&lt;master_oc_inf&gt; - (required) Specifies the name of the master.inf.  The installation source path is taken from here.<br />
+<br />
+/u:&lt;unattend_spec&gt; - Specifies unattended operation parameters.<br />
+<br />
+/r - Suppress reboot<br />
+<br />
+/z - Indicates that args that follow are not OC args and should be passed to components<br />
+<br />
+/n - Forces the specified master inf to be treated as new<br />
+<br />
+/f - Indicates that all component installation states should be initialized as if their installers had never been run.<br />
+<br />
+/c - Disallow cancel during final installation phase.<br />
+<br />
+/x - Suppresses the 'initializing' banner.<br />
+<br />
+/q - for use with /u.  Runs the unattended installation without UI.<br />
+<br />
+/w - for use with /u.  If a reboot is required, prompt the user instead of automatically rebooting.<br />
+<br />
+/l - Multi-Language aware installation.<br />
+<br />
+Example:<br />
+<br />
+This example will launch the installation in unattended mode suppressing a reboot.<br />
+<br />
+Sysocmgr.exe /i:sysoc.inf /u:&lt;SourceDir&gt;\answer.txt /r /q<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2467" name="tip_2467">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2467"></div> -->
+   <div id="tip-2467" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2467" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2467"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Create FTP Site<br />
+<br />
+A FTP site can be created automatically by using the IIS FTP Site Management Script (iisftp.vbs).<br />
+<br />
+Example:<br />
+<br />
+This example will create a site called ftproot that points to the D:\ftp root directory.<br />
+<br />
+%SystemRoot%\System32\cscript.exe //T:360 %SystemRoot%\System32\iisftp.vbs /create D:\ftp ftproot<br />
+<br />
+<a href="http://www.microsoft.com/resources/documentation/WindowsServ/2003/enterprise/proddocs/en-us/Default.asp?url=/resources/documentation/WindowsServ/2003/enterprise/proddocs/en-us/iisftp.asp">Iisftp.vbs: IIS FTP site management script</a>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2468" name="tip_2468">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2468"></div> -->
+   <div id="tip-2468" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2468" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2468"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Delete FTP Site:<br />
+<br />
+The following command will delete the Default FTP site using the IIS FTP Site Management Script (iisftp.vbs).<br />
+<br />
+%SystemRoot%\System32\cscript.exe //T:360 %SystemRoot%\System32\iisftp.vbs /delete "Default FTP Site"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2469" name="tip_2469">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2469"></div> -->
+   <div id="tip-2469" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2469" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2469"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Delete Default Web Site:<br />
+<br />
+The following command will delete the Default Web Site using the IIS Web Site Management Script (iisweb.vbs).<br />
+<br />
+%SystemRoot%\system32\cscript.exe //T:360 %SystemRoot%\system32\iisweb.vbs /delete "Default Web Site"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2470" name="tip_2470">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2470"></div> -->
+   <div id="tip-2470" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2470" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2470"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            IIS Import/Export Web Sites and FTP Sites Configuration Scripts<br />
+<br />
+Once the initial IIS 6.0 installation is complete, settings can be applied to the IIS instance using the Internet Information Services (IIS) Manager and then exported to an XML file.  The XML files contain IIS metabase entries that can then be imported to other machines running IIS.  It is important to remove all machine specific data from the exported XML file prior to importing onto another machine.<br />
+<br />
+Export IIS Configuration<br />
+<br />
+Web Sites: The following command is an example to export the base configuration for Â“Web SitesÂ” to the c:\temp\Microsoft\IIS\6.0 directory naming the file wwwBaseConfig.xml:<br />
+<br />
+%SystemRoot%\system32\cscript.exe %SystemRoot%\system32\iiscnfg.vbs /export /f c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml /sp /LM/W3SVC /children<br />
+<br />
+Â•	/f specifies a unique name and location for the export file.<br />
+Â•	/sp specifies the metabase keys to export.  The parameter immediately after the /sp specifies the path of the Web site to export.<br />
+Â•	/children exports all subkeys of the configuration.<br />
+<br />
+FTP Sites: The following command is an example to export the base configuration for Â“FTP SitesÂ” to the c:\temp\Microsoft\IIS\6.0 directory naming the file ftpBaseConfig.xml:<br />
+<br />
+%SystemRoot%\system32\cscript.exe %SystemRoot%\system32\iiscnfg.vbs /export /f c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml /sp /lm/MSFTPSVC /children<br />
+<br />
+Â•	/f specifies a unique name and location for the export file.<br />
+Â•	/sp specifies the metabase keys to export.  The parameter immediately after the /sp specifies the path of the ftp site to export.<br />
+Â•	/children exports all subkeys of the configuration.<br />
+<br />
+Import Configuration<br />
+<br />
+Web Sites: The following command is an example to import the base configuration from the c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml file to the /LM/W3SVC metabase location and subkeys.<br />
+<br />
+%SystemRoot%\system32\cscript %SystemRoot%\system32\iiscnfg.vbs /import /f c:\temp\Microsoft\IIS\6.0\wwwBaseConfig.xml /sp /lm/W3SVC /dp /lm/W3SVC /children /merge<br />
+<br />
+Â•	/f specifies the path and file name of the XML source file.<br />
+Â•	/sp specifies the location in the XML file of the keys being imported.<br />
+Â•	/dp specifies where in the metabase the imported keys are placed.<br />
+Â•	/children recursively imports the subkeys of the specified key.<br />
+Â•	/merge combines the keys in the XML file with the existing metabase keys.<br />
+<br />
+FTP Sites: The following command is an example to import the base configuration from the c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml file to the /LM/MSFTPSVC metabase location and subkeys.<br />
+<br />
+%SystemRoot%\system32\cscript %SystemRoot%\system32\iiscnfg.vbs /import /f c:\temp\Microsoft\IIS\6.0\ftpBaseConfig.xml /sp /lm/MSFTPSVC /dp /lm/MSFTPSVC /children /merge<br />
+<br />
+Â•	/f specifies the path and file name of the XML source file.<br />
+Â•	/sp specifies the location in the XML file of the keys being imported.<br />
+Â•	/dp specifies where in the metabase the imported keys are placed.<br />
+Â•	/children recursively imports the subkeys of the specified key.<br />
+Â•	/merge combines the keys in the XML file with the existing metabase keys.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2471" name="tip_2471">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2471"></div> -->
+   <div id="tip-2471" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2471" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2471"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Removing Machine Specific Data from XML Configuration Files:</p>
+<p>When importing a metabase element to another computer, you must change or remove machine-specific and system-specific information in the import file before you use it, otherwise IIS cannot use these values. </p>
+<p>Important</p>
+<p>Never include password properties in import files. If you use an import file with a blank password property, the new computer subsequently stores encrypted properties as plain text.</p>
+<p>Metabase properties that contain paths to resources in the file system might not match the paths on other computers. For example, the following properties might be written in the import file in the following way:</p>
+<p>LogFileDirectory = "c:\windows\system32\logfiles"</p>
+<p>Path = "c:\inetpub\ftproot"</p>
+<p>HttpErrors = "400,*,FILE,c:\windows\help\iishelp\common\400.htm</p>
+<p>   more HTTP errors</p>
+<p>InProcessIsapiApps = "c:\windows\system32\inetsrv\httpext.dll</p>
+<p>   more ISAPI applications</p>
+<p>ScriptMaps = ".asp,c:\windows\system32\inetsrv\asp.dll,1,GET,HEAD,POST,TRACE</p>
+<p>   more script maps </p>
+<p>Change the paths in bold above to the path used by the computer to which you want to import the metabase element. Search for other paths in your import file before using it.</p>
+<p>Metabase properties that specify the IWAM and IUSR accounts might not match the user accounts used by other computers. If your import file contains these properties, delete or alter them so that their values do not overwrite the existing valid properties. These properties might be written in the import file in the following way:</p>
+<p>&lt;IIsWebService</p>
+<p>   Location = "/LM/MSFTPSVC"</p>
+<p>   WAMUserName = "AccountName"</p>
+<p>   AnonymousUserName = "AccountName"&gt; </p>
+<p>The ServerBindings property, which is used to configure the port number for a site, might not be set the same way on another computer. However, you might want to import these settings to the new computer so that the computers will be configured the same way. The ServerBindings property is set at the site level, and can be written in the import file in the following way:</p>
+<p>&lt;IIsFtpServer</p>
+<p>   Location = "/LM/MSFTPSVC/1"</p>
+<p>   ServerBindings = ":21:" &gt;</p>
+<p>&lt;IIsWebServer</p>
+<p>   Location = "/LM/W3SVC/1"</p>
+<p>   ServerBindings = ":80:"&gt; </p>
+<p>Metabase properties that contain ACLs cannot be moved to another computer. If your import file contains these properties, delete them so that their values do not overwrite the existing valid properties. These properties might be written in the import file in the following way:</p>
+<p>AdminACL = "LongNumber" </p>
+<p>Metabase properties that contain passwords cannot be moved to another computer. If your import file contains properties with passwords, delete them so that their values do not overwrite the existing valid properties. These properties might be written in the import file in the following way:</p>
+<p>&lt;IIsWebService </p>
+<p>   Location = "/LM/W3SVC"</p>
+<p>   WAMUserPass = "LongNumber"</p>
+<p>   AnonymousUserPass = "LongNumber"</p>
+<p>   LogOdbcPassword = "LongNumber"&gt;</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jasonth" class="username" rel="nofollow">jasonth</a>
+                </li>
+                <li>
+                    07/05/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2472" name="tip_2472">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2472"></div> -->
+   <div id="tip-2472" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2472" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2472"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Windows SP2 and IIS 5.1 & 6.0<br />
+<br />
+When you install SP2, Windows Firewall is enabled by default to help improve security. As a result, Web servers running Windows XP with SP2 will no longer be accessible from remote computers. For example, you will be unable to use Microsoft FrontPageÂ® Server Extensions or SharePointÂ™ Team Services from Microsoft to browse or update Web sites.<br />
+<br />
+You can make these applications accessible by opening the Internet Information Services (IIS) port TCP 80 on your computer.<br />
+<br />
+To do this, at the command line, enter the following:<br />
+<br />
+netsh firewall ipv4 set portopening proto=tcp port=XX WebServer_Description<br />
+<br />
+XX represents the port number for the Web server. By default, this is 80.<br />
+<br />
+<br />
+See: http://www.microsoft.com/technet/prodtechnol/winxppro/deploy/relnsp2.mspx?pf=true<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KentD" class="username" rel="nofollow">KentD</a>
+                </li>
+                <li>
+                    11/12/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2473" name="tip_2473">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2473"></div> -->
+   <div id="tip-2473" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-2473" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-2473"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Security</div>
+
+            <span id="tip-text">
+            If you need to lock down the IIS download the IISlockdown tool from MS at: http://download.microsoft.com/download/iis50/Utility/2.1/NT45XP/EN-US/iislockd.exe<br />
+<br />
+Use the command: <br />
+iislockd.exe /C /T:c:\temp\iislock to unpack the files to the temporary location.<br />
+<br />
+Change the line UNATTEND=FALSE to UNATTEND=TRUE in the file called iislockd.ini (located in c:\temp\iislock\).<br />
+<br />
+Run the file called iislockd.exe (it now runs silently).<br />
+<br />
+You might want to change specific setting in the ini-file specific to your environment...!<br />
+<br />
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tsiv" class="username" rel="nofollow">tsiv</a>
+                </li>
+                <li>
+                    01/28/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/29539/61318">
+                                    6
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Internet Information Server (IIS)</h2>
+            <div><h3>Version</h3><span>6</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (1)
+                            </h3>
+            <p>Questions & Answers related to Microsoft Internet Information Server (IIS)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/sccm-2012-unable-to-connect-to-application-catalog" class="title">
+            SCCM 2012 unable to connect to application catalog
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="27768"
+     data-enabled="false"
+     data-entity-name="question"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="question"
+     >
+</div></li>
+
+            </div>
+
+            <div class="byline">
+                By:
+                <a href="/user/edilling" rel="nofollow">edilling</a>
+                9 years ago 33.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               creck answered 7 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (1)
+                            </h3>
+            <p>Blog posts related to Microsoft Internet Information Server (IIS)</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="content-icon blog-icon" title="Blog">blog</div>
+    </div>
+
+    <div id="blog-post-light" class="content-meta">
+                <a href="/blog/view/microsoft-internet-information-services-iis-7-manager" class="title">
+            Microsoft Internet Information Services(IIS) 7 Manager
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="3729"
+     data-enabled="false"
+     data-entity-name="blog_post"
+     data-rating=4
+     data-expanded="false"
+     data-entityType="blog_post"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/Sidhugadu" rel="nofollow">Sidhugadu</a>
+                10 years ago 4.5k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (6)
+                            </h3>
+
+            <p>Links related to Microsoft Internet Information Server (IIS)</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/using-unattended-setup-to-install-iis-7-0-installing-iis-7-installing-and-configuring-iis-7-the-official-microsoft-iis-site" class="title">
+                Using Unattended Setup to Install IIS 7.0 : Installing IIS 7 : Installing and Configuring IIS 7 : The Official Microsoft IIS Site
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1707"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/misterd" rel="nofollow">misterd</a>
+                13 years ago 6.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/creating-an-answer-file-for-server-manager-commands" class="title">
+                Creating an Answer File for Server Manager Commands
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="1752"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/misterd" rel="nofollow">misterd</a>
+                13 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-to-add-or-remove-windows-components-with-sysocmgr-exe-1" class="title">
+                How to Add or Remove Windows Components with Sysocmgr.exe
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2828"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                17 years ago 4.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/how-to-add-or-remove-windows-components-with-sysocmgr-exe" class="title">
+                How to Add or Remove Windows Components with Sysocmgr.exe
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2826"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                18 years ago 3.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/iis-configuration-script-iiscnfg-vbs" class="title">
+                IIS Configuration Script (iiscnfg.vbs)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2872"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                18 years ago 2.8k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/microsofts-installing-iis-document" class="title">
+                MicrosoftÂ’s Installing IIS document
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating">
+                <div name="itninja-star-rating"
+     data-entity-id="2918"
+     data-enabled="false"
+     data-entity-name="link"
+     data-rating=0
+     data-expanded="false"
+     data-entityType="link"
+     >
+</div></li>
+            </div>
+            <div class="byline">
+                By:
+                <a href="/user/jasonth" rel="nofollow">jasonth</a>
+                18 years ago 2.1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft Internet Information Server (IIS)</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2023 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

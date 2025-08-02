@@ -1,0 +1,2717 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for Nero AG Nero Vision 7 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Nero AG Nero Vision 7">
+        <meta name="keywords" content="Nero AG,Nero AG Nero Vision,Nero Vision 7">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAB4FBMVEUYFRwZFh0ZGB4aFx4bGB8cGSAdGiAdGyEeGyIfHCMgHSQhHiUiHyYjICckISglIigmFBomFRsmFx0mIykmJConFRsnJSsoFhwoGB4pJi0qJy4rKC8sHSMsKTAtKjAtKjEuKzEvLDIwLjQyMDY0GB41Iyg2Mzk5Fxw8GR48ICVAHiNBFRpDERdDISZEEhhGRElIGBxIHCJMFRpMSU9NFBlOHCBPHSJRT1RSEBVSFxtTEBZTHCBVExhVIyhVU1hYGRxYJChbFxteExhjHB9kYmdmHyFmISNpGBxqaGxraW1sam5ubG9vHSFvbXFwbnJwb3Jxb3NycHN1FRh1HyF1c3d3dXl5FBZ7HiF8Gh59GBp+HR+BGhyBGxyDEhaDFhiFDhKFFBaGGx2HDxKJEhSJEhWJGBqJGxyKDRGMCg6OEBOPEBOPGhqREBOSFBaTExWWFRaXGBiYFhiYlpqZDRCcExSfFBWgFBagFhahFhajERKjoaSlCw2lpKemDhCoCAuop6qpCQupExOpFBStDQ+wr7KyERO2tbe3DxC4DxC6Cgy6EBHCDg7HCQvJyMrKycvLDAzOzc/R0NLUCgrW1tfcCAjjBAXlBgbuBATxAQL09PT2AgL39/f6+fr8/Pz/AAD////CniIQAAACCElEQVQoz2WSV3PTQBhF75fdlS05sR1CAgECwfQaeu81Dp2PKqroIEiWKnoRiCIhC4KwIRDrr/KQYSYD5+3c83qR/Tw+F/8iV77PMvzuG7/R1tO7d64CgOcZno4vEwYdT9+93w6g4xcOjCvlJ8x8szwmX1FFCxFAANHL1OazGDPE6MeQAEmCFJd04vsnBIQEpIxRXR8skzmivNyuOdTJURgGKCcRY98OZ2gaqcLk12nojuj0gWVAFiRZMfpXMD+8dfvKm3A40KHf1JuQbxOyaMQYWOIF9ShIXQ5dX/uR+2NBkcwuiRhH1HUvCFzX8zxm5iiN9swvdZHorqHf7H2mfc92tMPM7HqhfW01jF4rxpGZ0jzp28yuy8wcNkO/ke6tGEYNB6mjopY+5mAs2QmzH7obW2fVUJ3aQ7Ky5lHd9xxn2G3q0G8kzNtEjGMl5CuW2NzwosRvBPVI6yC0edCsYQCtPcqYbt7Qw4mrk+T7qXlq/+cw6olRLU0ks1tioZd6zMmdOSI/RXV+/EAxDlkoFIlKlh7xk+htAVaJRMfF8201VKnVhCyqTq/uRJ8MKphQRbVoeT5G1ZJQlpDnQpuvThKWgrJIWBIxDhOU0TL7chjpM+0iR1AGZI6gvuEVhMCFtOnVX5RJAIIgBCBmjGJ0C0BUXrdhMf4eAQDJdxmy0Xtr+/5j15cs+wOeHJNpucraGwAAAABJRU5ErkJggg==">
+	<link rel="canonical" href="http://www.itninja.com/software/nero-ag/nero-vision/7-738"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="data:image/png;base64,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" alt="ITNinja Home"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAKxJREFUKM91kkEOwyAMBJdACRBiz/9f20NDlVbOnpBGNl6vpZvq9JcipQNaSDSALSQFIC46AHKIANgfkIE9oPSCEqE5xwmmUtaY6+MyAWAAPjZJspakvJ8sDVvzHPypbAD0yyl0W8iuV5YqgKV+K7Q5jS6pOmDfxt6zJNVDktI+fTFvaQVxy8Sh9zkizw3yzgyjBIjRx2Kcc4OH/ao+9lMHj48jO2d8AKrt9wjfHhUM057Gu+UAAAAASUVORK5CYII="/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/nero-ag/browse">Nero AG</a></li>
+    <li><a href="/software/nero-ag/nero-vision/versions">Nero Vision</a></li>
+    <li>7</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Nero AG Nero Vision</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 7
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/nero-ag/nero-vision/10-505">
+                                            10.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/nero-ag/nero-vision/7-738">
+                                            7.x <span>(20 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/nero-ag/nero-vision/6-1069">
+                                            6.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/nero-ag/nero-vision/1-5463">
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/nero-ag/nero-vision/0-724">
+                                            0.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/20593/JTJGc29mdHdhcmUlMkZuZXJvLWFnJTJGbmVyby12aXNpb24lMkY3LTczOCUzRmZyb20lM0RhcHBkZXBsb3kuY29t">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/20593/JTJGc29mdHdhcmUlMkZuZXJvLWFnJTJGbmVyby12aXNpb24lMkY3LTczOCUzRmZyb20lM0RhcHBkZXBsb3kuY29t">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 4.4k &nbsp|&nbsp
+    Created: 06/19/2010
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version20593" type="radio" class="star" disabled="disabled"/>
+    <input name="Version20593" type="radio" class="star" disabled="disabled"/>
+    <input name="Version20593" type="radio" class="star" disabled="disabled"/>
+    <input name="Version20593" type="radio" class="star" disabled="disabled"/>
+    <input name="Version20593" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Nero Vision has <a href="#inventory-records" id="scrollInv">6 inventory records</a>,
+                <a href="#q-a" id="scrollQA">0 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (20)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (MSI)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="data:image/png;base64,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" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>3 / 5 (Average)</strong>
+                            based on <strong>10</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Repackaged (to a setup.msi)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/20593" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="84dfa6b9b91bf185d25257180aa84442f82f5802" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/nero-ag/nero-vision/7-738#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/nero-ag/nero-vision/7-738/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_5741" name="tip_5741">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5741"></div> -->
+   <div id="tip-5741" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">128</div>
+   <div id="tip-5741" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5741"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Command line for running Nero Installer: SetupXFullPath [/i | /x] /qb! /l*v &lt;LOGFULLPATH&gt; ADDLOCAL="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" REMOVE="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" {ADDLOCAL="ALL"} INCLANGUAGES="&lt;LANGUAGE&gt;[,&lt;LANGUAGE&gt;]*" EXCLANGUAGES="&lt;LANGUAGE&gt;[,&lt;LANGUAGE&gt;]*" SERIALNUMBER="&lt;SERIALNUM&gt;"<br/>
+REGISTERED_COMPANYNAME="&lt;COMPANYNAME&gt;"<br/>
+REGISTERED_USERNAME="&lt;USERNAME&gt;" TARGETPATH="&lt;DESTINATIONPATH&gt;" NO_FILEASSOC="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" QUICKSTART="&lt;QUICKSTARTVAL&gt;" DESKTOP_SHORTCUT="&lt;DESKTOPVAL&gt;" AUTOPLAY="&lt;AUTOPLAYVAL&gt;" REBOOT="&lt;REBOOTVAL&gt;" ALLUSERS="&lt;ALLUSERS&gt;" |W2K ALLUSERS ="1"| REBOOTPROMPT="&lt;REBOOTPROMPTVAL&gt;" VERBOSELOG="&lt;VERBOSELOGVAL&gt;" EULAACCEPTED="&lt;EULAACCEPTEDVAL&gt;" NSC_OPT="&lt;NEROSCOUTVAL&gt;" NSC_OFF="&lt;NSCDISABLEVAL&gt;" NSC_DEFAULT_OFF="&lt;NSCDEFAULTVAL&gt;" WMA_IGNORE_SR="&lt;WMAIGNORESRVAL&gt;" NST_SB_OFF="&lt;NSTSBOFFVAL&gt;" MAKECABS="MAKECABSVAL"<br/>
+<br/>
+<br/>
+REGISTERED_COMPANYNAME ="&lt;COMPANYNAME&gt;" is required parameter<br/>
+REGISTERED_USERNAME="&lt;USERNAME&gt;"is required parameter<br/>
+ADDLOCAL="ALL" is required parameter<br/>
+<br/>
+List of products which can be included or excluded from the command line:<br/>
+* NeroBackItUpCB9D5429<br/>
+* NeroBurningRomBCAFF604<br/>
+* NeroBurnRights72CC518F<br/>
+* NeroCoverDesigner7CE8D626<br/>
+* NeroFastCDDVDBurningPluginC5AB9CFD<br/>
+* NeroHome2FF8B816<br/>
+* NeroMediaHome53BEFA20<br/>
+* NeroPhotoSnapED1EAF52<br/>
+* NeroRecode6035F00C<br/>
+* NeroShowTimeD773A6E2<br/>
+* NeroSoundTrax716FE146<br/>
+* NeroStartSmartB035464E<br/>
+* NeroCDDVDSpeed82602EE0<br/>
+* NeroDriveSpeed7DFFCC12<br/>
+* NeroInfoToolE72D824A<br/>
+* NeroVision57D52359<br/>
+* NeroWaveEditorFA3A3F7B<br/>
+* InCDC9AC4AC7<br/>
+* NeroCopyGadgetED8C2E75<br/>
+* NeroMobile91F9B069<br/>
+<br/>
+Examples:<br/>
+Silent installation  exclude NeroMediaHome and NeroBackItUp: D:\Installation\SetupX.exe /qb! ADDLOCAL="ALL" REMOVE=" NeroMediaHome53BEFA20, NeroBackItUpCB9D5429"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cblake" class="username" rel="nofollow">cblake</a>
+                </li>
+                <li>
+                    10/29/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1776" name="tip_1776">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1776"></div> -->
+   <div id="tip-1776" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">128</div>
+   <div id="tip-1776" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1776"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            Command line for running Nero Installer: SetupXFullPath [/i | /x] /qb! /l*v &lt;LOGFULLPATH&gt; ADDLOCAL="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" REMOVE="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" {ADDLOCAL="ALL"} INCLANGUAGES="&lt;LANGUAGE&gt;[,&lt;LANGUAGE&gt;]*" EXCLANGUAGES="&lt;LANGUAGE&gt;[,&lt;LANGUAGE&gt;]*" SERIALNUMBER="&lt;SERIALNUM&gt;"<br/>
+REGISTERED_COMPANYNAME="&lt;COMPANYNAME&gt;"<br/>
+REGISTERED_USERNAME="&lt;USERNAME&gt;" TARGETPATH="&lt;DESTINATIONPATH&gt;" NO_FILEASSOC="&lt;FEATURE&gt;[,&lt;FEATURE&gt;]*" QUICKSTART="&lt;QUICKSTARTVAL&gt;" DESKTOP_SHORTCUT="&lt;DESKTOPVAL&gt;" AUTOPLAY="&lt;AUTOPLAYVAL&gt;" REBOOT="&lt;REBOOTVAL&gt;" ALLUSERS="&lt;ALLUSERS&gt;" |W2K ALLUSERS ="1"| REBOOTPROMPT="&lt;REBOOTPROMPTVAL&gt;" VERBOSELOG="&lt;VERBOSELOGVAL&gt;" EULAACCEPTED="&lt;EULAACCEPTEDVAL&gt;" NSC_OPT="&lt;NEROSCOUTVAL&gt;" NSC_OFF="&lt;NSCDISABLEVAL&gt;" NSC_DEFAULT_OFF="&lt;NSCDEFAULTVAL&gt;" WMA_IGNORE_SR="&lt;WMAIGNORESRVAL&gt;" NST_SB_OFF="&lt;NSTSBOFFVAL&gt;" MAKECABS="MAKECABSVAL"<br/>
+<br/>
+<br/>
+REGISTERED_COMPANYNAME ="&lt;COMPANYNAME&gt;" is required parameter<br/>
+REGISTERED_USERNAME="&lt;USERNAME&gt;"is required parameter<br/>
+ADDLOCAL="ALL" is required parameter<br/>
+<br/>
+List of products which can be included or excluded from the command line:<br/>
+* NeroBackItUpCB9D5429<br/>
+* NeroBurningRomBCAFF604<br/>
+* NeroBurnRights72CC518F<br/>
+* NeroCoverDesigner7CE8D626<br/>
+* NeroFastCDDVDBurningPluginC5AB9CFD<br/>
+* NeroHome2FF8B816<br/>
+* NeroMediaHome53BEFA20<br/>
+* NeroPhotoSnapED1EAF52<br/>
+* NeroRecode6035F00C<br/>
+* NeroShowTimeD773A6E2<br/>
+* NeroSoundTrax716FE146<br/>
+* NeroStartSmartB035464E<br/>
+* NeroCDDVDSpeed82602EE0<br/>
+* NeroDriveSpeed7DFFCC12<br/>
+* NeroInfoToolE72D824A<br/>
+* NeroVision57D52359<br/>
+* NeroWaveEditorFA3A3F7B<br/>
+* InCDC9AC4AC7<br/>
+* NeroCopyGadgetED8C2E75<br/>
+* NeroMobile91F9B069<br/>
+<br/>
+Examples:<br/>
+Silent installation Â– exclude NeroMediaHome and NeroBackItUp: D:\Installation\SetupX.exe /qb! ADDLOCAL="ALL" REMOVE=" NeroMediaHome53BEFA20, NeroBackItUpCB9D5429"
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cblake" class="username" rel="nofollow">cblake</a>
+                </li>
+                <li>
+                    10/29/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1760" name="tip_1760">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1760"></div> -->
+   <div id="tip-1760" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">126</div>
+   <div id="tip-1760" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1760"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            To install without calling setupx.exe create a folder with<br/>
+-Cab<br/>
+-Redist<br/>
+-Setup<br/>
+-NeroSuite.msi<br/>
+<br/>
+and call for a quiet install (without the Nero Scout):<br/>
+msiexec.exe /i "NeroSuite.msi" TRANSFORMS=1031.mst /qr ARPSYSTEMCOMPONENT=1 ALLUSERS=2 USERNAME="Username" COMPANYNAME="Company" USERSEL="6" STARTMODE="-1" FAMILYNAME="Nero 7" STARTPARAM="CallFromExe" DONOTRUNSETUPX="1" PIDKEY=xxxxxxx NERO_SCOUT="FALSE"<br/>
+<br/>
+Watch out:<br/>
+1."REBOOT=REALLYSUPRESS" or "/norestart" doesn't work!<br/>
+To avoid reboot you should use an autoit3 script at the end of the installation.<br/>
+<br/>
+2.On W2K I had an error with registering the Soundbox.ocx - with autoit3 I created a script which registered the ocx by calling "%System%\regsvr32.exe /i "%ProgramFilesDir%\nero\nero 7\Nero soundTrax\Soundbox.ocx"" and cancelled the error message after that; this worked fine.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Hagen" class="username" rel="nofollow">Hagen</a>
+                </li>
+                <li>
+                    11/06/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1772" name="tip_1772">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1772"></div> -->
+   <div id="tip-1772" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">121</div>
+   <div id="tip-1772" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1772"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Nero 7.8.5 brings some stuff along, you most probably don't want to deploy. Here is my way step by step:<br/>
+<br/>
+1) Start Setup Package and retrieve the folder namend RarSFX0 from temp. This contains the uncompressed install files.<br/>
+<br/>
+2) From those files simply delete the following to skip ask.com toolbar installation:<br/>
+- NeroBar.exe<br/>
+- NeroBar.txt<br/>
+- Toolbar.exe<br/>
+<br/>
+3) You &lt;u&gt;need&lt;/u&gt; to create a transform to remove the Nero Scout desktop search feature. NERO_SCOUT=FALSE will NOT work! (thanks to nheim for posting this!):<br/>
+- Load nero.msi in orca<br/>
+- create new transform<br/>
+- in SelfRegEx table, drop row MediaLibraryNSE32FE850B.dll<br/>
+<br/>
+4) While you already have the MST open you may add your Serialnumber (serialnum_userval) to the MST, also if you set the following, you will not have the nagging eula screen upon first start:<br/>
+- EULA_AGREEMENT to 1<br/>
+- AgreeToLicense to Yes<br/>
+<br/>
+5) Once you have created the mst you will need the following msi call, as those variables will not work inside an mst (note: 1031.mst only for german localization):<br/>
+<br/>
+msiexec /Inero.msi TRANSFORMS=1031.mst;custom.mst DONOTRUNSETUPX="1" STARTPARAM="CallFromExe" MSISOURCEFILE="nero.msi" /qb!
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    04/13/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1763" name="tip_1763">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1763"></div> -->
+   <div id="tip-1763" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-1763" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1763"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I have found instead of using Nero Burn Rights for user rights to Low Level Device Access in Windows XP, you can use the following registry key/Policy to enable users rights to CD Drives.<br/>
+<br/>
+Registry Key:<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]<br/>
+"allocatecdroms"="1"<br/>
+<br/>
+OR<br/>
+<br/>
+Group Policy<br/>
+Policy: Local Policy &gt; Security Options<br/>
+"Devices: Restrict CD-ROM Access to Locally logged-on users only" = Enabled<br/>
+<br/>
+Noet: This disables users from sharing their CD/DVD Devices over the network to allow users to access the device.<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/TheWorkz" class="username" rel="nofollow">TheWorkz</a>
+                </li>
+                <li>
+                    01/06/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1764" name="tip_1764">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1764"></div> -->
+   <div id="tip-1764" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-1764" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1764"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I used a combination of everyones comments above and have had success silently installing Nero 7.0.1.2 without a reboot.<br/>
+<br/>
+Run this batch file to install it.<br/>
+---------------------------<br/>
+:begin<br/>
+Nero.msi STARTPARAM="CallFromExe" DONOTRUNSETUPX="1" NERO_SCOUT="FALSE" /QB /NORESTART<br/>
+<br/>
+REGEDIT /s nero.reg<br/>
+:end<br/>
+----------------------------<br/>
+<br/>
+This is the reg file:<br/>
+----------------------------<br/>
+Windows Registry Editor Version 5.00<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\ahead\Installation\Families\Nero 7\Info]<br/>
+"Serial7_1128919465"="YOUR SERIAL # HERE"<br/>
+"Version"="7.0.1.2"<br/>
+"User"="YOUR NAME HERE"<br/>
+"Company"="YOUR COMPANY HERE"<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]<br/>
+"allocatecdroms"="1"<br/>
+---------------------------<br/>
+<br/>
+Use this to uninstall Nero silently and without a reboot:<br/>
+--------------------------<br/>
+:begin<br/>
+msiexec /qb /x nero.msi /norestart<br/>
+:end<br/>
+--------------------------<br/>
+<br/>
+Note: The reg key above ("allocatecdroms"="1") will overwrite whatever is set in Nero Burning Rights.  Even if NBR is set to administrator, with "allocatecdroms"="1" - all users will have access to the CD drive.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/DreamensioN" class="username" rel="nofollow">DreamensioN</a>
+                </li>
+                <li>
+                    05/09/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1770" name="tip_1770">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1770"></div> -->
+   <div id="tip-1770" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-1770" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1770"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Feature names<br/>
+=============<br/>
+<br/>
+This list contains the feature names used by some unattended installation parameters<br/>
+for convenient copying them to the according batch file custom parameters.<br/>
+<br/>
+NeroBackItUpCB9D5429<br/>
+NeroBurningRomBCAFF604<br/>
+NeroBurnRights72CC518F<br/>
+NeroCoverDesigner7CE8D626<br/>
+NeroFastCDDVDBurningPluginC5AB9CFD<br/>
+NeroHome2FF8B816<br/>
+NeroMediaHome53BEFA20<br/>
+NeroPhotoSnapED1EAF52<br/>
+NeroRecode6035F00C<br/>
+NeroShowTimeD773A6E2<br/>
+NeroSoundTrax716FE146<br/>
+NeroStartSmartB035464E<br/>
+NeroCDDVDSpeed7DFFCC12<br/>
+NeroInfoTool7AB7A0CD<br/>
+NeroVision57D52359<br/>
+NeroWaveEditorFA3A3F7B<br/>
+InCDC9AC4AC7
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hafen" class="username" rel="nofollow">hafen</a>
+                </li>
+                <li>
+                    01/22/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1773" name="tip_1773">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1773"></div> -->
+   <div id="tip-1773" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-1773" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1773"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            When generating an mst you can choose inside the property table which components to install. By default all components are set to 1, simply set components you don't want installed to 0.<br/>
+<br/>
+This is the current Feature/Components list for 7.8.5.0:<br/>
+<br/>
+C2EFBD6E8 Nero Api <br/>
+C2FF8B816 Nero Home <br/>
+C53BEFA20 Nero MediaHome <br/>
+C57D52359 Nero Vision <br/>
+C5AD292D8 Nero Burn <br/>
+C6035F00C Nero Recode <br/>
+C716FE146 Nero SoundTrax <br/>
+C72CC518F Nero BurnRights <br/>
+C79061EB3 Nero MediaStreaming <br/>
+C7CE8D626 Nero CoverDesigner <br/>
+C7DFFCC12 Nero DriveSpeed <br/>
+C82602EE0 Nero CDDVDSpeed <br/>
+C91F9B069 Nero Mobile <br/>
+CB035464E Nero StartSmart <br/>
+CBCAFF604 Nero BurningRom <br/>
+CC5AB9CFD Nero FastCDDVDBurningPlugin <br/>
+CCB9D5429 Nero BackItUp <br/>
+CD773A6E2 Nero ShowTime <br/>
+CE38B9E06 Nero ImageDrive <br/>
+CE72D824A Nero InfoTool <br/>
+CED1EAF52 Nero PhotoSnap <br/>
+CFA3A3F7B Nero WaveEditor <br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/KPrinz" class="username" rel="nofollow">KPrinz</a>
+                </li>
+                <li>
+                    04/18/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1775" name="tip_1775">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1775"></div> -->
+   <div id="tip-1775" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-1775" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1775"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Here's how I deployed Nero 7.8.5.0 via an MSI object in ZENworks 7.0 SP1:<br/>
+<br/>
+1.) Run the SetupX.exe file and let it get right up to the point of actually installing. This will extract all the CAB files and duplicate the ones as needed - if you don't let the setup get here some CABs will be missing.<br/>
+<br/>
+2.) Create a transform to specify the serial key, username, and company name as indicated above.<br/>
+<br/>
+3.) You can modify the features in the property table that you don't want installed by setting their properties to "0" as listed above. This will still leave you with Nero Scout, though. If you want to remove that, do the following:<br/>
+<br/>
+--Drop the following components from the component table: NeroSearchHelp_ENG5122ABE3, NeroSearch_Vista09F80378, NeroSearchfiles3A144A73, and NeroSearchDllE239C0AB.<br/>
+--Drop the following entries from the SelfRegEx table: MediaLibraryNSEABC8A37D.dll and NMBgMonitorB7C6977C.exe.<br/>
+<br/>
+Running with the /qr switch (as I usually do; something interesting to look at usually) will bring up a dialog at the end of the install that (depending on what features you chose to install) asks you to configure the program options. Since I was only installing the tools and burning components, it would only ask about putting Nero apps in the autoplay menu for blank media. I don't so much care about that, so I just set the /qb! switch instead - no dialog box at the end of the install. Optionally you could remove the NeroAg_RunFileAssociationsDialog custom action from the InstallExecuteSequence table - that's the action that pops that dialog up.<br/>
+<br/>
+Word to the wise: the installer will fail on the NeroAg_RegisterComEx custom action if DirectX 9.0c isn't installed, and it won't install in a silent install of the MSI. From a batch script you can run X:\&lt;PathToNeroInstall&gt;\Redist\DirectX\dxsetup.exe /silent; since I'm going through Zen I created a simple object to run this program from the server and used that object as a dependency of the main Nero object. The Nero object is an MSI object using 1033.mst and Nero.mst (or whatever you called it). You can specify properties in MSI -&gt; Properties so that it will actually run: DONOTRUNSETUPX=1, STARTPARAM=CallFromExe, and MSISOURCEFILE=nero.msi. Finally, in the Run Options -&gt; Application tab, set the Path to File as "C:\Program Files\Nero\Nero 7\Nero Toolkit\NeroBurnRights.exe" and the Parameters to "/all." I've had problems running this zen object as a power user; in Run Options -&gt; Environment, you can try running as a secure user to get around those problems.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tmountjr" class="username" rel="nofollow">tmountjr</a>
+                </li>
+                <li>
+                    05/31/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1771" name="tip_1771">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1771"></div> -->
+   <div id="tip-1771" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-1771" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1771"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            For precious customization of Nero installation, extract from package NEROINST.DB file, and edit it with something like as <a href="http://sqlitebrowser.sourceforge.net/">SQLite Database Browser</a>.<br/>
+<br/>
+After editing insert NEROINST.DB into package, overwrite the original file.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Makumazan" class="username" rel="nofollow">Makumazan</a>
+                </li>
+                <li>
+                    02/02/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1774" name="tip_1774">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1774"></div> -->
+   <div id="tip-1774" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-1774" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1774"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            We've seen that some people have trouble with deploying Nero 7.8.5.0 using group policy. While this is a bit convoluted it is not by any means impossible.<br/>
+<br/>
+The reason it does not work to set all the properties in the property-table is because the Nero msi contains some custom actions that run even before the property-table is evaluated. Open Nero.msi up in Orca and have a look at the InstallExecuteSequence, sort it by the "Sequence"-column. You'll see them as the four first actions starting with "NeroAg_".<br/>
+<br/>
+To be able to deploy the msi using group policy you need to set the required properties using type 51 custom actions earlier in the sequence. The properties you need to set are already on this page, DONOTRUNSETUPX, STARTPARAM, MSISOURCEFILE and SERIALNUM_USERVAL.<br/>
+<br/>
+Also remember to that the april 2006 update of DirectX is required before trying to deploy Nero (the latest update right now is february 2007). If not the msi will fail when trying to register some of the dlls right at the end of the installation process.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/deploy.no" class="username" rel="nofollow">deploy.no</a>
+                </li>
+                <li>
+                    05/29/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1761" name="tip_1761">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1761"></div> -->
+   <div id="tip-1761" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-1761" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1761"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            The custom action "InCD_CreateInCdServices8461E872" change the REBOOT property to 'Force'. <br/>
+<br/>
+Make a custom action and place it after that action and change the REBOOT property to "ReallySuppress", if you need this.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/hagie" class="username" rel="nofollow">hagie</a>
+                </li>
+                <li>
+                    11/30/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1765" name="tip_1765">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1765"></div> -->
+   <div id="tip-1765" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-1765" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1765"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            The latest version of Neros Burning ROM package have proved problomatical to silent install, they seem to have made a bit of a mess of the installation process, however the following pretty much works.<br/>
+<br/>
+1) Run the downloaded executable to decompress the package, then go and copy it from a folder in C:\Documents and Settings\%USERNAME%\Local Settings\Temp to another location. If installing from a network or CD\DVD-ROM you will need to perform the copying part of the below batch file, however if you run it off your hard drive you shouldn't need the copying part at all.<br/>
+<br/>
+REM ---------------------------<br/>
+REM Installing Nero Burning ROM<br/>
+REM ---------------------------<br/>
+@echo off<br/>
+MD C:\NERO<br/>
+XCOPY \Nero\*.* c:\nero /E /I /Q /Y<br/>
+C:\NERO\SETUPX.EXE /qn /norestart<br/>
+REGEDIT /S \Nero\nero.reg<br/>
+DEL /F /Q /S C:\NERO\*.*<br/>
+RD /S /Q C:\NERO<br/>
+<br/>
+The contents of the REG file are as follows...<br/>
+<br/>
+Windows Registry Editor Version 5.00<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\ahead\Installation\Families\Nero 7\Info]<br/>
+"EulaAccepted"="1"<br/>
+"Serial7_1149677731"="&lt;YOUR SERIAL NUMBER HERE&gt;"<br/>
+"Version"="7.2.3.2"<br/>
+"User"="&lt;YOUR USERNAME HERE&gt;"<br/>
+"Company"="&lt;YOUR COMPANY NAME HERE&gt;"<br/>
+<br/>
+Personally I've had a bit of a tussle with the REG file for some reason. it is valid since if you run it by double clicking on it it works fine, however for some reason, it has not always applied correctly when running from the batch file. Maybe it needs a restart before application?
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/SmokeyMcPotHead" class="username" rel="nofollow">SmokeyMcPotHead</a>
+                </li>
+                <li>
+                    07/14/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1766" name="tip_1766">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1766"></div> -->
+   <div id="tip-1766" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-1766" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1766"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Based on previous posters' information, information gleaned from other sources, and my own investigations, here's how I did the automated installation for Nero Volume License v7.2.3.2b:<br/>
+<br/>
+* Downloaded Nero-7.2.3.2b_eng_no_yt.exe (~131MB)<br/>
+* Ran it on a test box and copied the temporary extraction folder created in %TEMP%<br/>
+<br/>
+Installation routine:<br/>
+<br/>
+&lt;textarea&gt;msiexec.exe /I "%PATH_TO_NERO_DIR%\Nero.msi" TRANSFORMS="%PATH_TO_NERO_DIR%\1033.mst" ADDLOCAL="NeroProductSetup7850B4D2,NeroSuiteInstallerDD1EB5BC,NeroStartSmartB035464E,NeroBurningRomBCAFF604,NeroRecode6035F00C,NeroBackItUpCB9D5429,NeroCoverDesigner7CE8D626,NeroBurnRights72CC518F,NeroImageDriveE38B9E06,NeroInfoToolE72D824A" ARPSYSTEMCOMPONENT=1 ALLUSERS=1 USERNAME="user's name" COMPANYNAME="our company" USERSEL="6" STARTMODE="-1" STARTPARAM="CallFromExe" DONOTRUNSETUPX="1" SERIALNUM_USERVAL="our serial number" AGREETOLICENSE="TRUE" REBOOT=R /QN&lt;/textarea&gt;<br/>
+<br/>
+"%ProgramFiles%\Nero\Nero 7\Nero Toolkit\NeroBurnRights.exe" /all<br/>
+<br/>
+<br/>
+Notes:<br/>
+<br/>
+* 1033.mst is the "English - United States" LCID - use the appropriate LCID for your location and the files you downloaded.<br/>
+* The ADDLOCAL entry above severly restricts which components are installed - you can make changes to the list by using InstallShield (or another similar product) to inspect the MSI and looking at the features list.<br/>
+* ARPSYSTEMCOMPONENT, USERSEL, STARTMODE, STARTPARAM, and DONOTRUNSETUPX all came from previous posters<br/>
+* USERNAME and COMPANYNAME should be set as appropriate<br/>
+* SERIALNUM_USERVAL is a new name for the serial number (evidently used to be PIDKEY) - I figured it out by using InstallShield to inspect the dialog box where it usually gets entered<br/>
+* AGREETOLICENSE was deduced by using InstallShield to inspect the licensing dialog box<br/>
+* /all turns out to be the Command Line parameter for granting burn rights.  The NeroBurnRights.exe parameters are (supposedly):<br/>
+		/admin<br/>
+		/all<br/>
+		/group=&lt;group_name&gt; - enclose entire parameter in quotes if there are spaces<br/>
+		/sec_class - apply to future devices as well<br/>
+		/sec_device - apply only to existing devices<br/>
+		/cleanup<br/>
+* It didn't force a reboot, but I obviously do one after everything completes<br/>
+<br/>
+Hope this helps someone . . .
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tovodeverett" class="username" rel="nofollow">tovodeverett</a>
+                </li>
+                <li>
+                    07/30/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1768" name="tip_1768">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1768"></div> -->
+   <div id="tip-1768" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-1768" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1768"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Nero 7.5.7.0 & 7.5.9.0<br/>
+<br/>
+Unpack installation files and copy to a network drive<br/>
+Include subfolders<br/>
+<br/>
+Run installation as follows:<br/>
+<br/>
+"Path to file\Redist\DirectX\dxsetup.exe" /silent<br/>
+<br/>
+MsiExec /i "Path to file\Nero.msi" /qb! FAMILYNAME="Nero 7" TRANSFORMS="Path to file\1033.mst" UILANGUAGEID="1033" STARTPARAM="CallFromExe" DONOTRUNSETUPX="1" MSISOURCEFILE="Path to file\Nero.msi" NERO_SCOUT="FALSE" /NORESTART serialnum_userval="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx"<br/>
+<br/>
+REG ADD "HKLM\SOFTWARE\ahead\Installation\Families\Nero 7\Info" /v EulaAccepted /t REG_DWORD /d 1 /f<br/>
+<br/>
+Replace the language to right version and license number<br/>
+in serialnum_userval to your license number<br/>
+Put these commands in a cmd-file and the installation<br/>
+runs silent....<br/>
+<br/>
+To modify NeroBurningRights (to be able to burn CD and DVD in lockdown environment) run following commands:<br/>
+<br/>
+"%ProgramFiles%\Nero\Nero 7\Nero Toolkit\NeroBurnRights.exe" /all<br/>
+<br/>
+Grant users full rights to the following regkey with subinacl.exe:<br/>
+<br/>
+"Path to exefile\Subinacl.exe" /subkeyreg "HKEY_LOCAL_MACHINE\Software\ahead" /grant="Users=f"<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/mimmi13" class="username" rel="nofollow">mimmi13</a>
+                </li>
+                <li>
+                    12/04/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1769" name="tip_1769">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1769"></div> -->
+   <div id="tip-1769" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-1769" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1769"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            LANDesk Deployment of Nero 7<br/>
+<br/>
+I just downloaded Nero 7 and had to get it to install and deploy it with LANDesk.<br/>
+<br/>
+At first I had difficulty trying to use the MSI with the notes above.  It turned out much easier than I expected.<br/>
+<br/>
+I did the following:<br/>
+<br/>
+1. Downloaded the executable.<br/>
+2. Extracted it (I used winrar to extract it)<br/>
+3. I went into the "Nero Install\Redist\Config" and found a conf.txt.<br/>
+  - I read this conf.txt and figured out how to use it.<br/>
+  - Put EXCLUDE instead of INCLUDE for the items not desired.<br/>
+  - At the bottom of the file, add MSIPROPERTY property "value" for each value you want changed.  (I used ORCA to see what values were available)<br/>
+4. Put the files on a package server (web share).<br/>
+5. Created an Executable Distribution Package in LANDesk that runs SETUPX.EXE, has /q as the only switch, and includes everything in the Nero Install and all subfolders as additional files.<br/>
+6. The install worked fine.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rhyous" class="username" rel="nofollow">rhyous</a>
+                </li>
+                <li>
+                    12/12/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1767" name="tip_1767">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1767"></div> -->
+   <div id="tip-1767" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">116</div>
+   <div id="tip-1767" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1767"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Test with Nero 7.5.1.1<br/>
+<br/>
+1/ Unpack installation package<br/>
+<br/>
+2/ Edit nero.msi and set condition to "1=1" for unwanted components on lines with "level=200". <br/>
+<br/>
+Example for not installing Showtime (Feature/Level/Condition) :<br/>
+NeroShowTimeD773A6E2 / 200 / 1=1<br/>
+<br/>
+3/ Call installation with :<br/>
+<br/>
+setupx.exe  /QUIET /NORESTART RebootYesNo="No" serialnum_userval="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx" AgreeToLicense="Yes" EULA_AGREEMENT=1<br/>
+<br/>
+Sometimes, /NORESTART & RebootYesNo does'nt work :-/ <br/>
+Use an AutoIt script to close the msg box ;-)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Okaryn" class="username" rel="nofollow">Okaryn</a>
+                </li>
+                <li>
+                    09/23/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1762" name="tip_1762">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1762"></div> -->
+   <div id="tip-1762" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">3</div>
+   <div id="tip-1762" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1762"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I struggled with Nero 7.0.1.4, you can't decompress the 100MB .EXE file and silent install from a script it screamed for a CAB file that appeared to be missing. However if you run the 100MB .EXE file then once it's decompressed itself make a copy the files from the Nero Temp Directory in &lt;your porfile&gt;\Local Settings\Temp. This'll sort you out. After this I use the following script in conjunction with a .REG file to register the software...<br/>
+<br/>
+SCRIPT...<br/>
+<br/>
+Nero.msi STARTPARAM="CallFromExe" DONOTRUNSETUPX="1" /QB /NORESTART<br/>
+REGEDIT /S nero.reg<br/>
+<br/>
+REG FILE...<br/>
+<br/>
+Windows Registry Editor Version 5.00<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\ahead\Installation\Families\Nero 7\Info]<br/>
+"Serial7_1128919465"="*YOUR SERIAL NUMBER HERE"<br/>
+"Version"="7.0.1.4"<br/>
+"User"="YOUR NAME HERE"<br/>
+"Company"="YOUR COMPANY HERE"<br/>
+<br/>
+This install the complete package and excludes nothing. Also worth noting they have cured the porblem with the shortcuts they had in version 7.0.1.2.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/SmokeyMcPotHead" class="username" rel="nofollow">SmokeyMcPotHead</a>
+                </li>
+                <li>
+                    12/19/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_1777" name="tip_1777">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-1777"></div> -->
+   <div id="tip-1777" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">2</div>
+   <div id="tip-1777" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-1777"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Nero 7. Version 7.5.13.1 <br/>
+<br/>
+Bypass SetupX.exe file:<br/>
+<br/>
+Delete 2 Custom Actions: <br/>
+NeroAg_CheckMinBuildD8213023<br/>
+NeroAg_ExecPreInstallTasksF86318e3 <br/>
+<br/>
+In MST, ADD below registry for User rights, so the standard user can burn.  <br/>
+<br/>
+Windows Registry Editor Version 5.00<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]<br/>
+"allocatecdroms"="1"<br/>
+<br/>
+Added properties: <br/>
+<br/>
+AgreetoLicense=Yes<br/>
+EULA_AGREEMENT=1<br/>
+RebootYesNo=No<br/>
+<br/>
+Added registry : <br/>
+<br/>
+Windows Registry Editor Version 5.00<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Ahead\Installation\Families\Nero 7\Info]<br/>
+"EulaAccepted"="1"<br/>
+<br/>
+<br/>
+Installation Procedure: <br/>
+<br/>
+1- Install DirectX <br/>
+2- Install Msi, with Mst (xxx.mst for ur country) <br/>
+3- /QB ( for silent )<br/>
+<br/>
+Uninstall procedure: <br/>
+<br/>
+Couldnt uninstall nero, so i used this tool. <br/>
+<br/>
+General-CleanTool_7<br/>
+<br/>
+( To remove Nero, please run the Clean Tool from the command line and add the parameters:<br/>
+/silence /start:all ) <br/>
+<br/>
+You can download it from: <br/>
+ftp://ftp9.nero.com/attach/General-CleanTool_7.zip <br/>
+<br/>
+/SKS
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/SKS" class="username" rel="nofollow">SKS</a>
+                </li>
+                <li>
+                    06/15/2009 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_8563" name="tip_8563">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8563"></div> -->
+   <div id="tip-8563" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">0</div>
+   <div id="tip-8563" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-8563"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <span style="font-weight:bold;">This Vbscript is mainly for tidying up the mess left by Nero</span>. I am leaving out the silent install stuff in the script though other people have managed to install it wihout repackaging.. This is for an older version but the script can be used to cleanup other installations as well.<br/><br/><br/>=============<br/><p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Declare constants for Run options</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span> </span></span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+NOWAIT = 0</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+WAIT = 1</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+HIDE = 0</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+ACTIVATE = 1</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+ACTIVATEMIN = 2</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Const
+ACTIVATEMAX = 3</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Dim
+objshell</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Dim
+STarget</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Set
+objShell=CreateObject("Wscript.Shell")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Set
+objFS=CreateObject("Scripting.FileSystemObject")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Run
+"msiexec.exe /i ""Nero.msi""
+TRANSFORMS=""Nero 7.0.mst""
+ROOTDRIVE=""c:\"" /qn /norestart /l*v
+""%windir%\logs\Nero7.0.log""" ,0,1</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Run
+"xcacls.exe ""%programfiles%\Nero"" /T /Y /G
+Administrators:f",0,1</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Run
+"xcacls.exe ""%programfiles%\Nero"" /T /Y /E /G
+""MRP\APPDEPLOY-Nero 7.0"":f",0,1</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">ALLUSERS=
+GetEnvVar("allusersprofile")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">CurrentUser=
+GetEnvVar("userprofile")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'Wait
+for shortcuts to be created</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">StartTime
+= Timer</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">sTarget=ALLUSERS
+&amp; "\desktop\Nero Home.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">While
+Not objFS.FileExists(sTarget) </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Wend</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">sTarget=ALLUSERS
+&amp; "\desktop\Nero StartSmart.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">While
+Not objFS.FileExists(sTarget) </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Wend</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">sTarget=ALLUSERS
+&amp; "\Start Menu\Programs\Nero 7 Premium\Nero ProductSetup.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">While
+Not objFS.FileExists(sTarget) </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Wend</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'sTarget=CurrentUser
+&amp; "\Application Data\Microsoft\Internet Explorer\Quick Launch\Nero
+Home.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'While
+Not objFS.FileExists(sTarget) </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'Wend</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'sTarget=CurrentUser
+&amp; "\Application Data\Microsoft\Internet Explorer\Quick Launch\Nero
+StartSmart.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'While
+Not objFS.FileExists(sTarget) </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'Wend</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">DeleteFile
+ALLUSERS &amp; "\desktop\Nero Home.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">DeleteFile
+ALLUSERS &amp; "\desktop\Nero StartSmart.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">DeleteFile
+ALLUSERS &amp; "\Start Menu\Programs\Nero 7 Premium\Nero ProductSetup.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">DeleteFile
+CurrentUser &amp; "\Application Data\Microsoft\Internet Explorer\Quick
+Launch\Nero Home.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">DeleteFile
+CurrentUser &amp; "\Application Data\Microsoft\Internet Explorer\Quick
+Launch\Nero StartSmart.lnk"</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Subroutine:<span>  </span>Run</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Arguments:<span>   </span>WhatToRun,WindowState,WaitUntilDone</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Description:<span> </span>Shells out and runs an
+application</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Shells out and runs an application</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Sub
+Run(WhatToRun,WindowState,WaitUntilDone)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">On
+Error Resume Next</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">RunErr
+= objShell.run (WhatToRun, WindowState, WaitUntilDone)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">If
+RunErr &lt;&gt; 0 and not RunErr = 3010 Then</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">WScript.echo
+RunErr</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">end
+if</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">End
+Sub</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Subroutine:<span>  </span>DeleteFile</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Arguments:<span>   </span>FileToDelete</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Description:<span> </span>Deletes a file</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Creates:<span>           </span></span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Deletes a file</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Sub
+DeleteFile(FileToDelete)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">On
+Error Resume Next</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>       </span>objFS.DeleteFile FileToDelete</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">End
+Sub</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"> </span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Function:<span>    </span>GetEnvVar</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Arguments:<span>   </span>varname</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Description:<span> </span>Returns the value of an
+environment variable</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Returns:<span>     </span>GetEnvVar</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Creates:<span>     </span></span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+-----------------------------------------------------------------------------</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">'
+Read environment variable</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">Function
+GetEnvVar(varname)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>       </span>varname=LCase(varname)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>       </span>EnvVarArray =
+Array("Process","System","User")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>       </span>For intcount = 0 To UBound(EnvVarArray)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>              </span>Set ObjEnv =
+objShell.Environment(EnvVarArray(intcount))</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>              </span>For Each strVar In objEnv</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>                     </span>strSplitvar=LCase(strVar)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>                     </span>strSplitvar=Split(strVar,"=")</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>                     </span>strVar=strSplitvar(0)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>                     </span>strVarVal=strSplitvar(1)</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>                     </span>If lcase(strVar)=varname
+Then GetEnvVar = strVarval</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>              </span>Next</span></p>
+
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:left;" align="left"><span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz"><span>       </span>Next</span></p>
+
+<span style="font-size:8pt;font-family:'Courier New';" lang="en-nz" xml:lang="en-nz">End Function</span>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (MSI)</span></div>
+                <div>Deployment Method Used: <span>Repackaged (to a setup.msi)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Somewhat Difficult
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nagendrasingh" class="username" rel="nofollow">nagendrasingh</a>
+                </li>
+                <li>
+                    09/13/2017 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (6)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/20593/42482">
+                                    7.2.14700.9.100
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/20593/42483">
+                                    7.2.15400.16.100
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/20593/42484">
+                                    7.4.10800.7.100
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/20593/42485">
+                                    7.2.14000.4.100
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/20593/42486">
+                                    7.0.11100.8.100
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/20593/42487">
+                                    7.0.10700.4.100
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Nero Vision</h2>
+            <div><h3>Version</h3><span>7.2.14700.9.100</span></div>
+                                                        <div><h3>Uninstall String</h3>MsiExec.exe /X{9A4297F3-2A51-4ED9-92CA-4BCB8380947E}</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (0)
+                            </h3>
+            <p>Questions & Answers related to Nero AG Nero Vision</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Nero AG Nero Vision</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Nero AG Nero Vision</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Nero AG Nero Vision</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xMHBjVkgAAAJPSURBVEiJrVU9ixNRFD3vvTufmSRuFm20ETu7NSBqY5XGxUXBZq3USgOKhZUg/gXBRmxsBbuFrUT/gb9EEdTsZj7eu9di4iSz2SQTzIUU995557xzz52JunbrWY88/60hf08pnWADIcJjZ4tDW2RDCqP2m1Zn+34QJdCaAKX+Fx3MLsrS0b2j3z8Mxe2t3aR7Fl4QQSm9CQEQYXhBBIjskh/EhigApGxsKoh8+EHskygFgWwU/F+IUiBhATOvNXvfU3h0t4+dy+fRSUIAwPE4x8OXn6ANTQlEQMIOwq4xAbPD/u0ruHn1Uv22IiiyY/hha1pjB2Jh8BoERZ7i+s7FUzoCazMQhzOX4VLBOgS2SNHtxFV+58FrfP85QhAlSLrnSqyaAmawa+6Bs66W/0kJ3d4FaCJo45dYswqYm42IncXB+ydz9S8fXwEAjsYZ9p9/qJ9ZZ0R5Pl7ax8RkL5iOT9iBHDs4tgCWE9giW4EvKIocmvyq5ioP2K0kAIAbey+QjUf49vldVesPHkMbAy+IEbe3ayYzu5kRrSBQhhAmW7UXCQCi5Ay8IIbSBkqb+hYJg5hl4vwqBQrGBDBU1KqGQpA3mbugvkWOQdxQQXWIeS6fvfXJHok09wAAWNxcvpBA3My3qCEBToJV509/drJFTTwoQ6DQHwxhixTkhQha3bmxVfgsIBEBS3MCpQ28uA3iFpTW5eYs+C9hKT1wsoaCcpt8wMyoWqBAmHPN7A6ZGSIb/pXeHJAtsqfaeL423kAp1WsoY3mI/HLOfrVFOvwLfr2cvFzgk+IAAAAASUVORK5CYII=" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABX1BMVEVFu+tlu/BsvvBLw+xsvvBywvFLv+xxwfFNxexOwe2EzPNKt+xLt+xMuOxMuexNxuxQxe1Qxu1Rve1Rwu1Tv+1Tx+1Uw+1Vw+1VxO1WyO1Xue5Xw+1XxO1Xxu5Yvu5ZyO5au+5axO5aye5bxO5bx+5cyO5dve5dxu5eyu5fxu5hyu9iy+9jx+9jye9jyu9kyO9lxO5nyO9nze9oxe9qx/BqzfBryfBryvBrzvBsy/BvyvBwzfBwz/BzwvF0y/F00PF1zvB10fF3zfF4zfJ60fF60vF7zvJ+0fJ/z/N/0/KB0POE0POE1fOGzPOG1fOH0fOI1vOK1POL0vON0vSN0/SN1/SS0/WS2fSU2fWV1PWW1fWW2vWa2fWa2/We3Paf3Pah3fai3fak3vap3faw3/e04Pe25fi34vi/5/jB6fnK6/rO7frj9Pzn9f3v+f33/P74/P75/P78/v/9/v////9mrPf1AAAAC3RSTlMVFairq66x9vn5+XR/mDIAAAESSURBVCjPbVGxTsQwDI0dp1VFT4d0iOHUL7iJiW9g5yP5Bb6BhZUBiQlGBtRrL3GdkCYtOq61lFr183vWswHA3KvLeBEB81BpuKgH6Z/JbA0sGKEw8Fgv6xFpCUJYARSQX60rT+LHLLuq+9ZngNAwjNmVqrLFGTBMDIsKLP1jeE4N8R3iY/eJ84wkJVOjAWsmBidlnhVazgyehsdPeIotxWYzzMNnKdgjKMSQAdG32sc4NVrdHINGCD7FiTh1+GiivosK3Wu2yXqHMsbXPrlAfA/p3+ktjNm3bw2M0M9HBiw0dR7W9UPcJ5bX2X9LzmUHdMVxOVBwWpFyJP3fCfS0m+y8w9V7dCS8eloBpU25qFuWX2lyjb3ArGdtAAAAAElFTkSuQmCC" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAbCAMAAAC9SNpyAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAE3RSTlMAECAwQFBgcICQnqCosLXA0ODw4l5hTgAAAhlJREFUSMe1VtuSrCAMlIsIh2UD+P//eggBBMGtrRo3L6OZSJNOk7BtxYTxJ5o3Yvsjk3BeBvJPMMw5mvl8SSFHRlglSkttAj2zT0ESNXv/njGcGJjzL4DoG1exR1XxBcZGEIkYI38CUeSbILBYcEeNvQgi0np2CnHJi9kZgCtJAaCqVg4HAE5d+mAKPeAOQaGJjIAOqBXhEwgvVRmylC09HYvWWy1VbPr3kugpVqTlFtk6WnAJwvqTS7mp/BxI/9CDZJZa3GgH7WEJYmtX2FH8mAtDcvIyQgeqxVCTBx3JZxBURfmepYQDo+jGOd9eAOkJxhRSBnoW42cgfFCKzohqVs8dZF+AqEcQNfScdAIiAcdDPIL4dQexj+pKe49wGW2mtPEIth6dAST9HWYM5No8gtxsODl1z9OJV0sFi19lAmBaDygobtm74jQ9YpFL7EFIQ8dPbU0eoRR57sLTjPKUCIaqnllHqfPnxsgCEbaYJ3cU9v2vrz9Z+vygn5+GDYkaVzX3yRguHeNwZp5a395VzJYUdF9FcSxI0BQV2DTjQ9Z5JtVkj6gb0BjMXS1p9pm8ANd0aFTqXLRiDpNFUC75mLZifVv5av01D8nTQ+iuFzy/JF356ixBxWPbMDx96MbfeO8SOB7KJBPh8tf0+15vWZ5R832q3IGGGVtvkEA3SH71CEUruP40SUubN7x9DufoSUTh/qKT23/tNjs0imzt8gAAAABJRU5ErkJggg==" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":435,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

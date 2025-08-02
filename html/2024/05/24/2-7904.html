@@ -1,0 +1,718 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IT Pro Tips for Microsoft Power BI 2</title>
+    <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Microsoft Power BI 2">
+    <meta name="keywords" content="Microsoft,Microsoft Power BI,Power BI 2">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/build/static/layout/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/layout/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/layout/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/build/static/layout/safari-pinned-tab.svg" color="#a81e25">
+    <meta name="msapplication-TileColor" content="#a81e25">
+    <meta name="theme-color" content="#ffffff">
+            <link rel="canonical" href="http://www.itninja.com/software/microsoft/power-bi/2-7904" />
+    
+
+    <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2024 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+    <link rel="stylesheet" href="/build/index.82f4a908.css">
+
+    
+            <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P8DH2B7');</script>
+        <!-- End Google Tag Manager -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26553848-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+
+        </script>
+    
+    <script type="text/javascript">
+
+        // create the itninja JS namespace
+        var Itninja = {};
+        Itninja.isIe8 = false;
+                var TAG_SERVER = 'tags.itninja.com',
+            TAG_AUTO_SUGGEST_ENABLE = 'true' === '1' ? true : false,
+            TAG_SHOW_ADD_NEW = false,
+            TAG_USER_ID = 0;
+
+
+
+    </script>
+        </head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8DH2B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="content-row">
+    <div class="md-12">
+        
+<nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+    <div class="navbar-header">
+        <div class="nav-logo-container-c"><a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo-collapse"/> </a></div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse" id="navbar-toggle">
+            <div id="nav-icon-bar">
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+                <span class="nav-icon-bar-span"></span>
+            </div>
+        </button>
+    </div>
+
+
+    <div id="main-nav-collapse" class="collapse collapse-container">
+        <div class="navbar-search-container">
+            <form role="search" action="/search" id="nav-search">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="Search..." class="form-control nav-collapsed-form"/>
+                    <span class="input-group-btn">
+                    <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                </span>
+                </div>
+            </form>
+        </div>
+
+        <ul class="collapse-list">
+            <li class=""><a href="/software-library" class="nav-collapse-text">Software Tips</a></li>
+            <li ><a href="/question" class="nav-collapse-text">Questions</a></li>
+            <li ><a href="/blog" class="nav-collapse-text">Blogs</a></li>
+            <li ><a href="/link" class="nav-collapse-text">Links</a></li>
+            <li ><a href="/community" class="nav-collapse-text">Communities</a></li>
+            <li ><a href="/gallery" class="nav-collapse-text">KACE Photos</a></li>
+                        
+            <li>
+                <div>
+                    <div class="user-dropdown-collapse">
+                                                    <a href="/login" class="button log-in-collapse">Log in</a>
+                                        </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+            <div class="nav-logo-container"> <li> <a href="/"> <img src="/build/static/layout/ITN_logo_white.svg" class="nav-logo"> </a> </li> </div>
+            <li class="nav-bar-text-first first "><a href="/software-library" class="navigation-bar-text">Software Tips</a></li>
+            <li ><a href="/question" class="navigation-bar-text">Questions</a></li>
+            <li ><a href="/blog" class="navigation-bar-text">Blogs</a></li>
+            <li ><a href="/link" class="navigation-bar-text">Links</a></li>
+            <li ><a href="/community" class="navigation-bar-text">Communities</a></li>
+            <li ><a href="/gallery" class="navigation-bar-text">KACE Photos</a></li>
+                                </ul>
+
+        <div>
+            <div class="user-dropdown">
+                                    <div class="nav-login-container">
+                        <li class="nav-login-list"><a href="/login" class="button nav-register-log-text">Log in</a></li>
+                    </div>
+                            </div>
+        </div>
+
+        <div id="search-form-container" class="search-form-container">
+            <div class="navbar-search pull-right">
+                <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+                    <div class="input-group search-input-span box">
+                        <input type="text" id="search-trigger" name="q" placeholder="Search..." class="form-control nav-search-form"/>
+                        <span class="input-group-btn">
+                            <button class="btn search-btn" type="submit"><img class="search-icon" src="/build/static/layout/Search_Icon_White.svg"></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+
+
+    </div>
+</div>
+
+    <a href="/"> <img class="breadcrumbCap" src="/build/static/layout/Breadcrumb_cap.svg" alt="/build/static/layout/Breadcrumb_cap_w.png" href="/"/></a>
+    <ul id="breadcrumbs" class="breadcrumb">
+        <li><a href="/">
+            </a></li>
+            <li><a href="/software-library">Software</a></li>
+    <li><a href="/software-library/company/microsoft">Microsoft</a></li>
+    <li><a href="/software-library/company/microsoft/power-bi">Power BI</a></li>
+    <li>2</li>
+    </ul>
+
+
+<div id="widget-notice" class="flash-wrap">
+            </div>
+<div class="body-container"  id="app">
+
+    
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-9">
+                <h2>Microsoft Power BI</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 2
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a
+                                            href="/software/microsoft/power-bi/2-7904"
+                                            >
+                                            2.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+        <div class="md-3">
+
+            
+
+
+    <section id="widget-signup">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow"
+       href="/register?/follow/version/64863/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZwb3dlci1iaSUyRjItNzkwNA==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow"
+       href="/login?/follow/version/64863/JTJGc29mdHdhcmUlMkZtaWNyb3NvZnQlMkZwb3dlci1iaSUyRjItNzkwNA==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 2.1k &nbsp|&nbsp
+    Created: 11/11/2019
+    
+            by: <a href="/user/sfrederic" rel="nofollow">sfrederic</a>
+
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+    <div name="itninja-star-rating"
+     data-entity-id="64863"
+     data-enabled="false"
+     data-entity-name="software"
+     data-rating=1
+     data-expanded="false"
+     data-entityType="software"
+     >
+</div></li>
+
+</div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span
+            id="average-rating">0</span></div>
+            </div>
+        </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Power BI has <a href="#inventory-records" id="scrollInv">1 inventory records</a>,
+                <a href="#q-a" id="scrollQA">0 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (1)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Windows Installer (Delivered as an EXE)
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/build/static/software/blue.png" class="img-responsive" />
+                        <div class="rating-text">
+                            Rated <strong>1 / 5 (Very Easy)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Vendor Provided Command Line (switch driven)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+            
+
+                <div class="inner summary">
+                    <h4>Deployment Tip Summary</h4>
+
+                                            <div id="software-view-deployment-summary-text-raw">powerbi.exe -silent -norestart ACCEPT_EULA=1</div>
+                                            
+
+
+                    
+                </div>
+
+            
+
+            
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/microsoft/power-bi/2-7904#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li ><a href="/software/microsoft/power-bi/2-7904/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_8791" name="tip_8791">
+
+            <div class="md-1">
+                <div class="software-rating-container">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-8791"></div> -->
+   <div id="tip-8791" class="thumbs_up"><button class="btn btn-xs btn-link "><div class="comment-vote-up"><img src="/build/static/rating/UpArrow.svg"/></div></button></div>
+    <div class="avg-rating">1</div>
+   <div id="tip-8791" class="thumbs_down"><button class="btn btn-xs btn-link "><div class="comment-vote-down"><img src="/build/static/rating/DownArrow.svg"/></div></button></div>
+   <!--<div class="arrow_down" id="tip-8791"></div> -->
+</div>
+                </div>
+            </div>
+
+            
+<div class="md-11">
+    <div class="the-tip">
+
+                
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p><img src="data:image/png;base64,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" alt="H96DnRfWeQP2gAAAABJRU5ErkJggg==" /></p><p><br /></p><p>SILENT INSTALL for SMA Managed Installation &gt; Override default installation &gt;  <b>powerbi.exe -silent -norestart ACCEPT_EULA=1</b><br /></p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>Windows Installer (Delivered as an EXE)</span></div>
+                <div>Deployment Method Used: <span>Vendor Provided Command Line (switch driven)</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            Very Easy
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/sfrederic" class="username" rel="nofollow">sfrederic</a>
+                </li>
+                <li>
+                    11/11/2019 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+    </ul>
+
+
+                            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (1)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/64863/136666">
+                                    2.74.5619.862
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Power BI</h2>
+            <div><h3>Version</h3><span>2.74.5619.862</span></div>
+                                                                                                    
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (0)
+                            </h3>
+            <p>Questions & Answers related to Microsoft Power BI</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Microsoft Power BI</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Microsoft Power BI</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Microsoft Power BI</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+    <div class="clearfix">&nbsp;</div>
+</div>
+<div class="ccpa-notification">
+    <div class="ccpa-notification-text">
+        <div><button class="btn-itn" id="ccpa-accept">ACCEPT</button></div>
+
+        This website uses cookies.
+        By continuing to use this site and/or clicking the "Accept" button you are providing consent
+
+
+        Quest Software and its affiliates do NOT sell the Personal Data you provide to us either when you register on our
+        websites or when you do business with us. For more information about our
+        <a href="https://www.quest.com/legal/privacy.aspx" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and our data protection
+        efforts, please visit
+        <a href="https://www.quest.com/legal/gdpr-hq.aspx" target="_blank" rel="noopener noreferrer">GDPR-HQ</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+                <div id="footer-nav" class="row">
+            <div class="md-3">
+                <strong>Home Pages</strong>
+                <ul>
+                    <li><a href="/software-library">Software</a></li>
+                    <li><a href="/question">Questions</a></li>
+                    <li><a href="/blog">Blog Posts</a></li>
+                    <li><a href="/link">Shared Links</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>FAQ &amp; Support</strong>
+                <ul>
+                    <li><a href="/faq">Site FAQ</a></li>
+                    <li><a href="https://www.quest.com/community/quest/unified-endpoint-management" target="_blank" rel="noopener noreferrer">Unified Endpoint Management</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>About</strong>
+                <ul>
+                    <li><a href="/about">ITNinja</a></li>
+                    <li><a href="/about">Welcome Video</a></li>
+                    <li><a href="/tour">Tour</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="md-3">
+                <strong>Share/Contribute</strong>
+                <ul>
+                    <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/build/static/layout/facebook.png" alt="Facebook"></a></li>
+                    <li class="pull-left">&nbsp;&nbsp;</li>
+                    <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/build/static/layout/twitter.png" alt="Twitter"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-links">
+            &copy; 2024 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+            <a href="https://www.quest.com/kace/" class="footer-logo-kace"><img src="/build/static/layout/KACE_White-grey.png" alt="KACE" /></a>
+            <a href="https://www.quest.com/" class="footer-logo"><img src="/build/static/layout/dsg.png" alt="Quest" /></a>
+        </div>
+
+        <div id="version">unknown</div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
+
+<script src="/build/index.5c9f75e6.js"></script>
+
+
+    <script src="/build/software.afa0d704.js"></script>
+
+    <script>
+        Itninja.Helpful('div.helpful button');
+        Itninja.HideContent('a.review-delete-admin','div.version-review');
+
+        $(document).ready( function() {
+            tagging.init($('#form_tags'), {'suggest':false});
+
+            // only way to do this
+                             var id = '#platform-new #form_platforms_' + 1;
+                $(id).click(function() {
+                    showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);
+                    // reclick it
+                    $(this).attr("checked", true);
+                });
+            
+
+            $("input#difficulty[data-slider]").bind("slider:changed", function (event, data) {
+
+                difficultyValue = data.value.toFixed(0);
+
+                // set difficulty dropdown to value from slider
+                $("select#difficultyRating").val(difficultyValue);
+
+                // get difficulty phrase
+                var phrase = $('select#difficultyRating option:selected').html();
+
+                if (phrase) {
+                    // set slider phrase span
+                    $('#slider-value').html("Difficulty: <span class='diff_" + difficultyValue + "'>" + phrase + "</span>");
+                }
+
+                if ( data.value == 0){
+                     $('.slider-back').addClass('slider-disabled');
+                     $('#slider-value span').removeClass('diff_1');
+                 } else {
+                    $('.slider-back').removeClass('slider-disabled');
+                 }
+
+            })
+        });
+    </script>
+
+
+</body>
+</html>

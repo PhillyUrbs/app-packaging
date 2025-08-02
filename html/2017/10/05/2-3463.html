@@ -1,0 +1,1248 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for SWE von Schleusen UltimateZip 2 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to SWE von Schleusen UltimateZip 2">
+        <meta name="keywords" content="SWE von Schleusen,SWE von Schleusen UltimateZip,UltimateZip 2">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAB4FBMVEUYFRwZFh0ZGB4aFx4bGB8cGSAdGiAdGyEeGyIfHCMgHSQhHiUiHyYjICckISglIigmFBomFRsmFx0mIykmJConFRsnJSsoFhwoGB4pJi0qJy4rKC8sHSMsKTAtKjAtKjEuKzEvLDIwLjQyMDY0GB41Iyg2Mzk5Fxw8GR48ICVAHiNBFRpDERdDISZEEhhGRElIGBxIHCJMFRpMSU9NFBlOHCBPHSJRT1RSEBVSFxtTEBZTHCBVExhVIyhVU1hYGRxYJChbFxteExhjHB9kYmdmHyFmISNpGBxqaGxraW1sam5ubG9vHSFvbXFwbnJwb3Jxb3NycHN1FRh1HyF1c3d3dXl5FBZ7HiF8Gh59GBp+HR+BGhyBGxyDEhaDFhiFDhKFFBaGGx2HDxKJEhSJEhWJGBqJGxyKDRGMCg6OEBOPEBOPGhqREBOSFBaTExWWFRaXGBiYFhiYlpqZDRCcExSfFBWgFBagFhahFhajERKjoaSlCw2lpKemDhCoCAuop6qpCQupExOpFBStDQ+wr7KyERO2tbe3DxC4DxC6Cgy6EBHCDg7HCQvJyMrKycvLDAzOzc/R0NLUCgrW1tfcCAjjBAXlBgbuBATxAQL09PT2AgL39/f6+fr8/Pz/AAD////CniIQAAACCElEQVQoz2WSV3PTQBhF75fdlS05sR1CAgECwfQaeu81Dp2PKqroIEiWKnoRiCIhC4KwIRDrr/KQYSYD5+3c83qR/Tw+F/8iV77PMvzuG7/R1tO7d64CgOcZno4vEwYdT9+93w6g4xcOjCvlJ8x8szwmX1FFCxFAANHL1OazGDPE6MeQAEmCFJd04vsnBIQEpIxRXR8skzmivNyuOdTJURgGKCcRY98OZ2gaqcLk12nojuj0gWVAFiRZMfpXMD+8dfvKm3A40KHf1JuQbxOyaMQYWOIF9ShIXQ5dX/uR+2NBkcwuiRhH1HUvCFzX8zxm5iiN9swvdZHorqHf7H2mfc92tMPM7HqhfW01jF4rxpGZ0jzp28yuy8wcNkO/ke6tGEYNB6mjopY+5mAs2QmzH7obW2fVUJ3aQ7Ky5lHd9xxn2G3q0G8kzNtEjGMl5CuW2NzwosRvBPVI6yC0edCsYQCtPcqYbt7Qw4mrk+T7qXlq/+cw6olRLU0ks1tioZd6zMmdOSI/RXV+/EAxDlkoFIlKlh7xk+htAVaJRMfF8201VKnVhCyqTq/uRJ8MKphQRbVoeT5G1ZJQlpDnQpuvThKWgrJIWBIxDhOU0TL7chjpM+0iR1AGZI6gvuEVhMCFtOnVX5RJAIIgBCBmjGJ0C0BUXrdhMf4eAQDJdxmy0Xtr+/5j15cs+wOeHJNpucraGwAAAABJRU5ErkJggg==">
+	<link rel="canonical" href="http://www.itninja.com/software/swe-von-schleusen/ultimatezip/2-3463"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="data:image/png;base64,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" alt="ITNinja Home"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAKxJREFUKM91kkEOwyAMBJdACRBiz/9f20NDlVbOnpBGNl6vpZvq9JcipQNaSDSALSQFIC46AHKIANgfkIE9oPSCEqE5xwmmUtaY6+MyAWAAPjZJspakvJ8sDVvzHPypbAD0yyl0W8iuV5YqgKV+K7Q5jS6pOmDfxt6zJNVDktI+fTFvaQVxy8Sh9zkizw3yzgyjBIjRx2Kcc4OH/ao+9lMHj48jO2d8AKrt9wjfHhUM057Gu+UAAAAASUVORK5CYII="/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/swe-von-schleusen/browse">SWE von Schleusen</a></li>
+    <li><a href="/software/swe-von-schleusen/ultimatezip/versions">UltimateZip</a></li>
+    <li>2</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>SWE von Schleusen UltimateZip</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 2
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/swe-von-schleusen/ultimatezip/4-1788">
+                                            4.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/swe-von-schleusen/ultimatezip/3-2423">
+                                            3.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/swe-von-schleusen/ultimatezip/2-3463">
+                                            2.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/27594/JTJGc29mdHdhcmUlMkZzd2Utdm9uLXNjaGxldXNlbiUyRnVsdGltYXRlemlwJTJGMi0zNDYzJTNGZnJvbSUzRGFwcGRlcGxveS5jb20=">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/27594/JTJGc29mdHdhcmUlMkZzd2Utdm9uLXNjaGxldXNlbiUyRnVsdGltYXRlemlwJTJGMi0zNDYzJTNGZnJvbSUzRGFwcGRlcGxveS5jb20=">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 1.3k &nbsp|&nbsp
+    Created: 01/30/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version27594" type="radio" class="star" disabled="disabled"/>
+    <input name="Version27594" type="radio" class="star" disabled="disabled"/>
+    <input name="Version27594" type="radio" class="star" disabled="disabled"/>
+    <input name="Version27594" type="radio" class="star" disabled="disabled"/>
+    <input name="Version27594" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                UltimateZip has <a href="#inventory-records" id="scrollInv">3 inventory records</a>,
+                <a href="#q-a" id="scrollQA">0 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (4)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAAASCAMAAABo8ktzAAABC1BMVEX//uH///+mpqbu7u6mpqampqbb29umpqaxsbHz8/OysrLu7u7v7++mpqanp6bz8/Otra3y8vLV1dXx8fHV1dXx8fGmpqanp6eoqKeoqKipqaiqqqmrq6nT09Pj4+Pm5ubo6Ojp6enq6urr6+nr6+rr6+vs6+vs7Ors7Ovs7Ozt7Ort7ert7evt7ezt7e3u7evu7uvu7uzu7u3u7u7v7uvv7+rv7+zv7+3v7+7v7+/w7+3w7+/w8Ovw8Ozw8O3w8O7w8PDx8O7x8ezx8e3x8e7x8e/x8fHy8fDy8uzy8u3y8u7y8u/y8vDy8vHy8vLz8u7z8u/z8vHz8+3z8+/z8/Dz8/Hz8/Lz8/P09PK8VEhUAAAAFnRSTlMAABsbJyoqqKurrq6u5OTn7e3w8PPzhJitbQAAAQhJREFUWMPl101OAzEMhuHXjpNOC4UTIbHkyOxZIw6Dqpb5M4uhPUI+pHoRPcvI+jwTG153ezczMllxpFqSvnUep7R4PFo4CRiAVmvnFjDn9yniuVHIAGYDsbx3Dgo++qFtBCL/rqKT073aIZ4CIoNgxgCt3Po34ej7DWEWFChaKWqIChRqA0YmKlJNghzgQFC554oKNUupgJmxS61mUQ4g7jsHDTzcW2JmRk2pfBT0wF6BSmXgwgRqTYocXLHwfySYBRo5QCwORJFK8m/83EYCYNYfilH4issAOZDA/ra/yWSCHJytPbzA7rpJ3r4PIv30b8HHySitveX2TFhvDwaVeq/OvI/j+gttDmAYX5xvOQAAAABJRU5ErkJggg==" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/27594" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="84dfa6b9b91bf185d25257180aa84442f82f5802" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/swe-von-schleusen/ultimatezip/2-3463#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/swe-von-schleusen/ultimatezip/2-3463/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_2290" name="tip_2290">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2290"></div> -->
+   <div id="tip-2290" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-2290" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-2290"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            This product uses "Inno Setup". Some of the switches common to this installer are as follows - <br/>
+<br/>
+/SP- Disables the This will install... Do you wish to continue? prompt at the beginning of Setup.<br/>
+<br/>
+/SILENT, /VERYSILENT - Instructs Setup to be silent or very silent. When Setup is silent the wizard and the background window are not displayed but the installation progress window is. When a setup is very silent this installation progress window is not displayed. Everything else is normal so for example error messages during installation are displayed and the startup prompt is (if you haven't disabled it with the '/SP-' command line option explained above). If a restart is necessary and the '/NORESTART' command isn't used (see below) and Setup is silent, it will display a Reboot now? messagebox. If it's very silent it will reboot without asking.<br/>
+<br/>
+/NORESTART - Instructs Setup not to reboot even if it's necessary. <br/>
+<br/>
+/LOADINF="filename" - Instructs Setup to load the settings from the specified file after having checked the command line. This file can be prepared using the '/SAVEINF=' command as explained below. Don't forget to use quotes if the filename contains spaces.<br/>
+ <br/>
+/SAVEINF="filename" - Instructs Setup to save installation settings to the specified file. Don't forget to use quotes if the filename contains spaces.<br/>
+<br/>
+/DIR="x:\dirname" - Overrides the default directory name. A fully qualified pathname must be specified.<br/>
+<br/>
+/GROUP="folder name" - Overrides the default folder name displayed on the Select Start Menu Folder wizard page.<br/>
+<br/>
+<br/>
+It does not however turn off the systray icon, or stop it from making a desktop icon even though you tell it that during the /saveinf function. If anyone makes an .adm for this product to automatically associate it with files, turnoff the systray icon or more please feel free to add it here.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/kkbass" class="username" rel="nofollow">kkbass</a>
+                </li>
+                <li>
+                    07/25/2002 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2292" name="tip_2292">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2292"></div> -->
+   <div id="tip-2292" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">119</div>
+   <div id="tip-2292" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-2292"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            ; This policy template has been written to work with UltimateZip 2.7.<br/>
+;<br/>
+; This is a System Policy template and does not use the preferred Group Policy<br/>
+; method as the UltimateZip developers have not allowed for it in the development of<br/>
+; their software. Refer to Microsoft TechNet article Q323639 for further information.<br/>
+; Therefore these registry settings are permanent.<br/>
+;<br/>
+; When viewed via a Group Policy Object Editor, you must enable the view for system<br/>
+; policies, which will appear as red icons as oppose to the standard blue ones.<br/>
+;<br/>
+; Windows 2000 Active Directory Group Policies:<br/>
+; Click on Administrative Templates<br/>
+; Righ click<br/>
+; View &gt;<br/>
+; Select Show Policies Only so that it removes the tick.<br/>
+;<br/>
+; Windows 2003 Active Directory Group Policies:<br/>
+; Click on Administrative Templates<br/>
+; Righ click<br/>
+; View &gt;<br/>
+; Select Filtering...<br/>
+; Deselect Only show policy settings that can be fully managed so that it removes the<br/>
+; tick.<br/>
+; Select OK<br/>
+;<br/>
+; As seen below, there is both a Machine (Computer) and User section to this policy,<br/>
+; so there may be a need to use Loopback processing in order for the user<br/>
+; components to be applied.<br/>
+;<br/>
+; All you need to do is enable the policies. The default settings we have set are<br/>
+; standard. You will only need to make two changes if UltimateZip is not deployed to<br/>
+; "%SystemDrive%\Program Files". If you do change these locations, you must<br/>
+; remember to truncate them by using the DOS (8 dot 3) format file structure, as we<br/>
+; have. UltimateZip will not work if you don't.<br/>
+; e.g. "%SystemDrive%\Program Files" becomes "%SystemDrive%\PROGRA~1"<br/>
+;<br/>
+; By default when you enable the "UltimateZip file associations" policy .zip and .cab<br/>
+; files are left unchecked. It has been purposely written this way to allow for the<br/>
+; built-in support of ZIP and CAB files in Windows 2003 and XP.<br/>
+;<br/>
+; There are two non-documented tricks we learnt when writing this policy template.<br/>
+; 1. If you want to write to the (Default) value, use "" (double quotes).<br/>
+; e.g. VALUENAME ""<br/>
+; 2. If you need to place part of a string in double quotes, you will need to define a<br/>
+; string variable and use it instead, otherwise you will receive an error when adding it<br/>
+; to the GPO.<br/>
+; e.g. Place the following in your policy:<br/>
+; DEFAULT !!UZCOMMAND<br/>
+; Then place the following under the [strings] section:<br/>
+; UZCOMMAND =%SystemDrive%\PROGRA~1\ULTIMA~1.7\uzip.exe "%1"<br/>
+; This will ensure that the double quotes remain around the %1 part of the string. This<br/>
+; is important as %1 is an expanding variable that may contain spaces.<br/>
+;<br/>
+; Written by Jeremy.Saunders@au1.ibm.com on 5th November 2003.<br/>
+; Modified by Jamie.Morrison@au1.ibm.com on 7th December 2004.<br/>
+<br/>
+CLASS MACHINE<br/>
+<br/>
+CATEGORY "UltimateZip 2.7"<br/>
+POLICY "UltimateZip association"<br/>
+KEYNAME "SOFTWARE\Classes\UltimateZip"<br/>
+PART "UltimateZip Association" EDITTEXT<br/>
+VALUENAME ""<br/>
+DEFAULT "UltimateZip File"<br/>
+END PART<br/>
+END POLICY<br/>
+<br/>
+POLICY "UltimateZip Default Icon"<br/>
+KEYNAME "SOFTWARE\Classes\UltimateZip\DefaultIcon"<br/>
+PART "UltimateZip Association" EDITTEXT EXPANDABLETEXT<br/>
+VALUENAME ""<br/>
+DEFAULT "%SystemDrive%\PROGRA~1\ULTIMA~1.7\uzip.exe,0"<br/>
+END PART<br/>
+END POLICY<br/>
+<br/>
+POLICY "UltimateZip Open Command"<br/>
+KEYNAME "SOFTWARE\Classes\UltimateZip\Shell\Open\Command"<br/>
+PART "UltimateZip Association" EDITTEXT  EXPANDABLETEXT<br/>
+VALUENAME ""<br/>
+DEFAULT !!UZCOMMAND<br/>
+END PART<br/>
+END POLICY<br/>
+<br/>
+POLICY "UltimateZip file associations"<br/>
+KEYNAME "SOFTWARE\Classes\.zip"<br/>
+PART "Associate .zoo files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.zoo"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .zip files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.zip"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip"<br/>
+VALUEOFF "CompressedFolder"<br/>
+END PART<br/>
+<br/>
+PART "Associate .z files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.z"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .xxe files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.xxe"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .wsz files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.wsz"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .uze files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.uze"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .uzb files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.uzb"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .uue files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.uue"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .uu files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.uu"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .tgz files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.tgz"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .tbz2 files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.tbz2"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .tbz files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.tbz"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .tar files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.tar"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .rar files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.rar"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .pk_ files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.pk_"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .pk3 files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.pk3"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .pak files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.pak"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .lzh files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.lzh"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .lha files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.lha"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .jar files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.jar"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .ha files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.ha"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .gz files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.gz"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .enc files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.enc"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .cab files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.cab"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" <br/>
+VALUEOFF "CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}"<br/>
+END PART<br/>
+<br/>
+PART "Associate .bz2 files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.bz2"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .bz files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.bz"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .bh files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.bh"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .arj files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.arj"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .arc files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.arc"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+<br/>
+PART "Associate .ace files" CHECKBOX<br/>
+KEYNAME "SOFTWARE\Classes\.ace"<br/>
+VALUENAME ""<br/>
+VALUEON "UltimateZip" DEFCHECKED<br/>
+END PART<br/>
+END POLICY<br/>
+END CATEGORY<br/>
+<br/>
+<br/>
+CLASS USER<br/>
+<br/>
+CATEGORY "UltimateZip 2.7"<br/>
+<br/>
+POLICY "Configuration"<br/>
+KEYNAME "Software\SWE von Schleusen\UltimateZip\Main"<br/>
+PART "Check file associations at startup." DROPDOWNLIST REQUIRED<br/>
+VALUENAME "Asso"<br/>
+ITEMLIST<br/>
+NAME "no" VALUE "no" DEFAULT<br/>
+NAME "yes" VALUE "yes"<br/>
+END ITEMLIST<br/>
+END PART<br/>
+<br/>
+PART "Tip of the Day:" DROPDOWNLIST REQUIRED<br/>
+VALUENAME "Tip"<br/>
+ITEMLIST<br/>
+NAME "Always show tips at startup" VALUE "0"<br/>
+NAME "Show tips at startup if not opening an archive" VALUE "1"<br/>
+NAME "Never show tips at startup" VALUE "2" DEFAULT<br/>
+END ITEMLIST<br/>
+END PART<br/>
+<br/>
+PART "Start at tip number:" NUMERIC REQUIRED TXTCONVERT<br/>
+VALUENAME "TipNo"<br/>
+MAX 30<br/>
+MIN 0<br/>
+SPIN 1<br/>
+DEFAULT 0<br/>
+END PART<br/>
+END POLICY<br/>
+END CATEGORY<br/>
+<br/>
+[strings]<br/>
+UZCOMMAND =%SystemDrive%\PROGRA~1\ULTIMA~1.7\uzip.exe "%1"<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/jeremyts" class="username" rel="nofollow">jeremyts</a>
+                </li>
+                <li>
+                    01/03/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_2291" name="tip_2291">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-2291"></div> -->
+   <div id="tip-2291" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-2291" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-2291"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Option Explicit<br/>
+<br/>
+On Error Resume Next<br/>
+<br/>
+Dim Return, ofso,oShell, oNetwork, AllUsersDesktopPath, AllUsersStartMenuPath, DesktopPath<br/>
+set ofso = CreateObject("Scripting.FileSystemObject")<br/>
+Set oShell=WScript.CreateObject("Wscript.Shell")<br/>
+Set oNetwork = WScript.CreateObject("Wscript.Network")<br/>
+<br/>
+<br/>
+DesktopPath = oShell.SpecialFolders("Desktop")<br/>
+AllUsersDesktopPath = oShell.SpecialFolders("AllUsersDesktop")<br/>
+AllUsersStartMenuPath = oShell.SpecialFolders("AllUsersStartMenu")<br/>
+<br/>
+<br/>
+' 1. setup<br/>
+Return = oShell.Run("uzsetup /sp /verysilent /norestart /dir=""%systemdrive%\Compression\Ultimate Zip 2.7""", 1, True)<br/>
+<br/>
+' 2. configuration<br/>
+'<br/>
+'Modification du registre<br/>
+'Pas d'astuce au dÃ©marrage<br/>
+oShell.regwrite "HKEY_CURRENT_USER\Software\SWE von Schleusen\UltimateZip\Main\Tip","2","REG_SZ"<br/>
+<br/>
+'Delete Destop's Icon<br/>
+'For current user<br/>
+If ofso.fileExists(DesktopPath & "\UltimateZip.lnk") Then<br/>
+		ofso.deletefile DesktopPath & "\UltimateZip.lnk", True<br/>
+End If<br/>
+<br/>
+'For all users<br/>
+If ofso.fileExists(AllUsersDesktopPath & "\UltimateZip.lnk") Then<br/>
+		ofso.deletefile AllUsersDesktopPath & "\UltimateZip.lnk", True<br/>
+End If
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cipriano94" class="username" rel="nofollow">cipriano94</a>
+                </li>
+                <li>
+                    03/17/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5887" name="tip_5887">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5887"></div> -->
+   <div id="tip-5887" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-5887" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5887"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Option Explicit<br/>
+<br/>
+On Error Resume Next<br/>
+<br/>
+Dim Return, ofso,oShell, oNetwork, AllUsersDesktopPath, AllUsersStartMenuPath, DesktopPath<br/>
+set ofso = CreateObject("Scripting.FileSystemObject")<br/>
+Set oShell=WScript.CreateObject("Wscript.Shell")<br/>
+Set oNetwork = WScript.CreateObject("Wscript.Network")<br/>
+<br/>
+<br/>
+DesktopPath = oShell.SpecialFolders("Desktop")<br/>
+AllUsersDesktopPath = oShell.SpecialFolders("AllUsersDesktop")<br/>
+AllUsersStartMenuPath = oShell.SpecialFolders("AllUsersStartMenu")<br/>
+<br/>
+<br/>
+' 1. setup<br/>
+Return = oShell.Run("uzsetup /sp /verysilent /norestart /dir=""%systemdrive%\Compression\Ultimate Zip 2.7""", 1, True)<br/>
+<br/>
+' 2. configuration<br/>
+'<br/>
+'Modification du registre<br/>
+'Pas d'astuce au démarrage<br/>
+oShell.regwrite "HKEY_CURRENT_USER\Software\SWE von Schleusen\UltimateZip\Main\Tip","2","REG_SZ"<br/>
+<br/>
+'Delete Destop's Icon<br/>
+'For current user<br/>
+If ofso.fileExists(DesktopPath & "\UltimateZip.lnk") Then<br/>
+		ofso.deletefile DesktopPath & "\UltimateZip.lnk", True<br/>
+End If<br/>
+<br/>
+'For all users<br/>
+If ofso.fileExists(AllUsersDesktopPath & "\UltimateZip.lnk") Then<br/>
+		ofso.deletefile AllUsersDesktopPath & "\UltimateZip.lnk", True<br/>
+End If
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/cipriano94" class="username" rel="nofollow">cipriano94</a>
+                </li>
+                <li>
+                    03/17/2004 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (3)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/27594/57548">
+                                    2.5
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/27594/57549">
+                                    2.71
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/27594/57550">
+                                    2.6
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>UltimateZip</h2>
+            <div><h3>Version</h3><span>2.5</span></div>
+                                                        <div><h3>Uninstall String</h3>&quot;C:\Program Files\UltimateZip\unins000.exe&quot;</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (0)
+                            </h3>
+            <p>Questions & Answers related to SWE von Schleusen UltimateZip</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to SWE von Schleusen UltimateZip</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to SWE von Schleusen UltimateZip</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to SWE von Schleusen UltimateZip</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xMHBjVkgAAAJPSURBVEiJrVU9ixNRFD3vvTufmSRuFm20ETu7NSBqY5XGxUXBZq3USgOKhZUg/gXBRmxsBbuFrUT/gb9EEdTsZj7eu9di4iSz2SQTzIUU995557xzz52JunbrWY88/60hf08pnWADIcJjZ4tDW2RDCqP2m1Zn+34QJdCaAKX+Fx3MLsrS0b2j3z8Mxe2t3aR7Fl4QQSm9CQEQYXhBBIjskh/EhigApGxsKoh8+EHskygFgWwU/F+IUiBhATOvNXvfU3h0t4+dy+fRSUIAwPE4x8OXn6ANTQlEQMIOwq4xAbPD/u0ruHn1Uv22IiiyY/hha1pjB2Jh8BoERZ7i+s7FUzoCazMQhzOX4VLBOgS2SNHtxFV+58FrfP85QhAlSLrnSqyaAmawa+6Bs66W/0kJ3d4FaCJo45dYswqYm42IncXB+ydz9S8fXwEAjsYZ9p9/qJ9ZZ0R5Pl7ax8RkL5iOT9iBHDs4tgCWE9giW4EvKIocmvyq5ioP2K0kAIAbey+QjUf49vldVesPHkMbAy+IEbe3ayYzu5kRrSBQhhAmW7UXCQCi5Ay8IIbSBkqb+hYJg5hl4vwqBQrGBDBU1KqGQpA3mbugvkWOQdxQQXWIeS6fvfXJHok09wAAWNxcvpBA3My3qCEBToJV509/drJFTTwoQ6DQHwxhixTkhQha3bmxVfgsIBEBS3MCpQ28uA3iFpTW5eYs+C9hKT1wsoaCcpt8wMyoWqBAmHPN7A6ZGSIb/pXeHJAtsqfaeL423kAp1WsoY3mI/HLOfrVFOvwLfr2cvFzgk+IAAAAASUVORK5CYII=" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABX1BMVEVFu+tlu/BsvvBLw+xsvvBywvFLv+xxwfFNxexOwe2EzPNKt+xLt+xMuOxMuexNxuxQxe1Qxu1Rve1Rwu1Tv+1Tx+1Uw+1Vw+1VxO1WyO1Xue5Xw+1XxO1Xxu5Yvu5ZyO5au+5axO5aye5bxO5bx+5cyO5dve5dxu5eyu5fxu5hyu9iy+9jx+9jye9jyu9kyO9lxO5nyO9nze9oxe9qx/BqzfBryfBryvBrzvBsy/BvyvBwzfBwz/BzwvF0y/F00PF1zvB10fF3zfF4zfJ60fF60vF7zvJ+0fJ/z/N/0/KB0POE0POE1fOGzPOG1fOH0fOI1vOK1POL0vON0vSN0/SN1/SS0/WS2fSU2fWV1PWW1fWW2vWa2fWa2/We3Paf3Pah3fai3fak3vap3faw3/e04Pe25fi34vi/5/jB6fnK6/rO7frj9Pzn9f3v+f33/P74/P75/P78/v/9/v////9mrPf1AAAAC3RSTlMVFairq66x9vn5+XR/mDIAAAESSURBVCjPbVGxTsQwDI0dp1VFT4d0iOHUL7iJiW9g5yP5Bb6BhZUBiQlGBtRrL3GdkCYtOq61lFr183vWswHA3KvLeBEB81BpuKgH6Z/JbA0sGKEw8Fgv6xFpCUJYARSQX60rT+LHLLuq+9ZngNAwjNmVqrLFGTBMDIsKLP1jeE4N8R3iY/eJ84wkJVOjAWsmBidlnhVazgyehsdPeIotxWYzzMNnKdgjKMSQAdG32sc4NVrdHINGCD7FiTh1+GiivosK3Wu2yXqHMsbXPrlAfA/p3+ktjNm3bw2M0M9HBiw0dR7W9UPcJ5bX2X9LzmUHdMVxOVBwWpFyJP3fCfS0m+y8w9V7dCS8eloBpU25qFuWX2lyjb3ArGdtAAAAAElFTkSuQmCC" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAbCAMAAAC9SNpyAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAE3RSTlMAECAwQFBgcICQnqCosLXA0ODw4l5hTgAAAhlJREFUSMe1VtuSrCAMlIsIh2UD+P//eggBBMGtrRo3L6OZSJNOk7BtxYTxJ5o3Yvsjk3BeBvJPMMw5mvl8SSFHRlglSkttAj2zT0ESNXv/njGcGJjzL4DoG1exR1XxBcZGEIkYI38CUeSbILBYcEeNvQgi0np2CnHJi9kZgCtJAaCqVg4HAE5d+mAKPeAOQaGJjIAOqBXhEwgvVRmylC09HYvWWy1VbPr3kugpVqTlFtk6WnAJwvqTS7mp/BxI/9CDZJZa3GgH7WEJYmtX2FH8mAtDcvIyQgeqxVCTBx3JZxBURfmepYQDo+jGOd9eAOkJxhRSBnoW42cgfFCKzohqVs8dZF+AqEcQNfScdAIiAcdDPIL4dQexj+pKe49wGW2mtPEIth6dAST9HWYM5No8gtxsODl1z9OJV0sFi19lAmBaDygobtm74jQ9YpFL7EFIQ8dPbU0eoRR57sLTjPKUCIaqnllHqfPnxsgCEbaYJ3cU9v2vrz9Z+vygn5+GDYkaVzX3yRguHeNwZp5a395VzJYUdF9FcSxI0BQV2DTjQ9Z5JtVkj6gb0BjMXS1p9pm8ANd0aFTqXLRiDpNFUC75mLZifVv5av01D8nTQ+iuFzy/JF356ixBxWPbMDx96MbfeO8SOB7KJBPh8tf0+15vWZ5R832q3IGGGVtvkEA3SH71CEUruP40SUubN7x9DufoSUTh/qKT23/tNjs0imzt8gAAAABJRU5ErkJggg==" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":322,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

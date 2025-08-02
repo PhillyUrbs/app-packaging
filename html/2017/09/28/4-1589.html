@@ -1,0 +1,2504 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <title>IT Pro Tips for Adobe Photoshop Elements 4 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Adobe Photoshop Elements 4">
+        <meta name="keywords" content="Adobe,Adobe Photoshop Elements,Photoshop Elements 4">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAB4FBMVEUYFRwZFh0ZGB4aFx4bGB8cGSAdGiAdGyEeGyIfHCMgHSQhHiUiHyYjICckISglIigmFBomFRsmFx0mIykmJConFRsnJSsoFhwoGB4pJi0qJy4rKC8sHSMsKTAtKjAtKjEuKzEvLDIwLjQyMDY0GB41Iyg2Mzk5Fxw8GR48ICVAHiNBFRpDERdDISZEEhhGRElIGBxIHCJMFRpMSU9NFBlOHCBPHSJRT1RSEBVSFxtTEBZTHCBVExhVIyhVU1hYGRxYJChbFxteExhjHB9kYmdmHyFmISNpGBxqaGxraW1sam5ubG9vHSFvbXFwbnJwb3Jxb3NycHN1FRh1HyF1c3d3dXl5FBZ7HiF8Gh59GBp+HR+BGhyBGxyDEhaDFhiFDhKFFBaGGx2HDxKJEhSJEhWJGBqJGxyKDRGMCg6OEBOPEBOPGhqREBOSFBaTExWWFRaXGBiYFhiYlpqZDRCcExSfFBWgFBagFhahFhajERKjoaSlCw2lpKemDhCoCAuop6qpCQupExOpFBStDQ+wr7KyERO2tbe3DxC4DxC6Cgy6EBHCDg7HCQvJyMrKycvLDAzOzc/R0NLUCgrW1tfcCAjjBAXlBgbuBATxAQL09PT2AgL39/f6+fr8/Pz/AAD////CniIQAAACCElEQVQoz2WSV3PTQBhF75fdlS05sR1CAgECwfQaeu81Dp2PKqroIEiWKnoRiCIhC4KwIRDrr/KQYSYD5+3c83qR/Tw+F/8iV77PMvzuG7/R1tO7d64CgOcZno4vEwYdT9+93w6g4xcOjCvlJ8x8szwmX1FFCxFAANHL1OazGDPE6MeQAEmCFJd04vsnBIQEpIxRXR8skzmivNyuOdTJURgGKCcRY98OZ2gaqcLk12nojuj0gWVAFiRZMfpXMD+8dfvKm3A40KHf1JuQbxOyaMQYWOIF9ShIXQ5dX/uR+2NBkcwuiRhH1HUvCFzX8zxm5iiN9swvdZHorqHf7H2mfc92tMPM7HqhfW01jF4rxpGZ0jzp28yuy8wcNkO/ke6tGEYNB6mjopY+5mAs2QmzH7obW2fVUJ3aQ7Ky5lHd9xxn2G3q0G8kzNtEjGMl5CuW2NzwosRvBPVI6yC0edCsYQCtPcqYbt7Qw4mrk+T7qXlq/+cw6olRLU0ks1tioZd6zMmdOSI/RXV+/EAxDlkoFIlKlh7xk+htAVaJRMfF8201VKnVhCyqTq/uRJ8MKphQRbVoeT5G1ZJQlpDnQpuvThKWgrJIWBIxDhOU0TL7chjpM+0iR1AGZI6gvuEVhMCFtOnVX5RJAIIgBCBmjGJ0C0BUXrdhMf4eAQDJdxmy0Xtr+/5j15cs+wOeHJNpucraGwAAAABJRU5ErkJggg==">
+	<link rel="canonical" href="http://www.itninja.com/software/adobe/photoshop-elements/4-1589"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="data:image/png;base64,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" alt="ITNinja Home"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAKxJREFUKM91kkEOwyAMBJdACRBiz/9f20NDlVbOnpBGNl6vpZvq9JcipQNaSDSALSQFIC46AHKIANgfkIE9oPSCEqE5xwmmUtaY6+MyAWAAPjZJspakvJ8sDVvzHPypbAD0yyl0W8iuV5YqgKV+K7Q5jS6pOmDfxt6zJNVDktI+fTFvaQVxy8Sh9zkizw3yzgyjBIjRx2Kcc4OH/ao+9lMHj48jO2d8AKrt9wjfHhUM057Gu+UAAAAASUVORK5CYII="/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/adobe/browse">Adobe</a></li>
+    <li><a href="/software/adobe/photoshop-elements/versions">Photoshop Elements</a></li>
+    <li>4</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Adobe Photoshop Elements</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 4
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/14-1322">
+                                            14.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/12-1001">
+                                            12.x <span>(3 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/11-1678">
+                                            11.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/10-612">
+                                            10.x <span>(5 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/9-622">
+                                            9.x <span>(9 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/8-768">
+                                            8.x <span>(8 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/7-882">
+                                            7.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/6-1270">
+                                            6.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/5-1341">
+                                            5.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/4-1589">
+                                            4.x <span>(12 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/003-16">
+                                            003.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/3-2147">
+                                            3.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/2-3072">
+                                            2.x <span>(4 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/adobe/photoshop-elements/1-6498">
+                                            1.x <span>(0 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/24549/JTJGc29mdHdhcmUlMkZhZG9iZSUyRnBob3Rvc2hvcC1lbGVtZW50cyUyRjQtMTU4OSUzRmZyb20lM0RhcHBkZXBsb3kuY29t">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/24549/JTJGc29mdHdhcmUlMkZhZG9iZSUyRnBob3Rvc2hvcC1lbGVtZW50cyUyRjQtMTU4OSUzRmZyb20lM0RhcHBkZXBsb3kuY29t">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 4.9k &nbsp|&nbsp
+    Created: 10/20/2005
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version24549" type="radio" class="star" disabled="disabled"/>
+    <input name="Version24549" type="radio" class="star" disabled="disabled"/>
+    <input name="Version24549" type="radio" class="star" disabled="disabled"/>
+    <input name="Version24549" type="radio" class="star" disabled="disabled"/>
+    <input name="Version24549" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Photoshop Elements has <a href="#inventory-records" id="scrollInv">4 inventory records</a>,
+                <a href="#q-a" id="scrollQA">14 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">6 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (12)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="data:image/png;base64,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" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>4 / 5 (Somewhat Difficult)</strong>
+                            based on <strong>1</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/24549" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="84dfa6b9b91bf185d25257180aa84442f82f5802" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li class="active">
+                        <a href="/software/adobe/photoshop-elements/4-1589#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li><a href="/software/adobe/photoshop-elements/4-1589/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_5378" name="tip_5378">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5378"></div> -->
+   <div id="tip-5378" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-5378" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5378"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            There is another way to enter input to the installer. I copied the abcpy.ini file from an Acrobat installation into the Elements folder at the same level as the msi. The values from the abcpy.ini file is called from the msi itself and does therefore not depend on the setup.exe to be launched.<br/>
+<br/>
+I edited the file slightly to look like this:<br/>
+<br/>
+;**********************************************************<br/>
+;Adobe Installer External Configuration File: Abcpy.ini<br/>
+;**********************************************************<br/>
+;**********************************************************<br/>
+;Main Section<br/>
+;The (Product) key is a required key<br/>
+;**********************************************************<br/>
+[MAIN]<br/>
+Product=Adobe(R) Photoshop Elements 4.0<br/>
+AbcpyVersion=4.0<br/>
+<br/>
+;**********************************************************;OEM Installation Options<br/>
+;**********************************************************<br/>
+[OEM Install]<br/>
+SERIALNUMBER=xxxx-xxxx-xxxx-xxxx-xxxx-xxxx<br/>
+USERNAME=MyName<br/>
+COMPANYNAME=MyCompany<br/>
+INSTALLDIR=<br/>
+ALLOW_LOCKDOWN_BROWSE=YES<br/>
+ALLOW_LOCKDOWN_MEDIA=YES<br/>
+ARPHELPLINK=<br/>
+ARPHELPTELEPHONE=<br/>
+ARPNOMODIFY=<br/>
+;ARPNOMODIFY=YES disables the "Change" button in Add/Remove Programs<br/>
+<br/>
+;--Launch Objects<br/>
+[Launches]<br/>
+MyLaunch1=NO<br/>
+<br/>
+[MyLaunch1]<br/>
+TYPE=<br/>
+PROGRAM=<br/>
+COMMANDLINE=<br/>
+CHANGEDIR=<br/>
+WAIT=<br/>
+PLATFORM=<br/>
+<br/>
+If you are familiar with the abcpy.ini file you can see that all that is changed is the "MAIN" section and the first three lines of the "OEM Install" section. Pay special notice to the fact that I changed the ISX_SERIALNUMBER to just SERIALNUMBER.<br/>
+You can probably do a lot more with this file, or trim it if you like, but what I did here was enough to make it enter username, companyname and serialnumber to the installation.<br/>
+<br/>
+To avoid users being prompted to look for updates you can create a regkey (DWORD) in "HKLM\Software\Adobe\Updater" called "Enterprise" with a value of "1". This disables the updater.<br/>
+<br/>
+To suppress the registration dialog, add the following entries in the registry under "HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\":<br/>
+"EPIC_REGS_TYPE"=dword00000004<br/>
+"EPIC_REGS_STATE"=dword00000002<br/>
+"EPIC_REGS_LANG"=dword00000000<br/>
+"EPIC_REGS_COUNT"=dword00000000
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/eerie" class="username" rel="nofollow">eerie</a>
+                </li>
+                <li>
+                    02/03/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5381" name="tip_5381">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5381"></div> -->
+   <div id="tip-5381" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-5381" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5381"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            The Adobe Photo Downloader is installed by default, and has an icon which appears in the system tray.  Basically, all this application does is takes over the import of graphics files to your computer, whether Elements is running or not.<br/>
+<br/>
+To disable the Adobe Photo Downloader, set the following registry key value: <br/>
+HKLM\Software\Adobe\Photoshop elements\4.0\Adobe Photo Downloader\Preferences<br/>
+"AutoLaunchOnDeviceConnect"=dword00000001<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/AaronTan" class="username" rel="nofollow">AaronTan</a>
+                </li>
+                <li>
+                    04/12/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5382" name="tip_5382">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5382"></div> -->
+   <div id="tip-5382" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">118</div>
+   <div id="tip-5382" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5382"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I found that repackaging was unsuccessful. What worked well was to combine the suggestions above with a transform.<br/>
+<br/>
+Specifically, copy the Adobe Photoshop Elements folder from the CD. Copy an abcpy.ini file from an Acrobat CD into that folder and modify it as explained in the entry above.<br/>
+<br/>
+Next, I used Installshield Editor to open common.msi and deleted the Custom Action 'WMF95Redist' and its associated binary file.<br/>
+<br/>
+Then, I used Installshield Tuner to create an mst file for Adobe Photoshop Elements 4.0 (en_us).msi. In the transform, I created the HKLM\Software\Adobe\Updater key and the Dword Value Enterprise with a value of 1. Then I edited the values in the HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\{EBB7C1C1-D439-4D9B-9FDC-954C10F266B0} key to correspond to the values on my computer after installing and registering.  I set the epic_eula_accepted value to 1, the EPIC_REGS_DECLINE_COUNT value to 2, and created the values indicated in the entry above except with the EPIC_REGS_STATE value at 0 and the EPIC_REGS_TYPE value at 2.<br/>
+<br/>
+I used the Tuner packager to create the .SMS file and copied all to my SMS server. I created the package from the definition by pointing to the .SMS file and then modified it.  I set the properties of the "automated" install to SMS reboots, install whether or not user logged on, and use Software Installation Account.<br/>
+<br/>
+With this, the package installs silently, and registration and update choices are grayed out.<br/>
+<br/>
+It turns out that this method does not properly install the Help Center and needed help files. This can be fixed by modifying the setup.ini CommandLine0 line by appending TRANSFORMS="your file name.mst" /q. If you then run setup.exe either from the command line, or via SMS, you get a silent install with all the desired features included.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/alanziv" class="username" rel="nofollow">alanziv</a>
+                </li>
+                <li>
+                    10/31/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5377" name="tip_5377">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5377"></div> -->
+   <div id="tip-5377" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5377" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5377"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            This package is pretty simple once you find out that using the SERIALNUMBER or ISX_SERIALNUM property doesn't work.<br/>
+<br/>
+What I had to do was install the package with logging enabled. Find an entry in the log that looks like this,<br/>
+<br/>
+MSI (c) (38!84) [11:37:59:593]: PROPERTY CHANGE: Adding ENCSERIALNUMBER property. Its value is 'nnnnnnnn'. <br/>
+<br/>
+(its a bunch of numbers)<br/>
+<br/>
+Then specify the property on the command line ENCSERIALNUMBER=nnnnn and it works just fine.<br/>
+<br/>
+Standard properties apply otherwise (companyname/username/installdir etc)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/AngelWorks" class="username" rel="nofollow">AngelWorks</a>
+                </li>
+                <li>
+                    10/20/2005 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5379" name="tip_5379">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5379"></div> -->
+   <div id="tip-5379" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5379" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5379"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Here's how I (finally) got my repackaged MSI working for Group Policy with the serial number intact and no registration requests:<br/>
+<br/>
+I captured the installation from the setup.exe (no switches) with InstallShield Repackager using the 'monitored installation' (rather than 'snapshot') method. Ensure you enter the correct serial number (the abcpy.ini file trick from the previous post works a treat if you want to automate this) and that you DON'T reboot after packaging - finalise the package straight after the installation finishes.<br/>
+<br/>
+I then rebooted my packaging computer, started Elements, and registered the application.<br/>
+<br/>
+I then exported the following key from the registry:<br/>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{EBB7C1C1-D439-4D9B-9FDC-954C10F266B0} - this contains the serial number, personalisation and registration information.<br/>
+<br/>
+I then edited my .irp file in InstallShield Repackager and cleaned up my package, removing any unneeded registry keys and files, then built my MSI file.<br/>
+<br/>
+I then edited my MSI file, and imported the above registry key that I'd previously exported.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/katski" class="username" rel="nofollow">katski</a>
+                </li>
+                <li>
+                    01/20/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5380" name="tip_5380">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5380"></div> -->
+   <div id="tip-5380" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5380" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5380"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>To do a fully silent install, you need to remove the 'WMF95Redist' custom action from the second MSI that is on the installation CD which is called 'common.msi'.  This action pops a message up regarding Media Player 10 and System Restore and requires user interaction which is not possible during a silent installation.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/nry" class="username" rel="nofollow">nry</a>
+                </li>
+                <li>
+                    03/27/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5383" name="tip_5383">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5383"></div> -->
+   <div id="tip-5383" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5383" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5383"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            To disable the automatic Update function use the following registry entry:<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Adobe\Updater]<br/>
+"Enterprise"=dword:00000001<br/>
+<br/>
+To eliminate the need for registering your product simply add the following registry keys to your installation:<br/>
+<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{EBB7C1C1-D439-4D9B-9FDC-954C10F266B0}]<br/>
+"EPIC_REGS_COUNT"=dword:00000000<br/>
+"EPIC_REGS_LANG"=dword:00000000<br/>
+"EPIC_REGS_STATE"=dword:00000002<br/>
+"EPIC_REGS_TYPE"=dword:00000004<br/>
+<br/>
+(be aware that this is the German Product Code)
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/rpfenninger" class="username" rel="nofollow">rpfenninger</a>
+                </li>
+                <li>
+                    07/24/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5384" name="tip_5384">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5384"></div> -->
+   <div id="tip-5384" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5384" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5384"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            After trying all of the suggestions above, I found a different combination of steps that worked for me...<br/>
+<br/>
+My packaging PC is running a copy of Virtual PC 2004 so I can wipe it out quickly.  The first thing I did was run setup.exe and keyed in the registration code, then rebooted.  When it came back up, I exported the HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\{EBB7C1C1-D439-4D9B-9FDC-954C10F266B0} reg key.  I then used the InstallShield Tuner to create an .mst transform file.  In the Source Computer Registry Data section, I dragged the {EBB7C1C1-D439-4D9B-9FDC-954C10F266B0} key on top of the HKLM\Software key in the Destination Computer Registry View window, which populated it in the right spot down the tree inside of the Uninstall key section.  Then I saved the .mst, copied this plus the main Elements .msi, common.msi and the Data1.cab into my SMS install source folder.  Using a command line of...  msiexec.exe /i "Adobe Photoshop Elements 4.0 (en_us).msi" TRANSFORMS="elements.mst" it installed like a champ.
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/imjin" class="username" rel="nofollow">imjin</a>
+                </li>
+                <li>
+                    08/01/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5385" name="tip_5385">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5385"></div> -->
+   <div id="tip-5385" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5385" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5385"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            What I did:<br/>
+1. I used the abcpy.ini as proposed by eerie (thx a lot)<br/>
+2. Using InstallShield Professional I added the registry Keys for the registration of the product and to disable the Updates. as proposed by rpfenninger (thx a lot)<br/>
+At this point everything worked fine. I had a little problem with some file associations. I found these associations in common.msi under the registry entries in HKEY_CLASSES_ROOT. Fixed that everything was PERFECT and ready to deploy :-)<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/Kess78" class="username" rel="nofollow">Kess78</a>
+                </li>
+                <li>
+                    09/12/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5386" name="tip_5386">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5386"></div> -->
+   <div id="tip-5386" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5386" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5386"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Repackaging With Wise Package Studio:<br/>
+<br/>
+Prior to RePackaging<br/>
+Changes to Adobe Photoshop MSI<br/>
+<br/>
+To Not check for Updates:<br/>
+Created the HKLM\Software\Adobe\Updater key and the Dword Value Enterprise with a value of 1. <br/>
+<br/>
+To Stop Registration:<br/>
+Edited the values in the HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\{ProductCode}<br/>
+epic_eula_accepted value to 1<br/>
+EPIC_REGS_DECLINE_COUNT value to 2<br/>
+EPIC_REGS_STATE value at 0<br/>
+EPIC_REGS_TYPE value at 2<br/>
+<br/>
+<br/>
+Changes to Common.MSI<br/>
+<br/>
+To Keep the System Restore Error from comming up:<br/>
+Delete all instances of "WMF95Redist"<br/>
+<br/>
+To disable the Adobe Photo Downloader:<br/>
+HKLM\Software\Adobe\Photoshop elements\4.0\Adobe Photo Downloader\Preferences<br/>
+"AutoLaunchOnDeviceConnect"=dword00000001<br/>
+<br/>
+<br/>
+Changes to MSI after Repackaging<br/>
+<br/>
+Changed the GUID for the application to reflect the one generated by Adobe vs the one that was created by WISE<br/>
+<br/>
+<br/>
+In this case I changed GUID from {D4A4BF18-D811-4DD3-84E4-17182683FB4A} to {EBB7C1C1-D439-4D9B-9FDC-954C10F266B0} If this is not done the application complains of not being able to validate the Copy as Legal because the GUID appears to be hardcoded in the binary files and it checks each time something is launched...
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/shaodo" class="username" rel="nofollow">shaodo</a>
+                </li>
+                <li>
+                    10/24/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5387" name="tip_5387">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5387"></div> -->
+   <div id="tip-5387" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">117</div>
+   <div id="tip-5387" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5387"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            I have successfully deployed Photoshop Elements, using in the modified Abcpy.ini<br/>
+<br/>
+Added to & Modified the Adobe Photoshop Elements 4.0 (en_us).msi using MS Orca.<br/>
+<br/>
+Added the lines to the Registry Table:<br/>
+<br/>
+Registry21	2	SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[ProductCode]	EPIC_REGS_DECLINE_COUNT	#2	Reg_Uninstall<br/>
+----<br/>
+<br/>
+Registry27	2	Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductCode]	EPIC_REGS_STATE	#0	Reg_Uninstall<br/>
+----<br/>
+<br/>
+Registry28	2	Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductCode]	EPIC_REGS_TYPE	#2	Reg_Uninstall<br/>
+----<br/>
+<br/>
+Registry29	2	Software\Adobe\Updater	Enterprise	#1	Reg_Uninstall<br/>
+----<br/>
+<br/>
+Deleted Desktop Icon Row from Shortcut Table.<br/>
+
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/munro.glen" class="username" rel="nofollow">munro.glen</a>
+                </li>
+                <li>
+                    11/27/2006 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+    <div>
+        
+    
+        <div class="tip" id="tip_5388" name="tip_5388">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5388"></div> -->
+   <div id="tip-5388" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">115</div>
+   <div id="tip-5388" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5388"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Virtualization</div>
+
+            <span id="tip-text">
+            <p>A very good "recipe" for PhotoShop Elements 4.x may be found <a href="http://www.pittet.org/blog/index.php/2006/07/04/8-softricity-how-to-sequence-adobe-photoshop-elements-recipe">here</a>.</p>
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/bkelly" class="username" rel="nofollow">bkelly</a>
+                </li>
+                <li>
+                    02/07/2007 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (4)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/24549/51027">
+                                    4.0
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/24549/51028">
+                                    4
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/24549/51029">
+                                    4.0 (20070426.m.161)
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/24549/51030">
+                                    4.0 (20060216.m.125)
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>Photoshop Elements</h2>
+            <div><h3>Version</h3><span>4.0</span></div>
+        <div><h3>Contact</h3>Customer Support Department</div>                                                <div><h3>Uninstall String</h3>msiexec /I {EBB7C1C1-D439-4D9B-9FDC-954C10F266B0}</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (14)
+                            </h3>
+            <p>Questions & Answers related to Adobe Photoshop Elements</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                14
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/photoshop-elements-9-0-silent-install-not-working" class="title">
+            photoshop elements 9.0 silent install - not working
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="photoshop-elements-9-0-silent-install-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-elements-9-0-silent-install-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-elements-9-0-silent-install-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-elements-9-0-silent-install-not-working" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-elements-9-0-silent-install-not-working" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ersatyle" rel="nofollow">ersatyle</a>
+                6 years ago 16.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-photoshop-elements-10-silent-installation" class="title">
+            Adobe Photoshop Elements 10 silent installation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-photoshop-elements-10-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-10-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-10-silent-installation" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="adobe-photoshop-elements-10-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-10-silent-installation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/magra" rel="nofollow">magra</a>
+                5 years ago 5.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" class="title">
+            How to install photoshop elements 10 silently as a trial mode without inserting the serial number?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-photoshop-elements-10-silently-as-a-trial-mode-without-inserting-the-serial-number" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/praveenk" rel="nofollow">praveenk</a>
+                5 years ago 6.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                7
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/unable-to-silently-deploy-adobe-photoshop-elements-10" class="title">
+            Unable to silently deploy Adobe Photoshop Elements 10
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="unable-to-silently-deploy-adobe-photoshop-elements-10" type="radio" class="star" disabled="disabled"/>
+    <input name="unable-to-silently-deploy-adobe-photoshop-elements-10" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="unable-to-silently-deploy-adobe-photoshop-elements-10" type="radio" class="star" disabled="disabled"/>
+    <input name="unable-to-silently-deploy-adobe-photoshop-elements-10" type="radio" class="star" disabled="disabled"/>
+    <input name="unable-to-silently-deploy-adobe-photoshop-elements-10" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tdickert" rel="nofollow">tdickert</a>
+                5 years ago 8.7k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/suppress-the-eula-window-in-adobe-photoshop-elements-10-0" class="title">
+            How to suppress the EULA window in Adobe Photoshop Elements 10.0
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="suppress-the-eula-window-in-adobe-photoshop-elements-10-0" type="radio" class="star" disabled="disabled"/>
+    <input name="suppress-the-eula-window-in-adobe-photoshop-elements-10-0" type="radio" class="star" disabled="disabled"/>
+    <input name="suppress-the-eula-window-in-adobe-photoshop-elements-10-0" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="suppress-the-eula-window-in-adobe-photoshop-elements-10-0" type="radio" class="star" disabled="disabled"/>
+    <input name="suppress-the-eula-window-in-adobe-photoshop-elements-10-0" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/mdkhan" rel="nofollow">mdkhan</a>
+                5 years ago 7.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                6
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/help-with-photoshop-elements-10-for-windows" class="title">
+            Help deploying Photoshop Elements 10 for Windows
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="help-with-photoshop-elements-10-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="help-with-photoshop-elements-10-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="help-with-photoshop-elements-10-for-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="help-with-photoshop-elements-10-for-windows" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="help-with-photoshop-elements-10-for-windows" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/sburkey2" rel="nofollow">sburkey2</a>
+                5 years ago 9.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                4
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/silent-installation-of-adobe-photoshop-element-10" class="title">
+            Silent installation of Adobe Photoshop element 10
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-installation-of-adobe-photoshop-element-10" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-installation-of-adobe-photoshop-element-10" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-installation-of-adobe-photoshop-element-10" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="silent-installation-of-adobe-photoshop-element-10" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-installation-of-adobe-photoshop-element-10" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/deokateshreyash" rel="nofollow">deokateshreyash</a>
+                5 years ago 6.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/serial-number-read" class="title">
+            serial number read
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="serial-number-read" type="radio" class="star" disabled="disabled"/>
+    <input name="serial-number-read" type="radio" class="star" disabled="disabled"/>
+    <input name="serial-number-read" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="serial-number-read" type="radio" class="star" disabled="disabled"/>
+    <input name="serial-number-read" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/blackbyte" rel="nofollow">blackbyte</a>
+                5 years ago 3.1k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/disable-few-options-in-adobe-photoshop-cs5" class="title">
+            Disable few options in Adobe Photoshop CS5
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="disable-few-options-in-adobe-photoshop-cs5" type="radio" class="star" disabled="disabled"/>
+    <input name="disable-few-options-in-adobe-photoshop-cs5" type="radio" class="star" disabled="disabled"/>
+    <input name="disable-few-options-in-adobe-photoshop-cs5" type="radio" class="star" disabled="disabled"/>
+    <input name="disable-few-options-in-adobe-photoshop-cs5" type="radio" class="star" disabled="disabled" checked="checked"/>
+    <input name="disable-few-options-in-adobe-photoshop-cs5" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/n.gopinaathan" rel="nofollow">n.gopinaathan</a>
+                4 years ago 1.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/adobe-photoshop-elements-12-full-silent-installation" class="title">
+            Adobe Photoshop Elements 12 full silent installation
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="adobe-photoshop-elements-12-full-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-12-full-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-12-full-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-12-full-silent-installation" type="radio" class="star" disabled="disabled"/>
+    <input name="adobe-photoshop-elements-12-full-silent-installation" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/the.baron" rel="nofollow">the.baron</a>
+                3 years ago 9.9k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-silent-install-adobe-photoshop-elements-12" class="title">
+            How to Silent install Adobe Photoshop Elements 12?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-silent-install-adobe-photoshop-elements-12" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-silent-install-adobe-photoshop-elements-12" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-silent-install-adobe-photoshop-elements-12" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-silent-install-adobe-photoshop-elements-12" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-silent-install-adobe-photoshop-elements-12" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/Avshalom" rel="nofollow">Avshalom</a>
+                3 years ago 9.5k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap answered">
+
+            <div class="vote-num">
+                2
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERED
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/bypass-adobe-id-sign-in" class="title">
+            Bypass Adobe ID Sign In?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="bypass-adobe-id-sign-in" type="radio" class="star" disabled="disabled"/>
+    <input name="bypass-adobe-id-sign-in" type="radio" class="star" disabled="disabled"/>
+    <input name="bypass-adobe-id-sign-in" type="radio" class="star" disabled="disabled"/>
+    <input name="bypass-adobe-id-sign-in" type="radio" class="star" disabled="disabled"/>
+    <input name="bypass-adobe-id-sign-in" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/nbb359" rel="nofollow">nbb359</a>
+                3 years ago 138.2k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               c_nerds commented 2 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                3
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/how-to-install-adobe-photoshop-elements-12-silent" class="title">
+            How to install Adobe Photoshop Elements 12 silently?
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="how-to-install-adobe-photoshop-elements-12-silent" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-adobe-photoshop-elements-12-silent" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-adobe-photoshop-elements-12-silent" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-adobe-photoshop-elements-12-silent" type="radio" class="star" disabled="disabled"/>
+    <input name="how-to-install-adobe-photoshop-elements-12-silent" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/ITWAF" rel="nofollow">ITWAF</a>
+                3 years ago 8.8k views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               _nilsson_ commented 3 years ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="content-left">
+        <div class="vote-wrap">
+
+            <div class="vote-num">
+                1
+            </div>
+
+            <div class="vote-label">
+                <!--insert conditional based on answered or not-->
+                ANSWERS
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="content-meta">
+
+        <a href="/question/photoshop-image-sizing-is-never-what-i-expect" class="title">
+            PHOTOSHOP - Image sizing is never what I expect
+        </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="photoshop-image-sizing-is-never-what-i-expect" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-image-sizing-is-never-what-i-expect" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-image-sizing-is-never-what-i-expect" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-image-sizing-is-never-what-i-expect" type="radio" class="star" disabled="disabled"/>
+    <input name="photoshop-image-sizing-is-never-what-i-expect" type="radio" class="star" disabled="disabled"/>
+</div></div>
+
+            <div class="byline">
+                By:
+                <a href="/user/tmyusuf" rel="nofollow">tmyusuf</a>
+                1 year ago 461 views
+            </div>
+            <div id="question-latest-activity" class="latestActivity">
+               apptopack answered 1 year ago
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Adobe Photoshop Elements</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (6)
+                            </h3>
+
+            <p>Links related to Adobe Photoshop Elements</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" class="title">
+                Silent install instructions for Photoshop Elements 6 (AOO volume license version on Windows)
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-for-photoshop-elements-6-aoo-volume-license-version-on-windows" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/cblake" rel="nofollow">cblake</a>
+                9 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/install-intructions-are-slightly-different-to-apse-6" class="title">
+                Install intructions are slightly different to APSE 6
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="install-intructions-are-slightly-different-to-apse-6" type="radio" class="star" disabled="disabled"/>
+    <input name="install-intructions-are-slightly-different-to-apse-6" type="radio" class="star" disabled="disabled"/>
+    <input name="install-intructions-are-slightly-different-to-apse-6" type="radio" class="star" disabled="disabled"/>
+    <input name="install-intructions-are-slightly-different-to-apse-6" type="radio" class="star" disabled="disabled"/>
+    <input name="install-intructions-are-slightly-different-to-apse-6" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/vinay.raj" rel="nofollow">vinay.raj</a>
+                8 years ago 2.3k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" class="title">
+                Silent install instructions | Photoshop Elements 9 | AOO volume license version | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-install-instructions-photoshop-elements-9-aoo-volume-license-version-windows" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/Rheuvel" rel="nofollow">Rheuvel</a>
+                6 years ago 2.6k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/silent-uninstall-photoshop-elements-9-volume-license-version-windows" class="title">
+                Silent uninstall | Photoshop Elements 9 | Volume license version | Windows
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="silent-uninstall-photoshop-elements-9-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-uninstall-photoshop-elements-9-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-uninstall-photoshop-elements-9-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-uninstall-photoshop-elements-9-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+    <input name="silent-uninstall-photoshop-elements-9-volume-license-version-windows" type="radio" class="star" disabled="disabled"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/bmueller77" rel="nofollow">bmueller77</a>
+                6 years ago 3.7k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/enterprise-administration-guide-for-the-acrobat-family-of-products" class="title">
+                Enterprise Administration Guide For the Acrobat Family of Products
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="enterprise-administration-guide-for-the-acrobat-family-of-products" type="radio" class="star" disabled="disabled"/>
+    <input name="enterprise-administration-guide-for-the-acrobat-family-of-products" type="radio" class="star" disabled="disabled"/>
+    <input name="enterprise-administration-guide-for-the-acrobat-family-of-products" type="radio" class="star" disabled="disabled"/>
+    <input name="enterprise-administration-guide-for-the-acrobat-family-of-products" type="radio" class="star" disabled="disabled"/>
+    <input name="enterprise-administration-guide-for-the-acrobat-family-of-products" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/jagadeish" rel="nofollow">jagadeish</a>
+                5 years ago 4.2k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-left">
+        <div class="content-icon link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+
+            <a href="/link/package-adobe-photoshop-elements-8-0" class="title">
+                Package Adobe Photoshop Elements 8.0
+            </a>
+
+        <div class="content-lower">
+
+            <div class="content-rating"><div id="scale-rating" class="rating">
+    <input name="package-adobe-photoshop-elements-8-0" type="radio" class="star" disabled="disabled"/>
+    <input name="package-adobe-photoshop-elements-8-0" type="radio" class="star" disabled="disabled"/>
+    <input name="package-adobe-photoshop-elements-8-0" type="radio" class="star" disabled="disabled"/>
+    <input name="package-adobe-photoshop-elements-8-0" type="radio" class="star" disabled="disabled"/>
+    <input name="package-adobe-photoshop-elements-8-0" type="radio" class="star" disabled="disabled" checked="checked"/>
+</div></div>
+            <div class="byline">
+                By:
+                <a href="/user/apptopack" rel="nofollow">apptopack</a>
+                1 year ago 1k views
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Adobe Photoshop Elements</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABh0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzT7MfTgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xMHBjVkgAAAJPSURBVEiJrVU9ixNRFD3vvTufmSRuFm20ETu7NSBqY5XGxUXBZq3USgOKhZUg/gXBRmxsBbuFrUT/gb9EEdTsZj7eu9di4iSz2SQTzIUU995557xzz52JunbrWY88/60hf08pnWADIcJjZ4tDW2RDCqP2m1Zn+34QJdCaAKX+Fx3MLsrS0b2j3z8Mxe2t3aR7Fl4QQSm9CQEQYXhBBIjskh/EhigApGxsKoh8+EHskygFgWwU/F+IUiBhATOvNXvfU3h0t4+dy+fRSUIAwPE4x8OXn6ANTQlEQMIOwq4xAbPD/u0ruHn1Uv22IiiyY/hha1pjB2Jh8BoERZ7i+s7FUzoCazMQhzOX4VLBOgS2SNHtxFV+58FrfP85QhAlSLrnSqyaAmawa+6Bs66W/0kJ3d4FaCJo45dYswqYm42IncXB+ydz9S8fXwEAjsYZ9p9/qJ9ZZ0R5Pl7ax8RkL5iOT9iBHDs4tgCWE9giW4EvKIocmvyq5ioP2K0kAIAbey+QjUf49vldVesPHkMbAy+IEbe3ayYzu5kRrSBQhhAmW7UXCQCi5Ay8IIbSBkqb+hYJg5hl4vwqBQrGBDBU1KqGQpA3mbugvkWOQdxQQXWIeS6fvfXJHok09wAAWNxcvpBA3My3qCEBToJV509/drJFTTwoQ6DQHwxhixTkhQha3bmxVfgsIBEBS3MCpQ28uA3iFpTW5eYs+C9hKT1wsoaCcpt8wMyoWqBAmHPN7A6ZGSIb/pXeHJAtsqfaeL423kAp1WsoY3mI/HLOfrVFOvwLfr2cvFzgk+IAAAAASUVORK5CYII=" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABX1BMVEVFu+tlu/BsvvBLw+xsvvBywvFLv+xxwfFNxexOwe2EzPNKt+xLt+xMuOxMuexNxuxQxe1Qxu1Rve1Rwu1Tv+1Tx+1Uw+1Vw+1VxO1WyO1Xue5Xw+1XxO1Xxu5Yvu5ZyO5au+5axO5aye5bxO5bx+5cyO5dve5dxu5eyu5fxu5hyu9iy+9jx+9jye9jyu9kyO9lxO5nyO9nze9oxe9qx/BqzfBryfBryvBrzvBsy/BvyvBwzfBwz/BzwvF0y/F00PF1zvB10fF3zfF4zfJ60fF60vF7zvJ+0fJ/z/N/0/KB0POE0POE1fOGzPOG1fOH0fOI1vOK1POL0vON0vSN0/SN1/SS0/WS2fSU2fWV1PWW1fWW2vWa2fWa2/We3Paf3Pah3fai3fak3vap3faw3/e04Pe25fi34vi/5/jB6fnK6/rO7frj9Pzn9f3v+f33/P74/P75/P78/v/9/v////9mrPf1AAAAC3RSTlMVFairq66x9vn5+XR/mDIAAAESSURBVCjPbVGxTsQwDI0dp1VFT4d0iOHUL7iJiW9g5yP5Bb6BhZUBiQlGBtRrL3GdkCYtOq61lFr183vWswHA3KvLeBEB81BpuKgH6Z/JbA0sGKEw8Fgv6xFpCUJYARSQX60rT+LHLLuq+9ZngNAwjNmVqrLFGTBMDIsKLP1jeE4N8R3iY/eJ84wkJVOjAWsmBidlnhVazgyehsdPeIotxWYzzMNnKdgjKMSQAdG32sc4NVrdHINGCD7FiTh1+GiivosK3Wu2yXqHMsbXPrlAfA/p3+ktjNm3bw2M0M9HBiw0dR7W9UPcJ5bX2X9LzmUHdMVxOVBwWpFyJP3fCfS0m+y8w9V7dCS8eloBpU25qFuWX2lyjb3ArGdtAAAAAElFTkSuQmCC" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAbCAMAAAC9SNpyAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAE3RSTlMAECAwQFBgcICQnqCosLXA0ODw4l5hTgAAAhlJREFUSMe1VtuSrCAMlIsIh2UD+P//eggBBMGtrRo3L6OZSJNOk7BtxYTxJ5o3Yvsjk3BeBvJPMMw5mvl8SSFHRlglSkttAj2zT0ESNXv/njGcGJjzL4DoG1exR1XxBcZGEIkYI38CUeSbILBYcEeNvQgi0np2CnHJi9kZgCtJAaCqVg4HAE5d+mAKPeAOQaGJjIAOqBXhEwgvVRmylC09HYvWWy1VbPr3kugpVqTlFtk6WnAJwvqTS7mp/BxI/9CDZJZa3GgH7WEJYmtX2FH8mAtDcvIyQgeqxVCTBx3JZxBURfmepYQDo+jGOd9eAOkJxhRSBnoW42cgfFCKzohqVs8dZF+AqEcQNfScdAIiAcdDPIL4dQexj+pKe49wGW2mtPEIth6dAST9HWYM5No8gtxsODl1z9OJV0sFi19lAmBaDygobtm74jQ9YpFL7EFIQ8dPbU0eoRR57sLTjPKUCIaqnllHqfPnxsgCEbaYJ3cU9v2vrz9Z+vygn5+GDYkaVzX3yRguHeNwZp5a395VzJYUdF9FcSxI0BQV2DTjQ9Z5JtVkj6gb0BjMXS1p9pm8ANd0aFTqXLRiDpNFUC75mLZifVv5av01D8nTQ+iuFzy/JF356ixBxWPbMDx96MbfeO8SOB7KJBPh8tf0+15vWZ5R832q3IGGGVtvkEA3SH71CEUruP40SUubN7x9DufoSUTh/qKT23/tNjs0imzt8gAAAABJRU5ErkJggg==" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65b52e7159","applicationID":"56576475","transactionName":"NQRRYkYCDUcHWxcLXgxOcENHFwxZSUsMBEUVAEFTaxUKURE=","queueTime":0,"applicationTime":637,"atts":"GUNSFA4YHkk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

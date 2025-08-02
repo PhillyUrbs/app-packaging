@@ -1,0 +1,3471 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<title>Oracle - JAVA - 7 | ITNinja</title>
+        <meta name="description" content="Deployment tips and related materials related to Oracle JAVA 7">
+        <meta name="keywords" content="Oracle JAVA,Sun | Netscape Alliance,Oracle">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw" />
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/apple-touch-icon.png">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/4f9a382.css" />
+                <link href="/css/df4eb8b.css" rel="stylesheet" type="text/css" />
+                
+            <link rel="stylesheet" type="text/css" media="screen" href="/css/8975654.css" />
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript">
+            // create the itninja JS namespace
+            var Itninja = {};
+            window.jQuery || document.write("<script src='/bundles/itninjaweb/js/jquery-1.6.1.min.js'>\x3C/script>");
+            var TAG_SERVER = 'tags.itninja.com',
+                TAG_AUTO_SUGGEST_ENABLE = '' === '1' ? true : false;
+        </script>
+
+        <!--[if IE]>
+            <script src="/js/001a46f.js"></script>            <script>
+                $(document).ready(function(){
+                    $('input').placeholder();
+                })
+            </script>
+        <![endif]-->
+
+                    </head>
+    <body>
+                <header>
+            <p id="kace-link">&nbsp;</p>
+            <ul id="user-info">
+    <li class="last"><a href="/register" class="register">register</a><a href="/login" class="button">Log in</a></li>
+</ul>            <span id="logo"><a href="/"><img src="/bundles/itninjaweb/img/ITN_logo_no_AD.png" alt="ITNinja Home" width="221" height="53" /></a></span>
+            <nav>
+                <form method="get" action="/search" id="nav-search"><input type="text" name="q" class="q" placeholder="search"/><input type="image" class="i" src="/bundles/itninjaweb/img/search_icon.png" alt="go" title="go" /></form>
+                    <ul>
+                <li class="first">        <a href="/question">Ask</a>            <ul class="menu_level_1">
+                <li class="first last">        <a href="/question/new">Ask A Question</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/research">Research</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/software/browse?Popular=1">Software</a>        
+    </li>
+
+        <li>        <a href="/tips">Deployment Tips</a>        
+    </li>
+
+        <li>        <a href="/question">Q &amp; A</a>        
+    </li>
+
+        <li>        <a href="/blog">Blogs</a>        
+    </li>
+
+        <li class="last">        <a href="/link">Links</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/share">Share</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/question/unanswered">Answer a Question</a>        
+    </li>
+
+        <li>        <a href="/blog/post/new">Write a Blog Post</a>        
+    </li>
+
+        <li>        <a href="/tips">Share a Deployment Tip</a>        
+    </li>
+
+        <li class="last">        <a href="/link/new">Share a Link</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li>        <a href="/topics">Topics</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/topics/software-deployment">Software Deployment</a>        
+    </li>
+
+        <li>        <a href="/topics/systems-deployment">Systems Deployment</a>        
+    </li>
+
+        <li>        <a href="/topics/scripting">Scripting</a>        
+    </li>
+
+        <li>        <a href="/topics/virtualization">Virtualization</a>        
+    </li>
+
+        <li>        <a href="/topics/supporting-windows">Supporting Windows</a>        
+    </li>
+
+        <li class="last">        <a href="/topics">More...</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+        <li class="last">        <a href="/community">Communities</a>            <ul class="menu_level_1">
+                <li class="first">        <a href="/repackager">AppDeploy Repackager</a>        
+    </li>
+
+        <li>        <a href="/k1000">K1000</a>        
+    </li>
+
+        <li>        <a href="/k2000">K2000</a>        
+    </li>
+
+        <li>        <a href="/k3000">K3000</a>        
+    </li>
+
+        <li>        <a href="/msistudio">MSI Studio</a>        
+    </li>
+
+        <li>        <a href="/changebase">ChangeBASE</a>        
+    </li>
+
+        <li class="last">        <a href="/community">More...</a>        
+    </li>
+
+
+    </ul>
+
+    </li>
+
+
+    </ul>
+
+            </nav>
+            <div id="secondary-nav"></div>
+        </header>
+        <div id="global-content">
+            <ul id="breadcrumbs">
+                <li class="home"><a href="/">
+                    <img src="/bundles/itninjaweb/img/Breadcrumb_cap.png"/></a></li>
+                    <li><a href="/research">Research</a></li>
+    <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/oracle/browse">Oracle</a></li>
+    <li>JAVA</li>
+            </ul>
+            <div class="flash-notice no-display">
+    
+</div>
+            <div id="stage">
+    <div class="tag-header">
+        <div class="title-wrap">
+            <h1>Oracle JAVA</h1>
+            <div id="version-wrapper">
+
+                <span class="version-name" id="version-changer">
+                    Version: 7
+                    <div id="version-list">
+                        <div class="version-list-top"></div>
+                        <ul id="version-list-items">
+                                                            <li>
+                                    <a href="/software/oracle/java-2/7-552">
+                                        7.x <span>(25 tips)</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/software/oracle/java-2/6-1070">
+                                        6.x <span>(14 tips)</span>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/software/oracle/java-2/1-11465">
+                                        1.x <span>(0 tips)</span>
+                                    </a>
+                                </li>
+                                                    </ul>
+                        <div class="version-list-bottom"></div>
+                    </div>
+                </span>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="tr-meta">
+        
+Average Rating: <span id="average-rating">4</span>
+<div class="stars-wrap">
+        <div class="rating">
+    <input name="Software12514" type="radio" class="star" disabled="disabled"  />
+    <input name="Software12514" type="radio" class="star" disabled="disabled"  />
+    <input name="Software12514" type="radio" class="star" disabled="disabled"  />
+    <input name="Software12514" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="Software12514" type="radio" class="star" disabled="disabled"  />
+</div>    </div>
+
+<br class="clear"/>
+
+Views: 29219 &nbsp|&nbsp
+Created: 07/10/2007
+
+
+
+
+<div class="follow-widget-right">
+
+
+            <a class="btn-follow" rel="nofollow" href="https://www.itninja.com/login?/follow/version/15830?tb=L3NvZnR3YXJlL29yYWNsZS9qYXZhLTIvNy01NTI=">
+            <span class="follow-title">Follow</span>
+            <span class="followers" title="followers"><div></div>14</span>
+        </a>
+    
+</div>    </div>
+
+    <div class="additional-meta">
+        JAVA has <a href="#inventory-records" id="scrollInv">5 inventory records</a>,
+        <a href="#q-a" id="scrollQA">26 Questions</a>,
+        <a href="#blogs" id="scrollBlog">5 Blogs</a>
+        and <a href="#links" id="scrollLinks">9 links</a>. Please help add to this by sharing more!
+
+    </div>
+
+
+    <div class="software-section" id="deployment-tips">
+
+        <h2 class="section-title"><a href="#" class="plus toggle minus"></a> Deployment Tips (25)</h2>
+        
+        <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+                <div class="setup-overview">
+                    <div class="setup">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Repackaged (MSI)
+                        </div>
+                    </div>
+                    <div class="difficulty">
+                        <strong>Average     Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/green.png" />
+                        <span class="rating-text"> Rated <strong>2 / 5 (Somewhat Easy)</strong> based on <strong>5</strong> ratings</span>
+                    </div>
+                    <div class="deployment">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Windows Installer with Custom Transform (MST)
+                        </div>
+                    </div>
+                    <br class="clear"/>
+                </div>
+            </div>
+
+            <!-- end rating secion -->
+
+            <div class="inner summary">
+
+                
+                <div id="software-view-deployment-summary-form" class="hidden">
+                    <h3>Deployment Tip Summary</h3>
+                    <form action="/version/summary/new/15830" method="POST" novalidate>
+    <div id="form"><input type="hidden" id="form__token" name="form[_token]" value="291c7a550721731bc43f3607375c13301a530074" /><div><label for="form_text" class=" required">Enter your tip</label><textarea id="form_text" name="form[text]" required="required">&lt;p&gt;I use the following in a batch file to silently deploy and disable updater. Check the log at C:\ if something goes wrong.&lt;/p&gt;
+&lt;p&gt;REM The following command line entry should disable updates, but the Java item in Control Panel still reports it is &lt;br /&gt;REM configured to update and notify. See the following reg key which disables the tab&lt;/p&gt;
+&lt;p&gt;echo Installing Java Update. Please wait...&lt;br /&gt;start /wait jre-7u9-windows-i586.exe /s /v&quot;/norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0&quot; /L C:\JavaDeployLog.txt&lt;/p&gt;
+&lt;p&gt;REM Disable Java Update Tab and also Updates and Notifications&lt;br /&gt;reg add &quot;HKLM\SOFTWARE\JavaSoft\Java Update\Policy&quot; /v EnableJavaUpdate /t REG_DWORD /d 00000000 /f&lt;br /&gt;reg add &quot;HKLM\SOFTWARE\JavaSoft\Java Update\Policy&quot; /v NotifyDownload /t REG_DWORD /d 00000000 /f&lt;/p&gt;</textarea></div></div>
+
+    <input type="hidden" name="redirectUrl" value="http://www.itninja.com/software/oracle/java-2/7-552" />
+    <input type="submit" value="Submit" id="submit1" class="btn"/>
+    <span id="software-view-deployment-summary-cancel" class="btn" >Cancel</span>
+</form>                </div>
+
+                <div id="software-view-deployment-summary-text" >
+
+                    <h3>Deployment Tip Summary</h3>
+                    <div id="software-view-deployment-summary-text-raw"><p>I use the following in a batch file to silently deploy and disable updater. Check the log at C:\ if something goes wrong.</p><p>REM The following command line entry should disable updates, but the Java item in Control Panel still reports it is <br>REM configured to update and notify. See the following reg key which disables the tab</p><p>echo Installing Java Update. Please wait...<br>start /wait jre-7u9-windows-i586.exe /s /v"/norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0" /L C:\JavaDeployLog.txt</p><p>REM Disable Java Update Tab and also Updates and Notifications<br>reg add "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v EnableJavaUpdate /t REG_DWORD /d 00000000 /f<br>reg add "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v NotifyDownload /t REG_DWORD /d 00000000 /f</p>
+</div>
+                                                        </div>
+
+            </div>
+            <!--end summary -->
+
+            <div class="inner">
+
+                <div class="version-subsections">
+                    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-1376"></div>
+    <div class="avg-rating">16</div>
+     <div class="arrow_down" id="tip-1376"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>When you run the offline-installer the actual MSI can be located here;<br><br />%userprofile%\AppData\LocalLow\Sun\Java\jre1.7.0<br><br><br />Properties;<br><br />AUTOUPDATECHECK=0 (disables updates)<br><br />IEXPLORER=1 (registers java with IE)<br><br />JAVAUPDATE=0 (disables updates)<br><br />JU=0 (disables updates)<br><br />Mozilla=1 (registers java with mozilla)</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/nucko" class="username" rel="nofollow">nucko</a>
+                    08/09/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 2 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/trancendence" rel="nofollow">
+               <img src="/uploads/images/80111/sjlwzw.jpg?1347405364718" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/trancendence" rel="nofollow">trancendence</a>
+                        6 months 21 days 51 mins ago
+                                </div>
+                    <span class="the-comment"><p>Worked perfectly! Thankyou!</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/rbrdly" rel="nofollow">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/rbrdly" rel="nofollow">rbrdly</a>
+                        3 months 17 days 33 mins ago
+                            last edited 3 months 1 days 31 mins ago
+                                </div>
+                    <span class="the-comment"><p>Well played Sir. Thank you.</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-1377"></div>
+    <div class="avg-rating">8</div>
+     <div class="arrow_down" id="tip-1377"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Registry keys for enabling / disabling advanced TAB features and updates TAB<br><br><br />Untick Internet Explorer Plugin<br><br />[HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Plug-in\10.0.0]<br><br />"UseJava2IExplorer"=dword:00000000<br><br><br />Untick use next-gen plugin<br><br />[HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Plug-in\10.0.0]<br><br />"UseNewJavaPlugin"=dword:00000000<br><br><br />Disable the update TAB in java control panel and disable autoupdates + notifications<br><br />[HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Update\Policy]<br><br />"EnableJavaUpdate"=dword:00000000<br><br />"NotifyDownload"=dword:00000000</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/maxvre" class="username" rel="nofollow">maxvre</a>
+                    08/29/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-1375"></div>
+    <div class="avg-rating">3</div>
+     <div class="arrow_down" id="tip-1375"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>For JAVA 7.0.0.147 I used the following... <br><br><br />Full Command Line: jre-7-windows-i586.exe /s<br><br><br />Worked great.&nbsp; Completely silent install.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/wwright" class="username" rel="nofollow">wwright</a>
+                    08/08/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6930"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6930"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>This tip is valid for new version 1.7.0_11<br>If you are using Deployment.Properties file described in this link: <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/deployment/deployment-guide/properties.html" rel="nofollow">http://docs.oracle.com/javase/7/docs/technotes/guides/deployment/deployment-guide/properties.html</a></p><p>You can add: <br>deployment.security.level=MEDIUM</p><p>This will get rid of the new security message occuring in this version of Java.<br>It is a non documentet feature to set the level of security in Java. Can be confirmed by checking in control Panel&gt;Java(32-bit)&gt;Sercurity.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/Arvidb" class="username" rel="nofollow">Arvidb</a>
+                    01/15/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/jfrasier" rel="nofollow">
+               <img src="/uploads/images/9598/b6NVaM.gif?1358969144460" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/jfrasier" rel="nofollow">jfrasier</a>
+                        1 months 27 days 42 mins ago
+                            last edited 1 months 27 days 42 mins ago
+                                </div>
+                    <span class="the-comment"><p>I am finding that this document does not necessarily match version 1.7.xx. The java control panel for 1.7 is different and when I use the deployment.system.config and deployment.properties that the properties are not being set. A new deployment.properties file is created in the users profile instead.<br><br>
+This did work in 1.6.xx<br><br>
+Jane</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6940"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6940"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <pre>REM JAVA Uninstall and cleanup script for through Java 1.7.u11 <br />REM with install of Java 1.7.u11 x86 and X64 in Mixed Environment<br />REM Calls removal of Java Autoupdate after install<br />REM Skips Removal of versions of Java 1.6.x if SAS is detected<br />REM These can be removed if your environment does not use SAS or uses built in Java for SAS<br />REM Requires x86 and x64 JRE Executables and x86 MSI files to install x86 Java on x64<br />REM MSI files can be located in<br />REM C:\Documents and Settings\&lt;install user&gt;\Application Data\Sun\Java\&lt;version&gt; or<br />REM C:\Users\&lt;install user&gt;\Appdata\locallow\Sun\Java\&lt;Version&gt;<br />REM after install to a workstation preferably 32-bit<br />REM written for use in SCCM 2007, but will likely work elsewhere<br />REM Written by David Nelson, Computer Professional, CSBS Computing, University of Utah<br />REM 2012-2013<br />@ECHO OFF<br /><br />REM Close all open web browsers<br /><br />:killfirefox<br />	taskkill /f /t /im firefox.exe<br />	tasklist /FI "IMAGENAME eq firefox.exe" 2&gt;NUL | find /I /N "firefox.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killfirefox<br />	<br /><br />:killiexplore<br />	taskkill /f /t /im iexplore.exe<br />	tasklist /FI "IMAGENAME eq iexplore.exe" 2&gt;NUL | find /I /N "iexplore.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killiexplore<br /><br /><br />:killchrome<br />	taskkill /f /t /im chrome.exe<br />	tasklist /FI "IMAGENAME eq chrome.exe" 2&gt;NUL | find /I /N "chrome.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killchrome<br /><br />REM Close all JAVA Background Processes<br /><br /><br />:killjusched<br />	taskkill /f /t /im jusched.exe<br />	tasklist /FI "IMAGENAME eq jusched.exe" 2&gt;NUL | find /I /N "jusched.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killjusched	<br /><br />:killjucheck<br />	taskkill /f /t /im jucheck.exe<br />	tasklist /FI "IMAGENAME eq jucheck.exe" 2&gt;NUL | find /I /N "jucheck.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killjucheck<br /><br />:killjqs<br />	taskkill /f /t /im jqs.exe<br />	tasklist /FI "IMAGENAME eq jqs.exe" 2&gt;NUL | find /I /N "jqs.exe"&gt;NUL<br />	if "%ERRORLEVEL%"=="0" GOTO killjqs<br />	<br /><br />REM Silent Uninstallers<br /><br />REM 64bit<br />REM 1.6.00 - 1.6.37 <br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416000FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416001FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416002FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416003FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416004FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416005FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416006FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416007FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416008FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416009FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416010FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416011FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416012FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416013FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416014FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416015FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416016FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416017FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416018FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416019FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416020FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416021FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416022FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416023FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416024FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416025FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416026FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416027FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416028FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416029FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416030FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416031FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416032FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416033FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416034FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416035FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416036FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86416037FF}<br />REM 1.7.00 - 1.7.11<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417000FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417001FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417002FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417003FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417004FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417005FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417006FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417007FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417008FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417009FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417010FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F86417011FF}<br /><br />REM 32bit<br />REM 1.4.2 - 1.4.2_19<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142000}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142010}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142020}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142030}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142040}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142050}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142060}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142070}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142080}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142090}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142100}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142110}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142120}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142130}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142140}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142150}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142160}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142170}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142180}<br />msiexec.exe /qn /norestart /x {7148F0A8-6813-11D6-A77B-00B0D0142190}<br />REM 1.5.00 - 1.5.22<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150000}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150010}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150020}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150030}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150040}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150050}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150060}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150070}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150080}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150090}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150100}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150110}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150120}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150130}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150140}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150150}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150160}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150170}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150180}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150190}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150200}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150210}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0150220}<br /><br />REM Below lines can be REMed if your environment does not need it<br />REM Check to Skip Java 1.6x uninstall if SAS exists<br />If exist "c:\Program Files\SAS\NUL" GOTO skipjava16x86uninst<br /><br />If exist "c:\Program Files (x86)\SAS\NUL" GOTO skipjava16x86uninst<br />REM Above lines can be REMed<br /><br />REM 1.6.00 - 1.6.37<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160000}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160010}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160020}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160030}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160040}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160050}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160060}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160070}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160080}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160090}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160100}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160110}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160120}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160130}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160140}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160150}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160160}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160170}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160180}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160190}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160200}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160210}<br />msiexec.exe /qn /norestart /x {3248F0A8-6813-11D6-A77B-00B0D0160220}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216023FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216024FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216025FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216026FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216027FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216028FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216029FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216030FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216031FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216032FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216033FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216034FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216035FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216036FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83216037FF}<br /><br />REM Below line can be REMed if your environment does not need it<br />:skipjava16x86uninst<br /><br />REM 1.7.00 - 1.7.11<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217001FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217002FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217003FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217004FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217005FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217006FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217007FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217008FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217009FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217010FF}<br />msiexec.exe /qn /norestart /x {26A24AE4-039D-4CA4-87B4-2F83217011FF}<br /><br /><br />REM Cleanup Java Auto Updater for Windows 7<br />IF EXIST C:\Windows\Installer\1160852.msi (<br />	msiexec.exe /qn /norestart /x&nbsp; C:\Windows\Installer\1160852.msi<br />)<br />IF EXIST C:\Users\Default\AppData\LocalLow\Sun\Java\AU\au.msi (<br />	msiexec /x C:\Users\Default\AppData\LocalLow\Sun\Java\AU\au.msi /qn /norestart<br />)	<br /><br />REM WMIC cleanup if <br />Start /wait wmic product where "name like 'Java%' and not name like '%SE%'" call uninstall<br /><br />REM Java Executable Silent Install<br /><br />REM SET MSIArgs=/qn /norestart REBOOT=ReallySuppress<br />REM SET MSIComp=ADDLOCAL=jrecore IEXPLORER=1 MOZILLA=1 JAVAUPDATE=0 WEBSTARTICON=0<br />REM Checks for a 64-bit environment and installs x64 then x86 Java<br />REM Otherwise assumes 32 bit and installs x86 Java in x86 environment<br />REM Extracted 32 bit MSI files required for silent install on x64 machines<br />REM due to a known incompatibility between 32 bit executable silent switch on x64 machines <br /><br />IF EXIST "%ProgramFiles(x86)%" (<br />&nbsp;  START /WAIT jre-7u11-windows-x64.exe /s /v"/passive /norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0 WEBSTARTICON=0 EULA=0 SYSTRAY=0"<br />&nbsp;  START /WAIT msiexec /qn /i jre1.7.0_11.msi /norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0 WEBSTARTICON=0 EULA=0 SYSTRAY=0<br />) ELSE (<br />&nbsp;  START /WAIT jre-7u11-windows-i586.exe /s /v"/passive /norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0 WEBSTARTICON=0 EULA=0 SYSTRAY=0"<br />)<br /><br />REM Uninstall Java Autoupdater<br />wmic product where "name like 'Java%Auto%'" call uninstall<br /><br />REM Return exit code to SCCM<br />exit /B %EXIT_CODE%</pre><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+                    01/17/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6946"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6946"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>Java 7 Update 10 and 11</p><div class="the-answer"><br /><p>Look at this link. It would seem that our command line options have changed again.</p><br /><p><a href="http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jre-installer-options.html#running" rel="nofollow">http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jre-installer-options.html#running</a></p><br /><p>here is the syntax.</p><br /><p><code><em>&lt;jre&gt;</em>.exe [/s] [INSTALLDIR=<em>&lt;drive&gt;</em>:\<em>&lt;JRE_install_path&gt;</em>] [STATIC=1] [WEB_JAVA=0/1] [WEB_JAVA_SECURITY_LEVEL=VH/H/M/L</code>]</p><br /></div><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/GeekSoldier" class="username" rel="nofollow">GeekSoldier</a>
+                    01/18/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6947"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6947"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Java 7 Update 10+</p><p>&nbsp;</p><p>Look at this link. It would seem that our command line options have changed again.</p><p>&nbsp;</p><p><a href="http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jre-installer-options.html#running" rel="nofollow">http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jre-installer-options.html#running</a></p><p>&nbsp;</p><p>here is the syntax.</p><p>&nbsp;</p><p><code><em>&lt;jre&gt;</em>.exe [/s] [INSTALLDIR=<em>&lt;drive&gt;</em>:\<em>&lt;JRE_install_path&gt;</em>] [STATIC=1] [WEB_JAVA=0/1] [WEB_JAVA_SECURITY_LEVEL=VH/H/M/L</code>]</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/GeekSoldier" class="username" rel="nofollow">GeekSoldier</a>
+                    01/18/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6549"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6549"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>To install and disable updates (needed for us because we have DeepFreeze installed) i ran this command line&nbsp;</p><p>jre-7u4-windows-i586.exe /s /v"/norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0"</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/KevinViolette" class="username" rel="nofollow">KevinViolette</a>
+                    06/22/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6857"></div>
+    <div class="avg-rating">2</div>
+     <div class="arrow_down" id="tip-6857"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Required Pskill.exe from Sysinternal</p><p>Extracted .msi (Google how to). Created a Transform .mst (JRE.Mst) file using Ocra (Renamed .msi to JRE.msi)</p><p>The Code Will: (.vbs script file-Need to Run as Administrator)</p><p>Check for Any Java 6 and will Uninstall</p><p>&nbsp;will wait for 10 mins to close IE if not it will warn User to close IE (Will Keeps on checking each 30 Sec and will start install If IE Closed in between).</p><p>installs Java 7 (After Uninstall finished)</p><p>Will return Code 0 -for SCCM Success.</p><p>&nbsp;</p><pre>'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;Created By Junuzzz&lt;&lt;&lt;&lt;<br>Option Explicit<br>Dim inststat, msguser,mst,TPatch, strCurrent, strCaption, InstalledJRE, CurrentVersion, sQuery, cproc, iniproc, Install, MsiPath, strComputer, i, Uninstall, JREFamily,uStat<br>Dim objShell, filesys, objWMIService, colOperatingSystems, objOperatingSystem<br /><br />Set objShell = WScript.CreateObject ("WScript.shell")<br>Set filesys=CreateObject("Scripting.FileSystemObject")<br /><br />const timeout=600000&nbsp;&nbsp; '600000 10Min in millisecond<br>const timepoll=30000&nbsp;&nbsp;&nbsp; '30000 30 Sec in millisecond<br>Const SHOW_ACTIVE_APP = 1<br>Const ACTIVE_APP = 1<br>inststat = 1<br>msguser=0<br>i=0<br>uStat=1<br /><br />strCurrent="1.7.0_09" 'Set Current Version to Update/Pushing Here<br>objShell.run "reg add HKEY_CURRENT_USER\Software\Sysinternals\PsKill /v EulaAccepted /t REG_DWORD /d 00000001 /f" 'Accept Eula for pskill PSKILL PreSetup<br>mst = "\JRE.mst"'Edit mst Patch file Name - Edited Settings<br>TPatch = filesys.GetAbsolutePathName(".") &amp; mst<br>MsiPath= filesys.GetAbsolutePathName(".") &amp; "\JRE.msi"<br>Install="msiexec /i " &amp; Chr(34) &amp; MsiPath &amp; Chr(34) &amp; " AllUsers=1 " &amp; "/qn /norestart " &amp; "TRANSFORMS=" &amp; Chr(34)&amp; TPatch &amp; Chr(34)<br>REM MsgBox (Install)<br /><br /><br>'For Pulling WMI info<br>&nbsp;strComputer = "."<br>&nbsp;Set objWMIService = GetObject("winmgmts:" &amp; "{impersonationLevel=impersonate}!\\" &amp; strComputer &amp; "\root\cimv2")<br>&nbsp;Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")<br /><br />For Each objOperatingSystem in colOperatingSystems 'Check Operating system<br>&nbsp; strCaption = LCase(objOperatingSystem.OSArchitecture) 'Get OS Bit<br>&nbsp; REM MsgBox strCaption<br>&nbsp;Next<br>If (InStr(strCaption, "64") &gt; 0) Then 'Set Registry Path and get Installed JRE version<br>&nbsp;On Error Resume Next <br>&nbsp;CurrentVersion=objShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\" &amp; "Wow6432Node\JavaSoft\Java Runtime Environment\CurrentVersion")<br>&nbsp;JREFamily=Right(CurrentVersion,1)<br>&nbsp;REM Msgbox JREFamily<br>&nbsp;InstalledJRE= objShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\" &amp; "Wow6432Node\JavaSoft\Java Runtime Environment\" &amp; "Java"&amp; JREFamily &amp;"FamilyVersion")<br>&nbsp;REM Msgbox (InstalledJRE &amp;" :On 64-bit Operating System")<br>&nbsp;'Set Uninstall command for Java 6 <br>&nbsp;Select Case InstalledJRE<br>&nbsp;Case "1.6.0_36" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416036FF} /norestart /qn"<br>&nbsp;Case "1.6.0_35" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416035FF} /norestart /qn"<br>&nbsp;Case "1.6.0_34" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416034FF} /norestart /qn"<br>&nbsp;Case "1.6.0_33" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416033FF} /norestart /qn"<br>&nbsp;Case "1.6.0_32" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416032FF} /norestart /qn"<br>&nbsp;Case "1.6.0_31" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416031FF} /norestart /qn"<br>&nbsp;Case "1.6.0_30" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416030FF} /norestart /qn"<br>&nbsp;Case "1.6.0_29" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416029FF} /norestart /qn"<br>&nbsp;Case "1.6.0_28" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416028FF} /norestart /qn"<br>&nbsp;Case "1.6.0_27" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416027FF} /norestart /qn"<br>&nbsp;Case "1.6.0_26" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416026FF} /norestart /qn"<br>&nbsp;Case "1.6.0_25" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416025FF} /norestart /qn"<br>&nbsp;Case "1.6.0_24" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416024FF} /norestart /qn"<br>&nbsp;Case "1.6.0_23" '(x64)<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F86416023FF} /norestart /qn"<br>&nbsp;Case Else<br>&nbsp;uStat=0<br>&nbsp;Uninstall="Exit" 'No Java 6 installed<br>&nbsp;End Select<br>&nbsp;Else<br>&nbsp;On Error Resume Next <br>&nbsp;CurrentVersion=objShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\" &amp; "JavaSoft\Java Runtime Environment\CurrentVersion")<br>&nbsp;JREFamily=Right(CurrentVersion,1)<br>&nbsp;InstalledJRE= objShell.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\" &amp; "JavaSoft\Java Runtime Environment\" &amp; "Java"&amp; JREFamily &amp;"FamilyVersion")<br>&nbsp;REM Msgbox (InstalledJRE &amp;" :On 32-bit Operating System")<br>&nbsp;'Set Uninstall command for Java 6 <br>&nbsp;Select Case InstalledJRE<br>&nbsp;Case "1.6.0_36"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216036FF} /norestart /qn"<br>&nbsp;Case "1.6.0_35"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216035FF} /norestart /qn"<br>&nbsp;Case "1.6.0_34"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216034FF} /norestart /qn"<br>&nbsp;Case "1.6.0_33"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216033FF} /norestart /qn"<br>&nbsp;Case "1.6.0_32"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216032FF} /norestart /qn"<br>&nbsp;Case "1.6.0_31"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216031FF} /norestart /qn"<br>&nbsp;Case "1.6.0_30"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216030FF} /norestart /qn"<br>&nbsp;Case "1.6.0_29"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216029FF} /norestart /qn"<br>&nbsp;Case "1.6.0_28"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216028FF} /norestart /qn"<br>&nbsp;Case "1.6.0_27"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216027FF} /norestart /qn"<br>&nbsp;Case "1.6.0_26"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216026FF} /norestart /qn"<br>&nbsp;Case "1.6.0_25"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216025FF} /norestart /qn"<br>&nbsp;Case "1.6.0_24"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216024FF} /norestart /qn"<br>&nbsp;Case "1.6.0_23"<br>&nbsp;Uninstall="msiexec.exe /X{26A24AE4-039D-4CA4-87B4-2F83216023FF} /norestart /qn"<br>&nbsp;Case "1.6.0_22"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160220} /norestart /qn"<br>&nbsp;Case "1.6.0_21"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160210} /norestart /qn"<br>&nbsp;Case "1.6.0_20"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160200} /norestart /qn"<br>&nbsp;Case "1.6.0_19"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160190} /norestart /qn"<br>&nbsp;Case "1.6.0_18"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160180} /norestart /qn"<br>&nbsp;Case "1.6.0_17"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160170} /norestart /qn"<br>&nbsp;Case "1.6.0_16"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160160} /norestart /qn"<br>&nbsp;Case "1.6.0_15"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160150} /norestart /qn"<br>&nbsp;Case "1.6.0_14"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160140} /norestart /qn"<br>&nbsp;Case "1.6.0_13"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160130} /norestart /qn"<br>&nbsp;Case "1.6.0_12"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160120} /norestart /qn"<br>&nbsp;Case "1.6.0_11"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160110} /norestart /qn"<br>&nbsp;Case "1.6.0_10"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160100} /norestart /qn"<br>&nbsp;Case "1.6.0_09"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160090} /norestart /qn"<br>&nbsp;Case "1.6.0_08"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160080} /norestart /qn"<br>&nbsp;Case "1.6.0_07"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160070} /norestart /qn"<br>&nbsp;Case "1.6.0_06"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160060} /norestart /qn"<br>&nbsp;Case "1.6.0_05"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160050} /norestart /qn"<br>&nbsp;Case "1.6.0_04"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160040} /norestart /qn"<br>&nbsp;Case "1.6.0_03"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160030} /norestart /qn"<br>&nbsp;Case "1.6.0_02"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160020} /norestart /qn"<br>&nbsp;Case "1.6.0_01"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160010} /norestart /qn"<br>&nbsp;Case "1.6.0_00"<br>&nbsp;Uninstall="msiexec.exe /X{3248F0A8-6813-11D6-A77B-00B0D0160000} /norestart /qn"<br>&nbsp;Case Else<br>&nbsp;uStat=0<br>&nbsp;Uninstall="Exit" 'No Java 6 installed<br>&nbsp;End Select<br>&nbsp;End If<br /><br /><br>If &nbsp;InstalledJRE = strCurrent then 'Comparing Current vInstalled version with update<br>&nbsp;REM Msgbox ("Java is Up to date " &amp; strCurrent)<br>&nbsp;&nbsp;inststat = 0<br>Else<br>&nbsp;REM Msgbox ( "Java is not Updated")<br>&nbsp;sQuery="select * from win32_process where name='iexplore.exe'"<br>&nbsp;set cproc=objWMIService.execquery(sQuery) 'Check IE running or not<br>&nbsp;iniproc=cproc.count<br>&nbsp;REM Msgbox ("iniproc=" &amp; iniproc)<br>&nbsp;if iniproc=0 then<br>&nbsp;&nbsp;REM Msgbox ( "IE is not Running")<br>&nbsp;&nbsp;set cproc=nothing : set objWMIService=nothing<br>&nbsp;&nbsp;REM Msgbox ( "Internet Explorer Not Running Starting Install")<br>&nbsp;&nbsp;If uStat=1 Then <br>&nbsp;&nbsp;objShell.Run Uninstall, ACTIVE_APP, True ' The script will continue until uninstall finish<br>&nbsp;&nbsp;End if<br>&nbsp;&nbsp;objShell.Run Install, SHOW_ACTIVE_APP, True ' The script will continue until Install finish<br>&nbsp;&nbsp;inststat = 0<br>&nbsp;&nbsp;&nbsp; Else<br>&nbsp;&nbsp;set cproc=nothing<br>&nbsp;for i=0 to timeout\timepoll<br>&nbsp;&nbsp;REM Msgbox ( " IE is Running Entering Loop")<br>&nbsp;&nbsp;set cproc=objWMIService.execquery(sQuery)<br>&nbsp;&nbsp;if cproc.count=0 then&nbsp;&nbsp;&nbsp; 'this monitor all instances died out<br>&nbsp;&nbsp;&nbsp;REM Msgbox ( "All processes Reader X Application are terminated. Starting Install")<br>&nbsp;&nbsp;&nbsp;If uStat=1 Then <br>&nbsp;&nbsp;&nbsp;objShell.Run Uninstall, ACTIVE_APP, True ' The script will continue until uninstall finish<br>&nbsp;&nbsp;&nbsp;End if&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;objShell.Run Install, SHOW_ACTIVE_APP, True ' The script will continue until Install finish<br>&nbsp;&nbsp;&nbsp;inststat = 0<br>&nbsp;Exit for<br>&nbsp;&nbsp;Else<br>&nbsp;&nbsp;REM Msgbox ( "Still Running for " &amp; "timepoll=" &amp; timepoll &amp; "timeout=" &amp; timeout &amp; "i="&amp;i)<br>&nbsp;&nbsp;REM Msgbox ( "timeout\timepoll=" &amp; timeout\timepoll)<br>&nbsp;&nbsp;&nbsp;if i=timeout\timepoll then<br>&nbsp;&nbsp;&nbsp;REM Msgbox ( "Some process Reader X Application is still running within the timeout period.")<br>&nbsp;&nbsp;&nbsp;&nbsp;If filesys.FileExists(filesys.GetSpecialFolder(0) &amp; "\pskill.exe") Then<br>&nbsp;&nbsp;&nbsp;&nbsp;REM MsgBox ("PSKill Already There")<br>&nbsp;&nbsp;&nbsp;&nbsp;Else<br>&nbsp;&nbsp;&nbsp;&nbsp;filesys.CopyFile filesys.GetAbsolutePathName(".") &amp; "\pskill.exe", filesys.GetSpecialFolder(0) &amp; "\", true ' Copy pskill To C:\WINDOWS Folder Of Workstation PSKILL PreSetup <br>&nbsp;&nbsp;&nbsp;&nbsp;filesys.CopyFile filesys.GetAbsolutePathName(".") &amp; "\pskill.exe", filesys.GetSpecialFolder(0) &amp; "\", true' Copy pskill To C:\WINDOWS Folder Of Workstation PSKILL PreSetup <br>&nbsp;&nbsp;&nbsp;&nbsp;End If<br>&nbsp;&nbsp;&nbsp;wscript.echo "Save your work and data!"&amp; VbCrLf &amp; "Then Click OK to close your browsers and compleate the Java update" &amp; VbCrLf &amp; "WARNING : Clicking OK will close all opened Internet Explorer Pages"<br>&nbsp;&nbsp;&nbsp;msguser=1<br>&nbsp;&nbsp;&nbsp;iErrorLevel = objShell.Run("pskill iexplore.exe", 1, True)<br>&nbsp;&nbsp;&nbsp;If uStat=1 Then <br>&nbsp;&nbsp;&nbsp;objShell.Run Uninstall, ACTIVE_APP, True ' The script will continue until uninstall finish<br>&nbsp;&nbsp;&nbsp;End if<br>&nbsp;&nbsp;&nbsp;objShell.Run Install, SHOW_ACTIVE_APP, True ' The script will continue until Install finish<br>&nbsp;&nbsp;&nbsp;inststat = 0<br>&nbsp;&nbsp;&nbsp;Else<br>&nbsp;&nbsp;&nbsp;REM Msgbox ( " Application is Running going to sleep for " &amp; timepoll)<br>&nbsp;&nbsp;&nbsp;wscript.sleep timepoll<br>&nbsp;&nbsp;&nbsp;inststat = 4 'Retry code<br>&nbsp;&nbsp;&nbsp;End if<br>&nbsp;&nbsp;End if<br>&nbsp;Next<br>&nbsp;End If<br>&nbsp;set cproc=nothing<br>&nbsp;set objWMIService=nothing<br>&nbsp;End If<br>If msguser =1 then<br>&nbsp;wscript.echo "Java Update completed"<br>&nbsp;End If<br>REM Msgbox ( "inststat "&amp;inststat)&nbsp;<br>wscript.quit(inststat)&nbsp;<br /></pre><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/junuzzz" class="username" rel="nofollow">junuzzz</a>
+                    11/29/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6413"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6413"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Here I published a tutorial for it and many others programs. Please comment on the blog if you have questions.</p><p>&nbsp;</p><p><a href="http://it-grund.blogspot.com/2012/04/how-to-deployinstall-silently-and.html" rel="nofollow">http://it-grund.blogspot.com/2012/04/how-to-deployinstall-silently-and.html</a></p><p>&nbsp;</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/tererecool" class="username" rel="nofollow">tererecool</a>
+                    05/18/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/aleffler" rel="nofollow">
+               <img src="/uploads/images/47379/Y1a3Pj.jpg?1354656550927" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/aleffler" rel="nofollow">aleffler</a>
+                        3 months 29 days 19 mins ago
+                                </div>
+                    <span class="the-comment"><p>Why don't you just post it here?</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6954"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6954"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>Silent install using the Executable file, passing options directly to the embeded MSI.</p><p>For x64 systems</p><pre style="padding: 15px; background-color: #f7f7f7; color: #212121; font-size: 12px;">jre-7u11-windows-x64.exe /s /v"/passive /norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0 WEBSTARTICON=0 EULA=0 SYSTRAY=0"</pre><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+                    01/22/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6955"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6955"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p style="color: #212121; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">Silent install using the Executable file, passing options directly to the embeded MSI.</p><p style="color: #212121; font-family: 'Helvetica Neue', Helvetica, arial, 'sans serif'; font-size: 12px;">For x86 systems. Will not work on x64 systems, due to compatibility problems with silent installing the x86 executable against x64 OS.</p><pre>jre-7u11-windows-i586.exe /s /v"/passive /norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0 WEBSTARTICON=0 EULA=0 SYSTRAY=0"</pre><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/dnnelson1969" class="username" rel="nofollow">dnnelson1969</a>
+                    01/22/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6971"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6971"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I found this article very helpful.&nbsp;<a href="http://www.kevintaber.com/2011/10/25/disable-java-auto-update/" rel="nofollow">http://www.kevintaber.com/2011/10/25/disable-java-auto-update/</a></p><p>I Followed the below section using PDQ Deploy worked without updates.&nbsp;</p><p style="margin: 0.25em 0px 0.75em; padding: 0px; line-height: 19px; color: #333333; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; font-size: 13px;">Note: To install Java without the updater to begin with,&nbsp;<a style="outline: none; color: #6e8c03;" href="http://java.com/winoffline_installer/">download the offline installer</a>, execute the .exe and cancel the install. You can then find the extracted files in %APPDATA%\admin-user-used-to-install\LocalLow\Sun\Java\ and copy them to your network location or local drive. Finally run the installer with the following switches:</p><p style="margin: 0.25em 0px 0.75em; padding: 0px; line-height: 19px; color: #333333; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; font-size: 13px;">&nbsp;</p><p style="margin: 0.25em 0px 0.75em; padding: 0px; line-height: 19px; color: #333333; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; font-size: 13px;"><strong>msiexec /i &ldquo;<a style="outline: none; color: #6e8c03;" href="file://server-name/Oracle/jre1.6.0_29/jre1.6.0_29.msi">\\server-name\share-name\jre1.6.0_29\jre1.6.0_29.msi</a>&rdquo; JAVAUPDATE=0 JU=0 AUTOUPDATECHECK=0</strong></p><p style="margin: 0.25em 0px 0.75em; padding: 0px; line-height: 19px; color: #333333; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; font-size: 13px;">The above is not a silent install, just an install without the auto updater components. Also, you will see examples online mentioning IEXPLORE ADDLOCAL and MOZILLA, but those options have all been deprecated since 1.6.0_10.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/mattyakel" class="username" rel="nofollow">mattyakel</a>
+                    01/30/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-1378"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-1378"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Copy the information between the double dash lines into a batch file with the x86 and x64 installers for a silent installation of both that works conditionally on whether the OS is x86 or x64 ( no transforms needed, no extracting MSI files. )<br><br />================================================<br><br><br />@echo off<br><br />CLS<br><br />TITLE Installing Package, Please wait...<br><br />SET INST=%~dp0<br><br><br />:: If the environmental variable ProgramW6432 is defined then the OS is 64-bit and we install the 64-bit version of Java <br><br />:: for 64-bit Browser support.<br><br><br />IF DEFINED ProgramW6432 (<br><br><br />"%INST%jre-7u1-windows-x64.exe" /s "/passive /norestart AUTOUPDATECHECK=0 IEXPLORER=1 JAVAUPDATE=0 JU=0"<br><br><br />)<br><br><br />:: We always install the x86 version of Java. Note the order of installation. If x86 is installed before x64 some x86 apps do not work.<br><br />:: This can be remedied by reinstalling the x86 version, but why encounter the problem? Just install x64 before x86 versions of Java.<br><br><br />"%INST%jre-7u1-windows-i586.exe" /s /v"/norestart AUTOUPDATECHECK=0 JAVAUPDATE=0 JU=0"<br><br><br><br><br />:: MSI Command-line notes<br><br />:: This next line ends processing so notes can be entered with out rem or :: statements<br><br />GOTO :EOF<br><br><br />MSI Command-line notes<br><br><br />The Oracle Java installers are wrappers with embedded msi and cab files, This allows a single file installer which<br><br />extracts the MSI and cab files and then install the program<br><br><br />The wrapper installers can be passed MSI Public properties&nbsp; and MSI command-line switches which allow the modification of the installation.<br><br><br />The key to doing this with most wrappers that contain MSI's is the /v"" switch with double quotes. (NO SPACES afer /v)<br><br><br />By placing the MSI switches and Public properties between the paired double-quotes they are passed to internal MSI.<br><br><br />So the following happens based on the command-line above.<br><br><br />/s - Makes the wrapper be silent<br><br><br />/v"" Encapsulates the MSI switches and public properties and tells the wrapper to send them in.<br><br><br />/norestart - Prevents any restarts, probably not needed but there to be sure.<br><br><br />The following mofifies the installation to disable all java update activity,<br><br />Modifies the installation to change AUTOUPDATECHECK=1 to&nbsp; AUTOUPDATECHECK=0 disabling the autoupdate checking<br><br />Modifies the installation to change JAVAUPDATE=1 to JAVAUPDATE=0 disabling the java update functionality.<br><br />Modifies the installation to change JU=1 to JU=0<br><br><br />Installation information in earlier versions suggest that the IEXPLORER and MOZILLA public properties are depreciated and no longer used<br><br />I leave them out and my browsers seem to work fine. However that is not a comphrensive test.<br><br><br />These modified registry setting are in two places if you have installed both x86 and x64 versions.<br><br><br />x86&nbsp; =HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\JavaSoft\Java Runtime Environment\1.7.0_01\MSI<br><br />xx64 = HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_01\MSI\ <br><br><br />===========================================================</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/jadelise" class="username" rel="nofollow">jadelise</a>
+                    11/10/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-1379"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-1379"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>How to silently deploy JRE on 64 bit Windows systems<br><br><br />From 1.6.0.27 on, Java Runtime is available as a 32bit and a 64bit Version. Since you have both x86 and x64 IE browsers installed on Win7 64bit - and perhaps further browsers in addition - it is recommended to have both JRE versions installed in order to support them all. <br><br><br />Attention. Be sure to -&gt;<br><br><br />Install:<br><br />Run x64 setup version first, the x86 setup second - to avoid problems with some applications later on. That's easy.<br><br><br />Uninstall:<br><br />Please accept the fact that 1. both setups carry the same GUID (wtf?!) and 2. if your executing wrapper or sth runs in 32bit mode you will go nuts anyway!<br><br><br />What happens, if you uninstall using "msiexec /x {GUID}" is:<br><br />&nbsp; 64bit JRE will get uninstalled properly, but 32bit JRE will remain installed any way you try.<br><br />The only way - quite easy again, if you once know - to properly uninstall both of them IS to use <br><br><br />"msiexec /x sourcepath\msi-name.msi"<br><br><br />Note: Tested on Windows 7 Enterprise 64Bit &amp; SCCM 2007. <br><br />I use extracted msis whenever possible, because its so easy to customize msis with a transform, rather than anything else...<br><br><br />Good luck! Feedback appreciated.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/freeality" class="username" rel="nofollow">freeality</a>
+                    11/22/2011 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/dotspm" rel="nofollow">
+               <img src="/bundles/itninjaweb/img/avatar-star.png" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/dotspm" rel="nofollow">dotspm</a>
+                        5 months 1 days 3 mins ago
+                            last edited 5 months 1 days 13 mins ago
+                                </div>
+                    <span class="the-comment"><p>I believe, at least in my tested case of Java 6 update 31, that the GUIDs are different, they just look very similar:<br>
+32bit:&nbsp; {26A24AE4-039D-4CA4-87B4-2F83216031FF}<br>
+64bit:&nbsp; {26A24AE4-039D-4CA4-87B4-2F86416031FF}<br>
+Starting 10 characters from the right, there's "32" in the 32bit GUID and "64" in the 64bit one, so I imagine this may also carry over to other Java versions.<br><br>
+My test environment: Windows 7 x64 with both Java 6 update 31 32- and 64-bit versions installed, with 64bit having been installed first.&nbsp; I ran two Kbox scripts - the first one uninstalled 64bit Java, and the second uninstalled 32bit Java, using "msiexec /x {GUID} /norestart /qb-!"&nbsp; I'm not sure if the uninstall order makes a difference.<br><br>
+Both entries are gone from Programs and Features, and I went to Java.com using both IE 32 and 64bit to see if anything lingered, and both came up uninstalled.&nbsp; :)</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6802"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6802"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>(Old user name - tried deleting this post.&nbsp; Will repost with new user name.&nbsp; Sorry for the confusion...)</p><p>&nbsp;</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/dotspm" class="username" rel="nofollow">dotspm</a>
+                    11/02/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6804"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6804"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>I believe, at least in my tested case of Java 6 update 31, that the GUIDs are different, they just look very similar:<br>32bit:&nbsp; {26A24AE4-039D-4CA4-87B4-2F8<strong>32</strong>16031FF}<br>64bit:&nbsp; {26A24AE4-039D-4CA4-87B4-2F8<strong>64</strong>16031FF}<br>Starting 10 characters from the right, there's "32" in the 32bit GUID and "64" in the 64bit one, so I imagine this may also carry over to other Java versions.<br><br>My test environment: Windows 7 x64 with both Java 6 update 31 32- and 64-bit versions installed, with 64bit having been installed first.&nbsp; I ran two Kbox scripts - the first one uninstalled 64bit Java, and the second uninstalled 32bit Java, using "msiexec /x {GUID} /norestart /qb-!"&nbsp; I'm not sure if the uninstall order makes a difference.<br><br>Both entries are gone from Programs and Features, and I went to Java.com using both IE 32 and 64bit to see if anything lingered, and both came up uninstalled.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/RunInCircles" class="username" rel="nofollow">RunInCircles</a>
+                    11/02/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-6871"></div>
+    <div class="avg-rating">1</div>
+     <div class="arrow_down" id="tip-6871"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>You MUST have the offline installer for install through the K1000. &nbsp;The online installer will error out with MSI error 1603. &nbsp;</p><p>Offline installers can be found here: &nbsp;<a href="http://www.java.com/en/download/manual.jsp" rel="nofollow">http://www.java.com/en/download/manual.jsp</a></p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/WhitzEnd" class="username" rel="nofollow">WhitzEnd</a>
+                    12/05/2012 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7003"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7003"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>rem same old bugs as the java 6 installer:</p><p>rem 1) 32 bit exe won't install as the System user in 64 bit Windows 7</p><p>rem 2) same msi version can't be installed twice, will break install</p><p>&nbsp;</p><p>rem get msi from %USERPROFILE\AppData\LocalLow\Sun\Java\</p><p>&nbsp;</p><p>rem put back dll in case of broken install (formerly regutils.dll in java 6), allows clean uninstall</p><p>copy /y installer.dll "C:\Program Files (x86)\Java\jre7\bin\"</p><p>&nbsp;</p><p>rem check for file existence, otherwise piping breaks out of script</p><p>if not exist "c:\program files (x86)\java\jre7\bin\java.exe" (</p><p>&nbsp; start /wait msiexec /i jre1.7.0_13.msi /qn</p><p>) else (</p><p>&nbsp; rem check version</p><p>&nbsp; rem must do 2&gt;&amp;1 !</p><p>&nbsp; "c:\program files (x86)\java\jre7\bin\java.exe" -version 2&gt;&amp;1 | find "1.7.0_13"</p><p>&nbsp; if errorlevel 1 start /wait msiexec /i jre1.7.0_13.msi /qn</p><p>)</p><p>&nbsp;</p><p>rem verify</p><p>dir "C:\Program Files (x86)\Java\jre7\bin\plugin2\npjp2.dll"</p><div>&nbsp;</div><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                    02/11/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7042"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7042"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Managed Install for the K1000 and 7u15 this script modified from JVerbosk will kill all browsers and schedulers run the uninstall for every version of 7 and then install 7u15.&nbsp; You must grab the msi and the cab and zip it up with this bat file and then call the bat file from the managed install.</p><p>&nbsp;</p><p>install_java_7u15.bat</p><pre>taskkill /F /IM iexplorer.exe<br>taskkill /F /IM iexplore.exe<br>taskkill /F /IM firefox.exe<br>taskkill /F /IM chrome.exe<br>taskkill /F /IM javaw.exe<br>taskkill /F /IM jqs.exe<br>taskkill /F /IM jusched.exe<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F86417002FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217007FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217010FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217004FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217003FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217001FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217006FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217000FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217011FF} /qn<br>MsiExec.exe /X{26A24AE4-039D-4CA4-87B4-2F83217013FF} /qn<br>taskkill /F /IM iexplorer.exe<br>taskkill /F /IM iexplore.exe<br>taskkill /F /IM firefox.exe<br>taskkill /F /IM chrome.exe<br>taskkill /F /IM javaw.exe<br>taskkill /F /IM jqs.exe<br>taskkill /F /IM jusched.exe<br>msiexec.exe /i jre1.7.0_15.msi /qn<br>exit</pre><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/petelanglois" class="username" rel="nofollow">petelanglois</a>
+                    02/25/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7052"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7052"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>If you would like to remove all old versions of Java 1.6 since they are vulnerable please do the follwing:</p><p>In KACE K1000 go to the scripting tab and create a new online shell script and add all of the required fields. At the bottom make sure you change the name of the script from script.sh to script.bat and enter the following:</p><pre>taskkill /F /IM iexplorer.exe<br>taskkill /F /IM iexplore.exe<br>taskkill /F /IM firefox.exe<br>taskkill /F /IM chrome.exe<br>taskkill /F /IM javaw.exe<br>taskkill /F /IM jqs.exe<br>taskkill /F /IM jusched.exe<br>wmic product where "name like 'Java(TM) 6%%'" call uninstall /nointeractive<br>exit</pre><p>With this script it will take about 3-5 minutes on each computer but it will find any traces of Java that have a 1.6 version and uninstall it silently. I hope this helps many others out there!</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/Vaha" class="username" rel="nofollow">Vaha</a>
+                    03/01/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7085"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7085"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Script</div>
+
+            <span id="tip-text">
+            <p>rem Alternatively, using the .exe installer and you have Altiris (runs installer as System) and you're doing 32 bit java in 64 bit windows 7 (32 and 64 bit System profiles get conflated):</p><p>reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\S-1-5-18" /f /v ProfileImagePath /d c:\windows\temp</p><p>start /wait jre-7u17-windows-i586.exe /s</p><p>rem put it back</p><p>reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\S-1-5-18" /f /v ProfileImagePath /d %%systemroot%%\system32\config\systemprofile</p><p>&nbsp;</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/tamahome" class="username" rel="nofollow">tamahome</a>
+                    03/13/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7094"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7094"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p>Took about 6 weeks to reverse engineer the issues with "Your version of java is insecure" in Java 1.7 even after turning off all auto-updates.&nbsp;</p><p>Here's the full process (read all the comments also)</p><p><a href="http://www.labareweb.com/java-1-7-auto-update-deployment-with-sccmmdt/">Java 1.7 Supress Your Version of Java is Insecure</a></p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/bretthexum" class="username" rel="nofollow">bretthexum</a>
+                    03/15/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 1 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+    <li>    
+    <div class="comment-wrap">
+
+        <a href="/user/jfrasier" rel="nofollow">
+               <img src="/uploads/images/9598/b6NVaM.gif?1358969144460" class="comment-avatar"/>
+        </a>
+
+        <div class="comment">
+        <div class="byline">
+            <a class="username" href="/user/jfrasier" rel="nofollow">jfrasier</a>
+                        19 days 11 mins ago
+                                </div>
+                    <span class="the-comment"><p>This is great BUT I can't get the deployment.config to use a deployment.properties file on a network server. It worked with Java 1 update 6xx. I am using this URL (file://///server/softwareinstalljf/java/deployment.properties) and if I put that in IE the contents of the properties file are displayed so I know that this computer can connect to the network share. If I open the Java control panel it insists on putting a new properties file in the users profile<br><br>
+Any ideas?</p>
+</span>
+                <footer class="comment-links"></footer>
+        </div>
+    </div>
+
+    <ul class="comments">
+</ul>
+    </li>
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7101"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7101"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            <p><a href="http://docs.oracle.com/javase/7/docs/webnotes/install/windows/jre-installer-options.html#running">Java Installer Options</a></p><p><code><em>&lt;jre&gt;</em>.exe [/s] [INSTALLDIR=<em>&lt;drive&gt;</em>:\<em>&lt;JRE_install_path&gt;</em>] [STATIC=1] [WEB_JAVA=0/1] [WEB_JAVA_SECURITY_LEVEL=VH/H/M/L</code>]</p><p>For the .exe installer per Oracle.</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/GeekSoldier" class="username" rel="nofollow">GeekSoldier</a>
+                    03/19/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+    
+    
+        <div class="tip">
+            <div class="tip-part">
+                <div class="tip-rating">
+
+                        
+
+    
+<div class="incrementalRating">
+     <div class="arrow_up" id="tip-7112"></div>
+    <div class="avg-rating">0</div>
+     <div class="arrow_down" id="tip-7112"></div>
+</div>                    </div>
+                <div class="tip-info">
+    <div class="the-tip">
+        <div class="tip-type-heading">Command Line</div>
+
+            <span id="tip-text">
+            <p>To uninstall JAVA, you need to find out the correct entry in the Registry.</p><p>It can be found @</p><p>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products</p><p>there you need to find out which of those is the JAVA Installation and under "InstallProperties" you will find the uninstall String.</p><p>With this command you can uninstall JAVA, just add /qn for the silent uninstall.</p><p>Example for JAVA 7.17:</p><p>"MsiExec.exe" /X{26A24AE4-039D-4CA4-87B4-2F86417017FF} /qn</p><br />
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul class="byline_meta">
+                <li>
+                    By: <a href="/user/TheWagner" class="username" rel="nofollow">TheWagner</a>
+                    03/25/2013 &nbsp;
+                                    </li>
+                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+            </div>
+            <br clear="all"/>
+            <div class="deployment-tips-comments">
+
+                <ul class="comments">
+</ul>
+                    Please <a href="https://www.itninja.com/login?http%3A%2F%2Fwww.itninja.com%2Fsoftware%2Foracle%2Fjava-2%2F7-552">log in</a> to comment
+
+            </div>
+        </div>
+                        
+
+
+                </div>
+            </div>
+                    </div>
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Inventory Records (5)</h2>
+        <p>View inventory records anonymously contributed by opt-in users of the
+            <a href="http://www.kace.com/demo/index.php?tab=flash-demo&utm_medium=ITNinja&utm_source=Software+Tag&ad_group=%20Package+KB+v2&campaign_id=701400000009kH1">
+                K1000 Systems Management Appliance</a>.
+        </p>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                                        <div><a class="selected" href="/software/version/revision/15830/32919">7</a></div>
+                                        <div><a  href="/software/version/revision/15830/42536">7.0.0</a></div>
+                                        <div><a  href="/software/version/revision/15830/42537">7.0.30</a></div>
+                                        <div><a  href="/software/version/revision/15830/42538">7.0.20</a></div>
+                                        <div><a  href="/software/version/revision/15830/42539">7.0.10</a></div>
+                                    </div>
+                <div id="software-view-version-revision-details">
+                                                <h2>JAVA</h2>
+            <div><h3>Version</h3><span>7</span></div>
+                                                                                                                                        </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records secion -->
+
+    <div class="software-section" id="q-a">
+        <div class="add-links">
+               <a href="/question/new/oracle-java-7" class="add-tip">Ask a new question</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Questions & Answers (26)</h2>
+        <p>Questions & Answers related to Oracle JAVA</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            5
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/java-32-and-64-on-64-bit-machines">
+                Java 32 and 64 on 64 bit machines?
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+    <input name="java-32-and-64-on-64-bit-machines" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/TBG_Associate" rel="nofollow">TBG_Associate</a>
+                1 week ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/help-setting-classpath-environment-variables">
+                Help setting ClassPath environment variables
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="help-setting-classpath-environment-variables" type="radio" class="star" disabled="disabled"  />
+    <input name="help-setting-classpath-environment-variables" type="radio" class="star" disabled="disabled"  />
+    <input name="help-setting-classpath-environment-variables" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="help-setting-classpath-environment-variables" type="radio" class="star" disabled="disabled"  />
+    <input name="help-setting-classpath-environment-variables" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/J.M." rel="nofollow">J.M.</a>
+                2 weeks ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            4
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/updating-java-6-30-to-java-7-17">
+                Updating Java 6_30 to Java 7_17
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="updating-java-6-30-to-java-7-17" type="radio" class="star" disabled="disabled"  />
+    <input name="updating-java-6-30-to-java-7-17" type="radio" class="star" disabled="disabled"  />
+    <input name="updating-java-6-30-to-java-7-17" type="radio" class="star" disabled="disabled"  />
+    <input name="updating-java-6-30-to-java-7-17" type="radio" class="star" disabled="disabled"  />
+    <input name="updating-java-6-30-to-java-7-17" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/AJ1080" rel="nofollow">AJ1080</a>
+                3 weeks ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up">
+                Can you Deploy Java 7 update 17 silently without getting &quot;Interactive Services Detection&quot; pop-up?
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up" type="radio" class="star" disabled="disabled"  />
+    <input name="can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up" type="radio" class="star" disabled="disabled"  />
+    <input name="can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up" type="radio" class="star" disabled="disabled"  />
+    <input name="can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="can-you-deploy-java-7-update-17-silently-without-getting-interactive-services-detection-pop-up" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Raz0r" rel="nofollow">Raz0r</a>
+                3 weeks ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            3
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/java-7-with-progress-bar-only">
+                Java 7 with progress bar only
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-with-progress-bar-only" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-with-progress-bar-only" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-with-progress-bar-only" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-with-progress-bar-only" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-with-progress-bar-only" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/eversmark" rel="nofollow">eversmark</a>
+                4 weeks ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/deployment-config-and-deployment-properties-for-java-1-7-11-1">
+                Deployment.config and deployment.properties for Java 1.7.11
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="deployment-config-and-deployment-properties-for-java-1-7-11-1" type="radio" class="star" disabled="disabled"  />
+    <input name="deployment-config-and-deployment-properties-for-java-1-7-11-1" type="radio" class="star" disabled="disabled"  />
+    <input name="deployment-config-and-deployment-properties-for-java-1-7-11-1" type="radio" class="star" disabled="disabled"  />
+    <input name="deployment-config-and-deployment-properties-for-java-1-7-11-1" type="radio" class="star" disabled="disabled"  />
+    <input name="deployment-config-and-deployment-properties-for-java-1-7-11-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jfrasier" rel="nofollow">jfrasier</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            5
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/java-7-upd-15-x86-missing-update-tab">
+                Java 7 upd 15 x86 missing update tab
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-upd-15-x86-missing-update-tab" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/JonE_Sysadmin" rel="nofollow">JonE_Sysadmin</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            1
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/java-7-x-with-low-security">
+                Java 7.x with low security
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-x-with-low-security" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/aderek39" rel="nofollow">aderek39</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap answered">
+
+        <div class="vote-num">
+            3
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERED
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/disable-auto-update-in-java-v7-u11-13">
+                disable auto-update in Java v7 u11 &amp; 13
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="disable-auto-update-in-java-v7-u11-13" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/sburkey2" rel="nofollow">sburkey2</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/silent-install-java-in-multi-architecture-environment">
+                Silent install Java in multi architecture environment
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+    <input name="silent-install-java-in-multi-architecture-environment" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/akilpatrick" rel="nofollow">akilpatrick</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap answered">
+
+        <div class="vote-num">
+            5
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERED
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/deploy-msi-from-jre-7u13-offline-installer">
+                Deploy MSI from JRE 7u13 offline installer
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="deploy-msi-from-jre-7u13-offline-installer" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-msi-from-jre-7u13-offline-installer" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-msi-from-jre-7u13-offline-installer" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="deploy-msi-from-jre-7u13-offline-installer" type="radio" class="star" disabled="disabled"  />
+    <input name="deploy-msi-from-jre-7u13-offline-installer" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/lars667" rel="nofollow">lars667</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            1
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/java-7-update-11-specific-configuration">
+                Java 7 Update 11, Specify Configuration
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-update-11-specific-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-11-specific-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-11-specific-configuration" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-7-update-11-specific-configuration" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-11-specific-configuration" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Peter.Burns" rel="nofollow">Peter.Burns</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            1
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/uninstall-java-and-get-ssvagent-exe-prompt">
+                Uninstall Java and get ssvagent.exe prompt
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+    <input name="uninstall-java-and-get-ssvagent-exe-prompt" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jasonk146" rel="nofollow">jasonk146</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/how-to-create-a-script-for-java-7-update-11-in-kace-1000">
+                How to create a script for Java 7 Update 11 in Kace 1000
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+    <input name="how-to-create-a-script-for-java-7-update-11-in-kace-1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/lsisupport" rel="nofollow">lsisupport</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            1
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/difference-between-java-security-warnings">
+                Difference between Java Security Warnings?
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="difference-between-java-security-warnings" type="radio" class="star" disabled="disabled"  />
+    <input name="difference-between-java-security-warnings" type="radio" class="star" disabled="disabled"  />
+    <input name="difference-between-java-security-warnings" type="radio" class="star" disabled="disabled"  />
+    <input name="difference-between-java-security-warnings" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="difference-between-java-security-warnings" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap answered">
+
+        <div class="vote-num">
+            4
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERED
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/change-java-default-security-level">
+                Change Java Default Security Level?
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+    <input name="change-java-default-security-level" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap answered">
+
+        <div class="vote-num">
+            6
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERED
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install">
+                Using K1000 and Managed Install for Java 7u11 and getting pop ups during silent install.
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled"  />
+    <input name="using-k1000-and-managed-install-for-java-7u11-and-getting-pop-ups-during-silent-install" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/petelanglois" rel="nofollow">petelanglois</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap answered">
+
+        <div class="vote-num">
+            8
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERED
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/anyone-have-to-push-java-7-update-11-yet">
+                Anyone have to push Java 7 update 11 yet?
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="anyone-have-to-push-java-7-update-11-yet" type="radio" class="star" disabled="disabled"  />
+    <input name="anyone-have-to-push-java-7-update-11-yet" type="radio" class="star" disabled="disabled"  />
+    <input name="anyone-have-to-push-java-7-update-11-yet" type="radio" class="star" disabled="disabled"  />
+    <input name="anyone-have-to-push-java-7-update-11-yet" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="anyone-have-to-push-java-7-update-11-yet" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            1
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/best-way-to-deploy-stgms-software">
+                Best way to deploy STGMS software
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+    <input name="best-way-to-deploy-stgms-software" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/cartc" rel="nofollow">cartc</a>
+                3 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                    <div class="content-wrap">
+
+    <div class="vote-wrap">
+
+        <div class="vote-num">
+            2
+        </div>
+
+        <div class="vote-label">
+            <!--insert conditional based on answered or not-->
+            ANSWERS
+        </div>
+
+    </div>
+
+    <div class="content-meta">
+        <h2 class="content-title">
+            <a href="/question/problems-with-java">
+                Problems with Java
+            </a>
+        </h2>
+
+        <div class="content-lower">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+    <input name="problems-with-java" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Foyet" rel="nofollow">Foyet</a>
+                4 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--end question -->                                <div class="show-more"><a href="/tag/oracle-java-7/question">More Questions</a></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A secion -->
+
+    <div class="software-section" id="blogs">
+        <div class="add-links">
+            <a href="/blog/post/new/oracle-java-7" class="add-tip">Write a blog post</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Blogs (5)</h2>
+        <p>Blog posts related to Oracle JAVA</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/java-jre-7-update-15">
+                Java JRE 7 Update 15
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+    <input name="java-jre-7-update-15" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/kmwhiten12" rel="nofollow">kmwhiten12</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/kace-java-7-update-11-is-in-the-kace-patching-feed">
+                KACE:  Java 7 Update 11 Is In The KACE Patching Feed
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+    <input name="kace-java-7-update-11-is-in-the-kace-patching-feed" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/KACE_Mary" rel="nofollow">KACE_Mary</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/securing-your-network-from-java-7-exploits-using-the-k1000">
+                Securing your network from Java 7 exploits using the K1000
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="securing-your-network-from-java-7-exploits-using-the-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="securing-your-network-from-java-7-exploits-using-the-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="securing-your-network-from-java-7-exploits-using-the-k1000" type="radio" class="star" disabled="disabled"  />
+    <input name="securing-your-network-from-java-7-exploits-using-the-k1000" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="securing-your-network-from-java-7-exploits-using-the-k1000" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Scott%20Smith" rel="nofollow">Scott Smith</a>
+                6 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/java-why-do-you-hate-me-so">
+                Java - Why do you hate me so?
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled"  />
+    <input name="java-why-do-you-hate-me-so" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/muebel" rel="nofollow">muebel</a>
+                7 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                        <div class="content-wrap">
+    <div class="content-icon">
+        <div class="blog-icon" title="Blog">blog</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/blog/view/cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround">
+                How to deploy Java JRE7u5 32 bit to 64 bit machines as system account using KACE
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="cannot-deploy-java-jre7u5-32-bit-to-64-bit-machines-as-system-account-using-kace-here-is-a-workaround" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Shootifitmoves" rel="nofollow">Shootifitmoves</a>
+                9 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end Blogs secion -->
+
+    <div class="software-section" id="links">
+        <div class="add-links">
+            <a href="/link/new/oracle-java-7" class="add-tip">Share a link</a>
+        </div>
+        <h2 class="section-title"><a href="#" class="plus toggle"></a> Links (9)</h2>
+        <p>Links related to Oracle JAVA</p>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-6-0-update-29">
+                Java 6.0 Update 29
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+    <input name="java-6-0-update-29" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/ohiosoundguy" rel="nofollow">ohiosoundguy</a>
+                1 year ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-7-update-10-lets-users-restrict-java-apps-in-browsers">
+                Java 7 update 10 lets users restrict Java apps in browsers
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-update-10-lets-users-restrict-java-apps-in-browsers" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/samzeeco" rel="nofollow">samzeeco</a>
+                3 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/oracle-java-deployment-guide">
+                Oracle Java Deployment Guide
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="oracle-java-deployment-guide" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/critical-java-vulnerabilies-confirmed-in-latest-version">
+                Critical Java vulnerabilies confirmed in latest version
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+    <input name="critical-java-vulnerabilies-confirmed-in-latest-version" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/atulnimje" rel="nofollow">atulnimje</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-should-you-remove-it">
+                Java: should you remove it?
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+    <input name="java-should-you-remove-it" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/atulnimje" rel="nofollow">atulnimje</a>
+                1 month ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-runtime-environment-1-7-0-6-32-bit">
+                Download Java Runtime Environment 1.7.0_06 (32-bit)
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled"  />
+    <input name="java-runtime-environment-1-7-0-6-32-bit" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/jagadeish" rel="nofollow">jagadeish</a>
+                7 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-7-deployment-tips">
+                Java 7 Deployment tips
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-deployment-tips" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-tips" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-tips" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-tips" type="radio" class="star" disabled="disabled" checked="checked" />
+    <input name="java-7-deployment-tips" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/Arvidb" rel="nofollow">Arvidb</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-wpkg-open-source-software-deployment-and-distribution-1">
+                Java - WPKG | Open Source Software Deployment and Distribution.
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+    <input name="java-wpkg-open-source-software-deployment-and-distribution-1" type="radio" class="star" disabled="disabled"  />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/dnnelson1969" rel="nofollow">dnnelson1969</a>
+                2 months ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                    <div class="content-wrap">
+    <div class="content-icon">
+        <div class="link-icon" title="Link">link</div>
+    </div>
+    <div class="content-meta">
+        <h2 class="content-title">
+
+            <a href="/link/java-7-deployment-documentation">
+                Java 7 Deployment Documentation
+            </a>
+
+        </h2>
+
+        <div class="content-lower-light">
+
+            <div class="content-rating-light"><div class="rating">
+    <input name="java-7-deployment-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-documentation" type="radio" class="star" disabled="disabled"  />
+    <input name="java-7-deployment-documentation" type="radio" class="star" disabled="disabled" checked="checked" />
+</div></div>
+            <div class="op-light">
+                By:
+                <a href="/user/GeekSoldier" rel="nofollow">GeekSoldier</a>
+                1 week ago
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                                
+            </div>
+
+        </div>
+    </div>
+    <!-- end links secion -->
+
+
+
+</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <footer>
+                        <div id="footer-nav">
+                <div>
+                    <strong>Home Pages</strong>
+                    <ul>
+                        <li><a href="/software">Software</a></li>
+                        <li><a href="/tips">Deployment Tips</a></li>
+                        <li><a href="/question">Questions</a></li>
+                        <li><a href="/blog">Blog Posts</a></li>
+                        <li><a href="/link">Shared Links</a></li>
+                    </ul>
+                </div>
+                <div>
+                   <strong>FAQ &amp; Support</strong>
+                   <ul>
+                       <li><a href="/faq">Site FAQ</a></li>
+                       <!--<li><a href="/faq/beta">Beta FAQ</a></li>-->
+                       <li><a href="/faq#PointsFAQ">Ninja Points FAQ</a></li>
+                       <li><a href="/faq#ADFAQ">AppDeploy FAQ</a></li>
+                       <li><a href="/kace">Dell KACE Support</a></li>
+                   </ul>
+               </div>
+                <div>
+                    <strong>About</strong>
+                    <ul>
+                        <li><a href="/about">ITNinja</a></li>
+                        <li><a href="/about">Welcome Video</a></li>
+                        <li><a href="/tour">Tour</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="share">
+                    <strong>Share/Contribute</strong>
+                    <ul class="share-list">
+                        <li><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/twitter.png" alt="Twitter"></a></li>
+                                            </ul>
+                </div>
+            </div>
+        <br clear="all"/>
+        <br clear="all"/>
+            <div id="footer-links">
+                <p>&copy; Dell Inc. All rights reserved.</p>
+                <ul>
+                    <li><a href="/legal">Legal</a></li>
+                    <li><a href="/about" class="last">About</a></li>
+                    <li><a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a></li>
+                </ul>
+                <p id="footer-logos">
+                    <a href="http://www.kace.com/about/index.php?utm_medium=ITNinja&utm_source=Page+Footer&ad_group=ITNinja&campaign_id=701400000009kH1"><img src="/bundles/itninjaweb/img/DellKace_logo.png" alt="Dell | Kace" /></a>
+                </p>
+                <div id="version"><span id="revision">cc82a7f</span> <span id="build-date">Wed March 27 19:15:24 EDT 2013</span>"<span id="server">www.itninja.com</span></div>
+            </div>
+        </footer>
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/818906d.js"></script>
+        
+        
+        <script src="/js/0c271c0.js"></script>
+
+            <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-26553848-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+            </script>
+            <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-1.newrelic.com","fa2fb87fc4","1817996","b1BUNhNQC0dUWkANC1YadRcSRQpZGkpbAhBPVEQHPkcMUUI=",0,569,new Date().getTime(),"","","","",""]);</script>
+</body>
+</html>

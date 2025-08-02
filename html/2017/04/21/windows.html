@@ -1,0 +1,1827 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><script type='text/javascript'>window.mod_pagespeed_start = Number(new Date());</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XAQFUlVACQsBU1hbAQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+        <title>IT Pro Tips for Design Science MathType 5 | ITNinja</title>
+        <meta name="description" content="Deployment tips, questions, blogs and other technical materials related to Design Science MathType 5">
+        <meta name="keywords" content="Design Science,Design Science MathType,MathType 5">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="yMY423DZduMGIsTKJnJbRzr_qC4FUxtEhXxtuGftSGw"/>
+        <link rel="shortcut icon" href="/bundles/itninjaweb/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/bundles/itninjaweb/img/xapple-touch-icon.png.pagespeed.ic.AvVF0T_Kij.png">
+	<link rel="canonical" href="http://www.itninja.com/software/design-science/mathtype/5-1437/windows"/>
+
+
+        <!--
+         * Quest Software Inc. PROPRIETARY INFORMATION
+         *
+         * This software is confidential.  Quest Software Inc., or one of its subsidiaries, has
+         * supplied this software to you under the terms of a license agreement,
+         * nondisclosure agreement or both.  You may not copy, disclose, or use this
+         * software except in accordance with those terms.
+         *
+         * Copyright 2017 Quest Software Inc..  All Rights Reserved.
+         *
+         * Quest Software Inc. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+         * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+         * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+         * OR NON-INFRINGEMENT. Quest Software Inc. SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY
+         * LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR
+         * ITS DERIVATIVES.
+         *
+        -->
+
+        <link href="/bs-compiled.css" rel="stylesheet/less" type="text/css"/>
+        
+        <link href="/A.bs-compiled.css.pagespeed.cf.mChbqPpX7S.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/A.a6a67e0.css.pagespeed.cf.q1DtoCGvd5.css"/>
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/A.f4e8db9.css.pagespeed.cf._oV2MhGLD1.css"/>
+        <!--[if lt IE 9]>
+            <script src="/js/ede9468.js"></script>        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript">var Itninja={};Itninja.isIe8=false;window.jQuery||document.write("<script src='/bundles/itninjaweb/js/jquery-1.10.2.min.js'>\x3C/script>");var TAG_SERVER='tags.itninja.com',TAG_AUTO_SUGGEST_ENABLE='1'==='1'?true:false,TAG_SHOW_ADD_NEW=false,TAG_USER_ID=0;if(!$.support.leadingWhitespace){$(function(){showNotificationBar('Incompatible Browser Detected. We recommend switching to another browser while using this site. <a href="/browser-incompatible" rel="nofollow">Click here for more details</a>');});}</script>
+                    </head>
+    <body>
+        <div class="container">
+
+            <p id="kace-link">&nbsp;</p>
+
+            <div id="top" class="content-row">
+                <div class="md-12">
+                    <div id="logo"><a href="/">
+                        <img src="/bundles/itninjaweb/img/221x75xITN_logo_no_AD.png.pagespeed.ic.ygkSqJQslZ.png" alt="ITNinja Home" width="221" height="75"/></a>
+                                            </div>
+
+                    <nav class="navbar navbar-link" role="navigation" id="top-nav">
+
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/login" class="button">Log in</a></li>
+            <li class="last"><a href="/register" class="register"><strong>Sign up!</strong></a></li>
+            
+        </ul>
+    </div>
+</nav>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="md-12">
+                    <nav class="navbar navbar-inverse" role="navigation" id="main-nav">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="main-nav-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li class="active first">    <a href="/software">Software Tips</a>        
+</li>
+
+    <li>    <a href="/question">Questions</a>        
+</li>
+
+    <li>    <a href="/blog">Blogs</a>        
+</li>
+
+    <li>    <a href="/link">Links</a>        
+</li>
+
+    <li class="last">    <a href="/community">Communities</a>        
+</li>
+
+
+</ul>
+
+
+        <div class="navbar-search pull-right">
+        <form class="navbar-form navbar-right" role="search" action="/search" id="nav-search">
+
+            <div class="input-group">
+
+                <input type="text" name="q" placeholder="search" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-itn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </form>
+        </div>
+    </div>
+</nav>
+                 </div>
+            </div>
+
+
+                            <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="home"><a href="/">
+                        <img src="/bundles/itninjaweb/img/xBreadcrumb_cap.png.pagespeed.ic.PYZOZjr0P5.png"/></a></li>
+                        <li><a href="/software/browse?Popular=1">Software</a></li>
+    <li><a href="/software/design-science/browse">Design Science</a></li>
+    <li><a href="/software/design-science/mathtype/versions">MathType</a></li>
+    <li>5</li>
+                </ul>
+            
+            <div id="widget-notice" class="flash-wrap">
+            </div>
+
+            
+<div class="itn-content">
+
+    <div class="content-row">
+
+        <div id="software-version-view-meta" class="md-8">
+                <h2>Design Science MathType</h2>
+
+                <div id="version-wrapper">
+
+                    <span class="version-name" id="version-changer">
+                        Version: 5
+                        <div id="version-list">
+                            <div class="version-list-top"></div>
+                            <ul id="version-list-items" class="version-list">
+                                                                    <li>
+                                        <a href="/software/design-science/mathtype/6-1381">
+                                            6.x <span>(6 tips) </span>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/software/design-science/mathtype/5-1437">
+                                            5.x <span>(1 tips) </span>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </span>
+
+                    
+                </div>
+
+            </div>
+
+        
+
+
+    <section id="widget-signup" class="signup-widget">
+
+    <h4>Don't be a Stranger!</h4>
+
+    <p>Sign up today to participate,
+        stay informed, earn points and establish a reputation for yourself!</p>
+
+    <a class="btn-follow btn" rel="nofollow" href="/register?/follow/version/26566/JTJGc29mdHdhcmUlMkZkZXNpZ24tc2NpZW5jZSUyRm1hdGh0eXBlJTJGNS0xNDM3JTJGd2luZG93cw==">
+        <span> Sign up!</span>
+    </a>
+    or
+    <a class="" rel="nofollow" href="/login?/follow/version/26566/JTJGc29mdHdhcmUlMkZkZXNpZ24tc2NpZW5jZSUyRm1hdGh0eXBlJTJGNS0xNDM3JTJGd2luZG93cw==">
+        login
+    </a>
+</section>
+
+
+
+            <div class="tr-meta" title="Average rating 0 based on 0 votes">
+                
+<div id="widget-software-byline" class="pull-right">
+    Views: 2.8k &nbsp|&nbsp
+    Created: 01/30/2007
+    
+</div><br>
+
+<div id="widget-software-byline-stars" class="stars-wrap">
+
+    <div id="scale-rating" class="rating">
+    <input name="Version26566" type="radio" class="star" disabled="disabled"/>
+    <input name="Version26566" type="radio" class="star" disabled="disabled"/>
+    <input name="Version26566" type="radio" class="star" disabled="disabled"/>
+    <input name="Version26566" type="radio" class="star" disabled="disabled"/>
+    <input name="Version26566" type="radio" class="star" disabled="disabled"/>
+</div></div>
+<div id="widget-software-byline-rating" class="pull-right"> Average Rating: <span id="average-rating">0</span></div>
+            </div>
+
+
+        <!--end header-->
+
+    </div>
+
+
+    <div class="content-row">
+
+            </div>
+
+
+        
+
+    <div class="content-row">
+
+        <div class="md-12">
+            
+
+<div id="widget-tags" class="tags-wrap">
+    </div>
+            
+        </div>
+
+
+        <div id="software-version-view-add-version-meta-additional" class="additional-meta md-12">
+            <div class="additional-meta-content callout-box">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                MathType has <a href="#inventory-records" id="scrollInv">4 inventory records</a>,
+                <a href="#q-a" id="scrollQA">0 Questions</a>,
+                <a href="#blogs" id="scrollBlog">0 Blogs</a>
+                and <a href="#links" id="scrollLinks">0 links</a>. Please help add to this by sharing more!
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="deployment-tips" class="software-section">
+
+        <div class="callout-box2">
+            <h3>
+                <a href="#" class="plus toggle minus"></a> Deployment Tips (1)
+                            </h3>
+
+
+
+        </div>
+
+
+                <div class="inner-content" id="deploy-div">
+
+            <div id="deployment-ratings-summary" class="inner">
+
+                    <div class="meta">
+                        <strong>Most Common Setup Type</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+                    <div class="meta meta-middle">
+                        <strong>Average Package Difficulty Rating</strong>
+                        <img src="/bundles/itninjaweb/img/difficulty/xclear.png.pagespeed.ic.N5-va8dgfh.png" class="img-responsive"/>
+                        <div class="rating-text">
+                            Rated <strong>0 / 5 (Not Rated)</strong>
+                            based on <strong>0</strong> ratings
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <strong>Most Commonly Reported Deployment Method</strong>
+                        <div>
+                            Not Determined
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- end rating section -->
+            
+                                                        
+
+            <div id="software-view-deployment-summary-form">
+                
+<form name="tip_summary" role="form" method="post" action="/version/summary/new/26566" novalidate="novalidate">
+
+<div class="form-group"><label for="tip_summary_text" class="required">Enter your tip</label><textarea id="tip_summary_text" name="tip_summary[text]" required="required" class="form-control"></textarea></div>
+<div class="input-group">
+<button type="button" id="tip_summary_submit" name="tip_summary[submit]" class="btn btn-itn" class="btn btn-itn">Submit</button>
+<span class="or-cancel">
+           or
+       <a class="tip_summary_cancel">cancel</a>
+       </span>
+   </div>
+<input type="hidden" id="tip_summary__token" name="tip_summary[_token]" value="92bf003e563e479c502f157d9017b322cf4a0dba" class="form-control"/>
+
+</form>
+
+            </div>
+
+
+            <ul class="nav nav-tabs" id="tips">
+
+                    <li>
+                        <a href="/software/design-science/mathtype/5-1437#tips">
+                            All Tips
+                        </a>
+                    </li>
+                                           <li class="active"><a href="/software/design-science/mathtype/5-1437/windows#tips">
+                               Windows Tips
+                            </a>
+                       </li>
+                                    </ul>
+
+            </ul>
+
+                    <div id="software-version-tips" class="inner">
+
+                
+    <div>
+        
+    
+        <div class="tip" id="tip_5522" name="tip_5522">
+
+            <div class="md-1">
+                
+
+    
+<div id="incremental-rating" class="incrementalRating">
+<!--   <div class="arrow_up" id="tip-5522"></div> -->
+   <div id="tip-5522" class="thumbs_up" style="text-align: center; width: 28px" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    <div class="avg-rating">-1</div>
+   <div id="tip-5522" class="thumbs_down" style="text-align: center; width:28px; margin-top: 28px;" ;><button class="btn btn-xs btn-link "><span class="glyphicon glyphicon-thumbs-down"></span></button></div>
+   <!--<div class="arrow_down" id="tip-5522"></div> -->
+</div>
+            </div>
+
+            <div class="md-11">
+    <div class="the-tip">
+        <div class="tip-type-heading">Note</div>
+
+            <span id="tip-text">
+            Deployment Environment: SCCM 2007r2<br/>
+Network Environment: ActiveDirectory<br/>
+Windows Environment: Windows 7 x86 / x64<br/>
+<br/>
+Begin of Customized setup.inf<br/>
+Begin of Customized setup.inf<br/>
+Begin of Customized setup.inf<br/>
+<br/>
+; setup.inf --- Copyright (c) 1987-2001 by Design Science, Inc.<br/>
+; Purpose: Information file - drives the installation process.<br/>
+; mtcd.cfg - configuration for MT CD release<br/>
+<br/>
+[startup]<br/>
+; These vars are needed to properly open the config file.<br/>
+ShortAppKey = MT<br/>
+MajVersion = 5<br/>
+MinVersion = 2<br/>
+; set configurable items<br/>
+; cfgInstallPDF: 1 = install PDF manual<br/>
+cfgInstallPDF = 1<br/>
+; cfgDLLReg: 1 = register DLLs<br/>
+cfgDLLReg = 1<br/>
+; cfgForeign: 1 = support foreign languages<br/>
+cfgForeign = 0<br/>
+; start of [Startup] section is in .cfg file<br/>
+&logical_disks =<br/>
+&enable_remove =<br/>
+&set_remove_ops =<br/>
+; 'no_*' set to True will prevent the indicated window from being shown.<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+no_background = 1<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+no_prog_meter = 1<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+; 'InstallNoDlg' set to ANY value will cause the main selection dlg to operate as if the user had just hit<br/>
+; 'OK' (equivalent to '-I' on cmd line).<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+InstallNoDlg = 1<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+; We need this to offer the user the chance to overwrite MT3<br/>
+; 'get_ini_var' requires 4 parameters:<br/>
+;		1) name of the value to store (once we get it)<br/>
+;		2) location of the ini source<br/>
+;		3) section where the value is to be found<br/>
+;		4) name of the value to read<br/>
+$get_ini_var = OldAppDir, &lt;WinDir&gt;\Mathtype.ini, Directories, MathTypeDir<br/>
+; 'lock_ProgDir' set to ANY value will prevent the user from modifying the destination text box in the main selection dlg.<br/>
+; Equivalent to '-DL' on command line.<br/>
+;lock_ProgDir = 0<br/>
+<br/>
+[shutdown]<br/>
+;; The 'overwrite_old_app_files' section is run here, rather than in the bulk of the installation sections, so that<br/>
+;; we're sure that all tasks (such as migrating the settings) that require the files that are removed have been run and<br/>
+;; no longer need these files.<br/>
+&overwrite_old_app_files? =<br/>
+&remove_shutdown_del_files? =<br/>
+&remove_dirs? =<br/>
+<br/>
+[remove_shutdown_del_files]<br/>
+; *************  LOCALIZATION  *************<br/>
+; This line is to make sure that the localized language libraries get deleted on a remove. If the DLL is loaded/linked,<br/>
+;  it can't be removed in the normal way.<br/>
+$file_sys = delete,&lt;LangDir&gt;\&lt;ShortAppKey&gt;su5XXX.dll<br/>
+<br/>
+[remove_dirs]<br/>
+; This section called by the [shutdown] section.<br/>
+; We'll try to delete these dirs to keep things clean, but if any files are in them, they won't be<br/>
+; deleted. We try to delete these here (from the 'shutdown' phase), because there will still be<br/>
+; files in them if we try to do them in remove's 'check sizes' or 'install' phases.<br/>
+$dir_del = &lt;TranslatorDir&gt;<br/>
+$dir_del = &lt;MathPageDir&gt;<br/>
+$dir_del = &lt;LangDir&gt;<br/>
+$dir_del = &lt;AppSystemDir&gt;<br/>
+$dir_del = &lt;OfficeSuppDir&gt;<br/>
+$dir_del = &lt;TTAppDir&gt;<br/>
+$dir_del = &lt;PSAppDir&gt;<br/>
+$dir_del = &lt;FontsDir&gt;<br/>
+$dir_del = &lt;PrefsDir&gt;<br/>
+$dir_del = &lt;ProgDir&gt;<br/>
+$dir_del = &lt;AppDataRoot&gt;<br/>
+<br/>
+[logical_disks]<br/>
+; This section called by the [startup] section. These values init'ed every time.<br/>
+; Expect most installs to be single-disk so use disk = 1, setup asserts that (disk&gt;0)<br/>
+ExeDisk = 1<br/>
+HelpDisk = 1<br/>
+DllDisk = 1<br/>
+LangDllDisk = 1<br/>
+XlatorDisk = 1<br/>
+MacroDisk = 1<br/>
+TTDisk = 1<br/>
+PSDisk = 1<br/>
+PfmDisk = 1<br/>
+AfmDisk = 1<br/>
+PDFDisk = 1<br/>
+PrefsDisk = 1<br/>
+<br/>
+[enable_remove]<br/>
+; This section called by the [startup] section. These values init'ed every time.<br/>
+; enable_&lt;SectionName&gt; set to 1 will enable that checkbox in the remove dlg<br/>
+; no checkboxes in remove groupbox<br/>
+enable_remove_keep_fonts = 0<br/>
+enable_remove_keep_prefs = 0<br/>
+<br/>
+<br/>
+[easy_install]<br/>
+; marks certain sections for execution, and then run the master list.<br/>
+&easy_install_list =<br/>
+&master =<br/>
+<br/>
+[easy_install_list]<br/>
+do_application = 1<br/>
+do_fontinfo_files = 1<br/>
+do_toolbar_files = 1<br/>
+do_remove_old_version_files = 1<br/>
+do_setup_app = 1<br/>
+do_easy_setup_app_tasks = 1<br/>
+do_help = 1<br/>
+do_translator_files = 1<br/>
+do_ps1fonts = 1<br/>
+do_ttfonts = 1<br/>
+do_word_macros = 1<br/>
+do_power_point_macros = 1<br/>
+do_preferences = 1<br/>
+do_readme = 1<br/>
+do_rem_icons = 1<br/>
+do_stub_ole_registrations = 1<br/>
+do_all_ole_autoconverts = 1<br/>
+do_convert_old_prefs = 1<br/>
+do_manual = &lt;cfgInstallPDF&gt;<br/>
+<br/>
+[wkstation_install]<br/>
+; Takes the place of the "easy_install" group.<br/>
+do_readme = 1<br/>
+do_workstation_setup_app_tasks = 1<br/>
+; do_ps1fonts is activated here, but we don't call the "ps1fonts" section. This is so that the user<br/>
+; will see the "do_ps1fonts" message on a workstation install.<br/>
+do_ps1fonts = 1<br/>
+&manual_tasks =<br/>
+&fixup_old_betas =<br/>
+&application_tasks =<br/>
+&app_lang_libs_tasks =<br/>
+&dll_reg? =<br/>
+&ole_reg? =<br/>
+&setup_app_tasks =<br/>
+&help_dlls =<br/>
+&help_tasks =<br/>
+&ps1fonts_tasks =<br/>
+&ttfonts_tasks =<br/>
+&choose_lang? =<br/>
+&word_macros_tasks =<br/>
+&power_point_macros_tasks =<br/>
+&readme_tasks =<br/>
+&rem_icons =<br/>
+&icons? =<br/>
+&convert_old_prefs =<br/>
+&stub_ole_registrations =<br/>
+&all_ole_autoconverts =<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;&install_completion_notify = <br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+[remove_old_version_files]<br/>
+; This section will remove files that may be left around by a 3.x installation. These files will not be overwritten<br/>
+; by files from this (4.0) install, and need to be deleted.<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Factory.eqp<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mathtype.cnt<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mathtype.hlp<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mathtype.gid<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mtsetup.exe<br/>
+$file_sys = delete,&lt;ProgDir&gt;\cmdmsw2.doc<br/>
+$file_sys = delete,&lt;ProgDir&gt;\cmdmsw6.doc<br/>
+$file_sys = delete,&lt;ProgDir&gt;\cmdmsw95.doc<br/>
+$file_sys = delete,&lt;ProgDir&gt;\cmdmsw97.doc<br/>
+$file_sys = delete,&lt;ProgDir&gt;\alte.wpm<br/>
+$file_sys = delete,&lt;ProgDir&gt;\mtmanual.pdf<br/>
+$file_sys = delete,&lt;ProgDir&gt;\readme.wri<br/>
+; Now remove files that an old 1.1 installation will have left around.<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Setup.exe<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mt.hlp<br/>
+$file_sys = delete,&lt;ProgDir&gt;\Mt.gid<br/>
+$test_overwrite_old_app = do_overwrite_old_app_files<br/>
+<br/>
+[overwrite_old_app_files]<br/>
+; If we're in the state of overwriting an old application (MT 3.x or 1.1) then we need to remove the following files, as they are<br/>
+; not in the &lt;ProgDir&gt; folder.<br/>
+$file_sys = delete,&lt;WinDir&gt;\mathtype.ini<br/>
+$file_sys = delete,&lt;WinDir&gt;\mt.dll<br/>
+$file_sys = delete,&lt;WinDir&gt;\mt32.dll<br/>
+$file_sys = delete,&lt;WinDir&gt;\mtfonts.ini<br/>
+; We're not removing the "mtmacros.pre" file because this data doesn't get migrated.<br/>
+<br/>
+[fixup_old_betas]<br/>
+;currently nothing to fixup<br/>
+<br/>
+[application]<br/>
+; *************  LOCALIZATION  *************<br/>
+; Set the value of "do_app_lang_libs" to "1" (the number "one")<br/>
+do_app_lang_libs = &lt;cfgForeign&gt;<br/>
+&application_files =<br/>
+&application_tasks =<br/>
+<br/>
+[application_files]<br/>
+f_MTApiDLL =<br/>
+f_App =<br/>
+<br/>
+[application_tasks]<br/>
+do_dll_reg = &lt;cfgDLLReg&gt;<br/>
+do_ole_reg = 1<br/>
+&extensions =<br/>
+; 'add_icon' will put the particular icon in a list, and when 'add_icon_group' is called, all the icons in the list<br/>
+; will be added to the program group. The 'add_icon' task can have up to 5 parameters:<br/>
+;	- name for the icon/link,<br/>
+;	- description for the icon/link,<br/>
+;	- path to file<br/>
+;	- command-line args (opt.)<br/>
+;	- path to file who's icon will be shown, if different than arg3 (opt.)<br/>
+;	- icon index for file in arg5 (opt.)<br/>
+; Unused args must be at least one space (' ') char.<br/>
+$add_icon = &lt;AppName&gt;,&lt;AppLinkDesc&gt;,&lt;ProgDir&gt;\&lt;AppProgName&gt;.exe<br/>
+$add_icon = &lt;ServerName&gt;,&lt;ServerLinkDesc&gt;,&lt;ProgDir&gt;\&lt;AppProgName&gt;.exe,-server,&lt;ProgDir&gt;\&lt;AppProgName&gt;.exe,1<br/>
+do_icons = 1<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\&lt;AppProgName&gt;.exe\ = &lt;ProgDir&gt;\&lt;AppProgName&gt;.exe<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\&lt;AppProgName&gt;.exe\Path = &lt;ProgDir&gt;<br/>
++&lt;UserRegKey&gt;\Config\TBEqnLibPath =<br/>
++&lt;MachRegKey&gt;\Config\HelpDir =<br/>
++&lt;MachRegKey&gt;\Config\TranslatorDir =<br/>
++&lt;MachRegKey&gt;\Config\LangDir =<br/>
++&lt;MachRegKey&gt;\Config\AppSystemDir =<br/>
++&lt;MachRegKey&gt;\Config\FontInfoDir =<br/>
+<br/>
+[fontinfo_files]<br/>
+f_FontInfo =<br/>
+<br/>
+[app_lang_libs]<br/>
+; This section is a list of all the app's language libraries that will be copied<br/>
+; to the "Language" directory.<br/>
+&app_lang_libs_files =<br/>
+&app_lang_libs_tasks =<br/>
+<br/>
+[app_lang_libs_tasks]<br/>
+; *************  LOCALIZATION  *************<br/>
+; "1" turns on foreign lang. support<br/>
+do_choose_lang = &lt;cfgForeign&gt;<br/>
+<br/>
+[app_lang_libs_files]<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized version of MathType's DLL should be added here.<br/>
+;f_AppXXXLangLib =<br/>
+<br/>
+[toolbar_files]<br/>
+f_TBEqnLib =<br/>
+<br/>
+[setup_app]<br/>
+&setup_app_files =<br/>
+&setup_app_tasks =<br/>
+<br/>
+[setup_app_files]<br/>
+f_SetupApp =<br/>
+f_InfoFile =<br/>
+<br/>
+[setup_app_tasks]<br/>
+$add_icon = &lt;EqnConvMgr&gt;,&lt;EqnConvMgrLinkDesc&gt;,&lt;ProgDir&gt;\&lt;ProgName&gt;.exe,-OLEMGR,&lt;ProgDir&gt;\&lt;ProgName&gt;.exe,1<br/>
+do_icons = 1<br/>
+; *************  LOCALIZATION  *************<br/>
+; "1" turns on foreign lang. support<br/>
+do_setup_lang_libs = &lt;cfgForeign&gt;<br/>
+; Set up the "Add/Remove Programs" (Windows Control Panel). The UninstallString is set up in the separate "tasks" section below.<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\DisplayName = &lt;AppName&gt; &lt;MajVersion&gt;<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\DisplayVersion = &lt;MajVersion&gt;.&lt;MinVersion&gt;<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\Publisher = Design Science, Inc.<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\HelpLink = http://www.dessci.com/support<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\URLInfoAbout = http://www.dessci.com<br/>
+&easy_setup_app_tasks? =<br/>
+&workstation_setup_app_tasks? =<br/>
+<br/>
+[easy_setup_app_tasks]<br/>
+$add_icon = &lt;RemoveName&gt;,&lt;RemoveName&gt;,&lt;ProgDir&gt;\&lt;ProgName&gt;.exe,-R<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\UninstallString = "&lt;ProgDir&gt;\&lt;ProgName&gt;.exe" -R<br/>
+<br/>
+[workstation_setup_app_tasks]<br/>
+$add_icon = &lt;RemoveWkstnName&gt;,&lt;RemoveWkstnName&gt;,&lt;ProgDir&gt;\&lt;ProgName&gt;.exe,-R -W<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\UninstallString = "&lt;ProgDir&gt;\&lt;ProgName&gt;.exe" -R -W<br/>
+<br/>
+[setup_lang_libs]<br/>
+; This section is a list of all the setup app's language libraries that will be copied<br/>
+; to the "Language" directory.<br/>
+&setup_lang_libs_files =<br/>
+; *************  LOCALIZATION  *************<br/>
+; "1" turns on foreign lang. support<br/>
+do_choose_lang = &lt;cfgForeign&gt;<br/>
+<br/>
+[setup_lang_libs_files]<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of Setup's DLL should be added here.<br/>
+;f_SetupXXXLangLib =<br/>
+<br/>
+[help]<br/>
+&help_files =<br/>
+&help_dlls =<br/>
+&help_tasks =<br/>
+<br/>
+[help_files]<br/>
+f_Help =<br/>
+f_HelpCont =<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the help files should be added here.<br/>
+;f_HelpXXX =<br/>
+;f_HelpContXXX =<br/>
+<br/>
+[help_dlls]<br/>
+; install_shared_dll will version-copy the file to the appropriate place for shared DLL's, and increment the refcount. Arg1 is the<br/>
+; source path for the DLL. The indicated file must reside on disk 1 for a multi-disk install.<br/>
+$install_shared_dll = &lt;InstallFromDir&gt;\inetwh32.dll<br/>
+<br/>
+[help_tasks]<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.hlp = &lt;ProgDir&gt;<br/>
++HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.cnt = &lt;ProgDir&gt;<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the help files should be added here.<br/>
+;+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.hlp = &lt;ProgDir&gt;<br/>
+;+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.cnt = &lt;ProgDir&gt;<br/>
+$add_icon = &lt;HelpName&gt;,&lt;HelpName&gt;,&lt;HelpDir&gt;\&lt;HelpFile&gt;<br/>
+do_icons = 1<br/>
+<br/>
+[remove_help]<br/>
+&help_files =<br/>
+; remove_shared_dll will locate the indicated DLL, and decrement its refcount, possibly removing the file in the process.<br/>
+$remove_shared_dll = inetwh32.dll<br/>
+<br/>
+[manual]<br/>
+&manual_files =<br/>
+&manual_tasks =<br/>
+<br/>
+[manual_files]<br/>
+f_PDFManual =<br/>
+<br/>
+[manual_tasks]<br/>
+$add_icon = &lt;UserManualName&gt;,&lt;UserManualName&gt;,&lt;ProgDir&gt;\&lt;AppName&gt; User Manual.pdf<br/>
+do_icons = 1<br/>
+<br/>
+[translator_files]<br/>
+f_LatexXlator =<br/>
+f_AmsXlator =<br/>
+f_PlainTexXlator =<br/>
+f_TeXAMSBaseXlator =<br/>
+f_AMSTeXXlator =<br/>
+f_TeXBaseXlator =<br/>
+f_TeXCharsXlator =<br/>
+f_MathML1Base =<br/>
+f_MathML1Xlator =<br/>
+f_MathML2Base =<br/>
+f_MathML2MNamespace=<br/>
+f_MathML2NoNamespace=<br/>
+f_MathML2NamespaceAttr=<br/>
+<br/>
+[dll_reg]<br/>
+; This task will perform the application's DLL's COM registration<br/>
+$register_dll = &lt;MathPageDir&gt;\MathPage.wll<br/>
+<br/>
+[ole_reg]<br/>
+; This task will perform the application's OLE registration<br/>
+$register =<br/>
+<br/>
+[all_ole_autoconverts]<br/>
+; True is used to convert all the recommended objects to this app.<br/>
+$set_all_autoconverts = True<br/>
+<br/>
+[ole_reg_mgr_all]<br/>
+; 'run_ole_mgr' will display the dialog that allows the user to select the equation types to autoconvert to the<br/>
+; main application. 'True' indicates that all the detected equation types will be listed. 'False' will cause the<br/>
+; dialog to only list the recommended types.<br/>
+$run_ole_mgr = True<br/>
+<br/>
+[ole_reg_mgr_recommended]<br/>
+$run_ole_mgr = False<br/>
+<br/>
+[stub_ole_registrations]<br/>
+; $stub_reg = &lt;ProgID&gt;, &lt;ClassID&gt;, &lt;OLEClassName&gt; <br/>
+$stub_reg = Equation,       {0003000B-0000-0000-C000-000000000046}, MathType Equation 3.0<br/>
+$stub_reg = Equation.2,     {00021700-0000-0000-C000-000000000046}, Microsoft Equation 2.0<br/>
+$stub_reg = Equation.3,     {0002CE02-0000-0000-C000-000000000046}, Microsoft Equation 3.0<br/>
+$stub_reg = Equation.COEE2, {0002CE01-0000-0000-C000-000000000046}, Corel Equation! 2.0<br/>
+$stub_reg = Equation.SAEE2, {0002CE07-0000-0000-C000-000000000046}, Sakhr Software Equation 2.1<br/>
+$stub_reg = Equation.AXEE2, {0002CE09-0000-0000-C000-000000000046}, Axum Equation<br/>
+$stub_reg = Equation.DGEE2, {0002CE0A-0000-0000-C000-000000000046}, DeltaGraph Equation 2.1<br/>
+$stub_reg = Equation.SSEE2, {0002CE0B-0000-0000-C000-000000000046}, Samsung Equation 2.1<br/>
+$stub_reg = Equation.IPEE1, {0002CE0C-0000-0000-C000-000000000046}, ips Publishing Equation 1.3<br/>
+$stub_reg = Equation.GAEE2, {0002CE0D-0000-0000-C000-000000000046}, GRAMS Equation 2.1<br/>
+$stub_reg = Equation.XPEE2, {0002CE0F-0000-0000-C000-000000000046}, XP Tech Equation 2<br/>
+$stub_reg = Equation.QTEE2, {0002CE10-0000-0000-C000-000000000046}, QText Equation 2<br/>
+$stub_reg = Equation.BREE2, {0002CE11-0000-0000-C000-000000000046}, Diploma Equation 2<br/>
+$stub_reg = Equation.IPEE3, {0002CE12-0000-0000-C000-000000000046}, ips Publishing Equation 3.5<br/>
+$stub_reg = Equation.DSMT36,{0002CE13-0000-0000-C000-000000000046}, MathType Equation 3.6+<br/>
+$stub_reg = Equation.IPEE3, {0002CE14-0000-0000-C000-000000000046}, ips Publishing Equation 3<br/>
+$stub_reg = Equation.QZEE2, {0002CE15-0000-0000-C000-000000000046}, Qwizdom Equation 2<br/>
+$stub_reg = Equation.EDEE2, {0002CE16-0000-0000-C000-000000000046}, Wizard Test Maker Equation 2<br/>
+$stub_reg = Equation.PWEE2, {0002CE17-0000-0000-C000-000000000046}, Pascal Write Equation 2<br/>
+$stub_reg = Equation.SMEE2, {0002CE18-0000-0000-C000-000000000046}, TestMaker Equation 2<br/>
+$stub_reg = Equation.MVEE4, {0002CE19-0000-0000-C000-000000000046}, MediaVision Equation 4<br/>
+$stub_reg = Equation.ACEE4, {0002CE1A-0000-0000-C000-000000000046}, Acme Equation 4<br/>
+$stub_reg = Equation.ESEE4, {0002CE1B-0000-0000-C000-000000000046}, ESATEST Equation 4<br/>
+$stub_reg = Equation.BOEE4, {0002CE1C-0000-0000-C000-000000000046}, eMOD Equation 4<br/>
+$stub_reg = Equation.RSEE4, {0002CE1D-0000-0000-C000-000000000046}, Respondus Equation 4<br/>
+<br/>
+[convert_old_prefs]<br/>
+; 'convert_pref' takes no parameters.<br/>
+$convert_pref =<br/>
+<br/>
+[choose_lang]<br/>
+$ask_choose_lang = &lt;UserRegKey&gt;\Config\AppLang<br/>
+<br/>
+[word_macros]<br/>
+&word_macros_files =<br/>
+&word_macros_tasks =<br/>
+<br/>
+[word_macros_files]<br/>
+f_WordCmds =<br/>
+f_WordUICmds =<br/>
+f_MathPageWLL =<br/>
+f_MathPageJS =<br/>
+f_MathPagePMathML =<br/>
+f_MathPagePMathMLCSS =<br/>
+f_MathPageEmptyGIF =<br/>
+f_WordUIDLL =<br/>
+;f_WordUIDLLXXX =<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the language DLLs for use with MS Word<br/>
+f_MSWordENULangLib =<br/>
+f_MSWordFRALangLib =<br/>
+f_MSWordSBNLangLib =<br/>
+f_MSWordDEULangLib =<br/>
+f_MSWordESPLangLib =<br/>
+f_MSWordDANLangLib =<br/>
+f_MSWordELLLangLib =<br/>
+f_OfficeReadMeENU =<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the Word readme should be added here.<br/>
+;f_OfficeReadMeXXX<br/>
+<br/>
+[word_macros_tasks]<br/>
+; 'set_word_macro' takes 5 params:<br/>
+;		1) major version of Word that the following data is intended for<br/>
+;		2) filename of the macro file that will be installed<br/>
+;		3) the source location where the macro will be installed from<br/>
+;		4) filename of the WLL file that will be installed<br/>
+;		5) the source location where the WLL will be installed from<br/>
+$set_word_macro = 8, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 9, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 10, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 11, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+; 'ensure_unique_macro_install' takes 3 params: 1) registry key to search, 2) filename of the macro, 3) major version<br/>
+; of Word for which the macro is intended to run.<br/>
+;$ensure_unique_macro_install = &lt;MachRegKey&gt;\Directories\Macros\WordBasic, MathType Commands For Word 95.dot, 7<br/>
+$ensure_unique_macro_install = &lt;MachRegKey&gt;\Directories\Macros\VBA, MathType Commands For Word 97.dot, 8<br/>
+; 'fixup_wordNN_migration' takes 2 params:<br/>
+;		a string to match in a filename<br/>
+;		(optional) extension of the file to match (default is any exension)<br/>
+; If a file exists in the Word 2000 & newer startup folder that contains the string in arg1,<br/>
+; and also matches the extension (if provided) in arg2, then the file will be removed.<br/>
+$fixup_word_migration = MathType Commands for, .dot<br/>
+; check_unsupported_office_version takes an initial unsupported version# and a count<br/>
+; as new versions of Office are supported, the initial unsupported version should be incremented<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;$check_unsupported_office_version = 12, 3<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+; run_word_macro can be modified by changing its args: <br/>
+;	'True' = dialog to ask the user if it's ok to install the macros<br/>
+;	'False' = don't ask the user (no dialog), just do it. Default is 'True'.<br/>
+$run_word_macro = False<br/>
+-&lt;UserRegKey&gt;\WordCommands\NoLanuageDLLError =<br/>
+<br/>
+[remove_word_macros]<br/>
+$set_word_macro = 8, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 9, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 10, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$set_word_macro = 11, MathType Commands 5 For Word.dot, &lt;OfficeSuppDir&gt;, MathPage.wll, &lt;MathPageDir&gt;<br/>
+$remove_word_macro =<br/>
+<br/>
+[power_point_macros]<br/>
+&power_point_macros_files =<br/>
+&power_point_macros_tasks =<br/>
+<br/>
+[power_point_macros_files]<br/>
+f_PowerPtHelperApp =<br/>
+f_PowerPt8AddIn =<br/>
+f_PowerPt9AddIn =<br/>
+f_PowerPt10AddIn =<br/>
+f_PowerPt11AddIn =<br/>
+<br/>
+[power_point_macros_tasks]<br/>
+; 'set_ppt_macro' takes 3 params: 1) major version of PowerPoint that the following data is intended for, 2) filename of the<br/>
+; macro file that will be installed, 3) the location where the add-in is located.<br/>
+$set_ppt_macro = 8, MathType AddIn (PowerPoint 97).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 9, MathType AddIn (PowerPoint 2000).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 10, MathType AddIn (PowerPoint 2002).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 11, MathType AddIn (PowerPoint 2003).ppa, &lt;OfficeSuppDir&gt;<br/>
+; run_ppt_macro can be modified by changing its args: 'True' = dialog to ask the user if it's ok to install the<br/>
+; macros; 'False' = don't ask the user (no dialog), just do it. Default is 'True'.<br/>
+$run_ppt_macro = False<br/>
+<br/>
+[remove_power_point_macros]<br/>
+$set_ppt_macro = 8, MathType AddIn (PowerPoint 97).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 9, MathType AddIn (PowerPoint 2000).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 10, MathType AddIn (PowerPoint 2002).ppa, &lt;OfficeSuppDir&gt;<br/>
+$set_ppt_macro = 11, MathType AddIn (PowerPoint 2003).ppa, &lt;OfficeSuppDir&gt;<br/>
+$remove_ppt_macro = <br/>
+<br/>
+[readme]<br/>
+; 'create_link' task will make a link (shortcut) file.<br/>
+;		Arg1 is the location to create the shortcut file<br/>
+;		Arg2 is the name of the link<br/>
+;		Arg3 is the description of the link<br/>
+;		Arg4 is the program the shortcut will execute<br/>
+;		Arg5 is the arguments to pass to the program in arg3<br/>
+;		Arg6 (optional) is the path of the executable whose icon we'll use<br/>
+;		Arg7 (opt.) is the index of the icon in executable in arg5.<br/>
+$create_link = &lt;ProgDir&gt;,&lt;ReadMeName&gt;,&lt;ReadMeName&gt;,WinHlp32.exe,-n &lt;ReadMeHelpID&gt; &lt;HelpDir&gt;\&lt;HelpFile&gt;<br/>
+; *************  LOCALIZATION  *************<br/>
+; Each help file should have a link to its "Read Me" topic.<br/>
+;$create_link = &lt;ProgDir&gt;,Read Me (&lt;Language Name&gt;),Read Me (&lt;Language Name&gt;),WinHlp32.exe,-n &lt;ReadMeHelpID&gt; &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.hlp<br/>
+&readme_tasks =<br/>
+<br/>
+[readme_tasks]<br/>
+$add_icon = &lt;ReadMeName&gt;,&lt;ReadMeName&gt;,WinHlp32.exe,-n &lt;ReadMeHelpID&gt; &lt;HelpDir&gt;\&lt;HelpFile&gt;<br/>
+do_icons = 1<br/>
+<br/>
+[icons]<br/>
+; '*_icon_group' takes the name of the program group to manipulate. The add and remove tasks should use the same string.<br/>
+$add_icon_group = &lt;AppName&gt; &lt;MajVersion&gt;<br/>
+<br/>
+[rem_icons]<br/>
+$remove_icon_group = &lt;AppName&gt; &lt;MajVersion&gt;<br/>
+; Internet Explorer 4 (w/desktop update) causes problems when we delete, and then re-create the program group.<br/>
+<br/>
+[install_completion_notify]<br/>
+; 'ask_view_readme' will cause Setup to pop up the successful completion dialog that allows the user to launch the ReadMe<br/>
+; file for viewing. The first arg is the variable that will trigger this dialog; the second arg is the path of the file to open.<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;$ask_view_readme = do_readme,WinHlp32.exe,-n &lt;ReadMeHelpID&gt; &lt;HelpDir&gt;\&lt;HelpFile&gt;<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+[extensions]<br/>
+; 'clean_old_winini_ext_reg' will remove old 16-bit/Win3.1 extension registrations. If the extension is assigned to our app, or an older<br/>
+; version of our app, then it will be removed. This is because it will override the extension registration we do in 'add_reg_chk_exist'.<br/>
+$clean_old_winini_ext_reg = EQP<br/>
+$clean_old_winini_ext_reg = EPS<br/>
+$clean_old_winini_ext_reg = WMF<br/>
+$clean_old_winini_ext_reg = GIF<br/>
+; 'add_reg_chk_exist' will add/modify the registry value in Arg1, only if the string in Arg2 is found as part of the data. If this<br/>
+; is the case, the string in Arg3 will be set to that value's data. (Arg1: reg key/value to examine & modify; Arg2: search str;<br/>
+; Arg3: new string for Arg1's data if Arg2 found)<br/>
++HKEY_CLASSES_ROOT\.EQP\ = Equation.PrefsFile<br/>
+; We remove file extension associations for EPS, WMF, and GIF. This is because MT is not a general editor/viewer for these types.<br/>
+; Users will have to make these associations themselves.<br/>
+$remove_reg_chk_exist = HKEY_CLASSES_ROOT\.EPS\, Equation<br/>
+$remove_reg_chk_exist = HKEY_CLASSES_ROOT\.WMF\, Equation<br/>
+$remove_reg_chk_exist = HKEY_CLASSES_ROOT\.GIF\, Equation<br/>
+; 'clean_others_ext_reg' will clean up other app's (non DSI) exension registrations. Arg1 is the extension whose registry key we're<br/>
+; starting our check with. Arg2 is the search string that identifies an extension as "ours" (if found, we ignore the extension).<br/>
+$clean_others_ext_reg = eqp,Equation<br/>
+$clean_others_ext_reg = eps,Equation<br/>
+$clean_others_ext_reg = wmf,Equation<br/>
+$clean_others_ext_reg = gif,Equation<br/>
+; 'add_openwith_support' adds support for ME/2000 & newer's OpenWith command in Windows Explorer<br/>
+$add_openwith_support = eps, &lt;AppName&gt;.exe<br/>
+$add_openwith_support = wmf, &lt;AppName&gt;.exe<br/>
+$add_openwith_support = gif, &lt;AppName&gt;.exe<br/>
+<br/>
+[remove_extensions]<br/>
+-HKEY_CLASSES_ROOT\.EQP\ =<br/>
+<br/>
+[preferences]<br/>
+&prefs_files =<br/>
+<br/>
+[prefs_files]<br/>
+f_TeXPrefs =<br/>
+f_TmsSym10 =<br/>
+f_TmsSym12 =<br/>
+f_TmsSym48 =<br/>
+f_Euclid10 =<br/>
+f_Euclid12 =<br/>
+f_Euclid48 =<br/>
+<br/>
+[ttfonts]<br/>
+&ttfonts_files =<br/>
+&ttfonts_tasks =<br/>
+<br/>
+[ttfonts_files]<br/>
+f_MTExtraTT =<br/>
+f_EuclidTT =<br/>
+f_EuclidBoldTT =<br/>
+f_EuclidBoldItTT =<br/>
+f_EuclidItTT =<br/>
+f_EuclidSymbolTT =<br/>
+f_EuclidSymbolBoldTT =<br/>
+f_EuclidSymbolBoldItTT =<br/>
+f_EuclidSymbolItTT =<br/>
+f_EuclidExtraTT =<br/>
+f_EuclidExtraBoldTT =<br/>
+f_EuclidFracTT =<br/>
+f_EuclidFracBoldTT =<br/>
+f_EuclidMathOneTT =<br/>
+f_EuclidMathOneBoldTT =<br/>
+f_EuclidMathTwoTT =<br/>
+f_EuclidMathTwoBoldTT =<br/>
+f_FencesTT =<br/>
+<br/>
+[ttfonts_tasks]<br/>
+; 'remove_soft_fonts' will remove old soft fonts installed into printer drivers.<br/>
+$remove_soft_fonts =<br/>
+; 'remove_font_name' will remove the font based on its windows name (not the filename), and its type ('raster', 'bitmap', or 'TrueType')<br/>
+$remove_font_name = MT Extra Plain,TrueType<br/>
+$remove_font_name = MT Extra Regular,TrueType<br/>
+$remove_font_name = Fences,TrueType<br/>
+$remove_font_name = MT Extra,raster<br/>
+; Remove screen fonts from older (1.1 and 3.x) vesions of MathType.<br/>
+$remove_font_name = "MT Extra 5,7,10,12,14,18,24,36 (VGA res)",bitmap<br/>
+$remove_font_name = "MT Symbol 5,7,10,12,14,18,24,36 (VGA res)",bitmap<br/>
+$remove_font_name = "MT Symbol Italic 5,7,10,12,14,18,24,36 (VGA res)",bitmap<br/>
+$remove_font_name = "Fences 5,7,10,12,14,18,24,36 (VGA res)",bitmap<br/>
+$remove_font_name = "Fences 10,14,20,24,28,36,48,72 (VGA res)",bitmap<br/>
+$remove_font_name = "MT Extra 5,7,10,12,14,18,24,36 (EGA res)",bitmap<br/>
+$remove_font_name = "MT Symbol 5,7,10,12,14,18,24,36 (EGA res)",bitmap<br/>
+$remove_font_name = "MT Symbol Italic 5,7,10,12,14,18,24,36 (EGA res)",bitmap<br/>
+$remove_font_name = "Fences 5,7,10,12,14,18,24,36 (EGA res)",bitmap<br/>
+$remove_font_name = "Fences 10,14,20,24,28,36,48,72 (EGA res)",bitmap<br/>
+$remove_font_name = "MT Extra 5,7,10,12,14,18,24,36 (8514/a res)",bitmap<br/>
+$remove_font_name = "MT Symbol 5,7,10,12,14,18,24,36 (8514/a res)",bitmap<br/>
+$remove_font_name = "MT Symbol Italic 5,7,10,12,14,18,24,36 (8514/a res)",bitmap<br/>
+$remove_font_name = "Fences 5,7,10,12,14,18,24,36 (8514/a res)",bitmap<br/>
+$remove_font_name = "Fences 10,14,20,24,28,36,48,72 (8514/a res)",bitmap<br/>
+; 'install_tt_font' takes a source path, and a destination path.<br/>
+$install_tt_font = &lt;TTAppDir&gt;\mtextra.ttf, &lt;TTSysDir&gt;\mtextra.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euclid.ttf, &lt;TTSysDir&gt;\euclid.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euclidb.ttf, &lt;TTSysDir&gt;\euclidb.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euclidbi.ttf, &lt;TTSysDir&gt;\euclidbi.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euclidi.ttf, &lt;TTSysDir&gt;\euclidi.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eucsym.ttf, &lt;TTSysDir&gt;\eucsym.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eucsymb.ttf, &lt;TTSysDir&gt;\eucsymb.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eucsymbi.ttf, &lt;TTSysDir&gt;\eucsymbi.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eucsymi.ttf, &lt;TTSysDir&gt;\eucsymi.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euextra.ttf, &lt;TTSysDir&gt;\euextra.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\euextrab.ttf, &lt;TTSysDir&gt;\euextrab.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eufrak.ttf, &lt;TTSysDir&gt;\eufrak.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eufrakb.ttf, &lt;TTSysDir&gt;\eufrakb.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eumat1.ttf, &lt;TTSysDir&gt;\eumat1.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eumat1b.ttf, &lt;TTSysDir&gt;\eumat1b.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eumat2.ttf, &lt;TTSysDir&gt;\eumat2.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\eumat2b.ttf, &lt;TTSysDir&gt;\eumat2b.ttf<br/>
+$install_tt_font = &lt;TTAppDir&gt;\fences.ttf, &lt;TTSysDir&gt;\fences.ttf<br/>
+$tt_fontchange_notify =<br/>
+<br/>
+[ps1fonts]<br/>
+&ps1fonts_files =<br/>
+&ps1fonts_tasks =<br/>
+<br/>
+[ps1fonts_files]<br/>
+f_EuclidPS =<br/>
+f_EuclidPSafm =<br/>
+f_EuclidPSpfm =<br/>
+f_EuclidBoldPS =<br/>
+f_EuclidBoldPSafm =<br/>
+f_EuclidBoldPSpfm =<br/>
+f_EuclidBoldItPS =<br/>
+f_EuclidBoldItPSafm =<br/>
+f_EuclidBoldItPSpfm =<br/>
+f_EuclidItPS =<br/>
+f_EuclidItPSafm =<br/>
+f_EuclidItPSpfm =<br/>
+f_EuclidSymbolPS =<br/>
+f_EuclidSymbolPSafm =<br/>
+f_EuclidSymbolPSpfm =<br/>
+f_EuclidSymbolBoldPS =<br/>
+f_EuclidSymbolBoldPSafm =<br/>
+f_EuclidSymbolBoldPSpfm =<br/>
+f_EuclidSymbolBoldItPS =<br/>
+f_EuclidSymbolBoldItPSafm =<br/>
+f_EuclidSymbolBoldItPSpfm =<br/>
+f_EuclidSymbolItPS =<br/>
+f_EuclidSymbolItPSafm =<br/>
+f_EuclidSymbolItPSpfm =<br/>
+f_EuclidExtraPS =<br/>
+f_EuclidExtraPSafm =<br/>
+f_EuclidExtraPSpfm =<br/>
+f_EuclidExtraBoldPS =<br/>
+f_EuclidExtraBoldPSafm =<br/>
+f_EuclidExtraBoldPSpfm =<br/>
+f_EuclidFracPS =<br/>
+f_EuclidFracPSafm =<br/>
+f_EuclidFracPSpfm =<br/>
+f_EuclidFracBoldPS =<br/>
+f_EuclidFracBoldPSafm =<br/>
+f_EuclidFracBoldPSpfm =<br/>
+f_EuclidMathOnePS =<br/>
+f_EuclidMathOnePSafm =<br/>
+f_EuclidMathOnePSpfm =<br/>
+f_EuclidMathOneBoldPS =<br/>
+f_EuclidMathOneBoldPSafm =<br/>
+f_EuclidMathOneBoldPSpfm =<br/>
+f_EuclidMathTwoPS =<br/>
+f_EuclidMathTwoPSafm =<br/>
+f_EuclidMathTwoPSpfm =<br/>
+f_EuclidMathTwoBoldPS =<br/>
+f_EuclidMathTwoBoldPSafm =<br/>
+f_EuclidMathTwoBoldPSpfm =<br/>
+f_MTExtraPS =<br/>
+f_MTExtraPSafm =<br/>
+f_MTExtraPSpfm =<br/>
+f_FencesPS =<br/>
+f_FencesPSafm =<br/>
+f_FencesPSpfm =<br/>
+<br/>
+[ps1fonts_tasks]<br/>
+&remove_atm_fonts =<br/>
+<br/>
+[remove_atm_fonts]<br/>
+; 'remove_old_atm_font' will remove a font installed into ATM, only if it's older than the given font (arg1).<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\mtextra.pfb, &lt;PSAppDir&gt;\mtextra.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euclid.pfb, &lt;PSAppDir&gt;\euclid.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euclidb.pfb, &lt;PSAppDir&gt;\euclidb.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euclidbi.pfb, &lt;PSAppDir&gt;\euclidbi.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euclidi.pfb, &lt;PSAppDir&gt;\euclidi.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eucsym.pfb, &lt;PSAppDir&gt;\eucsym.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eucsymb.pfb, &lt;PSAppDir&gt;\eucsymb.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eucsymbi.pfb, &lt;PSAppDir&gt;\eucsymbi.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eucsymi.pfb, &lt;PSAppDir&gt;\eucsymi.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euextra.pfb, &lt;PSAppDir&gt;\euextra.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\euextrab.pfb, &lt;PSAppDir&gt;\euextrab.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eufrak.pfb, &lt;PSAppDir&gt;\eufrak.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eufrakb.pfb, &lt;PSAppDir&gt;\eufrakb.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eumat1.pfb, &lt;PSAppDir&gt;\eumat1.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eumat1b.pfb, &lt;PSAppDir&gt;\eumat1b.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eumat2.pfb, &lt;PSAppDir&gt;\eumat2.pfm<br/>
+$remove_old_atm_font = &lt;PSAppDir&gt;\eumat2b.pfb, &lt;PSAppDir&gt;\eumat2b.pfm<br/>
+$atm_fontchange_notify =<br/>
+<br/>
+[files]<br/>
+f_App=&lt;ExeDisk&gt;, &lt;AppProgName&gt;.ex_, &lt;ProgDir&gt;\&lt;AppProgName&gt;.exe,1700000<br/>
+f_TBEqnLib=&lt;ExeDisk&gt;,toolbar.eql,&lt;AppSystemDir&gt;\Toolbar.eql,140000<br/>
+f_SetupApp=&lt;ExeDisk&gt;, &lt;ProgName&gt;.exe, &lt;ProgDir&gt;\&lt;ProgName&gt;.exe,500000<br/>
+; Leading '*' makes the file hidden on installation.<br/>
+f_InfoFile=&lt;ExeDisk&gt;, Setup.inf, *&lt;ProgDir&gt;\Setup.inf,50000<br/>
+; Leading '?' indicates that the file will be installed only if it doesn't exist already.<br/>
+f_FontInfo=&lt;ExeDisk&gt;, FontInfo.ini, ?&lt;FontInfoFilePath&gt;,3000<br/>
+<br/>
+; If foreign languages aren't enabled, 'LangDllDisk' will be 0 (verify will skip it).<br/>
+; *************  LOCALIZATION  *************<br/>
+; The following 2 lines are templates for foreign language files. Copy these lines, uncomment them, and replace 'XXX' by<br/>
+; the 3-letter language code. The file placeholders are used elsewhere in this file. The same should be done for where<br/>
+; they are used.<br/>
+;f_AppXXXLangLib=&lt;LangDllDisk&gt;, &lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.dll, &lt;LangDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.dll,129536<br/>
+;f_SetupXXXLangLib=&lt;LangDllDisk&gt;, &lt;ShortAppKey&gt;su4XXX.dll, &lt;LangDir&gt;\&lt;ShortAppKey&gt;su4XXX.dll,90624<br/>
+<br/>
+f_PDFManual=&lt;PDFDisk&gt;, manual.pdf, &lt;ProgDir&gt;\&lt;AppName&gt; User Manual.pdf,2000000 <br/>
+f_MTApiDLL=&lt;DllDisk&gt;, mt5.dll, &lt;AppSystemDir&gt;\MT5.dll,100000<br/>
+<br/>
+; Help files<br/>
+f_Help=&lt;HelpDisk&gt;, &lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.hlp, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.hlp,600000<br/>
+f_HelpCont=&lt;HelpDisk&gt;, &lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.cnt, *&lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.cnt,11000<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the help files should be added here.<br/>
+;f_HelpXXX=&lt;HelpDisk&gt;, &lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.hlp, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.hlp,21410<br/>
+;f_HelpContXXX=&lt;HelpDisk&gt;, &lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.cnt, *&lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.cnt,403<br/>
+<br/>
+; Translator files<br/>
+f_PlainTexXlator=&lt;XlatorDisk&gt;, Plain TeX.tdl, &lt;TranslatorDir&gt;\Plain TeX.tdl,41000<br/>
+f_LatexXlator=&lt;XlatorDisk&gt;, LaTeX.tdl, &lt;TranslatorDir&gt;\LaTeX.tdl,40000<br/>
+f_AmsXlator=&lt;XlatorDisk&gt;, AMS LaTeX.tdl, &lt;TranslatorDir&gt;\AMS LaTeX.tdl,25000<br/>
+f_TeXAMSBaseXlator=&lt;XlatorDisk&gt;, TeX (AMS base).tdl, &lt;TranslatorDir&gt;\TeX (AMS base).tdl,22000<br/>
+f_AMSTeXXlator=&lt;XlatorDisk&gt;, AMSTeX.tdl, &lt;TranslatorDir&gt;\AMSTeX.tdl,15000<br/>
+f_TeXBaseXlator=&lt;XlatorDisk&gt;, TeX (base).tdl, &lt;TranslatorDir&gt;\TeX (base).tdl,30000<br/>
+f_TeXCharsXlator=&lt;XlatorDisk&gt;, TeX (chars).tdl, &lt;TranslatorDir&gt;\TeX (chars).tdl,20000<br/>
+f_MathML1Base =&lt;XlatorDisk&gt;, MathML1Base.tdl, &lt;TranslatorDir&gt;\MathML1Base.tdl,41000<br/>
+f_MathML1Xlator =&lt;XlatorDisk&gt;, MathML1.tdl, &lt;TranslatorDir&gt;\MathML1.tdl,101000<br/>
+f_MathML2Base =&lt;XlatorDisk&gt;, MathML2Base.tdl, &lt;TranslatorDir&gt;\MathML2Base.tdl,225000<br/>
+f_MathML2MNamespace=&lt;XlatorDisk&gt;, MathML2 (m namespace).tdl, &lt;TranslatorDir&gt;\MathML2 (m namespace).tdl,1000<br/>
+f_MathML2NoNamespace=&lt;XlatorDisk&gt;, MathML2 (no namespace).tdl, &lt;TranslatorDir&gt;\MathML2 (no namespace).tdl,1000<br/>
+f_MathML2NamespaceAttr=&lt;XlatorDisk&gt;, MathML2 (namespace attr).tdl, &lt;TranslatorDir&gt;\MathML2 (namespace attr).tdl,1000<br/>
+<br/>
+; MS Word Commands files<br/>
+f_WordCmds=&lt;MacroDisk&gt;, wordcmds.dot, &lt;OfficeSuppDir&gt;\WordCmds.dot,1000000<br/>
+f_WordUICmds=&lt;MacroDisk&gt;, wordui.dot, &lt;OfficeSuppDir&gt;\MathType Commands 5 For Word.dot,200000<br/>
+f_MathPageWLL=&lt;MacroDisk&gt;, mathpage.wll, &lt;MathPageDir&gt;\MathPage.wll,390000<br/>
+f_MathPageJS=&lt;MacroDisk&gt;, mathpage.js, &lt;MathPageDir&gt;\MathPage.js,13000<br/>
+f_MathPageEmptyGIF=&lt;MacroDisk&gt;, empty.gif, &lt;MathPageDir&gt;\Empty.gif,100<br/>
+f_MathPagePMathML=&lt;MacroDisk&gt;, pmathml.xsl, &lt;MathPageDir&gt;\pmathml.xsl,20000<br/>
+f_MathPagePMathMLCSS=&lt;MacroDisk&gt;, pmathmlcss.xsl, &lt;MathPageDir&gt;\pmathmlcss.xsl,26000<br/>
+f_OfficeReadMeENU=&lt;MacroDisk&gt;, Office Support ReadMe.wri, &lt;OfficeSuppDir&gt;\Office Support ReadMe.wri,13000<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the Word readme should be added here. "&lt;Language Name&gt;" should be replaced by the localized language's name.<br/>
+;f_OfficeReadMeXXX=&lt;MacroDisk&gt;, Office Support ReadMe (&lt;Language Name&gt;).wri, &lt;OfficeSuppDir&gt;\Office Support ReadMe (&lt;Language Name&gt;).wri,768<br/>
+f_WordUIDLL=&lt;MacroDisk&gt;, mswuienu.dll, &lt;LangDir&gt;\mswuienu.dll,41000<br/>
+; *************  LOCALIZATION  *************<br/>
+; Localized versions of the Word UI language DLL should be added here (these files match the language of the App).<br/>
+;f_WordUIDLLXXX=&lt;MacroDisk&gt;, mswuiXXX.dll, &lt;LangDir&gt;\mswuiXXX.dll,41000<br/>
+<br/>
+; MS PowerPoint support files<br/>
+f_PowerPtHelperApp=&lt;ExeDisk&gt;, copybtn.exe, &lt;AppSystemDir&gt;\copybtn.exe,41000<br/>
+f_PowerPt8AddIn=&lt;MacroDisk&gt;, cmdmsppt97.ppa, &lt;OfficeSuppDir&gt;\MathType AddIn (PowerPoint 97).ppa,76000<br/>
+f_PowerPt9AddIn=&lt;MacroDisk&gt;, cmdmsppt97.ppa, &lt;OfficeSuppDir&gt;\MathType AddIn (PowerPoint 2000).ppa,76000<br/>
+f_PowerPt10AddIn=&lt;MacroDisk&gt;, cmdmsppt97.ppa, &lt;OfficeSuppDir&gt;\MathType AddIn (PowerPoint 2002).ppa,76000<br/>
+f_PowerPt11AddIn=&lt;MacroDisk&gt;, cmdmsppt97.ppa, &lt;OfficeSuppDir&gt;\MathType AddIn (PowerPoint 2003).ppa,76000<br/>
+<br/>
+; Language DLLs for use with MS Word (these files match the language of Word).<br/>
+f_MSWordENULangLib=&lt;MacroDisk&gt;, mswenu.dll, &lt;LangDir&gt;\mswenu.dll,17000<br/>
+f_MSWordFRALangLib=&lt;MacroDisk&gt;, mswfra.dll, &lt;LangDir&gt;\mswfra.dll,10000<br/>
+f_MSWordSBNLangLib=&lt;MacroDisk&gt;, mswsbn.dll, &lt;LangDir&gt;\mswsbn.dll,10000<br/>
+f_MSWordDEULangLib=&lt;MacroDisk&gt;, mswdeu.dll, &lt;LangDir&gt;\mswdeu.dll,10000<br/>
+f_MSWordESPLangLib=&lt;MacroDisk&gt;, mswesp.dll, &lt;LangDir&gt;\mswesp.dll,10000<br/>
+f_MSWordDANLangLib=&lt;MacroDisk&gt;, mswdan.dll, &lt;LangDir&gt;\mswdan.dll,10000<br/>
+f_MSWordELLLangLib=&lt;MacroDisk&gt;, mswell.dll, &lt;LangDir&gt;\mswell.dll,10000<br/>
+<br/>
+; Preference files<br/>
+f_TeXPrefs=&lt;PrefsDisk&gt;, TeX Look.eqp, &lt;PrefsDir&gt;\TeX Look.eqp,1000<br/>
+f_TmsSym10=&lt;PrefsDisk&gt;, Times+Symbol 10.eqp, &lt;PrefsDir&gt;\Times+Symbol 10.eqp,1000<br/>
+f_TmsSym12=&lt;PrefsDisk&gt;, Times+Symbol 12.eqp, &lt;PrefsDir&gt;\Times+Symbol 12.eqp,1000<br/>
+f_TmsSym48=&lt;PrefsDisk&gt;, Times+Symbol 48.eqp, &lt;PrefsDir&gt;\Times+Symbol 48.eqp,1000<br/>
+f_Euclid10=&lt;PrefsDisk&gt;, Euclid 10.eqp, &lt;PrefsDir&gt;\Euclid 10.eqp,1000<br/>
+f_Euclid12=&lt;PrefsDisk&gt;, Euclid 12.eqp, &lt;PrefsDir&gt;\Euclid 12.eqp,1000<br/>
+f_Euclid48=&lt;PrefsDisk&gt;, Euclid 48.eqp, &lt;PrefsDir&gt;\Euclid 48.eqp,1000<br/>
+<br/>
+; Fonts<br/>
+f_EuclidTT=&lt;TTDisk&gt;, euclid.ttf, &lt;TTAppDir&gt;\euclid.ttf,56384<br/>
+f_EuclidPS=&lt;PSDisk&gt;, euclid.pfb, &lt;PSAppDir&gt;\euclid.pfb,46944<br/>
+f_EuclidPSafm=&lt;AfmDisk&gt;, euclid.afm, &lt;PSAppDir&gt;\euclid.afm,34775<br/>
+f_EuclidPSpfm=&lt;PfmDisk&gt;, euclid.pfm, &lt;PSAppDir&gt;\euclid.pfm,5278<br/>
+<br/>
+f_EuclidBoldTT=&lt;TTDisk&gt;, euclidb.ttf, &lt;TTAppDir&gt;\euclidb.ttf,54796<br/>
+f_EuclidBoldPS=&lt;PSDisk&gt;, euclidb.pfb, &lt;PSAppDir&gt;\euclidb.pfb,45078<br/>
+f_EuclidBoldPSafm=&lt;AfmDisk&gt;, euclidb.afm, &lt;PSAppDir&gt;\euclidb.afm,34750<br/>
+f_EuclidBoldPSpfm=&lt;PfmDisk&gt;, euclidb.pfm, &lt;PSAppDir&gt;\euclidb.pfm,5283<br/>
+<br/>
+f_EuclidBoldItTT=&lt;TTDisk&gt;, euclidbi.ttf, &lt;TTAppDir&gt;\euclidbi.ttf,70564<br/>
+f_EuclidBoldItPS=&lt;PSDisk&gt;, euclidbi.pfb, &lt;PSAppDir&gt;\euclidbi.pfb,57600<br/>
+f_EuclidBoldItPSafm=&lt;AfmDisk&gt;, euclidbi.afm, &lt;PSAppDir&gt;\euclidbi.afm,44165<br/>
+f_EuclidBoldItPSpfm=&lt;PfmDisk&gt;, euclidbi.pfm, &lt;PSAppDir&gt;\euclidbi.pfm,6813<br/>
+<br/>
+f_EuclidItTT=&lt;TTDisk&gt;, euclidi.ttf, &lt;TTAppDir&gt;\euclidi.ttf,70404<br/>
+f_EuclidItPS=&lt;PSDisk&gt;, euclidi.pfb, &lt;PSAppDir&gt;\euclidi.pfb,54429<br/>
+f_EuclidItPSafm=&lt;AfmDisk&gt;, euclidi.afm, &lt;PSAppDir&gt;\euclidi.afm,44051<br/>
+f_EuclidItPSpfm=&lt;PfmDisk&gt;, euclidi.pfm, &lt;PSAppDir&gt;\euclidi.pfm,6781<br/>
+<br/>
+f_EuclidSymbolTT=&lt;TTDisk&gt;, eucsym.ttf, &lt;TTAppDir&gt;\eucsym.ttf,39452<br/>
+f_EuclidSymbolPS=&lt;PSDisk&gt;, eucsym.pfb, &lt;PSAppDir&gt;\eucsym.pfb,38586<br/>
+f_EuclidSymbolPSafm=&lt;AfmDisk&gt;, eucsym.afm, &lt;PSAppDir&gt;\eucsym.afm,10317<br/>
+f_EuclidSymbolPSpfm=&lt;PfmDisk&gt;, eucsym.pfm, &lt;PSAppDir&gt;\eucsym.pfm,750<br/>
+<br/>
+f_EuclidSymbolBoldTT=&lt;TTDisk&gt;, eucsymb.ttf, &lt;TTAppDir&gt;\eucsymb.ttf,37960<br/>
+f_EuclidSymbolBoldPS=&lt;PSDisk&gt;, eucsymb.pfb, &lt;PSAppDir&gt;\eucsymb.pfb,36924<br/>
+f_EuclidSymbolBoldPSafm=&lt;AfmDisk&gt;, eucsymb.afm, &lt;PSAppDir&gt;\eucsymb.afm,10343<br/>
+f_EuclidSymbolBoldPSpfm=&lt;PfmDisk&gt;, eucsymb.pfm, &lt;PSAppDir&gt;\eucsymb.pfm,755<br/>
+<br/>
+f_EuclidSymbolBoldItTT=&lt;TTDisk&gt;, eucsymbi.ttf, &lt;TTAppDir&gt;\eucsymbi.ttf,41672<br/>
+f_EuclidSymbolBoldItPS=&lt;PSDisk&gt;, eucsymbi.pfb, &lt;PSAppDir&gt;\eucsymbi.pfb,38571<br/>
+f_EuclidSymbolBoldItPSafm=&lt;AfmDisk&gt;, eucsymbi.afm, &lt;PSAppDir&gt;\eucsymbi.afm,10429<br/>
+f_EuclidSymbolBoldItPSpfm=&lt;PfmDisk&gt;, eucsymbi.pfm, &lt;PSAppDir&gt;\eucsymbi.pfm,761<br/>
+<br/>
+f_EuclidSymbolItTT=&lt;TTDisk&gt;, eucsymi.ttf, &lt;TTAppDir&gt;\eucsymi.ttf,43704<br/>
+f_EuclidSymbolItPS=&lt;PSDisk&gt;, eucsymi.pfb, &lt;PSAppDir&gt;\eucsymi.pfb,40715<br/>
+f_EuclidSymbolItPSafm=&lt;AfmDisk&gt;, eucsymi.afm, &lt;PSAppDir&gt;\eucsymi.afm,10397<br/>
+f_EuclidSymbolItPSpfm=&lt;PfmDisk&gt;, eucsymi.pfm, &lt;PSAppDir&gt;\eucsymi.pfm,757<br/>
+<br/>
+f_EuclidExtraTT=&lt;TTDisk&gt;, euextra.ttf, &lt;TTAppDir&gt;\euextra.ttf,31412<br/>
+f_EuclidExtraPS=&lt;PSDisk&gt;, euextra.pfb, &lt;PSAppDir&gt;\euextra.pfb,31225<br/>
+f_EuclidExtraPSafm=&lt;AfmDisk&gt;, euextra.afm, &lt;PSAppDir&gt;\euextra.afm,9632<br/>
+f_EuclidExtraPSpfm=&lt;PfmDisk&gt;, euextra.pfm, &lt;PSAppDir&gt;\euextra.pfm,748<br/>
+<br/>
+f_EuclidExtraBoldTT=&lt;TTDisk&gt;, euextrab.ttf, &lt;TTAppDir&gt;\euextrab.ttf,32332<br/>
+f_EuclidExtraBoldPS=&lt;PSDisk&gt;, euextrab.pfb, &lt;PSAppDir&gt;\euextrab.pfb,30348<br/>
+f_EuclidExtraBoldPSafm=&lt;AfmDisk&gt;, euextrab.afm, &lt;PSAppDir&gt;\euextrab.afm,9664<br/>
+f_EuclidExtraBoldPSpfm=&lt;PfmDisk&gt;, euextrab.pfm, &lt;PSAppDir&gt;\euextrab.pfm,753<br/>
+<br/>
+f_EuclidFracTT=&lt;TTDisk&gt;, eufrak.ttf, &lt;TTAppDir&gt;\eufrak.ttf,25516<br/>
+f_EuclidFracPS=&lt;PSDisk&gt;, eufrak.pfb, &lt;PSAppDir&gt;\eufrak.pfb,29425<br/>
+f_EuclidFracPSafm=&lt;AfmDisk&gt;, eufrak.afm, &lt;PSAppDir&gt;\eufrak.afm,5473<br/>
+f_EuclidFracPSpfm=&lt;PfmDisk&gt;, eufrak.pfm, &lt;PSAppDir&gt;\eufrak.pfm,752<br/>
+<br/>
+f_EuclidFracBoldTT=&lt;TTDisk&gt;, eufrakb.ttf, &lt;TTAppDir&gt;\eufrakb.ttf,25272<br/>
+f_EuclidFracBoldPS=&lt;PSDisk&gt;, eufrakb.pfb, &lt;PSAppDir&gt;\eufrakb.pfb,29152<br/>
+f_EuclidFracBoldPSafm=&lt;AfmDisk&gt;, eufrakb.afm, &lt;PSAppDir&gt;\eufrakb.afm,5486<br/>
+f_EuclidFracBoldPSpfm=&lt;PfmDisk&gt;, eufrakb.pfm, &lt;PSAppDir&gt;\eufrakb.pfm,757<br/>
+<br/>
+f_EuclidMathOneTT=&lt;TTDisk&gt;, eumat1.ttf, &lt;TTAppDir&gt;\eumat1.ttf,35308<br/>
+f_EuclidMathOnePS=&lt;PSDisk&gt;, eumat1.pfb, &lt;PSAppDir&gt;\eumat1.pfb,34757<br/>
+f_EuclidMathOnePSafm=&lt;AfmDisk&gt;, eumat1.afm, &lt;PSAppDir&gt;\eumat1.afm,8693<br/>
+f_EuclidMathOnePSpfm=&lt;PfmDisk&gt;, eumat1.pfm, &lt;PSAppDir&gt;\eumat1.pfm,752<br/>
+<br/>
+f_EuclidMathOneBoldTT=&lt;TTDisk&gt;, eumat1b.ttf, &lt;TTAppDir&gt;\eumat1b.ttf,35564<br/>
+f_EuclidMathOneBoldPS=&lt;PSDisk&gt;, eumat1b.pfb, &lt;PSAppDir&gt;\eumat1b.pfb,34228<br/>
+f_EuclidMathOneBoldPSafm=&lt;AfmDisk&gt;, eumat1b.afm, &lt;PSAppDir&gt;\eumat1b.afm,8760<br/>
+f_EuclidMathOneBoldPSpfm=&lt;PfmDisk&gt;, eumat1b.pfm, &lt;PSAppDir&gt;\eumat1b.pfm,757<br/>
+<br/>
+f_EuclidMathTwoTT=&lt;TTDisk&gt;, eumat2.ttf, &lt;TTAppDir&gt;\eumat2.ttf,40968<br/>
+f_EuclidMathTwoPS=&lt;PSDisk&gt;, eumat2.pfb, &lt;PSAppDir&gt;\eumat2.pfb,39213<br/>
+f_EuclidMathTwoPSafm=&lt;AfmDisk&gt;, eumat2.afm, &lt;PSAppDir&gt;\eumat2.afm,8437<br/>
+f_EuclidMathTwoPSpfm=&lt;PfmDisk&gt;, eumat2.pfm, &lt;PSAppDir&gt;\eumat2.pfm,752<br/>
+<br/>
+f_EuclidMathTwoBoldTT=&lt;TTDisk&gt;, eumat2b.ttf, &lt;TTAppDir&gt;\eumat2b.ttf,39560<br/>
+f_EuclidMathTwoBoldPS=&lt;PSDisk&gt;, eumat2b.pfb, &lt;PSAppDir&gt;\eumat2b.pfb,36667<br/>
+f_EuclidMathTwoBoldPSafm=&lt;AfmDisk&gt;, eumat2b.afm, &lt;PSAppDir&gt;\eumat2b.afm,8458<br/>
+f_EuclidMathTwoBoldPSpfm=&lt;PfmDisk&gt;, eumat2b.pfm, &lt;PSAppDir&gt;\eumat2b.pfm,757<br/>
+<br/>
+f_FencesTT=&lt;TTDisk&gt;, fences.ttf, &lt;TTAppDir&gt;\fences.ttf,29608<br/>
+f_FencesPS=&lt;PSDisk&gt;, fences.pfb, &lt;PSAppDir&gt;\fences.pfb,28400<br/>
+f_FencesPSafm=&lt;AfmDisk&gt;, fences.afm, &lt;PSAppDir&gt;\fences.afm,9600<br/>
+f_FencesPSpfm=&lt;PfmDisk&gt;, fences.pfm, &lt;PSAppDir&gt;\fences.pfm,740<br/>
+<br/>
+f_MTExtraTT=&lt;TTDisk&gt;, mtextra.ttf, &lt;TTAppDir&gt;\mtextra.ttf,29608<br/>
+f_MTExtraPS=&lt;PSDisk&gt;, mtextra.pfb, &lt;PSAppDir&gt;\mtextra.pfb,28400<br/>
+f_MTExtraPSafm=&lt;AfmDisk&gt;, mtextra.afm, &lt;PSAppDir&gt;\mtextra.afm,9600<br/>
+f_MTExtraPSpfm=&lt;PfmDisk&gt;, mtextra.pfm, &lt;PSAppDir&gt;\mtextra.pfm,740<br/>
+<br/>
+<br/>
+; Files in list for removal. -1 is a valid disk#, its tested for &gt;0 but then ignored during removal!<br/>
+; Also, Arg2 (source path) isn't used during removal.<br/>
+rem_HelpGidENU=-1, notused, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.gid,0<br/>
+rem_HelpFullTextSearchENU=-1, notused, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.fts,0<br/>
+; Any localized help files may have been used, generating a .gid file.<br/>
+;rem_HelpGidXXX=-1, notused, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.gid,0<br/>
+;rem_HelpFullTextSearchXXX=-1, notused, &lt;HelpDir&gt;\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.fts,0<br/>
+rem_DebugOut=-1, notused, &lt;ProgDir&gt;\debug.out,0<br/>
+rem_ReadmeLink=-1, notused, &lt;ProgDir&gt;\&lt;ReadMeName&gt;.lnk,0<br/>
+rem_Readme=-1, notused, &lt;ProgDir&gt;\ReadMe.wri,0<br/>
+rem_DefEqnPrefs=-1, notused, &lt;ProgDir&gt;\Factory.eqp,0<br/>
+rem_MathMLOldName=-1, notused, &lt;TranslatorDir&gt;\MathML.tdl,0<br/>
+<br/>
+[master]<br/>
+&remove_old_version_files? =<br/>
+&fixup_old_betas =<br/>
+&setup_app? =<br/>
+&setup_lang_libs? =<br/>
+&application? =<br/>
+&fontinfo_files? =<br/>
+&toolbar_files? =<br/>
+&app_lang_libs? =<br/>
+&help? =<br/>
+&manual? =<br/>
+&readme? =<br/>
+&translator_files? =<br/>
+&word_macros? =<br/>
+&power_point_macros? =<br/>
+&preferences? =<br/>
+&ps1fonts? =<br/>
+&ttfonts? =<br/>
+&choose_lang? =<br/>
+&dll_reg? =<br/>
+&ole_reg? =<br/>
+&rem_icons? =<br/>
+&icons? =<br/>
+&stub_ole_registrations? =<br/>
+&all_ole_autoconverts? =<br/>
+&ole_reg_mgr_recommended? =<br/>
+&ole_reg_mgr_all? =<br/>
+&convert_old_prefs? =<br/>
+<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;&install_completion_notify = <br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+;MODIFIED BY THOMAS BENNETT<br/>
+<br/>
+[remove_master]<br/>
+-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\&lt;AppKey&gt;\ =<br/>
+-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\&lt;AppProgName&gt;.exe\ =<br/>
+-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.hlp =<br/>
+-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;enu.cnt =<br/>
+; *************  LOCALIZATION  *************<br/>
+; Add all localized help files (and contents pages) here.<br/>
+;-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.hlp =<br/>
+;-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Help\&lt;ShortAppKey&gt;&lt;MajVersion&gt;XXX.cnt =<br/>
+; If anything from an old beta has changed, we need to make the change before we really get into the remove.<br/>
+&fixup_old_betas =<br/>
+; remove_keep_fonts section is only called if this checkbox is enabled in the remove dlg, and the user checks it<br/>
+&remove_keep_fonts? =<br/>
+; remove_keep_fonts section is only called if this checkbox is enabled in the remove dlg, and the user checks it<br/>
+&remove_tt_fonts? =<br/>
+&remove_keep_prefs? =<br/>
+&remove_prefs? =<br/>
+&remove_extensions =<br/>
+; must complete the ole registration before we remove the files<br/>
+&ole_reg =<br/>
+&remove_word_macros =<br/>
+&remove_power_point_macros =<br/>
+&remove_files? =<br/>
+&rem_icons =<br/>
+; False indicates to reset the autoconverts to their prev. state<br/>
+$set_all_autoconverts = False<br/>
+<br/>
+[remove]<br/>
+; This section called directly by the code on a non-wkstation remove.<br/>
+; Make sure to remove all files - this is a normal remove.<br/>
+do_remove_files = 1<br/>
+do_remove_shutdown_del_files = &lt;cfgForeign&gt;<br/>
+; remove_dirs section is done in the "shutdown" phase.<br/>
+do_remove_dirs = 1<br/>
+; We'll only remove the equation library (toolbar) for non-workstation removes<br/>
+&toolbar_files =<br/>
+&remove_master =<br/>
+<br/>
+[wkstation_remove]<br/>
+; This section called directly by the code on a wkstation remove.<br/>
+; Don't remove in the "shutdown" phase for wkstation removes.<br/>
+do_remove_dirs = 0<br/>
+; Don't remove files as in [remove] section. Just the tasks...<br/>
+&remove_master =<br/>
+<br/>
+[set_remove_ops]<br/>
+; This section called from [startup] section. These values init'ed every time.<br/>
+; none of these sections can be used on the master list<br/>
+do_remove_tt_fonts = 0<br/>
+do_remove_prefs = 1<br/>
+<br/>
+[remove_prefs] <br/>
+; 'remove_ini_path' will determine what sort of ini source the param indicates (file or reg), and will remove/delete it.<br/>
+; 2nd parameter is 'Remove' to always delete, 'Keep' to keep if we're leaving user settings around<br/>
+$remove_ini_path = &lt;MachRegKey&gt;,Remove<br/>
+$remove_ini_path = &lt;UserRegKey&gt;,Keep<br/>
+<br/>
+[remove_files]<br/>
+; The following sections and files will always be removed on any "remove" operation.<br/>
+; Don't remove FontInfo.ini<br/>
+&application_files =<br/>
+&setup_app_files =<br/>
+&app_lang_libs_files =<br/>
+&setup_lang_libs_files =<br/>
+&manual_files =<br/>
+&remove_help =<br/>
+&translator_files =<br/>
+&word_macros_files =<br/>
+&power_point_macros_files =<br/>
+&prefs_files =<br/>
+&ttfonts_files =<br/>
+&ps1fonts_files =<br/>
+&remove_openwith =<br/>
+; remove some files that weren't installed (created by app or setup, etc.)<br/>
+rem_HelpGidENU =<br/>
+rem_HelpFullTextSearchENU =<br/>
+;rem_HelpGidXXX =<br/>
+;rem_HelpFullTextSearchXXX =<br/>
+rem_DebugOut =<br/>
+rem_ReadmeLink =<br/>
+rem_Readme =<br/>
+rem_DefEqnPrefs =<br/>
+; rem_MathMLOldName is the old name for this file. It's been renamed, but probably will still exist on systems w/previous beta versions.<br/>
+rem_MathMLOldName =<br/>
+<br/>
+[remove_openwith]<br/>
+; 'remove_openwith_support' removes support for ME/2000 & newer's OpenWith command in Windows Explorer<br/>
+$remove_openwith_support = eps, &lt;AppName&gt;.exe<br/>
+$remove_openwith_support = wmf, &lt;AppName&gt;.exe<br/>
+$remove_openwith_support = gif, &lt;AppName&gt;.exe<br/>
+<br/>
+[remove_keep_fonts]<br/>
+; if this section is performed, the remove fonts sections will be turned off (not removed).<br/>
+do_remove_tt_fonts = 0<br/>
+<br/>
+[remove_keep_prefs]<br/>
+; if this section is performed, the remove prefs section will be turned off (not removed).<br/>
+do_remove_prefs = 0<br/>
+<br/>
+[remove_tt_fonts]<br/>
+; 'remove_tt_font' will remove a TrueType font, based on the font file, rather than the font name.<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\mtextra.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euclid.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euclidb.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euclidbi.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euclidi.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eucsym.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eucsymb.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eucsymbi.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eucsymi.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euextra.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\euextrab.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eufrak.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eufrakb.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eumat1.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eumat1b.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eumat2.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\eumat2b.ttf<br/>
+$remove_tt_font = &lt;TTSysDir&gt;\fences.ttf<br/>
+; notifies windows that the font changes are complete<br/>
+$tt_fontchange_notify =<br/>
+<br/>
+End of Customized setup.inf<br/>
+End of Customized setup.inf<br/>
+End of Customized setup.inf<br/>
+<br/>
+Begin of AutoIT Script<br/>
+Begin of AutoIT Script<br/>
+Begin of AutoIT Script<br/>
+<br/>
+;Auto installer for MathType 5.2c (E)<br/>
+;Authored by Thomas E. Bennett<br/>
+;Not possible without the guidance of Tim A. Wood<br/>
+<br/>
+;Requirements:<br/>
+;01. Executable must reside in the same folder as the setup.exe for MathType 5.2c (E)<br/>
+<br/>
+; Disable User Input (Re-enabled at the end of the script)<br/>
+BlockInput(1)<br/>
+<br/>
+; Excute installer<br/>
+Run("setup.exe -I")<br/>
+<br/>
+; Wait until the MathType Setup window appears<br/>
+WinWaitActive ("MathType 5.2c Setup")<br/>
+<br/>
+; Clear out text field<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:1]", "{LSHIFT}+{END}+{DELETE}")<br/>
+<br/>
+; Enter Firstname text<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:1]", "Alvin ISD")<br/>
+<br/>
+; Clear out text field<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:2]", "{LSHIFT}+{END}+{DELETE}")<br/>
+<br/>
+; Enter Lastname text<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:2]", "Staff and Students")<br/>
+<br/>
+; Clear out text field<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:3]", "{LSHIFT}+{END}+{DELETE}")<br/>
+<br/>
+; Enter Organization text<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:3]", "Alvin ISD")<br/>
+<br/>
+; Enter Serial Key text<br/>
+ControlSend("MathType 5.2c Setup", "","[CLASS:Edit; INSTANCE:4]", "#######-######-#####")<br/>
+<br/>
+; Click the OK button on this Window<br/>
+ControlClick("MathType 5.2c Setup", "OK","[CLASS:Button; INSTANCE:3]")<br/>
+<br/>
+; Wait 30 seconds for the Successfully Completed window to appear. After 30 seconds fail and release control to user<br/>
+WinWaitActive ("MathType 5.2c Setup", "MathType 5.2c Setup has successfully installed your selected items.", 30)<br/>
+<br/>
+; Click the OK button<br/>
+ControlClick("MathType 5.2c Setup", "OK","[CLASS:Button; INSTANCE:1]")<br/>
+<br/>
+; Enables User Input<br/>
+BlockInput(0)<br/>
+<br/>
+End of AutoIT Script<br/>
+End of AutoIT Script<br/>
+End of AutoIT Script
+            </span>
+            <div class="setup-wrap">
+
+                <div class="setup-header">Setup Information:</div>
+
+                <div>Setup Type: <span>unspecified</span></div>
+                <div>Deployment Method Used: <span>unspecified</span></div>
+                <div>
+                    Deployment Difficulty: <span>
+                                            unspecified
+                                        </span>
+                </div>
+                <div>Platform(s): <span>Windows </span></div>
+            </div>
+            <!--end setup-->
+
+
+        <div class="byline">
+            <ul>
+                <li>
+                    <a href="/user/tebennett" class="username" rel="nofollow">tebennett</a>
+                </li>
+                <li>
+                    07/14/2011 &nbsp;
+                </li>
+                                <li>
+                    <span class="commentslabel collapsed-comments">Show Comments </span> &nbsp; ( 0 )
+                </li>
+                <li>
+                                    </li>
+            </ul>
+            <br class="clear"/>
+        </div>
+
+</div>
+</div>
+
+            <div class="deployment-tips-comments">
+
+                <ul id="comment-list" class="comments">
+</ul>
+
+                    Please <a href="/login">log in</a> to comment
+
+
+            </div>
+
+        </div>
+        </div>
+
+                
+            </div>
+
+                    </div>
+
+    </div>
+    <!-- end Deployment Tips -->
+
+    <div class="software-section" id="inventory-records">
+
+        <div class="callout-box2">
+
+            <h3><a href="#" class="plus toggle"></a> Inventory Records (4)</h3>
+            <p>View inventory records anonymously contributed by opt-in users of the
+                <a href="http://software.dell.com/products/kace-k1000-systems-management-appliance">
+                K1000 Systems Management Appliance</a>.
+            </p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                <div id="software-view-version-revision-list">
+                    <div class="title">Versions</div>
+                    <ul class="no-bullet nav nav-pills">
+                                                    <li class="active">
+                                <a href="/software/version/revision/26566/55302">
+                                    5.1
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/26566/55303">
+                                    5
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/26566/55304">
+                                    5.0
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="/software/version/revision/26566/55305">
+                                    5.2
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+                <div id="software-view-version-revision-details">
+                                            <h2>MathType</h2>
+            <div><h3>Version</h3><span>5.1</span></div>
+                                                        <div><h3>Uninstall String</h3>/Applications/MathType 5/MathType.app
+/Users/edvadm/Desktop/Neuer Ordner 2/Applications/MathType 5/MathType.app</div>                                            
+                                    </div>
+                <br class="clear"/>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end inventory records section -->
+
+    <div class="software-section" id="q-a">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Questions & Answers (0)
+                            </h3>
+            <p>Questions & Answers related to Design Science MathType</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end Q & A section -->
+
+    <div class="software-section" id="blogs">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Blogs (0)
+                            </h3>
+            <p>Blog posts related to Design Science MathType</p>
+
+        </div>
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end blog section -->
+
+    <div class="software-section" id="links">
+
+        <div class="callout-box2">
+
+            <h3>
+                <a href="#" class="plus toggle"></a> Links (0)
+                            </h3>
+
+            <p>Links related to Design Science MathType</p>
+
+        </div>
+
+        <div class="inner-content">
+
+            <div class="inner">
+
+                
+                            </div>
+
+        </div>
+    </div>
+    <!-- end links section -->
+
+    <!-- reviews -->
+        <div class="software-section" id="reviews">
+
+           <div class="callout-box2">
+
+               <h3>
+                   <a href="#" class="plus toggle"></a> Reviews (0)
+                                  </h3>
+
+               <p>Reviews related to Design Science MathType</p>
+
+           </div>
+
+           <div class="inner-content">
+
+               <div class="inner">
+
+
+                   
+               </div>
+
+           </div>
+
+       </div>
+
+
+</div>
+            <div class="clearfix">&nbsp;</div>
+
+        </div>
+        <!-- end container-->
+
+        <footer>
+            <div class="container">
+                                <div id="footer-nav" class="row">
+                    <div class="md-3">
+                        <strong>Home Pages</strong>
+                        <ul>
+                            <li><a href="/software">Software</a></li>
+                            <li><a href="/tips">Deployment Tips</a></li>
+                            <li><a href="/question">Questions</a></li>
+                            <li><a href="/blog">Blog Posts</a></li>
+                            <li><a href="/link">Shared Links</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>FAQ &amp; Support</strong>
+                        <ul>
+                            <li><a href="/faq">Site FAQ</a></li>
+                            <li><a href="/appdeploy">AppDeploy FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>About</strong>
+                        <ul>
+                            <li><a href="/about">ITNinja</a></li>
+                            <li><a href="/about">Welcome Video</a></li>
+                            <li><a href="/tour">Tour</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/sitemap">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-3">
+                        <strong>Share/Contribute</strong>
+                        <ul>
+                            <li class="pull-left"><a href="http://www.facebook.com/pages/ITNinja/128951133849867"><img src="/bundles/itninjaweb/img/facebook.png" alt="Facebook"></a></li>
+                            <li class="pull-left">&nbsp;&nbsp;</li>
+                            <li class="pull-left"><a href="http://twitter.com/ITNinjaSite"><img src="/bundles/itninjaweb/img/xtwitter.png.pagespeed.ic.gQlaUvo9Df.png" alt="Twitter"></a></li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                <div id="footer-links">
+                    &copy; 2017 Quest Software Inc. All rights reserved.  &nbsp; <a href="/legal">Legal</a> &nbsp; | &nbsp; <a href="https://kace.uservoice.com/forums/139919-itninja">Feedback</a>
+                    <a href="http://www.quest.com/" class="footer-logo"><img src="/bundles/itninjaweb/img/xdsg.png.pagespeed.ic.ezebSmrFAj.png" alt="Quest"/></a>
+                </div>
+
+                <div id="version"><span id="revision">dc1c22b</span> <span id="build-date">Mon February  6 18:01:59 EST 2017</span>"<span id="server">www.itninja.com</span></div>
+
+            </div>
+
+        </footer>
+
+        <!--[if lte IE 7 ]>
+            <script src="/bundles/itninjaweb/js/plugins/jquery.pngFix.pack.js"></script>
+        <![endif]-->
+        <script src="/js/27f6277.js.pagespeed.jm.Kj_7mqIptf.js"></script>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+        
+        
+    <script src="/js/8e879bd.js.pagespeed.jm.gJ2N-ZPig8.js"></script>
+    
+    <script>Itninja.Helpful('div.helpful button');$(document).ready(function(){var id='#platform-new #form_platforms_'+1;$(id).click(function(){showNotificationBar('This platform is associated to one or more tips. Please modify the tip prior to removing this platform',1200);$(this).attr("checked",true);});Itninja.HideContent('a.review-delete-admin','div.version-review');});</script>
+
+        <!--[if lt IE 9]>
+            <script src="/js/211a076.js"></script>        <![endif]-->
+                    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-26553848-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"fa2fb87fc4","applicationID":"1817996","transactionName":"b1BUNhNQC0dUWkANC1YadRcSRQpZGkpbAhBPVEQHPkcMUUI=","queueTime":0,"applicationTime":225,"atts":"QxdXQFtKGEk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<script pagespeed_no_defer="">//<![CDATA[
+(function(){window.pagespeed=window.pagespeed||{};var f=window.pagespeed,h=function(e,a,c,b){this.c=e;this.a=a;this.b=c;this.d=b};f.beaconUrl="";
+var k=function(e){var a=e.c,c=window.mod_pagespeed_start,b=Number(new Date)-c,a=a+(-1==a.indexOf("?")?"?":"&"),a=a+"ets="+("load"==e.a?"load:":"unload:"),a=a+b;if("beforeunload"!=e.a||!window.mod_pagespeed_loaded){a+="&r"+e.a+"=";if(window.performance){var b=window.performance.timing,d=b.navigationStart,g=b.requestStart,a=a+(b[e.a+"EventStart"]-d),a=a+("&nav="+(b.fetchStart-d)),a=a+("&dns="+(b.domainLookupEnd-b.domainLookupStart)),a=a+("&connect="+(b.connectEnd-b.connectStart)),a=a+("&req_start="+
+(g-d)),a=a+("&ttfb="+(b.responseStart-g)),a=a+("&dwld="+(b.responseEnd-b.responseStart)),a=a+("&dom_c="+(b.domContentLoadedEventStart-d));window.performance.navigation&&(a+="&nt="+window.performance.navigation.type);d=-1;b.msFirstPaint?d=b.msFirstPaint:window.chrome&&window.chrome.loadTimes&&(d=Math.floor(1E3*window.chrome.loadTimes().firstPaintTime));d=d-g;0<=d&&(a+="&fp="+d)}else a+=b;f.getResourceTimingData&&window.parent==window&&(a+=f.getResourceTimingData());a+=window.parent!=window?"&ifr=1":
+"&ifr=0";"load"==e.a&&(window.mod_pagespeed_loaded=!0,(b=window.mod_pagespeed_num_resources_prefetched)&&(a+="&nrp="+b),(b=window.mod_pagespeed_prefetch_start)&&(a+="&htmlAt="+(c-b)));f.panelLoader&&(c=f.panelLoader.getCsiTimingsString(),""!=c&&(a+="&b_csi="+c));f.criticalCss&&(c=f.criticalCss,a+="&ccis="+c.total_critical_inlined_size+"&cces="+c.total_original_external_size+"&ccos="+c.total_overhead_size+"&ccrl="+c.num_replaced_links+"&ccul="+c.num_unreplaced_links);""!=e.b&&(a+=e.b);document.referrer&&
+(a+="&ref="+encodeURIComponent(document.referrer));a+="&url="+encodeURIComponent(e.d);f.beaconUrl=a;(new Image).src=a}};f.e=function(e,a,c,b){var d=new h(e,a,c,b);window.addEventListener?window.addEventListener(a,function(){k(d)},!1):window.attachEvent("on"+a,function(){k(d)})};f.addInstrumentationInit=f.e;})();
+
+pagespeed.addInstrumentationInit('/mod_pagespeed_beacon', 'load', '', 'http://www.itninja.com/software/design-science/mathtype/5-1437/windows');
+//]]></script>
